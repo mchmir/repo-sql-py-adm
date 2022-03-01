@@ -1,0 +1,56 @@
+//bat
+
+set DAT=%date:~6,4%%date:~3,2%%date:~0,2%
+
+"C:\Program Files (x86)\1cv8\8.3.8.1675\bin\1cv8.exe" DESIGNER /F "C:\Bases\DemoTrd" /N "Admin" /P "123" /DumpIB C:\Backup\%dat%_trade.dt
+
+DESIGNER - в режиме конфигуратора
+/F - файловая БД
+/DumpIB - выгрузка информационной базы
+
+
+Для терминального сервера:
+
+Taskkill /f /im 1cv8s.exe
+Taskkill /f /im 1cv8.exe
+
+set DAT=%date:~6,4%%date:~3,2%%date:~0,2%
+
+"C:\Program Files (x86)\1cv8\8.3.8.1675\bin\1cv8.exe" DESIGNER /F "C:\Bases\DemoTrd" /N "Admin" /P "123" /DumpIB C:\Backup\%dat%_trade.dt
+
+
+
+Для файловой сетевой
+@echo off
+
+
+Taskkill /f /im 1cv8s.exe
+Taskkill /f /im 1cv8.exe
+
+net session /delete /Y
+
+set DAT=%date:~6,4%%date:~3,2%%date:~0,2%
+
+"C:\Program Files (x86)\1cv8\8.3.8.1675\bin\1cv8.exe" DESIGNER /F "C:\Bases\DemoTrd" /N "Admin" /P "123" /DumpIB C:\Backup\%dat%_trade.dt
+
+
+
+Можно и для SQL версии(но лучше средствами SQl server!!)
+
+net stop "1C:Enterprise 8.3 Server Agent"
+
+c:\backup\sleep.exe 30
+
+net start "1C:Enterprise 8.3 Server Agent"
+
+c:\backup\sleep.exe 5
+
+set DAT=%date:~6,4%%date:~3,2%%date:~0,2%
+
+"C:\Program Files (x86)\1cv8\8.3.8.1675\bin\1cv8.exe" DESIGNER /S srv1c\rtade-demo /N "Admin" /P "123" /DumpIB C:\Backup\%dat%_trade.dt
+
+
+
+
+
+

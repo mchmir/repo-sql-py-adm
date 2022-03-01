@@ -1,0 +1,89 @@
+1. Для установки на Линукс необходимо поставить сервер 1С:Предприятие, поэтому
+   нужны два дистрибутива: платформа и сервер.
+2. Если аппаратный ключ, то необходимо скачать драйвер:
+	ftp.etersoft.ru/pub/Etersoft/HASP/stable/Ubuntu/14.04/haspd_7.40-eter9ubuntu_i386.deb
+3. Установка основных пакетов:(Если БД PostgreSQL то сначала ставим ее, - пункт 6)
+
+		sudo dpkg -i 1c-enterprise83-common_8.3.7-1949_i386.deb
+		sudo dpkg -i 1c-enterprise83-server_8.3.7-1949_i386.deb
+		sudo dpkg -i 1c-enterprise83-client_8.3.7-1949_i386.deb
+		
+4. Установка дополнительных пакетов:
+		
+		sudo apt-get install imagemagick
+		sudo apt-get install unixodbc 
+		sudo apt-get install libgsf-bin
+		sudo apt-get install t1utils
+		sudo apt-get install msttcorefonts
+		
+5. Установка драйвера ключа HASP:		
+
+		sudo dpkg -I haspd_7.40-eter9ubuntu_i386
+		
+		// вставляем HASP ключ в компьютер и перезапускаем службу haspd
+				sudo /etc/init.d/haspd restart
+
+6. Установка PostgreSQL (устанавливать лучше с http://pgadmin.org)
+
+		Подготовка системы, локали
+			sudo locale-gen en_US
+			sudo locale-gen ru_RU
+			sudo update-locale LANG=ru_RU.UTF8
+			sudo dpkg-reconfigure locales
+		Перегружаем операционную систему
+
+	6.1. Установить три пакета
+			
+			sudo apt-get install libxslt1.1 ssl-cert
+			
+		Далее нужна новая версия библиотеки libicu	
+		http://packages.ubuntu.com/precise/libicu48
+			
+			sudo dpkg -i libicu48_4.8.1.1-3ubuntu0.6_i386.deb
+	
+	6.2. Устанавливаем PostgreSQL - ПОРЯДОК ВАЖЕН!
+
+			sudo dpkg -i libpq5_9.4.2-1.1C_i386.deb
+			sudo dpkg -i postgresql-client-common_154.1.1C_all.deb
+			sudo dpkg -i postgresql-common_154.1.1C_all.deb
+			sudo dpkg -i postgresql-client-9.4_9.4.2-1.1C_i386.deb
+			sudo dpkg -i postgresql-9.4_9.4.2-1.1C_i386.deb
+			sudo dpkg -i postgresql-contrib-9.4_9.4.2-1.1C_i386.deb
+			
+		Проверяем, работает ли БД
+				service postgresql status
+											$ online //все норм
+
+	6.3. Установим пароль пользователя для PostgreSQL, отредактируем конф.файл pg_hba.conf
+
+			sudo gedit /etc/postgresql/9.4/main/pg_hba.conf
+				
+				Находим строку local all postgres peer 
+				и меняем ее на строку local all postgres trust
+			сохраняем
+		Перегружаем службу
+			sudo service postgresql restart
+
+		Устанавливаем новый пароль, например 123456
+
+			psql -U postgres -d template1 -c "ALTER USER postgres PASSWORD '123456'" 
+			
+		Перегружаем службу
+			sudo service postgresql restart	
+			
+	6.4. Для администрирования установим pgAdmin (можно из центра приложений)
+
+7. Теперь установим сервер 1С:Предприятия	
+
+	Проверим работает ли наш сервер
+	
+		service srv1cv83 status
+		
+			
+			
+			
+			
+			
+			
+			
+			

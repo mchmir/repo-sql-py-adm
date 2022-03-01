@@ -1,0 +1,474 @@
+*****УЗНАЕМ ИМЯ ХОСТА
+Самый простой способ узнать имя хоста своей машины, это команда hostname:
+
+hostname
+
+server01
+
+Или:
+
+ cat /etc/hostname
+
+server01
+
+Если у вас сервер, можно посмотреть доменное имя узла определяемое по DNS:
+
+ dnsdomainname
+
+losst.ru
+
+Полное доменное имя хоста (FQDN) можно посмотреть командой:
+
+ hostname
+
+server01.losst.ru
+
+*****НАХОДИМ ПРОИЗВОДИТЕЛЯ, СЕРИЙНЫЙ НОМЕР
+Если у вас ноутбук, то может быть получена такая информация, как производитель, серийный номер, и другая информация о железе Ubuntu, закодированная в dmi:
+
+ sudo dmidecode -s system-serial-number
+$ sudo dmidecode -s system-manufacturer
+$ sudo dmidecode -s system-product-name
+
+Всю доступную информацию смотрите командой:
+
+sudo dmidecode | more
+
+Также в можно использовать команду lshw, в некоторых дистрибутивах придется ее установить:
+
+ sudo lshw | more
+$ sudo lshw -short
+
+*****ИНФОРМАЦИЯ О ПОДКЛЮЧЕННОМ ОБОРУДОВАНИИ
+Команда покажет все подключенное оборудование, используемые PCI и USB порты и т д:
+
+ sudo lsdev
+
+*****ИНФОРМАЦИЯ О ПРОЦЕССОРЕ
+Информация о процессоре linux тоже легко доступна:
+
+ cat /proc/cpuinfo
+
+processor : 0
+vendor_id : AuthenticAMD
+cpu family : 16
+model : 6
+model name : AMD Athlon(tm) II X2 250 Processor
+stepping : 3
+microcode : 0x10000c8
+cpu MHz : 2300.000
+
+Или:
+
+ lscpu
+
+*****СТАТИСТИКА ИСПОЛЬЗОВАНИЯ ПРОЦЕССОРА
+Посмотреть загруженность процессора можно командой:
+
+ sudo mpstat
+
+21:56:27 CPU %usr %nice %sys %iowait %irq %soft %steal %guest %gnice %idle
+21:56:27 all 18,27 0,33 5,26 2,01 0,00 0,04 0,00 0,00 0,00 74,10
+
+Возможно утилиту придется установить, установив пакет sysstat.
+
+*****ИНФОРМАЦИЯ О ПАМЯТИ
+Посмотреть статистику использования памяти в системе можно командой:
+
+ less /proc/meminfo
+
+MemTotal: 6109876 kB
+MemFree: 188544 kB
+MemAvailable: 2117964 kB
+Buffers: 254120 kB
+Cached: 1595932 kB
+
+Если не нужна такая подробная информация, можно получить информацию о linux командой free.
+
+Отобразить информацию о памяти в мегабайтах:
+
+ free -m
+
+В гигабайтах:
+
+ free -g
+
+В читаемом виде:
+
+ free -h
+
+*****ИНФОРМАЦИЯ О ПОДКАЧКЕ
+Посмотреть подключен ли swap раздел и какого он размера можно командами:
+
+ swapon -s
+
+ cat /proc/swaps
+
+ vmstat
+
+*****ИНФОРМАЦИЯ О ВИРТУАЛЬНОЙ ПАМЯТИ
+ sudo vmstat
+$ sudo vmstat 1
+$ sudo vmstat 2
+
+*****ВЕРСИЯ ДИСТРИБУТИВА
+Команда покажет версию и название дистрибутива, а также некоторую дополнительную информацию, это важная информация об операционной системе linux:
+
+ lsb_release -a
+
+ВЕРСИЯ ЯДРА
+Ядро - это самый важный компонент системы. Информация о системе Ubuntu, а именно версии ядра доступна с помощью команды uname.
+
+ uname -r
+$ uname -a
+
+Linux dhcppc0 4.1.15-8-default #1 SMP PREEMPT Wed Jan 20 16:41:00 UTC 2016 (0e3b3ab) x86_64 x86_64 x86_64 GNU/Linux
+
+*****ПАРАМЕТРЫ ЗАПУСКА ЯДРА
+ cat /proc/cmdline
+$ sysctl -a | more
+
+*****АРХИТЕКТУРА СИСТЕМЫ
+ uname -m
+$ getconf LONG_BIT
+$ arch
+
+*****ИНФОРМАЦИЯ О ЖЕСТКИХ ДИСКАХ
+Смотрим подключенные жесткие диски:
+
+ fdisk -l | grep '^Disk /dev'
+
+Disk /dev/sda: 465,8 GiB, 500107862016 bytes, 976773168 sectors
+Disk /dev/sdb: 931,5 GiB, 1000204886016 bytes, 1953525168 sectors
+
+Смотрим разделы на определенном диске:
+
+ fdisk -l /dev/sda
+
+Узнаем метку диска:
+
+ sudo fdisk /dev/sda
+$ sudo e2label /dev/sda1
+$ sudo cfdisk /dev/sda
+
+*****ИНФОРМАЦИЯ О БЛОЧНЫХ УСТРОЙСТВАХ
+Атрибуты блочных устройств:
+
+ blkid
+
+Список всех блочных устройств:
+
+ lsblk
+
+*****СВОБОДНОЕ ПРОСТРАНСТВО НА ДИСКЕ
+Информация о системе Ubuntu включает информацию о дисках. Отобразить использованное пространство всех дисков:
+
+ df
+$ df -H
+$ df -HT
+
+Отобразить размер файлов в домашней папке:
+
+ du
+$ du /home
+
+*****ПРИМОНТИРОВАННЫЕ ДИСКИ
+Посмотреть все примонитрованные файловые системы:
+
+ cat /proc/mount
+$ mount
+
+*****SCSI УСТРОЙСТВА
+Отобразить параметры SCSI устройств подключенных к системе:
+
+ lsscsi
+
+Статистика ввода/вывода:
+
+ sudo iostat
+$ sudo iostat 2
+
+*****ИНФОРМАЦИЯ О PCI УСТРОЙСТВАХ
+PCI устройства - это все устройства, подключенные к материнской плате компьютера, это процессор, сетевая карта, беспроводный адаптер, и так далее. По сути, посмотреть железо Ubuntu можно просмотрев pci устройства.
+
+ lspci
+$ lspci -vt
+$ lspci | grep -i 'устройство'
+$ lspci -vvvn| less
+
+*****ИНФОРМАЦИЯ О USB
+Кроме PCI устройств есть еще внешние USB, это принтеры, Bluetooth адаптер, мышка, клавиатура. Это тоже важная информация о компьютере Ubuntu.
+
+ lsusb
+$ lsusb -vt
+
+*****ИНФОРМАЦИЯ О БЕСПРОВОДНЫХ СЕТЕВЫХ АДАПТЕРАХ
+Модель и производителя сетевого адаптера можно посмотреть через lscpi, но более подробную информацию о настройках и поддерживаемых функциях там не узнать, для этого есть свои команды:
+
+ iwconfig
+$ watch -n 1 cat /proc/net/wireless
+$ wavemon
+$ iw list
+
+*****ИНФОРМАЦИЯ ОБ ВИДЕОКАРТЕ
+ lspci | grep -i vga
+$ lspci -vvnn | grep VGA
+
+Или:
+
+ sudo lshw -class display
+
+*****ИНФОРМАЦИЯ ОБ ВИДЕОКАРТЕ NVIDIA
+Если установлены проприетарные драйвера, информацию о видеокарте можно посмотреть командой:
+
+ nvidia-smi
+
+Или
+
+ nvidia-settings
+
+Здесь будет представлена более подробная информация о компьютере Ubuntu, чем в обычном выводе lspci.
+
+*****ИНФОРМАЦИЯ О ВИДЕОКАРТЕ ATI READON
+Для работы команды, нужно чтобы был установлен драйвер ATI:
+
+ fglrxinfo
+
+*****ВЕРСИЯ UNITY
+ unity --version
+
+*****ИНФОРМАЦИЯ ОБ АУДИО УСТРОЙСТВАХ
+ lspci | grep -i audio
+
+Или:
+
+ cat /proc/asound/cards
+
+Или:
+
+ arecord -l
+
+*****СОСТОЯНИЕ БАТАРЕИ
+На ноутбуке нам может понадобиться посмотреть состояние батареи:
+
+ upower -i /org/freedesktop/UPower/devices/battery_BAT0
+$ acpi -V
+
+*****ВРЕМЯ РАБОТЫ СИСТЕМЫ
+ uptime
+$ who
+$ w
+
+*****ЗАГРУЗКА СИСТЕМЫ
+ uptime
+$ cat /proc/loadavg
+$ sudo top
+$ sudo htop
+$ sudo atop
+
+*****ИСТОРИЯ ВЫКЛЮЧЕНИЙ И ПЕРЕЗАГРУЗОК
+ last reboot
+$ last shutdown
+
+*****ТЕКУЩИЙ RUNLEVEL
+RunLevel это уровень запуска в системе инициализации SysVinit.
+
+ runlevel
+$ who -r
+
+*****ПРОСМОТР ЛОГА ЯДРА
+Очень полезная информация о компьютере Ubuntu, информация об ошибках и проблемах находится в логе ядра:
+
+ sudo less /var/log/dmesg
+$ sudo grep 'regx' /var/log/dmesg
+$ sudo grep '[h|s]d' /var/log/dmesg
+
+*****ЗАГРУЖЕННЫЕ МОДУЛИ ЯДРА
+ sudo lsmod
+$ sudo modinfo _____имя_модуля___
+
+******ИНФОРМАЦИЯ О СЕТИ
+Посмотреть локальный ip адрес и другую информацию о сетевых интерфейсах:
+
+ sudo ip a
+$ sudo ip
+$ sudo ip link ls up
+$ sudo ifconfig -a
+
+Посмотреть только информацию об интерфейсе eth0:
+
+ sudo ip a show eth0
+$ sudo ifconfig eth0
+
+Посмотреть таблицу маршрутизации:
+
+ sudo ip r
+$ sudo route -n
+$ sudo netstat -nr
+
+Посмотреть сетевые мосты:
+
+ sudo brctl show
+$ sudo bridge link
+
+*****ИНФОРМАЦИЯ О DNS СЕРВЕРАХ
+Адреса DNS серверов, с которыми работает система находятся в файле /etc/resolv.conf:
+
+ cat /etc/resolv.conf
+
+Системные настройки DNS находятся в файле /etc/host.conf
+
+ cat /etc/host.conf
+
+*****ИНФОРМАЦИЯ О СОКТЕТАХ
+Смотрим открытые сетевые и локальные сокеты:
+
+ sudo ss
+
+Все прослушиваемые порты:
+
+ sudo ss -l
+
+Или:
+
+ sudo netstat -tulpn
+$ sudo netstat -tulpn | grep LISTEN
+
+Смотрим все TCP сокеты:
+
+ sudo ss -t -a
+
+UDP сокеты:
+
+ sudo ss -u -a
+
+Смотрим открытые в системе файлы:
+
+ lsof | more
+$ lsof | grep something
+$ lsof /dev/sda2
+
+*****ИНФОРМАЦИЯ О СЕРВИСАХ
+Смотрим все запущенные сервисы. В SysVinit:
+
+ sudo service --status-all
+
+В Upstart:
+
+ sudo initctl list
+
+Проверяем загружается ли сервис автоматически:
+
+ sudo initctl status service-name
+$ sudo initctl status smbd
+
+Или:
+
+ sudo service имя_сервиса status
+$ sudo service nginx status
+
+*****ПРОСМОТР ЛОГ ФАЙЛОВ
+ cd /var/log
+$ ls -l
+$ tail -f /var/log/имя_файла
+$ grep 'то_что_нужно' /var/log/имя_файла
+
+*****ПОИСК ФАЙЛА ПО ИМЕНИ
+С помощью Locate:
+
+ locate имя_файла
+$ locate passwd
+$ locate курсовая.doc
+
+С помощью find:
+
+ find {/папка_где_искать} -name {имя_файла} -print
+$ find /etc/ -name /etc/passwd -print
+$ find $HOME -name '*.doc' -print
+
+*****ИНФОРМАЦИЯ О ПОЛЬЗОВАТЕЛЯХ
+ less /etc/passwd
+$ grep userName /etc/passwd
+$ getent passwd
+
+*****ИНФОРМАЦИЯ О ГРУППАХ
+ less /etc/group
+$ getent group
+$ grep имя_группы /etc/group
+$ groups имя_пользователя
+
+*****ИНФОРМАЦИЯ О ПАРОЛЯХ
+ chage -l имя_пользователя
+$ chage -l root
+$ chage -l vivek
+
+*****ЗАГРУЗКА СИСТЕМЫ
+ sudo top
+$ sudo htop
+$ sudo atop
+$ sudo ps auxwww
+$ sudo netstat опции
+$ sudo iostat
+$ sudo mpstat 1
+$ sudo sar опции
+
+*****ТРАССИРОВКА ПРОГРАММ
+ strace -o output.txt /bin/foo
+$ strace -p 22254 -s 80 -o debug.nginx.txt
+
+*****ТРАССИРОВКА ВЫЗОВОВ БИБЛИОТЕК
+ sudo ltrace /usr/sbin/httpd
+$ sudo ltrace /sbin/chroot /usr/sbin/httpd
+
+*****ИНФОРМАЦИЯ О ПРОЦЕССАХ
+ sudo pstree
+$ sudo pstree | less
+$ sudo ps auxwwwm
+$ ps alxwww
+$ ps auxwww
+$ lsof -b M -n -l
+
+Изменяем приоритет процесса:
+
+ sudo /bin/nice -n -1 имя процесса
+$ sudo /bin/nice -n -1 pid
+$ sudo renice __приоритет___ pid
+
+Использование CPU процессом:
+
+ sudo taskset -p pid
+$ sudo taskset -p 42
+
+*****УСТАНОВЛЕННЫЕ ПАКЕТЫ
+Смотрим список всех установленных пакетов:
+
+ dpkg -l
+$ dpkg -l | less
+$ dpkg -l nginx
+
+Смотрим все установленные патчи:
+
+ sudo apt-show-versions -a | grep -i "security"
+
+Смотрим все необходимые исполняемому файлу библиотеки:
+
+ ldd имя_файла
+
+Какому пакету принадлежит файл:
+
+ dpkg -S /путь/к/файлу
+$ dpkg -S /bin/ls
+
+Делаем резервную копию списка установленных программ:
+
+ sudo dpkg --get-selections > /root/installed.pkgs.txt
+
+Восстанавливаем:
+
+ sudo dpkg --set-selections < /root/installed.pkgs.txt
+
+*****ИНФОРМАЦИЯ О БРАНДМАУЗЕРЕ
+ sudo iptables -L -n -v
+$ sudo ufw status numbered
+$ sudo ufw status verbose
+$ sudo ufw app list
