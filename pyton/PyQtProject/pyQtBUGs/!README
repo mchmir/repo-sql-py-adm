@@ -1,0 +1,15 @@
+pip3 install pyqt5
+pip3 install xlsxwriter   #Для экпорта в Эксель
+
+
+import meshandler  #Чтобы сообщения об ошибках и предупреждения Qt не терялись, подключим модуль с message handler
+import dbpool      #Подкоючение к базе данных
+
+
+
+
+
+
+Run:
+ python3 index.py
+ python3 index.pyw
