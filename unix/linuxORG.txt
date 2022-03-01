@@ -1,0 +1,316 @@
+view "internal" {
+match-clients { 192.168.0.0/16; };
+zone "radmin.com.ua" {
+type master;
+file "radmin.com.ua.int";
+};
+};
+view "external" {
+match-clients { any; };
+zone "radmin.com.ua" {
+type master;
+file "radmin.com.ua.ext";
+};
+};
+***************** VBOX ******************************
+--подключаем гостевую 
+cd /media/user/VBOXADDITIONS_4.1.2_73507
+sudo bash VBoxLinuxAdditions.run
+
+--чтобы видеть общую папку
+sudo adduser user_name vboxsf
+	и перезагружаем машину
+
+установка всех deb
+sudo dpkg -i *.deb
+*****************************************************
+**************** Установка Java**********************
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+java -version
+перезагрузить машину
+			// каталог java /usr/lib/jvm
+			// каталог плагинов firefox  /usr/lib/firefox-addons/plugins
+*****************************************************
+******************* Wine ****************************
+sudo add-apt-repository ppa:ubuntu-wine/ppa
+sudo apt-get update
+sudo apt-get install wine
+
+winecfg
+
+--если ошибки в wine 
+sudo apt-get purge wine
+sudo apt-get autoremove
+sudo apt-get clean
+sudo apt-get install -f
+sudo rm -r ~/.wine
+sudo rm -r ~/.local/share/applications/wine/
+sudo rm -r ~/.local/share/applications/wine*
+и запустить настройку wine
+*****************************************************
+***************** Remmina ***************************
+sudo apt-get install remmina
+*****************************************************
+
+x2go 
+http://unixforum.org/index.php?s=d27501f079ab1a97acdc050f3fa8130b&showtopic=108708&st=30&p=1239425&#entry1239425
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:x2go/stable
+sudo apt-get update
+sudo apt-get install x2goserver
+l
+
+для подключения принтеров ставим также:
+
+sudo apt-get install cups http://rskl.ru/cups/
+sudo apt-get install x2goserver-printing
+sudo apt-get install cups-x2go
+
+на сервере создаём принтер cups-x2go :
+***********************************************
+Зайти в Настройки - Клавиатура - Раскладки -> добавить раскладку и язык - Перезапуск по пиктограмме на панели!
+sudo dpkg-reconfigure keyboard-configuration sudo reboot --- если надо
+********************************************************
+ТЕСТ Скорости ЗАПИСИ Жесткого Диска -- «dd»
+$ sync; dd if=/dev/zero of=tempfile bs=1M count=1024; sync
+**********
+ТЕСТ Скорости ЧТЕНИЯ Жесткого Диска -- «dd»
+$ dd if=tempfile of=/dev/null bs=1M count=1024
+
+Очистите Кэш в Linux и измерьте Реальную СКОРОСТЬ Чтения непосредственно с жесткого диска :
+$ sudo /sbin/sysctl -w vm.drop_caches=3 vm.drop_caches = 3
+$ dd if=tempfile of=/dev/null bs=1M count=1024
+
+ТЕСТ Скорость Чтения/Записи Внешнего Накопителя
+$ sync; dd if=/dev/zero of=/media/user/MyUSB/tempfile bs=1M count=1024; sync
+
+Проверка Производительности HDD -- «hdparm»
+hdparm - это Linux утилита, которая позволяет быстро Узнать Скорость ЧТЕНИЯ с Жесткого Диска.
+
+Установите hdparm, в зависимости от вашего Linux дистрибутива.
+
+В Linux Mint, Ubuntu, Debian :
+
+$ sudo apt-get install hdparm
+В CentOS, RHEL :
+
+$ sudo yum install hdparm
+Запустите hdparm, как показано ниже, для измерения скорости ЧТЕНИЯ с устройства жесткого диска /dev/sda :
+
+$ sudo hdparm -Tt /dev/sda
+/dev/sda:
+ Timing cached reads:   16924 MB in  2.00 seconds = 8469.95 MB/sec
+ Timing buffered disk reads: 1386 MB in  3.00 seconds = 461.50 MB/sec
+
+**********************************
+sudo apt-get purge libreoffice*
+http://sourceforge.net/projects/openofficeorg.mirror/files/
+--32bit--
+cd /tmp && wget http://sourceforge.net/projects/openofficeorg.mirror/files/4.1.2/binaries/ru/Apache_OpenOffice_4.0.1_Linux_x86_install-deb_ru.tar.gz && tar -xvzf Apache_OpenOffice_4.1.2_Linux_x86_install-deb_ru.tar.gz && cd ru/DEBS && sudo dpkg -i *.deb && cd desktop-integration && sudo dpkg -i *.deb
+--64bit--
+cd /tmp && wget http://sourceforge.net/projects/openofficeorg.mirror/files/4.0.1/binaries/ru/Apache_OpenOffice_4.0.1_Linux_x86-64_install-deb_ru.tar.gz && tar -xvzf Apache_OpenOffice_4.0.1_Linux_x86-64_install-deb_ru.tar.gz && cd ru/DEBS && sudo dpkg -i *.deb && cd desktop-integration && sudo dpkg -i *.deb
+**********************************
+sudo apt-get install ssh
+sudo service ssh stop|start|restart  
+*****************************************
+
+
+*******************************************        *****************************************************
+******************************************* СЕРВЕР *****************************************************
+*******************************************        *****************************************************
+
+1)sudo apt-get update && sudo apt-get upgrade
+2)sudo apt-get install xubuntu-desktop
+3)sudo passwd root
+4)su -
+5)nano /etc/network/interfaces
+    auto eth0
+    iface eth0 inet static
+    address 10.10.60.45
+    netmask 255.255.255.0
+    gateway 10.10.60.1
+ 
+    auto eth1
+    iface eth1 inet static
+    address 192.168.61.1
+    netmask 255.255.255.0
+6)(ifdown eth0; ifup eth0)&(ifdown eth1; ifup eth1)
+7)sudo ifconfig
+8)ping ya.ru 
+--- if ping unknow
+	8.1)sudo nano /etc/resolvconf/resolv.conf.d/tail
+		nameserver 8.8.8.8
+
+--- webmin---
+9) sudo nano /etc/apt/sources.list
+	--- в конец -----
+	deb http://download.webmin.com/download/repository sarge contrib
+	deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib
+10) wget http://www.webmin.com/jcameron-key.asc
+11) sudo apt-key add jcameron-key.asc
+12) sudo apt-get update
+13) sudo apt-get install webmin
+
+---- https:// - IP -:10000 
+
+-- dhcp --
+14) sudo aptitude install isc-dhcp-server 
+15) sudo nano /etc/default/isc-dhcp-server
+	INTERFACES="eth1" 
+16) sudo nano /etc/dhcp/dhcpd.conf
+   --- закоментить --
+   # default-lease-time 600; 
+   # max-lease-time 7200;
+
+   subnet 192.168.61.0 netmask 255.255.255.0 {
+   range 192.168.61.10 192.168.61.254;
+   option domain-name-servers 192.168.61.1, 8.8.8.8;
+   option domain-name "kmk.net";
+   option routers 192.168.61.1;
+   option broadcast-address 192.168.61.255;
+   default-lease-time 604800; max-lease-time 604800; }
+
+17) sudo /etc/init.d/isc-dhcp-server restart 
+
+--- NAT ----
+
+18) sudo touch /etc/nat
+19) sudo nano /etc/nat
+
+	#!/bin/sh
+ 
+	#Включаем форвардинг пакетов
+	echo 1 > /proc/sys/net/ipv4/ip_forward
+ 
+	#Разрешаем траффик на lo
+	iptables -A INPUT -i lo -j ACCEPT
+ 
+	#Разрешаем доступ из внутренней сети наружу
+	iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+ 
+	#Включаем NAT
+	iptables -t nat -A POSTROUTING -o eth0 -s 192.168.61.0/24 -j MASQUERADE
+ 
+	#Разрешаем ответы из внешней сети
+	iptables -A FORWARD -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+ 
+	#Запрещаем доступ снаружи во внутреннюю сеть
+	iptables -A FORWARD -i eth0 -o eth1 -j REJECT
+20) sudo chmod +x /etc/nat
+21) sudo nano /etc/network/interfaces
+
+	auto eth1
+	iface eth1 inet static
+	address 192.168.61.1
+	netmask 255.255.255.0
+ 	
+	# запуск NAT
+	post-up /etc/nat
+
+----- в сетевой карте указать ДНС 8.8.8.8 --------
+----- либо с имулировать------ 
+--) sudo nano /etc/resolvconf/resolv.conf.d/tail  
+	nameserver 8.8.8.8  и дописать в настр dhcp 8.8.8.8 --> option domain-name-servers 192.168.61.1, 8.8.8.8;
+
+22)========= x2go ======================
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:x2go/stable
+sudo apt-get update
+sudo apt-get install x2goserver	
+
+=== сервер ============
+sudo apt-get install x2goserver-printing
+sudo apt-get install cups-x2go
+
+на сервере создаём принтер cups-x2go
+
+23) ============ samba =================
+sudo adduser directors
+sudo smbpasswd -a directors
+
+sudo nano /etc/samba/smb.conf
+
+[global] 
+# Название вашей рабочей группы или домена. Именно оно будет высвечивается в «Сетевом окружении». workgroup = UTIZN 
+# server string is the equivalent of the NT Description field 
+# Комментарий, появляющийся рядом с именем машины в «Сетевом окружении» Windows. 
+server string = %h server (Samba, Ubuntu) 
+# Ограничивает обслуживаемые сервером сетевые интерфейсы (eth0) / и по адресам 
+interfaces = 127.0.0.0/8 eth0 
+# Параметры логирования — log.&lt;имя_машины_клиента&gt; 
+log file = /var/log/samba/log.%m 
+# Размер лог-файла в Кб max log size = 1000 
+# еще можно добавить строку «debug level = 3?, она используется при 
+# отладке сервера, выводя в журнал более детальную информацию или уровень 5. 
+#debug level = 3 
+# для более детальной информацией можно поиграться с уровнями (1,2,3, и тд) log leval=1
+ 
+####### Authentication ####### 
+# share — при каждом доступе будет запрашиваться имя пользовательского ресурса. 
+# user — для аутентификации будет использоваться имя пользователя и пароль, 
+# которые используются для входа в сеть виндовс (Windows). Это значение по умолчанию. 
+# server — для проверки пароля будет использоваться сервер NT (AD) 
+security = user 
+# Поддержка шифрованных паролей encrypt passwords = true 
+# запрещает становиться мастером домена domain master = no 
+# отключает WINS wins support = no 
+# Опции сокета. Если не знаете, что это такое, лучше оставить как есть или почитать ман. 
+socket options = TCP_NODELAY SO_SNDBUF=8192 SO_RCVBUF=8192 
+# вкл/откл гостевую запись guest ok = no 
+# запрешает root invalid users = root 
+# Эти опции избавляют от глюков со шрифтами/кодировками. (так же можно 866 (Dos)) 
+unix charset = utf8 dos charset = cp1251 display charset = cp1251
+
+[public]
+       
+guest account = nobody
+
+create mode = 0777
+
+directory mask = 0777
+
+public = yes
+
+writeable = yes
+	
+path = /var/tmp/public
+	
+comment = public
+        
+available = yes
+        
+browsable = yes
+
+
+
+[Directors]
+ 
+        
+directory mask = 0777
+	
+path = /var/tmp/directors
+	
+comment = Дирекция
+        
+valid users = "directors"
+        
+write list = "directors"
+
+
+
+sudo mkdir /var/tmp/directors
+
+sudo chmod -R 777 /var/tmp/directors
+
+
+sudo service smbd restart
+
+
+
+
+
+
+	
+

@@ -1,0 +1,361 @@
+***************************************************************************************************
+Поддержка этой версии в 1С:Предприятии 8.3 реализована в версии 8.3.13 и старше.
+Нагрузочное тестирование проводилось на версиях 1С:Предприятия 8.3.13.
+
+Cписок поддерживаемых дистрибутивов Linux:
+    RPM
+        Centos 7, RedHat 7
+	    Должны быть установлены:
+	        yum install readline
+	        yum install libtermcap
+	        yum install krb5-libs
+	        yum install openssl
+		yum install libicu50
+		yum install libicu-devel (для целей сборки)
+    DEB
+	Ubuntu 16.04
+		sudo apt-get install libicu55 postgresql-common
+		sudo apt-get install libicu-dev (для целей сборки)
+
+Дополнительные модули:
+	plperl
+	plpython
+	plpython3
+	pltcl
+	test
+	devel
+	docs
+****************************************************************************************************
+Увеличил место в корне на VBox, по умолчанию взялось 4Гб диск делал на 16Гб
+  1. Смотрим сколько где занято  df- help
+  2. Утилитой  fdisk -l смотрим список томов, устройст   /dev/mapper/ubuntu--vg-ubuntu--lv  это /      ::корень
+  3. Увеличиваем размер логического тома
+        lvresize -L +12G /dev/mapper/ubuntu--vg-ubuntu--lv
+  4. Изменяем размер раздела
+        resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv 16G
+  5. Проверяем
+        df -h /
+        du -h /home | sort -h   :: Сортированный вывод файлов в папке по размеру
+        
+   графическая утилита baobab 
+            sudo apt-get install baobab
+ 6. sudo apt-get install xfce4  (просто среда)
+    startx (startxfce4)
+      
+**************************************************************************************************** 
+Установка Webmin
+    sudo apt -y install vim apt-transport-https wget software-properties-common
+    sudo add-apt-repository "deb [arch=amd64] http://download.webmin.com/download/repository sarge contrib"
+    wget -q http://www.webmin.com/jcameron-key.asc -O- | sudo apt-key add -
+    sudo apt update
+    sudo apt -y install webmin
+    
+    sudo ufw allow 10000  :: если есть UFW
+    
+    пример
+    https://192.168.17.51:10000
+    
+    Пример модулей Webmin:
+	* BIND DNS Server: создание и редактирование доменов, записей DNS, опций BND и видов
+	* BSD Firewall: настройка брандмауэра BSD с использованием IPFW, путем создания и редактирования правил
+	* DHCP-server: управление совместно используемыми сетями, подсетями, хостами и группами для ISC DHCPD
+	* CD Burner: записывайте компакт-диски данных из образов ISO или выбранных каталогов
+	* File Manager: просмотр, редактирование и изменение разрешений на файлы и каталоги в вашей системе с помощью диспетчера файлов в Windows
+	* Dovecot IMAP/POP3 Server: настройка сервера поиска почты Dawecot IMAP и POP3
+	* LDAP Server:  управление сервером OpenLDAP и объектами в его базе данных. Все операционные системы
+	* MySQL Database Server: настройка баз данных, таблиц и разрешений на сервере базы данных MySQL
+	* Linux RAID: создание RAID 0, 1, 4, 5, 6, 10 и линейных устройств в системе Linux
+	* SSL certificates: Let’s Encrypt SSL  запросы SSL-сертификата
+	* IPsec VPN Configuration: настройка клиента или сервера для IPsec VPN с помощью FreeSWAN
+
+*****************************************************************************************************   
+sudo apt-get install ssh 
+
+            https://help.ubuntu.ru/wiki/ssh    для реального сервера настроить безопасность, ключи и прочее
+            
+            sudo apt-get install openssh-server
+              *************SFTP и SSH для Root*************
+            После задания пароля для пользователя: root, необходимо так же разрешить его аутентификацию 
+            с использованием OpenSSH (крайне не рекомендуется!). Для этого отредактируем файл: "/etc/ssh/sshd_config", 
+            закомментировав в нём строку (при наличии):
+                            PermitRootLogin prohibit-password
+            и добавив в конце файла строку:
+                            PermitRootLogin yes
+            После чего, нужно перегрузить OpenSSH командой:
+
+            service ssh restart
+            
+*****************************************************************************************************
+1. Проверяем локаль
+    sudo dpkg-reconfigure locales
+                [Должно быть ru_RU.UTF-8 UTF-8]
+**********************************************************
+2. Далее установим библиотеку libicu
+    wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu55_55.1-7ubuntu0.4_amd64.deb
+    sudo dpkg -i libicu55_55.1-7ubuntu0.4_amd64.deb
+    
+**********************************************************
+3. Подготовка
+    Раньше пакет «postgresql-common» входил в состав дистрибутива который размещался на сайте «1С», 
+    теперь же (начиная с PostgreSQL 9.6.3-1.1C) этот пакет нужно устанавливать из стандартных репозиториев.
+    Тут возникает небольшое затруднение, связанное с тем, что мы устанавливаем PostgreSQL 10: на момент написания статьи 
+    стандартный репозиторий содержит неподходящую для PostgreSQL 10 версию пакета «postgresql-common».
+    Чтобы исправить это нужно создать файл 
+                         #touch  /etc/apt/sources.list.d/pgdg.list 
+                                                            и записать в него строку  (или копируем в NANO SHIFT+правая кнопка мыши - ВСТАВИТЬ)
+                         #nano /etc/apt/sources.list.d/pgdg.list 
+    для Ubuntu 16.04:                     
+        deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
+        
+    для Ubuntu 18.04:
+        deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main
+    
+    Затем нужно выполнить следующие команды:
+    
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    sudo apt-get update
+    
+    После этого можно установить нужную нам версию пакета «postgresql-common»:
+    sudo apt-get install postgresql-common
+    
+*************************************************************
+4. Установка PostgreSQL 10
+
+    sudo dpkg -i libpq5_10.5-24.1C_amd64.deb
+    sudo dpkg -i postgresql-client-10_10.5-24.1C_amd64.deb
+    sudo dpkg -i postgresql-10_10.5-24.1C_amd64.deb
+    
+    Проверяем, работает ли БД
+				service postgresql status
+											$ online //все норм
+    
+*************************************************************
+5. Настраиваем PostgreSQL этап 1.
+    От имени суперпользователя открываем файл /etc/postgresql/10/main/pg_hba.conf и меняем в нем строку:
+              local all postgres peer
+    на:
+              local all postgres trust     :: это безпарольный доступ
+
+    Это позволит войти под пользователем postgres без пароля.
+    Кроме этого можно открыть файл /etc/postgresql/10/main/postgresql.conf (тоже от имени супер пользователя) и поменять в нем строку:
+
+               listen_addresses = '*'
+
+    на:
+
+               listen_addresses = 'localhost'      или [listen_addresses = 'localhost, 192.168.0.55']
+
+*************************************************************
+6. Перезапускаем службу
+    sudo service postgresql restart
+     
+*************************************************************
+7. Меняем пароль супервпользователя postgres:
+
+    psql -U postgres -d template1 -c "ALTER USER postgres PASSWORD 'password'"
+    
+*************************************************************
+8. Настраиваем PostgreSQL этап 2.Отключаем безпарольный доступ.
+        вновь от имени суперпользователя открываем файл /etc/postgresql/10/main/pg_hba.conf и меняем в нем строку:
+
+            local all postgres trust
+
+        на:
+
+            local all postgres md5
+
+*************************************************************
+9. Перезапускаем службу
+    sudo service postgresql restart
+*************************************************************
+10. Проверяем работу
+
+        sudo service --status-all      :: все службы
+        sudo service --status-all | grep postgres   
+        
+        sudo service postgresql status
+        
+        ps -ef | grep postgres         :: Запущенный процесс
+        
+        hostname -f        :: Имя узла
+        hostname
+        
+        ps aux | grep postgres    :: сервисы
+        
+
+******************  Установка сервера 1С *******************
+1. Дополнительные библиотеки
+
+    sudo apt-get install imagemagick
+    sudo apt-get install unixodbc
+    sudo apt-get install ttf-mscorefonts-installer  ::Пакет ttf-mscorefonts-installer в процессе установки попросит принять лицензионное соглашение, - принимаем
+    sudo apt-get install libgsf-1-114
+    
+*************** для 18.04 ***********************************
+2. На момент написания статьи в репозиториях Ubuntu 18.04 не было актуальных версий требуемых пакетов. 
+   Если в настоящее время их все еще нет, то можно попробовать добавить репозитории с неактуальными версиями пакетов. 
+    Создаем файл 
+         #  touch /etc/apt/sources.list.d/raring.list 
+                            и записываем в него следующие строки: (или копируем в NANO SHIFT+правая кнопка мыши - ВСТАВИТЬ)
+         # nano  /etc/apt/sources.list.d/raring.list 
+         
+deb http://old-releases.ubuntu.com/ubuntu/ raring main restricted universe multiverse
+deb-src http://old-releases.ubuntu.com/ubuntu/ raring main restricted universe multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ raring-updates main restricted universe multiverse
+deb-src http://old-releases.ubuntu.com/ubuntu/ raring-updates main restricted universe multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ raring-backports main restricted universe multiverse
+deb-src http://old-releases.ubuntu.com/ubuntu/ raring-backports main restricted universe multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ raring-proposed main restricted universe multiverse
+deb-src http://old-releases.ubuntu.com/ubuntu/ raring-proposed main restricted universe multiverse     
+
+ и обновляемся....
+    sudo apt-get update 
+         
+*************************************************************
+3. Версия 8.3.14.1779 
+
+    sudo dpkg -i 1c-enterprise83-common_8.3.14-1779_amd64.deb
+    sudo dpkg -i 1c-enterprise83-common_8.3.14-1779_amd64.deb
+    sudo dpkg -i 1c-enterprise83-server_8.3.14-1779_amd64.deb
+    sudo dpkg -i 1c-enterprise83-server-nls_8.3.14-1779_amd64.deb
+    sudo dpkg -i 1c-enterprise83-ws_8.3.14-1779_amd64.deb
+    sudo dpkg -i 1c-enterprise83-ws-nls_8.3.14-1779_amd64.deb
+
+***************************************************************
+3. 3. Версия 8.3.13.1865
+ 
+    sudo dpkg -i 1c-enterprise83-common_8.3.13-1865_amd64.deb
+    sudo dpkg -i 1c-enterprise83-common_8.3.13-1865_amd64.deb
+    sudo dpkg -i 1c-enterprise83-server_8.3.13-1865_amd64.deb
+    sudo dpkg -i 1c-enterprise83-server-nls_8.3.14-1779_amd64.deb   ::Пакеты с приставкой «-nls» нужны для поддержки дополнительных языков и не являются обязательными к установке
+    sudo dpkg -i 1c-enterprise83-ws_8.3.14-1779_amd64.deb           ::Пакеты с приставкой «-ws» нужны для работы веб-клиента и также не являются необходимыми.
+    sudo dpkg -i 1c-enterprise83-ws-nls_8.3.14-1779_amd64.deb
+ 
+*****************************************************************
+4. Теперь изменим владельца каталога /opt/1C:
+
+    sudo chown -R usr1cv8:grp1cv8 /opt/1C
+    
+    И запустим сервер 1С:
+
+    sudo service srv1cv83 start
+    
+*****************************************************************
+5. Проверяем работу PostgreSQL и 1С-сервер
+
+        sudo service --status-all      :: все службы
+          
+        ps -ef    :: Запущенный процесс
+                     
+        ps aux | grep postgres    :: сервисы
+*****************************************************************
+6. Дополнительно
+
+Если все правильно работает, то ничего больше делать не нужно. 
+Если же нет, то необходимо сделать так, что бы сервер 1С видел сервер PostgreSQL, а клиентские машины видели сервер 1С.
+Для этого в файлы 
+        /etc/hosts или 
+        C:\Windows\System32\drivers\etc\hosts 
+        нужно добавить строки:
+
+<IP-адрес сервера> <результат команды hostname -f> <результат команды hostname>
+
+*****************************************************************
+7. Установка Apache
+
+    Начиная с версии 8.3.8 платформа 1С поддерживает Apache 2.4, поэтому можно просто установить текущую версию:
+        sudo apt-get install apache2
+    Если по каким-то причинам Вам требуется Apache 2.2 то для начала нужно добавить репозитории с неактуальными версиями пакетов, как описано выше (если, конечно, Вы уже этого не сделали). Затем выполнить команду:
+        sudo apt-cache showpkg apache2
+    Команды выдаст список версий доступных к установке, затем, выбрав нужную версию сделать так:
+        sudo apt-get install apache2=<номер версии>
+        Например:
+                sudo apt-get install apache2=2.2.22-6ubuntu5.1
+    Проверить версию Apache можно так:
+            apache2 -v
+*****************************************************************
+8.Включение отладки на сервере
+    Останавливаем сервер:
+        sudo service srv1cv83 stop
+    В файле /etc/init.d/srv1cv83 находим строку:
+        #SRV1CV8_DEBUG=
+    Приводим ее к виду:
+        SRV1CV8_DEBUG=1
+    Запускаем сервер:
+        sudo service srv1cv83 start
+    В конфигураторе на клиентской машине идем в «Параметры» -> «Запуск 1С:Предприятия» -> «Дополнительные» и включаем два пункта:
+                «Устанавливать режим разрешения отладки»
+                «Начинать отладку при запуске»
+*****************************************************************
+9.  Настройка UFW
+    UFW — это простая утилита для конфигурирования файрвола Netfilter.
+    iptables — это сам фаервол с очень сложной настройкой, ufw — это утилита для простой настройки iptables, Gufw — это графический интерфейс для ufw.
+    
+    Разрешаем SSH:
+        sudo ufw allow 22
+    Apache:
+        sudo ufw allow 80
+        sudo ufw allow 443
+    Порты для работы 1С (если используются стандартные порты):
+        sudo ufw allow 1540
+        sudo ufw allow 1541
+        sudo ufw allow 1543
+        sudo ufw allow 1560:1591/tcp
+    Включаем UFW:
+        sudo ufw enable               
+*****************************************************************
+БЛОКИРОВКА ПАКЕТОВ 
+теория:
+    Открываем терминал и для блокировки вводим следующую команду:
+    sudo echo 'имя_пакета hold' | sudo dpkg --set-selections
+
+    Чтобы снова разрешить обновление заблокированного пакета, введите следующую команду:
+    echo 'имя_пакета install' | sudo dpkg --set-selections
+
+    Что бы посмотреть статус всех пакетов, которые установленны, надо ввести такую команду:
+    dpkg --get-selections
+
+    Данной командой можно просмотреть статус определенного пакета:
+    dpkg --get-selections | grep 'имя_пакета'
+
+используя apt-get
+    Команда, чтобы заблокировать обновление пакета:
+    sudo apt-mark hold package_name
+
+    Команда, чтобы разблокировать обновление пакета:
+    sudo apt-mark unhold package_name
+    -------------------------------------------------------------------------
+    sudo echo "postgresql-10" hold | sudo dpkg --set-selections
+    sudo echo "postgresql-client-10" hold | sudo dpkg --set-selections
+    sudo echo "libpq5" hold | sudo dpkg --set-selections
+    
+    проверяем
+    dpkg --get-selections | grep "postgresql-10"
+      >> postgresql-10    hold
+    -------------------------------------------------------------------------
+    перенастроить unattended-updates, 
+    для этого необходимо отредактировать конфигурационный файл:  /etc/apt/apt.conf.d/50unattended-upgrades. 
+    Здесь можно выборочно закомментировать (добавив // перед строкой) определенные источники обновлений в секции: "Unattended-Upgrade::Allowed-Origins", 
+    например:
+            nano /etc/apt/apt.conf.d/50unattended-upgrades
+
+    Unattended-Upgrade::Allowed-Origins {
+    // "${distro_id}:${distro_codename}-security";
+    // "${distro_id}:${distro_codename}-updates";
+    // "${distro_id}:${distro_codename}-proposed";
+    // "${distro_id}:${distro_codename}-backports";
+    };
+
+    Также можно отключить обновление только для определенных программ, 
+    добавив имена их пакетов в секцию "Unattended-Upgrade::Package-Blacklist":
+    
+    // List of packages to not update (regex are supported)
+    Unattended-Upgrade::Package-Blacklist {
+    //    "vim";
+    //    "libc6";
+          "postgresql-10"
+          "postgresql-client-10"
+          "libpq5"
+    };
+    
+*****************************************************************        
