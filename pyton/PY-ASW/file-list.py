@@ -9,13 +9,12 @@
 #
 # все файлы с расширением sql и в стиле линукс
 # py file-list.py C:\_TASK\_DEV\16507 sql /
-
-
 import os 
 import sys
 
 #path =r"C:\_TASK\_DEV\16507" 
 ext =""
+i = 0
 
 if len(sys.argv) > 1:
     path = sys.argv[1]
@@ -39,6 +38,8 @@ for name in filelist:
 
     if len(sys.argv) > 3 or ext == "/":
         file = file.replace("\\","/")
-
+    i += 1
     print(file)
 
+print("\r")
+print("[INFO-total] Found files: {0}".format(i))
