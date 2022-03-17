@@ -1,0 +1,1 @@
+start cscript  "C:\PSTools\testPrint.vbs"

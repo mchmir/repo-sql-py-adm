@@ -1,0 +1,1 @@
+GetHddSmart -OsVersion $($Win32_OperatingSystem.version)

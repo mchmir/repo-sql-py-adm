@@ -1,0 +1,12 @@
+#TYPE Selected.System.Management.Automation.PSCustomObject
+"Name";"Vol";"Size";"Used";"Avail";"Use%";"FS"
+"GG-DOC";"C:";"232,9G";"56,6G";"176,3G";"24";"NTFS"
+"GG-DOC";"D:";"223,6G";"101,7G";"121,9G";"45";"NTFS"
+"GG-APP";"C:";"195,2G";"45,7G";"149,5G";"23";"NTFS"
+"GG-APP";"D:";"736,2G";"360,5G";"375,6G";"49";"NTFS"
+"GG-MAIN";"C:";"68,2G";"16,6G";"51,6G";"24";"NTFS"
+"GG-MAIN";"E:";"931,5G";"29,7G";"901,8G";"3";"NTFS"
+"BASTION";"C:";"19,5G";"5,1G";"14,4G";"26";"NTFS"
+"BASTION";"D:";"55G";"15G";"40G";"27";"NTFS"
+"GG-MAIL";"C:";"293G";"91,6G";"201,4G";"31";"NTFS"
+"GG-MAIL";"D:";"638,5G";"271,1G";"367,4G";"42";"NTFS"
