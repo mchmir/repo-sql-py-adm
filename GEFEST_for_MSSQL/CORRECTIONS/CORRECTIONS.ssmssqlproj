@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CORRECTIONS">
+  <Items>
+    <LogicalFolder Name="Соединения" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="GG-APP:sa">
+          <Created>2021-11-23T09:55:40.7311644+06:00</Created>
+          <Type>SQL</Type>
+          <Server>GG-APP</Server>
+          <UserName>sa</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName />
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Запросы" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="! добавление в OPERATION  по документу.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>! добавление в OPERATION  по документу.sql</FullPath>
+        </FileNode>
+        <FileNode Name="! добавление в OPERATION  по ОДНОМУ документу.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>! добавление в OPERATION  по ОДНОМУ документу.sql</FullPath>
+        </FileNode>
+        <FileNode Name="! Перенос сальдо ПЕНИ 2020.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>! Перенос сальдо ПЕНИ 2020.sql</FullPath>
+        </FileNode>
+        <FileNode Name="! удаляем документы из пачки.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>! удаляем документы из пачки.sql</FullPath>
+        </FileNode>
+        <FileNode Name="!Зачисление оплат KASPI v2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>!Зачисление оплат KASPI v2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="!перепроведение баланса по нескольким лицевым.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>!перепроведение баланса по нескольким лицевым.sql</FullPath>
+        </FileNode>
+        <FileNode Name="!перепроводка документа.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>!перепроводка документа.sql</FullPath>
+        </FileNode>
+        <FileNode Name="!перепроводка документаНаМинус.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>!перепроводка документаНаМинус.sql</FullPath>
+        </FileNode>
+        <FileNode Name="!перепроводка Юрид. документа.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>!перепроводка Юрид. документа.sql</FullPath>
+        </FileNode>
+        <FileNode Name="!ПЕРИВАЕМ данные из Gefest2021 в Gefest.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>!ПЕРИВАЕМ данные из Gefest2021 в Gefest.sql</FullPath>
+        </FileNode>
+        <FileNode Name="!Просмотр ключей зависимостей ТАБЛИЦЫ от других ТАБЛИЦ.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>!Просмотр ключей зависимостей ТАБЛИЦЫ от других ТАБЛИЦ.sql</FullPath>
+        </FileNode>
+        <FileNode Name="!удалить документ оплата.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>!удалить документ оплата.sql</FullPath>
+        </FileNode>
+        <FileNode Name="_чистим_базу_за_период_.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>_чистим_базу_за_период_.sql</FullPath>
+        </FileNode>
+        <FileNode Name="_чистим_логи_за_период_.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>_чистим_логи_за_период_.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Разное" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
