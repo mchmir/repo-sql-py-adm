@@ -1,0 +1,3 @@
+﻿CREATE USER [ushatalova]
+  WITHOUT LOGIN
+GO

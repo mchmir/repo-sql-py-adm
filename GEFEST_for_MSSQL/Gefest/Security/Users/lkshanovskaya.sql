@@ -1,0 +1,3 @@
+﻿CREATE USER [lkshanovskaya]
+  WITHOUT LOGIN
+GO

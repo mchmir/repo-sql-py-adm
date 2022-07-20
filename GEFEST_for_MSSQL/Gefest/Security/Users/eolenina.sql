@@ -1,0 +1,3 @@
+﻿CREATE USER [eolenina]
+  WITHOUT LOGIN
+GO

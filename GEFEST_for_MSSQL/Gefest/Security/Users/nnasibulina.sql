@@ -1,0 +1,3 @@
+﻿CREATE USER [nnasibulina]
+  WITHOUT LOGIN
+GO

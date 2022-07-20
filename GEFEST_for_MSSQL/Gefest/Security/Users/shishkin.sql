@@ -1,0 +1,3 @@
+﻿CREATE USER [shishkin]
+  WITHOUT LOGIN
+GO

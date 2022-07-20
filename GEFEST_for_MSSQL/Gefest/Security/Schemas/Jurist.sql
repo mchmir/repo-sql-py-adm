@@ -1,0 +1,2 @@
+﻿CREATE SCHEMA [Jurist] AUTHORIZATION [Jurist]
+GO

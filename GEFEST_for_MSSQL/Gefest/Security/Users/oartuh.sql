@@ -1,0 +1,3 @@
+﻿CREATE USER [oartuh]
+  WITHOUT LOGIN
+GO

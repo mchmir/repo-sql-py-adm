@@ -1,0 +1,2 @@
+﻿CREATE SCHEMA [Operator] AUTHORIZATION [Operator]
+GO

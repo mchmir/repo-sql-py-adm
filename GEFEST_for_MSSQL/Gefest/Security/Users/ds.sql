@@ -1,0 +1,3 @@
+﻿CREATE USER [ds]
+  WITHOUT LOGIN
+GO

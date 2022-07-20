@@ -1,0 +1,3 @@
+﻿CREATE USER [gtm]
+  FOR LOGIN [gtm]
+GO
