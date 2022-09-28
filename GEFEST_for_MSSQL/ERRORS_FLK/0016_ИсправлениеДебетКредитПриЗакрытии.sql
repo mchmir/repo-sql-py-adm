@@ -1,53 +1,103 @@
 ﻿/*-- Есть начисления по услугам за период, но нет платежей*/
-SELECT * FROM Contract c
-WHERE c.IDContract IN 
-(SELECT idcontract FROM Document d WHERE d.IDTypeDocument = 24 AND d.IDPeriod = 171
-EXCEPT
-SELECT idcontract FROM Document d WHERE d.IDTypeDocument = 1 AND d.IDPeriod = 171)
+SELECT * 
+  FROM Contract AS c
+ WHERE c.IDContract IN (SELECT idcontract 
+                          FROM Document AS d 
+                         WHERE d.IDTypeDocument = 24
+                           AND d.IDPeriod       = 171
+                        EXCEPT
+                        SELECT idcontract 
+                          FROM Document AS d 
+                         WHERE d.IDTypeDocument = 1
+                           AND d.IDPeriod       = 171
+                        );
+
+SELECT * 
+  FROM BalanceReal AS br
+ WHERE br.IDContract IN (SELECT idcontract 
+                           FROM Document AS d 
+                          WHERE d.IDTypeDocument = 24
+                            AND d.IDPeriod       = 171
+                         EXCEPT
+                         SELECT idcontract 
+                           FROM Document AS d 
+                          WHERE d.IDTypeDocument = 1
+                            AND d.IDPeriod       = 171
+                        )
+   AND br.IDPeriod      = 171 
+   AND br.AmountBalance = 0;
 
 
-
-SELECT * FROM BalanceReal br
-WHERE br.IDContract IN 
-(SELECT idcontract FROM Document d WHERE d.IDTypeDocument = 24 AND d.IDPeriod = 171
-EXCEPT
-SELECT idcontract FROM Document d WHERE d.IDTypeDocument = 1 AND d.IDPeriod = 171)
-  AND br.IDPeriod = 171 AND br.AmountBalance =0
-
-*/
 
 ---  ************************  Итоговый выполнять после закрытия периода ************************
 -- и сальдо по услугам  = 0
-DECLARE @IDPeriod INT
-SET @IDPeriod = 203
+DECLARE @IDPeriod INT;
+DECLARE @Year     INT;
+DECLARE @Month    INT;
 
-SELECT * FROM Contract c
-WHERE c.IDContract IN 
-(SELECT br.IDContract FROM BalanceReal br
-WHERE br.IDContract IN 
-(SELECT idcontract FROM Document d WHERE d.IDTypeDocument = 24 AND d.IDPeriod = @IDPeriod
-EXCEPT
-SELECT idcontract FROM Document d WHERE d.IDTypeDocument = 1 AND d.IDPeriod = @IDPeriod)
-  AND br.IDPeriod = @IDPeriod AND br.AmountBalance = 0 AND br.IDAccounting =6)
+SET @Year = 2022;
+SET @Month = 9;
+
+SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
+
+SELECT * 
+  FROM Contract AS c
+ WHERE c.IDContract IN (SELECT br.IDContract 
+                          FROM BalanceReal AS br
+                         WHERE br.IDContract IN (SELECT idcontract
+                                                   FROM Document AS d
+                                                  WHERE d.IDTypeDocument = 24
+                                                    AND d.IDPeriod = @IDPeriod
+                                                 EXCEPT
+                                                 SELECT idcontract 
+                                                   FROM Document AS d 
+                                                  WHERE d.IDTypeDocument = 1
+                                                    AND d.IDPeriod = @IDPeriod
+                                                )
+                            AND br.IDPeriod      = @IDPeriod
+                            AND br.AmountBalance = 0
+                            AND br.IDAccounting =6
+                        );
+
 
   ---1942076 и 2471004,3151096  194 период норм
 
 ---  ************************  Итоговый Предварительный ************************
 -- и сальдо по услугам  = 0
-DECLARE @IDPeriod INT
-SET @IDPeriod = 206
+DECLARE @IDPeriod INT;
+DECLARE @Year     INT;
+DECLARE @Month    INT;
 
-SELECT * FROM Contract c
-WHERE c.IDContract IN 
-(SELECT br.IDContract FROM Balance br
-WHERE br.IDContract IN 
-(SELECT idcontract FROM Document d WHERE d.IDTypeDocument = 24 AND d.IDPeriod = @IDPeriod
-EXCEPT
-SELECT idcontract FROM Document d WHERE d.IDTypeDocument = 1 AND d.IDPeriod = @IDPeriod)
-  AND br.IDPeriod = @IDPeriod AND br.AmountBalance = 0 AND br.IDAccounting =6)
+SET @Year = 2022;
+SET @Month = 9;
+
+
+SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
+
+SELECT *
+  FROM Contract AS c
+ WHERE c.IDContract IN (SELECT br.IDContract 
+                          FROM Balance AS br
+                         WHERE br.IDContract IN (SELECT idcontract
+                                                   FROM Document AS d
+                                                  WHERE d.IDTypeDocument = 24 -- услуги
+                                                    AND d.IDPeriod       = @IDPeriod
+                                                 EXCEPT
+                                                 SELECT idcontract
+                                                   FROM Document AS d
+                                                  WHERE d.IDTypeDocument = 1  -- оплата
+                                                    AND d.IDPeriod       = @IDPeriod
+                                                )
+                           AND br.IDPeriod      = @IDPeriod 
+                           AND br.AmountBalance = 0
+                           AND br.IDAccounting  = 6
+                       );
+                           
 
   /*
-861308
+  862231
+  908239
+  916554
 */
 
 /*

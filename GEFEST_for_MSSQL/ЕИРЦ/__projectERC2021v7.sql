@@ -28,54 +28,58 @@ PRINT (N'Создать таблицу [dbo].[AAAERC7]')
 GO
 --------------------------------------------------------------------------
 CREATE TABLE dbo.AAAERC7 (
-  Account varchar(50) NULL,
-  Year int NULL,
-  Month int NULL,
-  fio varchar(500) NULL,
-  PersUstr varchar(250) NULL,
-  SaldoNachGaz float NULL,
-  SaldoNachPenya float NULL,
-  SaldoNachSudVzysk float NULL,
-  SaldoNachSudIzder float NULL,
-  SaldoNachSHtraf float NULL,
-  SaldoNachDopUslug float NULL,
-  SaldoNachItog float NULL,
-  OplachenoGaz float NULL,
-  OplachenoPenya float NULL,
-  OplachenoSudVzysk float NULL,
-  OplachenoSudIzder float NULL,
-  OplachenoSHtraf float NULL,
-  OplachenoDopUslug float NULL,
-  OplachenoItog float NULL,
-  PredPokaz float NULL,
-  TekPokaz float NULL,
-  Cena float NULL,
-  Kolvo varchar(8000) NULL,
-  SummaNach float NULL,
-  SummNachislGaz float NULL,
-  SummNachislPenya float NULL,
-  SummNachislVzysk float NULL,
-  SummNachislIzder float NULL,
-  SummNachislSHtraf float NULL,
+  Account             varchar(50) NULL,
+  Year                int NULL,
+  Month               int NULL,
+  fio                 varchar(500) NULL,
+  PersUstr            varchar(250) NULL,
+  SaldoNachGaz        float NULL,
+  SaldoNachPenya      float NULL,
+  SaldoNachSudVzysk   float NULL,
+  SaldoNachSudIzder   float NULL,
+  SaldoNachSHtraf     float NULL,
+  SaldoNachDopUslug   float NULL,
+  SaldoNachItog       float NULL,
+  OplachenoGaz        float NULL,
+  OplachenoPenya      float NULL,
+  OplachenoSudVzysk   float NULL,
+  OplachenoSudIzder   float NULL,
+  OplachenoSHtraf     float NULL,
+  OplachenoDopUslug   float NULL,
+  OplachenoItog       float NULL,
+  PredPokaz           float NULL,
+  TekPokaz            float NULL,
+  Cena                float NULL,
+  Kolvo               varchar(8000) NULL,
+  SummaNach           float NULL,
+  SummNachislGaz      float NULL,
+  SummNachislPenya    float NULL,
+  SummNachislVzysk    float NULL,
+  SummNachislIzder    float NULL,
+  SummNachislSHtraf   float NULL,
   SummNachislDopUslug float NULL,
-  SummNachislItog float NULL,
-  SaldoKonecGaz float NULL,
-  SaldoKonecPenya float NULL,
-  SaldoKonecVzysk float NULL,
-  SaldoKonecIzder float NULL,
-  SaldoKonecSHtraf float NULL,
-  SaldoKonecDopUslug float NULL,
-  SaldoKonecItog float NULL,
-  Primechanie varchar(250) NULL,
-  Street varchar(50) NULL,
-  HouseNumber varchar(10) NULL,
-  HouseNumberChar varchar(20) NULL,
-  Flat varchar(20) NULL
+  SummNachislItog     float NULL,
+  SaldoKonecGaz       float NULL,
+  SaldoKonecPenya     float NULL,
+  SaldoKonecVzysk     float NULL,
+  SaldoKonecIzder     float NULL,
+  SaldoKonecSHtraf    float NULL,
+  SaldoKonecDopUslug  float NULL,
+  SaldoKonecItog      float NULL,
+  Primechanie         varchar(250) NULL,
+  Street              varchar(50) NULL,
+  HouseNumber         varchar(10) NULL,
+  HouseNumberChar     varchar(20) NULL,
+  Flat                varchar(20) NULL
 )
 ON [PRIMARY]
 GO
 --------------------------------------------------------------------------
-if exists (select * from tempdb.sys.tables where name LIKE '#tmpAAA%') drop table #tmpAAA
+if exists (select * 
+             from tempdb.sys.tables 
+            where name LIKE '#tmpAAA%'
+          )
+  drop table #tmpAAA
 GO
 --------------------------------------------------------------------------
 
@@ -83,85 +87,84 @@ SET NOCOUNT ON;
 GO
 --------------------------------------------------------------------------
 DECLARE @IDPeriod AS INT
-DECLARE @Month AS INT
-DECLARE @Year AS INT
+DECLARE @Month    AS INT
+DECLARE @Year     AS INT
 
 ------------------------------------
 ------------------------------------
 ------------------------------------
-			SET @Month = 3
-			SET @Year = 2022
+      SET @Month = 9
+      SET @Year = 2022
 ------------------------------------
 ------------------------------------
 ------------------------------------
 
 
-SET @IDPeriod = (SELECT
-    p.IDPeriod
-  FROM Period p
-  WHERE p.Year = @Year
-  AND p.Month = @Month)
+SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
 
 
-DECLARE @maxInt int 
-SET @maxInt = 0
+DECLARE @maxInt INT;
+SET     @maxInt = 0;
 
-SELECT DISTINCT g.IDGru
-INTO #tmpGRU
- FROM GRu g  
- LEFT JOIN GObject gt   ON gt.IDGru = g.IDGru
- LEFT JOIN dbo.Contract c  ON gt.IDContract = c.IDContract
- INNER JOIN Person p WITH (NOLOCK) ON p.IDPerson = c.IDPerson --AND p.isJuridical = 0
- WHERE g.IDGru  NOT IN (8518,8743,8626,8666,8742,8738,8772,8771,8768,8747,8828,8781) --AND c.IDContract NOT IN (885122,885123,885124,885125,885126,885127,885128,885129)
+SELECT DISTINCT 
+       g.IDGru
+  INTO #tmpGRU
+  FROM GRu AS g
+    LEFT JOIN  dbo.GObject  AS gt ON gt.IDGru      = g.IDGru
+    LEFT JOIN  dbo.Contract AS c  ON gt.IDContract = c.IDContract
+    INNER JOIN dbo.Person AS p WITH (NOLOCK) ON p.IDPerson = c.IDPerson --AND p.isJuridical = 0
+ WHERE g.IDGru NOT IN (8518, 8743, 8626, 8666, 8742, 8738, 8772, 8771, 8768, 8747, 8828, 8781) --AND c.IDContract NOT IN (885122,885123,885124,885125,885126,885127,885128,885129)
 
 -- обобщенное табличное выражение
 -- нумеруем выборку ГРУ
 WITH TestCTE (num, idGRU) AS
 (
- SELECT ROW_NUMBER() OVER (ORDER BY g.IDGru) num, g.IDGru
- FROM #tmpGRU  g  
+ SELECT 
+        ROW_NUMBER() OVER (ORDER BY g.IDGru) num,
+        g.IDGru
+   FROM #tmpGRU AS g
 )
-SELECT * INTO #tmpAAA FROM TestCTE
+SELECT * INTO #tmpAAA FROM TestCTE;
 
 --Запрос, в котором мы можем использовать CTE
-SET @maxInt = (SELECT MAX(a.num) FROM #tmpAAA a)
+SET @maxInt = (SELECT MAX(a.num) FROM #tmpAAA AS a);
 
-PRINT ('Количество ГРУ = '+ CAST(@maxInt AS VARCHAR))
+PRINT ('Количество ГРУ = '+ CAST(@maxInt AS VARCHAR));
 
-DECLARE @i INT
-DECLARE @j INT
+DECLARE @i INT;
+DECLARE @j INT;
 
-DECLARE @idGRU INT
-DECLARE @idContract INT
+DECLARE @idGRU      INT;
+DECLARE @idContract INT;
+DECLARE @query NVARCHAR(MAX);
 
-DECLARE @query NVARCHAR(MAX)
+  SET @i = 1;
 
-  SET @i = 1
-
-  while @i<= @maxInt 
-     begin
-       SET @idGRU =  (SELECT idGRU FROM #tmpAAA a WHERE a.num = @i)
+  WHILE @i<= @maxInt 
+    BEGIN
+      SET @idGRU =  (SELECT idGRU FROM #tmpAAA a WHERE a.num = @i)
        --PRINT('....обрабатывается...idGRU'+CAST(@idGRU AS VARCHAR))
 
-       SET @query = 'INSERT INTO dbo.AAAERC7  EXEC repCountNoticeERC21 '+CAST(@idGRU AS VARCHAR) +','+CAST(@IDPeriod AS VARCHAR) + ';'
-       EXEC (@query) 
-       set @i=@i+1
+      SET @query = 'INSERT INTO dbo.AAAERC7  EXEC repCountNoticeERC21 ' + CAST(@idGRU AS VARCHAR) + ',' + CAST(@IDPeriod AS VARCHAR) + ';'
+      EXEC (@query)
+      SET @i = @i + 1
      
-     end
+    END
 
-DROP TABLE #tmpAAA
-DROP TABLE #tmpGRU
+DROP TABLE #tmpAAA;
+DROP TABLE #tmpGRU;
 
 GO
 --------------------------------------------------------------------------
 DECLARE @countAAA as int;
 
 SET @countAAA = (SELECT count(*)
-                 FROM AAAERC7)
+                   FROM AAAERC7
+                );
 
 PRINT(N'Колическтво записей - ' + CONVERT(varchar(10), @countAAA));
 --------------------------------------------------------------------------
-SET NOCOUNT OFF;  
+SET NOCOUNT OFF;
 GO
 --------------------------------------------------------------------------
 EXEC msdb.dbo.sp_notify_operator  
@@ -171,6 +174,3 @@ EXEC msdb.dbo.sp_notify_operator
    @body = N'Данные для ЕИРЦ сформированы.' ;  
 GO
 --------------------------------------------------------------------------
-
-
-
