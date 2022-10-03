@@ -4,20 +4,20 @@ go
 
 select * 
 from period p
-where p.Month = 3 and p.Year = 2022;
+where p.Month = 10 and p.Year = 2022;
 
 -------------------------------------------------
 
 SELECT 
        spid as idproc,
-       db_name(dbid) as 'Имя БД',
-       program_name as 'Программа',
-       loginame as 'имя входа SQL Server',
-       hostname AS 'Имя рабочей станции',
+       db_name(dbid) as 'РРјСЏ Р‘Р”',
+       program_name as 'РџСЂРѕРіСЂР°РјРјР°',
+       loginame as 'РёРјСЏ РІС…РѕРґР° SQL Server',
+       hostname AS 'РРјСЏ СЂР°Р±РѕС‡РµР№ СЃС‚Р°РЅС†РёРё',
        status
 FROM sys.sysprocesses
 WHERE dbid > 0
-order by 'Имя БД';
+order by 'РРјСЏ Р‘Р”';
 -----------------------------------------------
 
 select top 5 * 
@@ -25,5 +25,8 @@ from Period p
 order by p.DateBegin Desc;
 
 select count(*)
+from AAAERC7;
+
+select top 1000 *
 from AAAERC7;
 

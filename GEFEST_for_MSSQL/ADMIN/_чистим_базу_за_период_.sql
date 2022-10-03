@@ -1,7 +1,7 @@
 declare @IDPeriod int
 declare @BDate datetime
 declare @EDate datetime
-set @IDPeriod=43-- 48-ÿíâàðü 2009 ãîäà
+set @IDPeriod=49 
 set @Bdate=dbo.fGetDatePeriod(@IDPeriod,1)
 set @EDate=dbo.fGetDatePeriod(@IDPeriod,2)
 select @IDPeriod as IDPeriod
@@ -9,113 +9,113 @@ select @BDate
 select @EDate
 declare @Q as VarChar(1000)
 
---óäàëÿåì ïîòðåáëåíèå
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð¿Ð¾Ñ‚Ñ€ÐµÐ±Ð»ÐµÐ½Ð¸Ðµ
 delete fu 
 from factuse fu 
 inner join operation o on fu.idoperation=o.idoperation
 inner join document d on d.iddocument=o.iddocument
 and d.idperiod=@IDPeriod
-select 'Óäàëèëè ïîòðåáëåíèå ñ îïåðàöèÿìè'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð¿Ð¾Ñ‚Ñ€ÐµÐ±Ð»ÐµÐ½Ð¸Ðµ Ñ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸ÑÐ¼Ð¸'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì îïåðàöèè
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸
 delete  o from 
 operation o 
 inner join document d on d.iddocument=o.iddocument
 and d.idperiod=@IDPeriod
-select 'Óäàëèëè îïåðàöèè'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì ïàðàìåòðû äîêóìåíòîâ
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð²
 delete pd from 
 pd
 inner join document d on d.iddocument=pd.iddocument
 and d.idperiod=@IDPeriod
-select 'Óäàëèëè ïàðàìåòðû äîêóìåíòîâ'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð²'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì äîêóìåíòû
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ñ‹
 delete from document where idperiod=@IDPeriod
-select 'Óäàëèëè äîêóìåíòû'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ñ‹'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì ïàðàìåòðû ïà÷åê
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ Ð¿Ð°Ñ‡ÐµÐº
 delete pb from 
 pb
 inner join batch b on b.idbatch=pb.idbatch
 and b.idperiod=@IDPeriod
-select 'Óäàëèëè ïàðàìåòðû ïà÷åê'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ Ð¿Ð°Ñ‡ÐµÐº'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì àâòîäîêóìåíòû
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð°Ð²Ñ‚Ð¾Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ñ‹
 delete ad 
 from AutoDocument ad
 inner join AutoBatch ab on ad.IDAutoBatch=ab.IDAutoBatch
 where BatchDate>=@BDate and BatchDate<=@EDate
---óäàëÿåì àâòîäîêóìåíòû
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð°Ð²Ñ‚Ð¾Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ñ‹
 delete ad 
 from AutoDocument ad
 inner join AutoBatch ab on ad.IDAutoBatch=ab.IDAutoBatch
 inner join batch b on ab.IDBatch=b.idbatch
 where b.idperiod=@IDPeriod
-select 'Óäàëèëè àâòîäîêóìåíòû'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð°Ð²Ñ‚Ð¾Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ñ‹'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì àâòîïà÷êè
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð°Ð²Ñ‚Ð¾Ð¿Ð°Ñ‡ÐºÐ¸
 delete ab 
 from AutoBatch ab
 inner join batch b on ab.IDBatch=b.idbatch
 where b.idperiod=@IDPeriod
-select 'Óäàëèëè àâòîïà÷êè ïî ïà÷êàì'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð°Ð²Ñ‚Ð¾Ð¿Ð°Ñ‡ÐºÐ¸ Ð¿Ð¾ Ð¿Ð°Ñ‡ÐºÐ°Ð¼'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì ïà÷êè
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð¿Ð°Ñ‡ÐºÐ¸
 delete from batch where idperiod=@IDPeriod
-select 'Óäàëèëè ïà÷êè'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð¿Ð°Ñ‡ÐºÐ¸'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì àâòîïà÷êè
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð°Ð²Ñ‚Ð¾Ð¿Ð°Ñ‡ÐºÐ¸
 delete from AutoBatch 
 where BatchDate>=@BDate and BatchDate<=@EDate
-select 'Óäàëèëè àâòîïà÷êè'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð°Ð²Ñ‚Ð¾Ð¿Ð°Ñ‡ÐºÐ¸'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì ïîòðåáëåíèå
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð¿Ð¾Ñ‚Ñ€ÐµÐ±Ð»ÐµÐ½Ð¸Ðµ
 delete from factuse where idperiod=@IDPeriod
-select 'Óäàëèëè ïîòðåáëåíèå'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð¿Ð¾Ñ‚Ñ€ÐµÐ±Ð»ÐµÐ½Ð¸Ðµ'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì áàëàíñû
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð±Ð°Ð»Ð°Ð½ÑÑ‹
 delete from balance where idperiod=@IDPeriod
 delete from balancereal where idperiod=@IDPeriod
-select 'Óäàëèëè áàëàíñû'
+select 'Ð£Ð´Ð°Ð»Ð¸Ð»Ð¸ Ð±Ð°Ð»Ð°Ð½ÑÑ‹'
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
 set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
 Exec(@Q)
---óäàëÿåì íàëè÷íûé áàëàíñ
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ð¹ Ð±Ð°Ð»Ð°Ð½Ñ
 delete from CashBalance where DateCash>=@BDate and DateCash<=@EDate
---óäàëÿåì ïîêàçàíèÿ
+--ÑƒÐ´Ð°Ð»ÑÐµÐ¼ Ð¿Ð¾ÐºÐ°Ð·Ð°Ð½Ð¸Ñ
 delete from Indication where DateDisplay>=@BDate and DateDisplay<=@EDate
 set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
 Exec(@Q)
