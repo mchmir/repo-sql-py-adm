@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Devart (www.devart.com), compare document file -->
+<!-- Modifying this generated file will probably render it invalid -->
+<CompareDocument>
+  <Properties>
+    <DatabaseProvider>aa8afe9c-7d62-4564-b477-c12e62e0f440</DatabaseProvider>
+    <ProviderVersion>5.7.31.0</ProviderVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </Properties>
+  <Source Type="Database">
+    <DataConnection>GG-APP</DataConnection>
+    <ConnectionString>Data Source=GG-APP;Encrypt=False;Integrated Security=False;User ID=sa</ConnectionString>
+    <Category>00000000-0000-0000-0000-000000000000</Category>
+    <Schema>Gefest</Schema>
+  </Source>
+  <Target Type="Database">
+    <DataConnection>GG-APP</DataConnection>
+    <ConnectionString>Data Source=GG-APP;Encrypt=False;Integrated Security=False;User ID=sa</ConnectionString>
+    <Category>00000000-0000-0000-0000-000000000000</Category>
+    <Schema>gmeter_test</Schema>
+  </Target>
+  <Filter Value="0" />
+  <HideUnmodifiedColumns>False</HideUnmodifiedColumns>
+  <Options>
+    <PropertyValue Name="MappingIgnoreSpaces">true</PropertyValue>
+    <PropertyValue Name="IgnoreBlobColumns">false</PropertyValue>
+    <PropertyValue Name="CompareMemoryOptimizedTables">false</PropertyValue>
+    <PropertyValue Name="CompareColumnStoreTables">false</PropertyValue>
+    <PropertyValue Name="IgnoreTemporalHistoryTable">false</PropertyValue>
+    <PropertyValue Name="IgnoreTemporalTableSysColumns">false</PropertyValue>
+    <PropertyValue Name="CompareClrTypesAsBinary">false</PropertyValue>
+    <PropertyValue Name="IgnoreTimestampColumns">false</PropertyValue>
+    <PropertyValue Name="IgnoreRowguidColumns">false</PropertyValue>
+    <PropertyValue Name="IgnoreIdentityColumns">false</PropertyValue>
+    <PropertyValue Name="MappingIgnoreCase">false</PropertyValue>
+    <PropertyValue Name="MappingIgnoreUnderscores">false</PropertyValue>
+    <PropertyValue Name="IgnoreColumnsByMask">false</PropertyValue>
+    <PropertyValue Name="MappingColumnsMask" xml:space="preserve">*ModifiedDate*,*CreatedOn*,*UpdatedBy*</PropertyValue>
+    <PropertyValue Name="ExcludeObjectsByMask">false</PropertyValue>
+    <PropertyValue Name="ExcludeObjectsMask" xml:space="preserve">*Table*</PropertyValue>
+    <PropertyValue Name="IncludeObjectsByMask">false</PropertyValue>
+    <PropertyValue Name="IncludeObjectsMask" xml:space="preserve">*</PropertyValue>
+    <PropertyValue Name="IgnoreComputedColumns">true</PropertyValue>
+    <PropertyValue Name="CompareTables">true</PropertyValue>
+    <PropertyValue Name="CompareViews">false</PropertyValue>
+    <PropertyValue Name="RoundFloatTypes">false</PropertyValue>
+    <PropertyValue Name="RoundFloatTypesUpTo" xml:space="preserve">3</PropertyValue>
+    <PropertyValue Name="IgnoreLeadingSpaces">false</PropertyValue>
+    <PropertyValue Name="IgnoreTrailingSpaces">false</PropertyValue>
+    <PropertyValue Name="IgnoreCase">false</PropertyValue>
+    <PropertyValue Name="IgnoreEndOfLine">false</PropertyValue>
+    <PropertyValue Name="IsEmptyStringEqualsNull">false</PropertyValue>
+    <PropertyValue Name="IsIgnoreTime">false</PropertyValue>
+    <PropertyValue Name="CheckDifferent">true</PropertyValue>
+    <PropertyValue Name="CheckOnlyInSource">true</PropertyValue>
+    <PropertyValue Name="CheckOnlyInTarget">true</PropertyValue>
+    <PropertyValue Name="CheckIdentical">true</PropertyValue>
+  </Options>
+  <ModifiedObjects>
+    <Object Name="dbo.Address" Type="Table" InSource="True" Different="False" InTarget="False" />
+    <Object Name="dbo.GMeter" Type="Table" InSource="True" Different="False" InTarget="False" />
+    <Object Name="dbo.House" Type="Table" InSource="False" Different="False" InTarget="False" />
+    <Object Name="dbo.Street" Type="Table" InSource="False" Different="False" InTarget="False" />
+    <Object Name="dbo.TypeGMeter" Type="Table" InSource="False" Different="False" InTarget="False" />
+    <Object Name="QUERY_Contract с dbo.Contract" Type="CustomQuery" InSource="True" Different="False" InTarget="False" />
+  </ModifiedObjects>
+  <SynchronizationOptions>
+    <PropertyValue Name="BackupDatabase">false</PropertyValue>
+    <PropertyValue Name="BackupExtension">false</PropertyValue>
+    <PropertyValue Name="CreateBackupFolder">false</PropertyValue>
+    <PropertyValue Name="NeedCompressBackup">false</PropertyValue>
+    <PropertyValue Name="AddBackupType">false</PropertyValue>
+    <PropertyValue Name="BackupType">0</PropertyValue>
+    <PropertyValue Name="ExecuteAsSingleTransaction">true</PropertyValue>
+    <PropertyValue Name="AddingErrorHandling">false</PropertyValue>
+    <PropertyValue Name="AddTransactionIsolationLevel">true</PropertyValue>
+    <PropertyValue Name="TransactionIsolationLevel">4</PropertyValue>
+    <PropertyValue Name="DeployDatabaseInSingleUserMode">false</PropertyValue>
+    <PropertyValue Name="UseSchemaNamePrefix">false</PropertyValue>
+    <PropertyValue Name="IncludeUseDatabase">true</PropertyValue>
+    <PropertyValue Name="CheckConcurrencyUpdates">false</PropertyValue>
+    <PropertyValue Name="DisableForeignKeys">true</PropertyValue>
+    <PropertyValue Name="DropKeys">false</PropertyValue>
+    <PropertyValue Name="DropCheckConstraints">false</PropertyValue>
+    <PropertyValue Name="DisableDmlTriggers">true</PropertyValue>
+    <PropertyValue Name="DisableDdlTriggers">false</PropertyValue>
+    <PropertyValue Name="SynchronizeViaFiles">false</PropertyValue>
+    <PropertyValue Name="DisableSecurityPolicy">true</PropertyValue>
+    <PropertyValue Name="IncludePrintComments">false</PropertyValue>
+    <PropertyValue Name="ExcludeComments">false</PropertyValue>
+    <PropertyValue Name="BulkInsert">false</PropertyValue>
+    <PropertyValue Name="BackupPathName" xml:space="preserve">C:\Program Files (x86)\Microsoft SQL Server\MSSQL.1\MSSQL\Backup</PropertyValue>
+    <PropertyValue Name="BackupExtensionName" xml:space="preserve">.bak</PropertyValue>
+    <PropertyValue Name="GenerateScriptHeader">true</PropertyValue>
+    <PropertyValue Name="UseSqlExtensionCommands">true</PropertyValue>
+    <PropertyValue Name="AllowDefaultValues">false</PropertyValue>
+    <PropertyValue Name="ReseedIdentityColumns">true</PropertyValue>
+    <PropertyValue Name="UseExec">true</PropertyValue>
+    <PropertyValue Name="RestoreConstraintsWithCheck">false</PropertyValue>
+    <PropertyValue Name="UseSubSchemaNamePrefix">true</PropertyValue>
+    <PropertyValue Name="SynchronizeType">1</PropertyValue>
+    <PropertyValue Name="SynchronizationFileName" xml:space="preserve">D:\GEFEST\GMETER\GEFEST vs gmeter_test (GG-APP)_20221028-1235.sql</PropertyValue>
+    <PropertyValue Name="SynchronizationEditorFileName" xml:space="preserve" />
+    <PropertyValue Name="OpenScriptInEditor">false</PropertyValue>
+    <PropertyValue Name="RefreshAfterSynchronization">false</PropertyValue>
+    <PropertyValue Name="OpenScriptsFolder">false</PropertyValue>
+    <PropertyValue Name="PureScript">false</PropertyValue>
+    <PropertyValue Name="IsPartOfScript">false</PropertyValue>
+    <PropertyValue Name="IgnoreEncryptionProperty">false</PropertyValue>
+    <PropertyValue Name="UseCommitMode">false</PropertyValue>
+    <PropertyValue Name="CommitPageLength" xml:space="preserve">0</PropertyValue>
+  </SynchronizationOptions>
+  <Mapping>
+    <Schemas>
+      <Object SourceName="dbo" TargetName="dbo" State="DefaultMapped" Included="True" />
+      <Object SourceName="guest" TargetName="guest" State="DefaultMapped" Included="True" />
+    </Schemas>
+    <ComparedObjects>
+      <Object SourceName="dbo.Address" TargetName="dbo.Address" SourceType="Table" TargetType="Table" />
+      <Object SourceName="dbo.Agent" TargetName="dbo.Agent" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.Changes" TargetName="dbo.Changes" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.Correspondent" TargetName="dbo.Correspondent" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.Country" TargetName="dbo.Country" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.Document" TargetName="dbo.Document" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.GMeter" TargetName="dbo.GMeter" SourceType="Table" TargetType="Table">
+        <Key Name="Columns">
+          <Column OrderIndex="0" ColumnIndex="0" />
+        </Key>
+        <ComparedColumns CustomMapped="True">
+          <Column SourceName="dbo.GMeter.IDGMeter" TargetName="dbo.GMeter.IDGMeter" />
+          <Column SourceName="dbo.GMeter.IDStatusGMeter" TargetName="dbo.GMeter.IDStatusGMeter" />
+          <Column SourceName="dbo.GMeter.IDTypeGMeter" TargetName="dbo.GMeter.IDTypeGMeter" />
+          <Column SourceName="dbo.GMeter.SerialNumber" TargetName="dbo.GMeter.SerialNumber" />
+          <Column SourceName="dbo.GMeter.BeginValue" TargetName="dbo.GMeter.BeginValue" />
+          <Column SourceName="dbo.GMeter.DateInstall" TargetName="dbo.GMeter.DateInstall" />
+          <Column SourceName="dbo.GMeter.DateVerify" TargetName="dbo.GMeter.DateVerify" />
+          <Column SourceName="dbo.GMeter.Memo" TargetName="dbo.GMeter.Memo" />
+          <Column SourceName="dbo.GMeter.IDGObject" TargetName="dbo.GMeter.IDGObject" />
+          <Column SourceName="dbo.GMeter.DateFabrication" TargetName="dbo.GMeter.DateFabrication" />
+          <Column SourceName="dbo.GMeter.IDTypeVerify" TargetName="dbo.GMeter.IDTypeVerify" />
+        </ComparedColumns>
+      </Object>
+      <Object SourceName="dbo.GObject" TargetName="dbo.GObject" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False">
+        <Key Name="Columns">
+          <Column OrderIndex="0" ColumnIndex="0" />
+        </Key>
+        <ComparedColumns CustomMapped="True">
+          <Column SourceName="dbo.GObject.IDGObject" TargetName="dbo.GObject.IDGObject" />
+          <Column SourceName="dbo.GObject.IDTypeGObject" TargetName="dbo.GObject.IDTypeGObject" />
+          <Column SourceName="dbo.GObject.IDGru" TargetName="dbo.GObject.IDGru" />
+          <Column SourceName="dbo.GObject.IDAddress" TargetName="dbo.GObject.IDAddress" />
+          <Column SourceName="dbo.GObject.IDStatusGObject" TargetName="dbo.GObject.IDStatusGObject" />
+          <Column SourceName="dbo.GObject.IDContract" TargetName="dbo.GObject.IDContract" />
+          <Column SourceName="dbo.GObject.Name" TargetName="dbo.GObject.Name" />
+          <Column SourceName="dbo.GObject.Memo" TargetName="dbo.GObject.Memo" />
+          <Column SourceName="dbo.GObject.CountLives" TargetName="dbo.GObject.CountLives" />
+        </ComparedColumns>
+      </Object>
+      <Object SourceName="dbo.House" TargetName="dbo.House" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.Logs" TargetName="dbo.Logs" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.PD" TargetName="dbo.PD" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.Person" TargetName="dbo.Person" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False">
+        <Key Name="Columns">
+          <Column OrderIndex="0" ColumnIndex="0" />
+        </Key>
+        <ComparedColumns CustomMapped="True">
+          <Column SourceName="dbo.Person.IDPerson" TargetName="dbo.Person.IDPerson" />
+          <Column SourceName="dbo.Person.IDUser" TargetName="dbo.Person.IDUser" />
+          <Column SourceName="dbo.Person.IDAddress" TargetName="dbo.Person.IDAddress" />
+          <Column SourceName="dbo.Person.RNN" TargetName="dbo.Person.RNN" />
+          <Column SourceName="dbo.Person.isJuridical" TargetName="dbo.Person.isJuridical" />
+          <Column SourceName="dbo.Person.Surname" TargetName="dbo.Person.Surname" />
+          <Column SourceName="dbo.Person.Name" TargetName="dbo.Person.Name" />
+          <Column SourceName="dbo.Person.Patronic" TargetName="dbo.Person.Patronic" />
+          <Column SourceName="dbo.Person.IDOwnership" TargetName="dbo.Person.IDOwnership" />
+          <Column SourceName="dbo.Person.FIOMainBuch" TargetName="dbo.Person.FIOMainBuch" />
+          <Column SourceName="dbo.Person.IDClassifier" TargetName="dbo.Person.IDClassifier" />
+        </ComparedColumns>
+      </Object>
+      <Object SourceName="dbo.Place" TargetName="dbo.Place" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.Region" TargetName="dbo.Region" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.Sending" TargetName="dbo.Sending" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.Settings" TargetName="dbo.Settings" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.StatusGMeter" TargetName="dbo.StatusGMeter" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.Street" TargetName="dbo.Street" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.TypeAction" TargetName="dbo.TypeAction" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.TypeAddress" TargetName="dbo.TypeAddress" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.TypeAgent" TargetName="dbo.TypeAgent" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.TypeDocument" TargetName="dbo.TypeDocument" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.TypeGMeter" TargetName="dbo.TypeGMeter" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.TypeHouse" TargetName="dbo.TypeHouse" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.TypePD" TargetName="dbo.TypePD" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="dbo.TypePlace" TargetName="dbo.TypePlace" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.TypeStreet" TargetName="dbo.TypeStreet" SourceType="Table" TargetType="Table" IncludedInScript="False" />
+      <Object SourceName="dbo.TypeVerify" TargetName="dbo.TypeVerify" SourceType="Table" TargetType="Table" Included="False" IncludedInScript="False" />
+      <Object SourceName="QUERY_Contract" TargetName="dbo.Contract" SourceType="CustomQuery" TargetType="Table" CustomMapped="True">
+        <Key Name="Columns">
+          <Column OrderIndex="0" ColumnIndex="0" />
+        </Key>
+        <ComparedColumns CustomMapped="True">
+          <Column SourceName="IDCONTRACT" TargetName="dbo.Contract.IDContract" />
+          <Column SourceName="IDPERSON" TargetName="dbo.Contract.IDPerson" />
+          <Column SourceName="ACCOUNT" TargetName="dbo.Contract.Account" />
+          <Column SourceName="IDADDRESS" TargetName="dbo.Contract.IDAddress" />
+          <Column SourceName="SURNAME" TargetName="dbo.Contract.Surname" />
+          <Column SourceName="NAME" TargetName="dbo.Contract.Name" />
+          <Column SourceName="PATRONIC" TargetName="dbo.Contract.Patronic" />
+        </ComparedColumns>
+        <SourceCustomQueryScript>SELECT
+      C.IDCONTRACT,
+      P.IDPERSON,
+      C.ACCOUNT,
+      AD.IDADDRESS,
+      SURNAME,
+      NAME,
+      PATRONIC
+ FROM GEFEST.dbo.CONTRACT as C
+   INNER JOIN GEFEST.dbo.PERSON AS P ON C.IDPERSON = P.IDPERSON
+   INNER JOIN GEFEST.dbo.ADDRESS as AD ON P.IDADDRESS = AD.IDADDRESS     </SourceCustomQueryScript>
+      </Object>
+    </ComparedObjects>
+  </Mapping>
+</CompareDocument>
