@@ -10,10 +10,15 @@ DECLARE @idAutoDocumentBatch AS INT
 
 DECLARE @idBatch AS INT
 
-SET @Year = 2022
-SET @Month = 12
+SET @Year    = 2022
+SET @Month   = 12
+
 SET @idBatch = 94123
 
+SELECT d.IDDocument, c.Account, d.IDBatch, d.DocumentAmount, d.DocumentDate
+  FROM Document AS d
+       JOIN Contract AS c ON d.IDContract = c.IDContract 
+ WHERE d.IDBatch = @idBatch;
 
 SET @idPeriod = (SELECT p.idPeriod FROM  Period p WHERE p.Year = @Year AND p.MONTH = @Month)
 
