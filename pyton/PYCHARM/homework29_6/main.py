@@ -8,7 +8,6 @@ import csv
 import task1
 
 
-
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
@@ -30,11 +29,6 @@ if __name__ == '__main__':
             file_wr.writerow([nn, i*10, task1.bubble_sort_3(list_of_nums, 0)])
             nn += 1
             list_of_nums = []
-
-
-
-
-
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

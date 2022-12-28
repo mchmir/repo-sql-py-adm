@@ -1,5 +1,7 @@
 # git ignore all files in the directory
 TMP/
 TEMP/
+.idea/
+venv/
 /venv/
 /.idea/
