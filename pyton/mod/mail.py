@@ -8,7 +8,8 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.utils import formatdate
 
-#----------------------------------------------------------------------
+
+# ----------------------------------------------------------------------
 def send_email_with_attachment(subject, body_text, to_emails, cc_emails, bcc_emails, file_to_attach):
     """
     Send an email with an attachment
@@ -62,6 +63,7 @@ def send_email_with_attachment(subject, body_text, to_emails, cc_emails, bcc_ema
     server.sendmail(from_addr, emails, msg.as_string())
     server.quit()
 
+
 def send_email(subject, body_text, emails):
     """
     Send an email
@@ -83,7 +85,7 @@ def send_email(subject, body_text, emails):
     BODY = "\r\n".join((
         "From: %s" % from_addr,
         "To: %s" % ', '.join(emails),
-        "Subject: %s" % subject ,
+        "Subject: %s" % subject,
         "",
         body_text
     ))
@@ -91,6 +93,7 @@ def send_email(subject, body_text, emails):
     server = smtplib.SMTP(host)
     server.sendmail(from_addr, emails, BODY)
     server.quit()
+
 
 """
 if __name__ == "__main__":

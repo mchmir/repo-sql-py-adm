@@ -4,17 +4,17 @@ import logging
 import zipfile
 import time
 import datetime
-from mod.func_sql import del_file_olddays, removefiles
+from mod.func_sql import del_file_olddays, remove_files
 from mod.func_sql import copy_archive
 from mod.mail import send_email_with_attachment
 
 timeNow = time.strftime("%d%m%Y_%H%M%S")
 now = datetime.datetime.now()
 
-#чистить лог по числа месяца
-listDayClean = [7,14,21,28,2]
+# чистить лог по числа месяца
+listDayClean = [7, 14, 21, 28, 2]
 if now.day in listDayClean:
-    removefiles(r"logs\\",".log")
+    remove_files(r"logs\\", ".log")
 
 
 pathBackup = r"D:\1C-ARCHIVE\\"
@@ -24,8 +24,8 @@ days_archive = 1
 
 serv = r"ARM-110821"
 # список баз данных на сервере
-bases =["APC","lansweeperdb"]
-user=""
+bases = ["APC", "lansweeperdb"]
+user = ""
 pasw = ""
 
 logger = logging.getLogger("sql_backup")
@@ -38,26 +38,24 @@ fh.setFormatter(formatter)
 logger.addHandler(fh)
 
 
-
-def sqlconnectPY(nHost="localhost",nBase="",nUser="",nPasw=""):
+def sqlconnectPY(nHost="localhost", nBase="", nUser="", nPasw=""):
     try:
         return pymssql.connect(host=nHost, user=nUser, password=nPasw, database=nBase)
     except:
         return False
 
 
-def sqlBackup(nHost,nBase,nFileName):
+def sqlBackup(nHost, nBase, nFileName):
     """
-     Архивирование базы данных
-
+       Архивирование базы данных
     """
 
-    con = sqlconnectPY(serv,"master",user,pasw)
-    #logging.basicConfig(filename="backup.log", level=logging.INFO)
+    con = sqlconnectPY(serv, "master", user, pasw)
+    # logging.basicConfig(filename="backup.log", level=logging.INFO)
     logger.info("Program started "+timeNow)
     if not con:
-        print ("Error connect to dataBase! - "+serv)
-        logger.error("Error connect to dataBase!" +timeNow)
+        print("Error connect to dataBase! - "+serv)
+        logger.error("Error connect to dataBase!" + timeNow)
         return
     try:
         cursor = con.cursor()
@@ -78,14 +76,16 @@ def sqlBackup(nHost,nBase,nFileName):
         print(e)
         raise
 
+
 def del_old_files(path, days):
     listFiles = del_file_olddays(path, days)
     for file in listFiles:
-        #print(file)
+        # print(file)
         logger.info("Удален файл старше "+str(days_archive)+ " дней: " +file)
 
+
 # Запускаем архивацию базы данных
-#sqlBackup(serv, base, fileName)
+# sqlBackup(serv, base, fileName)
 baselist = ""
 for base in bases:
     fileName = pathBackup+base+"_"+timeNow+".bak"
@@ -101,7 +101,7 @@ try:
     copy_archive(pathBackup, pathArchive)
     logger.info("Данные скопированы по пути:"+pathArchive)
 except Exception as e:
-    #print(e)
+    # print(e)
     logger.error(e)
     logger.error("Данные не скопированы! По пути:"+pathArchive)
     raise

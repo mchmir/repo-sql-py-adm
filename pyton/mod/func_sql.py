@@ -1,63 +1,68 @@
 import pyodbc
-#import os, sys, time
-import os, time
-#from subprocess import call
-#from shutil import copyfile,copy
+# import os, sys, time
+import os
+import time
+# from subprocess import call
+# from shutil import copyfile,copy
 from shutil import copy
 
-def sqlconnect(nHost="localhost",nBase="",nUser="",nPasw=""):
+
+def sqlconnect(nHost="localhost", nBase="", nUser="", nPasw=""):
     try:
         return pyodbc.connect("DRIVER={SQL Server};SERVER="+nHost+";DATABASE="+nBase+";UID="+nUser+";PWD="+nPasw)
     except:
         return False
 
-def sqlconnect_backup(nHost="localhost",nBase="",nUser="",nPasw=""):
+
+def sqlconnect_backup(nHost="localhost", nBase="", nUser="", nPasw=""):
     try:
-        return pyodbc.connect("DRIVER={SQL Server};SERVER="+nHost+";DATABASE="+nBase+";UID="+nUser+";PWD="+nPasw, autocommit=True)
+        return pyodbc.connect("DRIVER={SQL Server};SERVER=" + nHost + ";DATABASE=" + nBase + ";UID=" + nUser + ";PWD="
+                              + nPasw, autocommit=True)
     except:
         return False
+
 
 def copy_archive(dir_src, dir_dst):
     for filename in os.listdir(dir_src):
         if filename.endswith('.zip'):
-            copy( dir_src + filename, dir_dst)
+            copy(dir_src + filename, dir_dst)
 
 
 def sqlCommandfromFile(filename):
     # Open and read the file as a single buffer
     try:
         fd = open(filename, 'r')
-        sqlFile = fd.read()
+        sql_file = fd.read()
         fd.close()
-        return sqlFile
+        return sql_file
     except (IOError, OSError) as e:
         return print(e)
 
+
 # удаление файлов по расширению
-def removefiles(dir, xDot):
+def remove_files(dir, xDot):
     files = os.listdir(dir)
     file_path = dir
-    listFile = []
-    #import glob
-    #os.chdir(" ")
-    #for file in glob.glob("*.txt")
-    #print(file)
+    list_file = []
+    # import glob
+    # os.chdir(" ")
+    # for file in glob.glob("*.txt")
+    # print(file)
     for xfile in files:
 
         if os.path.isfile(str(file_path) + xfile):
-
-            if (xfile.endswith(xDot)):
-
+            if xfile.endswith(xDot):
                 try:
-                    listFile.append(str(file_path) + xfile)
+                    list_file.append(str(file_path) + xfile)
                     os.remove(str(file_path) + xfile)
                 except OSError as e:
-                    listFile.append(e.filename + " : " + e.strerror)
-    return listFile
+                    list_file.append(e.filename + " : " + e.strerror)
+    return list_file
 
 
 def get_file_directory(file):
     return os.path.dirname(os.path.abspath(file))
+
 
 # удаление файлов старше days дней
 def del_file_olddays(dir, days):
@@ -65,25 +70,25 @@ def del_file_olddays(dir, days):
     cutoff = now - (int(days) * 86400)
     files = os.listdir(dir)
     file_path = dir
-    listFile = []
-    #import glob
-    #os.chdir(" ")
-    #for file in glob.glob("*.txt")
-    #print(file)
+    list_file = []
+    # import glob
+    # os.chdir(" ")
+    # for file in glob.glob("*.txt")
+    # print(file)
     for xfile in files:
 
         if os.path.isfile(str(file_path) + xfile):
             t = os.stat(str(file_path) + xfile)
             c = t.st_ctime
-            #print(c)
+            # print(c)
 
             # delete file if older than  $days
             if (xfile.endswith(".bak") or xfile.endswith(".zip")) and c < cutoff:
-                #print("Удален файл: " + str(file_path) + xfile)
-                #listFile.append(str(file_path) + xfile)
+                # print("Удален файл: " + str(file_path) + xfile)
+                # listFile.append(str(file_path) + xfile)
                 try:
-                    listFile.append(str(file_path) + xfile)
+                    list_file.append(str(file_path) + xfile)
                     os.remove(str(file_path) + xfile)
                 except OSError as e:
-                    listFile.append(e.filename + " : " + e.strerror)
-    return listFile
+                    list_file.append(e.filename + " : " + e.strerror)
+    return list_file
