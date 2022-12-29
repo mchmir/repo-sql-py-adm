@@ -16,7 +16,7 @@ days_archive = 1
 serv = ""
 base = ""
 user = ""
-pasw = ""
+password = ""
 
 logger = logging.getLogger("sql_backup")
 logger.setLevel(logging.INFO)
@@ -42,7 +42,7 @@ def sqlBackup(nHost, nBase, nFileName):
     
     """
       
-    con = sql_connect_py(serv, "master", user, pasw)
+    con = sql_connect_py(serv, "master", user, password)
     # logging.basicConfig(filename="backup.log", level=logging.INFO)
     logger.info("Program started " + timeNow)
     if not con:
