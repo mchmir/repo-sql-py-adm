@@ -1,0 +1,1 @@
+sqlcmd -S GG-DOC\SQLEXPRESS -Usa -Psas -i C:\KASPIpay\kaspipay.sql
