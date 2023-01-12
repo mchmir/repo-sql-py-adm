@@ -5,3 +5,5 @@ TEMP/
 venv/
 /venv/
 /.idea/
+/.vscode/
+.vscode/
