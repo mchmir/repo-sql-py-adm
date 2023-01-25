@@ -1,0 +1,6 @@
+dill~=0.3.6
+pandas~=1.5.2
+scikit-learn~=1.2.0
+joblib~=1.1.1
+fastapi~=0.89.1
+pydantic~=1.10.4
