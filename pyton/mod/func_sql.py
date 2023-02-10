@@ -1,23 +1,34 @@
-import pyodbc
 # import os, sys, time
 import os
 import time
+from shutil import copy
+
+import pyodbc
 # from subprocess import call
 # from shutil import copyfile,copy
-from shutil import copy
+from sqlalchemy import create_engine
+
+
+def sql_engine(nhost="localhost", nbase="", nuser="", npasw=""):
+    try:
+        return create_engine(f"mssql+pyodbc://{nuser}:{npasw}@{nhost}/{nbase}?driver=SQL+Server")
+    except:
+        return False
 
 
 def sqlconnect(nHost="localhost", nBase="", nUser="", nPasw=""):
     try:
-        return pyodbc.connect("DRIVER={SQL Server};SERVER="+nHost+";DATABASE="+nBase+";UID="+nUser+";PWD="+nPasw)
+        return pyodbc.connect(
+            "DRIVER={SQL Server};SERVER=" + nHost + ";DATABASE=" + nBase + ";UID=" + nUser + ";PWD=" + nPasw)
     except:
         return False
 
 
 def sqlconnect_backup(nHost="localhost", nBase="", nUser="", nPasw=""):
     try:
-        return pyodbc.connect("DRIVER={SQL Server};SERVER=" + nHost + ";DATABASE=" + nBase + ";UID=" + nUser + ";PWD="
-                              + nPasw, autocommit=True)
+        return pyodbc.connect(
+            "DRIVER={SQL Server};SERVER=" + nHost + ";DATABASE=" + nBase + ";UID=" + nUser + ";PWD=" + nPasw,
+            autocommit=True)
     except:
         return False
 
@@ -32,18 +43,18 @@ def sqlCommandfromFile(filename):
     # Open and read the file as a single buffer
     try:
         fd = open(filename, 'r')
-        sql_file = fd.read()
+        sqlFile = fd.read()
         fd.close()
-        return sql_file
+        return sqlFile
     except (IOError, OSError) as e:
         return print(e)
 
 
 # удаление файлов по расширению
-def remove_files(dir, xDot):
+def removefiles(dir, xDot):
     files = os.listdir(dir)
     file_path = dir
-    list_file = []
+    listFile = []
     # import glob
     # os.chdir(" ")
     # for file in glob.glob("*.txt")
@@ -51,13 +62,15 @@ def remove_files(dir, xDot):
     for xfile in files:
 
         if os.path.isfile(str(file_path) + xfile):
-            if xfile.endswith(xDot):
+
+            if (xfile.endswith(xDot)):
+
                 try:
-                    list_file.append(str(file_path) + xfile)
+                    listFile.append(str(file_path) + xfile)
                     os.remove(str(file_path) + xfile)
                 except OSError as e:
-                    list_file.append(e.filename + " : " + e.strerror)
-    return list_file
+                    listFile.append(e.filename + " : " + e.strerror)
+    return listFile
 
 
 def get_file_directory(file):
@@ -70,7 +83,7 @@ def del_file_olddays(dir, days):
     cutoff = now - (int(days) * 86400)
     files = os.listdir(dir)
     file_path = dir
-    list_file = []
+    listFile = []
     # import glob
     # os.chdir(" ")
     # for file in glob.glob("*.txt")
@@ -87,8 +100,8 @@ def del_file_olddays(dir, days):
                 # print("Удален файл: " + str(file_path) + xfile)
                 # listFile.append(str(file_path) + xfile)
                 try:
-                    list_file.append(str(file_path) + xfile)
+                    listFile.append(str(file_path) + xfile)
                     os.remove(str(file_path) + xfile)
                 except OSError as e:
-                    list_file.append(e.filename + " : " + e.strerror)
-    return list_file
+                    listFile.append(e.filename + " : " + e.strerror)
+    return listFile
