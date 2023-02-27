@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
+import dateutil
 import pandas as pd
 from mod.func_sql import sqlconnect
 from mod.func_sql import sql_engine
 import re    # Импорт модуля для работы с регулярными выражениями
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
 
 serv = "gg-app"
 base = "Gefest"
 user = "sa"
-pasw = "sa"
+password = "sa"
 
 
 def sql_select_engine():
@@ -16,16 +19,24 @@ def sql_select_engine():
     if re.match("[yYдД]", response):
         sql_file = input('Имя sql-файла без расширения в папке .sql:')
 
-        engine = sql_engine(serv, base, user, pasw)
+        engine, error = sql_engine(serv, base, user, password)
+
         if not engine:
-            print("Error connect to dataBase!")
+            print(f'Error connect to dataBase! Error {error}')
             return
 
         query = open('sql\\' + sql_file + '.sql', 'r')
 
         sql_reader = pd.read_sql_query(query.read(), engine)
+        num_rows = sql_reader.shape[0]
 
-        file_csv = "EIRC_GORGAZ_{:%m%Y}.csv".format(datetime.now())
+        year = datetime.now().year
+        month_ago = datetime.now().month - 1
+
+        if month_ago < 10:
+            month_file = '0' + str(month_ago)
+
+        file_csv = 'EIRC_GORGAZ_{0}{1}_{2}.csv'.format(month_file, year, num_rows)
         sql_reader.to_csv(file_csv, sep='|', index=False, encoding='utf-8')
 
     else:
@@ -35,18 +46,18 @@ def sql_select_engine():
 def sql_select():
     response = input('Запускаем код на выполнение? [Y/N]:')
     if re.match("[yYдД]", response):
-        sqlfile = input('Имя sql-файла без расширения в папке .sql:')
+        sql_file = input('Имя sql-файла без расширения в папке .sql:')
        
-        con = sqlconnect(serv,base,user,pasw)
+        con = sqlconnect(serv, base, user, password)
         if not con:
-            print ("Error connect to dataBase!")
+            print("Error connect to dataBase!")
             return
-        query = open('sql\\'+sqlfile+'.sql', 'r')
+        query = open('sql\\'+sql_file+'.sql', 'r')
 
         sql_reader = pd.read_sql_query(query.read(), con)
 
-        fileCSV = "EIRC_GORGAZ_{:%m%Y}.csv".format(datetime.now())
-        sql_reader.to_csv(fileCSV, sep='|', index =False, encoding='utf-8')
+        file_csv = "EIRC_GORGAZ_{:%m%Y}.csv".format(datetime.now())
+        sql_reader.to_csv(file_csv, sep='|', index =False, encoding='utf-8')
 
     else:
         print("Отмена выполнения. Всего хорошего!")

@@ -6,14 +6,14 @@ from shutil import copy
 import pyodbc
 # from subprocess import call
 # from shutil import copyfile,copy
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, exc
 
 
 def sql_engine(nhost="localhost", nbase="", nuser="", npasw=""):
     try:
-        return create_engine(f"mssql+pyodbc://{nuser}:{npasw}@{nhost}/{nbase}?driver=SQL+Server")
-    except:
-        return False
+        return create_engine(f"mssql+pyodbc://{nuser}:{npasw}@{nhost}/{nbase}?driver=SQL+Server"), None
+    except exc.SQLAlchemyError as error:
+        return False, error
 
 
 def sqlconnect(nHost="localhost", nBase="", nUser="", nPasw=""):
