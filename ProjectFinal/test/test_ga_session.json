@@ -1,0 +1,43 @@
+{"2022-01-02": [
+{
+  "session_id": "9055432108483400094.1641140638.1641140638",
+  "client_id": "2108382086.1641140638", 
+  "visit_date": "2022-01-02",
+  "visit_time": "19:23:58",
+  "visit_number": 1,
+  "utm_source": "hqpYkWpkYefgduliaKcm",
+  "utm_medium": "cpc",
+  "utm_campaign": NaN,
+  "utm_adcontent": "vmpjxytvOioeqSlwNoAl",
+  "utm_keyword": "BhUZBJUdmsWLEISSdxTa",
+  "device_category": "mobile",
+  "device_os": "Android",
+  "device_brand": "Xiaomi",
+  "device_model": NaN,
+  "device_screen_resolution": "393x851",
+  "device_browser": "Android Webview",
+  "geo_country": "Russia",
+  "geo_city": "Moscow"
+ },
+{
+  "session_id": "9056424722670117391.1641112635.1641112635",
+  "client_id": "2108613197.1641112079",
+  "visit_date": "2022-01-02",
+  "visit_time": "11:37:15",
+  "visit_number": 1,
+  "utm_source": "kVGXyneGKJVfHKWnWbEr",
+  "utm_medium": "(none)",
+  "utm_campaign": "XOywtQLVBIVeKsBULENc",
+  "utm_adcontent": "vmpjxytvOioeqSlwNoAl",
+  "utm_keyword": "BhUZBJUdmsWLEISSdxTa",
+  "device_category": "mobile",
+  "device_os": "Android",
+  "device_brand": "Lenovo",
+  "device_model": NaN,
+  "device_screen_resolution": "412x915",
+  "device_browser": "Chrome",
+  "geo_country": "Russia", 
+  "geo_city": "Kazan"
+ }
+]
+}

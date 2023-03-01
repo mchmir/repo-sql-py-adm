@@ -1,0 +1,128 @@
+2023-02-25 11:49:20,798 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_sessions_new_2022-01-01.json' - load_json_session:110
+2023-02-25 11:49:20,893 - classProject.logger_load_json - INFO - Файл ga_sessions_new_2022-01-01.json не содержит данных.' - load_json_session:127
+2023-02-25 11:49:20,893 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_sessions_new_2022-01-02.json' - load_json_session:110
+2023-02-25 11:50:22,472 - classProject.logger_load_json - INFO - Загружено записей: '7277' - load_data:303
+2023-02-25 11:50:22,477 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу GA_SESSION: загружен файл 'ga_sessions_new_2022-01-02.json' - load_json_session:134
+2023-02-25 11:50:22,478 - classProject.logger_load_json - INFO - Файл ga_sessions_new_2022-01-02.json был перемещен в data/lte/loaded с новым именем loaded_ga_sessions_new_2022-01-02.json - load_json_session:139
+2023-02-25 11:50:22,531 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу аудита - load_json_session:144
+2023-02-25 11:50:22,534 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_sessions_new_2022-01-03.json' - load_json_session:110
+2023-02-25 11:50:37,509 - classProject.logger_load_json - INFO - Загружено записей: '8569' - load_data:303
+2023-02-25 11:50:37,509 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу GA_SESSION: загружен файл 'ga_sessions_new_2022-01-03.json' - load_json_session:134
+2023-02-25 11:50:37,509 - classProject.logger_load_json - INFO - Файл ga_sessions_new_2022-01-03.json был перемещен в data/lte/loaded с новым именем loaded_ga_sessions_new_2022-01-03.json - load_json_session:139
+2023-02-25 11:50:37,561 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу аудита - load_json_session:144
+2023-02-25 11:50:37,564 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_sessions_new_2022-01-04.json' - load_json_session:110
+2023-02-25 11:50:52,525 - classProject.logger_load_json - INFO - Загружено записей: '9383' - load_data:303
+2023-02-25 11:50:52,525 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу GA_SESSION: загружен файл 'ga_sessions_new_2022-01-04.json' - load_json_session:134
+2023-02-25 11:50:52,526 - classProject.logger_load_json - INFO - Файл ga_sessions_new_2022-01-04.json был перемещен в data/lte/loaded с новым именем loaded_ga_sessions_new_2022-01-04.json - load_json_session:139
+2023-02-25 11:50:52,587 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу аудита - load_json_session:144
+2023-02-25 11:50:52,592 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_sessions_new_2022-01-05.json' - load_json_session:110
+2023-02-25 11:51:09,321 - classProject.logger_load_json - INFO - Загружено записей: '9493' - load_data:303
+2023-02-25 11:51:09,321 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу GA_SESSION: загружен файл 'ga_sessions_new_2022-01-05.json' - load_json_session:134
+2023-02-25 11:51:09,321 - classProject.logger_load_json - INFO - Файл ga_sessions_new_2022-01-05.json был перемещен в data/lte/loaded с новым именем loaded_ga_sessions_new_2022-01-05.json - load_json_session:139
+2023-02-25 11:51:09,373 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу аудита - load_json_session:144
+2023-02-25 11:51:09,377 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_hits_new_2022-01-01.json' - load_json_hits:59
+2023-02-25 11:51:09,429 - classProject.logger_load_json - INFO - Файл ga_hits_new_2022-01-01.json не содержит данных.' - load_json_hits:76
+2023-02-25 11:51:09,429 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_hits_new_2022-01-02.json' - load_json_hits:59
+2023-02-25 11:52:22,857 - classProject.logger_load_json - INFO - Загружено записей: '73499' - load_data:234
+2023-02-25 11:52:22,857 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу GA_HITS: загружен файл'ga_hits_new_2022-01-02.json' - load_json_hits:83
+2023-02-25 11:52:22,857 - classProject.logger_load_json - INFO - Файл ga_hits_new_2022-01-02.json был перемещен в data/lte/loaded с новым именем loaded_ga_hits_new_2022-01-02.json - load_json_hits:88
+2023-02-25 11:52:22,933 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу аудита - load_json_hits:93
+2023-02-25 11:52:22,958 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_hits_new_2022-01-03.json' - load_json_hits:59
+2023-02-25 11:53:43,049 - classProject.logger_load_json - INFO - Загружено записей: '81243' - load_data:234
+2023-02-25 11:53:43,050 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу GA_HITS: загружен файл'ga_hits_new_2022-01-03.json' - load_json_hits:83
+2023-02-25 11:53:43,050 - classProject.logger_load_json - INFO - Файл ga_hits_new_2022-01-03.json был перемещен в data/lte/loaded с новым именем loaded_ga_hits_new_2022-01-03.json - load_json_hits:88
+2023-02-25 11:53:43,104 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу аудита - load_json_hits:93
+2023-02-25 11:53:43,129 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_hits_new_2022-01-04.json' - load_json_hits:59
+2023-02-25 11:53:44,911 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '109652', 'hit_number': 13, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars/all/renault/logan/8c3c73f2?rental_page=rental_car', 'event_category': 'card_web', 'event_action': 'view_card', 'event_label': None, 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:53:50,686 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '67530', 'hit_number': 8, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars?city=1&rental_page=rental_only&rental_car=rental_only&city=18', 'event_category': 'search_form', 'event_action': 'search_form_region', 'event_label': 'ujdGdXqMhqYrmjMWSJkz', 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:53:51,726 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '75252', 'hit_number': 9, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars?city=1&rental_page=rental_only&rental_car=rental_only&city=18', 'event_category': 'search_form', 'event_action': 'search_form_search_btn', 'event_label': 'fuOQTDYklYJXmLYvIcBE', 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:53:57,243 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '109660', 'hit_number': 14, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars/all/renault/logan/8c3c73f2?rental_page=rental_car', 'event_category': 'card_web', 'event_action': 'view_new_card', 'event_label': None, 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:54:03,695 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '110239', 'hit_number': 17, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars/all/renault/logan/8c3c73f2?rental_page=rental_car', 'event_category': 'card_web', 'event_action': 'view_card', 'event_label': None, 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:54:07,973 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '91780', 'hit_number': 10, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars?city=1&rental_page=rental_only&rental_car=rental_only&city=18', 'event_category': 'listing_ads', 'event_action': 'go_to_car_card', 'event_label': 'XxbqWJuslsWpmthfWlae', 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:54:15,613 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '109663', 'hit_number': 16, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars/all/renault/logan/8c3c73f2?rental_page=rental_car', 'event_category': 'card_web', 'event_action': 'view_new_card', 'event_label': None, 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:54:19,172 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=2381056920524165531.1641325770.1641325770 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(2381056920524165531.1641325770.1641325770) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '2381056920524165531.1641325770.1641325770', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '38208', 'hit_number': 4, 'hit_type': 'event', 'hit_referer': 'NpduSCJLxJfqZfUWXKNy', 'hit_page_path': 'podpiska.sberauto.com/', 'event_category': 'sub_button_click', 'event_action': 'sub_view_cars_click', 'event_label': 'jXtKmJAbnOKnGVWWYXxQ', 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:54:29,591 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '56558', 'hit_number': 7, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars?city=1&rental_page=rental_only&rental_car=rental_only&city=18', 'event_category': 'listing_ads', 'event_action': 'listing_ads_sort', 'event_label': None, 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:54:32,444 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=2381056920524165531.1641325770.1641325770 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(2381056920524165531.1641325770.1641325770) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '2381056920524165531.1641325770.1641325770', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '36', 'hit_number': 2, 'hit_type': 'event', 'hit_referer': 'NpduSCJLxJfqZfUWXKNy', 'hit_page_path': 'podpiska.sberauto.com/', 'event_category': 'sub_page_view', 'event_action': 'sub_landing', 'event_label': None, 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:54:32,767 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '280', 'hit_number': 2, 'hit_type': 'event', 'hit_referer': 'NpduSCJLxJfqZfUWXKNy', 'hit_page_path': 'podpiska.sberauto.com/', 'event_category': 'sub_page_view', 'event_action': 'sub_landing', 'event_label': None, 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:54:37,379 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '38609', 'hit_number': 4, 'hit_type': 'event', 'hit_referer': 'NpduSCJLxJfqZfUWXKNy', 'hit_page_path': 'podpiska.sberauto.com/', 'event_category': 'sub_button_click', 'event_action': 'sub_view_cars_click', 'event_label': 'bnafKdTsEWJPkMMqOcSY', 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:55:00,154 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '110239', 'hit_number': 18, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars/all/renault/logan/8c3c73f2?rental_page=rental_car', 'event_category': 'card_web', 'event_action': 'view_new_card', 'event_label': None, 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:55:07,086 - classProject.logger_load_json - WARNING - Загрузка данных в таблицу GA_HITS для session_id=8418660712445111146.1641278319.1641278319 завершилась ошибкой: '(psycopg2.errors.ForeignKeyViolation) ОШИБКА:  INSERT или UPDATE в таблице "ga_hits" нарушает ограничение внешнего ключа "ga_hits_session_id_fkey"
+DETAIL:  Ключ (session_id)=(8418660712445111146.1641278319.1641278319) отсутствует в таблице "ga_sessions".
+
+[SQL: INSERT INTO admin_app.ga_hits (session_id, hit_date, hit_time, hit_number, hit_type, hit_referer, hit_page_path, event_category, event_action, event_label, event_value) VALUES (%(session_id)s, %(hit_date)s, %(hit_time)s, %(hit_number)s, %(hit_type)s, %(hit_referer)s, %(hit_page_path)s, %(event_category)s, %(event_action)s, %(event_label)s, %(event_value)s) RETURNING admin_app.ga_hits.id]
+[parameters: {'session_id': '8418660712445111146.1641278319.1641278319', 'hit_date': datetime.date(2022, 1, 4), 'hit_time': '109660', 'hit_number': 15, 'hit_type': 'event', 'hit_referer': None, 'hit_page_path': 'sberauto.com/cars/all/renault/logan/8c3c73f2?rental_page=rental_car', 'event_category': 'card_web', 'event_action': 'view_card', 'event_label': None, 'event_value': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)' - load_data:226
+2023-02-25 11:55:14,083 - classProject.logger_load_json - INFO - Загружено записей: '91562' - load_data:234
+2023-02-25 11:55:14,083 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу GA_HITS: загружен файл'ga_hits_new_2022-01-04.json' - load_json_hits:83
+2023-02-25 11:55:14,083 - classProject.logger_load_json - INFO - Файл ga_hits_new_2022-01-04.json был перемещен в data/lte/loaded с новым именем loaded_ga_hits_new_2022-01-04.json - load_json_hits:88
+2023-02-25 11:55:14,135 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу аудита - load_json_hits:93
+2023-02-25 11:55:14,135 - classProject.logger_load_json - INFO - Начата загрузка файла 'ga_hits_new_2022-01-05.json' - load_json_hits:59
+2023-02-25 11:56:44,549 - classProject.logger_load_json - INFO - Загружено записей: '92170' - load_data:234
+2023-02-25 11:56:44,549 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу GA_HITS: загружен файл'ga_hits_new_2022-01-05.json' - load_json_hits:83
+2023-02-25 11:56:44,549 - classProject.logger_load_json - INFO - Файл ga_hits_new_2022-01-05.json был перемещен в data/lte/loaded с новым именем loaded_ga_hits_new_2022-01-05.json - load_json_hits:88
+2023-02-25 11:56:44,601 - classProject.logger_load_json - INFO - Успешная загрузка данных в таблицу аудита - load_json_hits:93
