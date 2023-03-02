@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f4f2d229-31d0-4b75-b81d-ea4a61f9586a": {
+      "ProjectGuid": "f4f2d229-31d0-4b75-b81d-ea4a61f9586a",
+      "DisplayName": "SendMailApp",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

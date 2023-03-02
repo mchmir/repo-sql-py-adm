@@ -1,0 +1,10 @@
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\obj\Debug\SendMailApp.exe
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\obj\Debug\SendMailApp.xml
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\obj\Debug\SendMailApp.pdb
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\bin\Debug\SendMailApp.exe
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\bin\Debug\SendMailApp.pdb
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\bin\Debug\SendMailApp.xml
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\obj\Debug\SendMailApp.Form2.resources
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\obj\Debug\SendMailApp.frmMain.resources
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\obj\Debug\SendMailApp.Resources.resources
+C:\Users\mchmir\Documents\15_VS_code\SendMailApp\SendMailApp\obj\Debug\SendMailApp.vbproj.GenerateResource.Cache

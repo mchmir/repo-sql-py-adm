@@ -1,0 +1,8 @@
+C:\Users\mchmir\Documents\15_VS_code\GGSLC\bin\Release\GGSLC.dll
+C:\Users\mchmir\Documents\15_VS_code\GGSLC\bin\Release\GGSLC.pdb
+C:\Users\mchmir\Documents\15_VS_code\GGSLC\bin\Release\AjaxControlToolkit.dll
+C:\Users\mchmir\Documents\15_VS_code\GGSLC\bin\Release\itextsharp.dll
+C:\Users\mchmir\Documents\15_VS_code\GGSLC\obj\Release\GGSLC.Properties.Resources.resources
+C:\Users\mchmir\Documents\15_VS_code\GGSLC\obj\Release\GGSLC.csproj.GenerateResource.Cache
+C:\Users\mchmir\Documents\15_VS_code\GGSLC\obj\Release\GGSLC.dll
+C:\Users\mchmir\Documents\15_VS_code\GGSLC\obj\Release\GGSLC.pdb

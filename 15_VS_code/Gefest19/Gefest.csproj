@@ -1,0 +1,1619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectGuid>{315E2AFA-3F92-43DB-926F-223BF35A70CF}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>Gefest</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworkVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.Excel">
+      <HintPath>..\..\..\..\..\Program Files (x86)\gorgaz\Gefest\Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core">
+      <HintPath>..\..\..\..\..\Program Files (x86)\gorgaz\Gefest\Interop.Microsoft.Office.Core.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Program Files (x86)\gorgaz\EService\office.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSecurityDLL, Version=1.0.6781.22199, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\..\..\Program Files (x86)\gorgaz\Gefest\WebSecurityDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>.\GefestReferences\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="WebAddress, Version=1.0.3836.18269, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\..\..\Program Files (x86)\gorgaz\Gefest\WebAddress.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Command">
+      <HintPath>.\GefestReferences\C1.Win.C1Command.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>.\GefestReferences\System.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Input">
+      <HintPath>.\GefestReferences\C1.Win.C1Input.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1List">
+      <HintPath>.\GefestReferences\C1.Win.C1List.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.FprnM1C">
+      <HintPath>.\GefestReferences\Interop.FprnM1C.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.SHDocVw">
+      <HintPath>.\GefestReferences\AxInterop.SHDocVw.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>.\GefestReferences\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>.\GefestReferences\System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="System.Drawing, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System.Xml">
+      <HintPath>.\GefestReferences\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <HintPath>.\GefestReferences\Microsoft.VisualBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="System, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="WebSecurityDLL2">
+      <HintPath>..\..\..\..\..\Program Files (x86)\gorgaz\Gefest\WebSecurityDLL2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Accounting.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Settings1s.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Accountings.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Agent.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Settingss.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Agents.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\StatusBatch.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\StatusBatchs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\AutoBatch.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\StatusGMeter.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\AutoBatchs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\StatusGMeters.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\StatusGObject.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\StatusGObjects.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Stavka.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\AutoDocument.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\AutoDocuments.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Stavkas.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Tariff.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TariffConnectionGobject.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TariffConnectionGobjects.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Balance.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\BalanceReal.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TariffDisconnectionGobject.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\BalanceReals.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TariffDisconnectionGobjects.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TariffDisconnectionGobjectStakan.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Balances.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TariffDisconnectionGobjectStakans.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Bank.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Banks.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Batch.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Tariffs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeAction.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeActions.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeAgent.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeAgents.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeBatch.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeBatchs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Batchs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeCharge.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeCharges.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\CashBalance.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\CashBalances.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\ClassGRU.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeContract.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\ClassGRUs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeContracts.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeDocument.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeDocuments.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeEnd.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Classifier.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Classifiers.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeEnds.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeFU.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Contract.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeFUs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeGMeter.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeGMeters.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeGobject.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeGobjects.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeIndication.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Contracts.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Correspondent.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeIndications.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeInfringements.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeInfringementss.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Correspondents.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeOperation.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeOperations.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePay.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePays.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePB.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Depot.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Document.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Documents.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Enterprise.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Enterprises.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\FactUse.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\FactUses.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePBs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePC.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePCs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePD.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePDs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePG.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypePGs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeReasonDisconnect.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeReasonDisconnects.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeTariff.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeTariffs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeVerify.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\TypeVerifys.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\ucAddress.Designer.cs">
+      <AutoGen>true</AutoGen>
+      <DependentUpon>ucAddress.resx</DependentUpon>
+      <DesignTimeSharedInput>true</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\UslugiVDGO.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\UslugiVDGOs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\OldValues.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\OldValuess.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="u003cPrivateImplementationDetailsu003e.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Gmeter.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\GmeterPlombHistory.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\GmeterPlombHistorys.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Gmeters.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Gobject.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Gobjects.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\GrafikTO.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\GrafikTOs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\GroupPerson.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\GroupPersons.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\GRU.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\GRUs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Indication.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Indications.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\IndicationsTemp.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\IndicationTemp.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\LinkGroupPerson.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\LinkGroupPersons.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Operation.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Operations.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Ownership.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Ownerships.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PB.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PBs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PC.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PCs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PD.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PDs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Period.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Periods.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Person.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PersonalCabinet.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PersonalCabinetRequest.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PersonalCabinetRequests.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Persons.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PG.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PGs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Phone.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Phones.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PrintLog.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\PrintLogs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Sending.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Sendings.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Settings.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\Settings1.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Gefest\frmFilterDocVerifys.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintSvedenWorkAbonent.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmFilterLegalDocs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintUslugiVDGO.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmFindContract.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintСonditionGobject.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmRecalcBalance.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmRecalcCashBalance.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmFindPayment.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmReceptionIndication.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmGetChanges.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmGetGMeter.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmReceptionIndicationTemp.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmGetPlombFile.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmGetTFPhones.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmActionForPeriod.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmReceptionIndicationTemps.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmGetTransportFile.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmActionGMeter.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmGetUnPlombFile.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmReceptionNotification.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmReceptionNotifications.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintReestrOplOfBank.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmRepaymentDebt.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmGMeter.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmActionGObject.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmGMeterPlombHistory.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmSetConformityTypeGMeter.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmGObject.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmSettings.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmIndication.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmActJob.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmSimpleObj.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmActJobs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmSimpleObjs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmAddContracts.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmAddress.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmStart.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmJPerson.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmBalance.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmLegalDoc.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmTechObsluch.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmLegalDocs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmBatch.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmTehObsluchs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmUnloadingInTextFile.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmChangeCharge.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmBatchs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmChangeCharges.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmMain.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmCarryPayment.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmChangeCountLives.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmNariad.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmClaimDoc.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmOldDocs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmCarryPayments.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmClaimDocs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmCloseKKM.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmOpenCashChange.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmComparisonContract.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPaymentDoc.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmComparisonGMeter.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmComparisonTypeGMeter.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPerson.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPersonalCabinetRequest.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmContract.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPersonalCabinetRequests.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmCreateTransport.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrinDoubleIndication.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrinSaldoPoGRU.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmFilterBatchs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmCreationClaimDocs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmFilterClaimDocs.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmDocCreditUsl.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintAnaliz.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintSaldoWorkPlace.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmDocCreditUsls.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintAnalysisDebtsDuty.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmCash.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintAccount.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmDocVerify.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintAnalysisMainDebtsDuty.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintAccountList.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmCashRepTerminal.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintAccountOpt.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmDocVerifys.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintSpravkaPoRU.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintBigConsumption.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintPayments.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintSpravkaVnovUstPU.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintPaymentsMonth.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintConsumptionGas.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintPenyPoContractu.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintProchimVidamVDGO.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintConsumptionGasUL.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintReestrOplOfKass.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintCountNotice.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintReestrPenyGosPO.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintDebitors.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintReestrUrLic.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintReestrVerifyGM.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintDoVerify.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintReferenceOnSubscriptionService.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintDoVerifyGTM.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintReferenceOnSubscriptionServiceUR.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintrepReferenceOnSubscriptionServiceRuk.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintDoVerifyNO.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintSaldo.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintDoVerifyNOSpisok.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintDubleNumberPU.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintSaldoPoKvart.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintSpisokDomPodkKGS.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintGarbTask.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\FrmPrintSpisokGRU.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintNoAkt.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintOldDebet.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gefest\frmPrintSpravkaPoOtklKV.cs">
+      <AutoGen>false</AutoGen>
+      <DesignTimeSharedInput>false</DesignTimeSharedInput>
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="Gefest\frmFilterDocVerifys.resx">
+      <DependentUpon>frmFilterDocVerifys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintSvedenWorkAbonent.resx">
+      <DependentUpon>frmPrintSvedenWorkAbonent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmFilterLegalDocs.resx">
+      <DependentUpon>frmFilterLegalDocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintUslugiVDGO.resx">
+      <DependentUpon>frmPrintUslugiVDGO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmFindContract.resx">
+      <DependentUpon>frmFindContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintСonditionGobject.resx">
+      <DependentUpon>frmPrintСonditionGobject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmRecalcBalance.resx">
+      <DependentUpon>frmRecalcBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmRecalcCashBalance.resx">
+      <DependentUpon>frmRecalcCashBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmFindPayment.resx">
+      <DependentUpon>frmFindPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmReceptionIndication.resx">
+      <DependentUpon>frmReceptionIndication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmGetChanges.resx">
+      <DependentUpon>frmGetChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmGetGMeter.resx">
+      <DependentUpon>frmGetGMeter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmReceptionIndicationTemp.resx">
+      <DependentUpon>frmReceptionIndicationTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmGetPlombFile.resx">
+      <DependentUpon>frmGetPlombFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmGetTFPhones.resx">
+      <DependentUpon>frmGetTFPhones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmActionForPeriod.resx">
+      <DependentUpon>frmActionForPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmReceptionIndicationTemps.resx">
+      <DependentUpon>frmReceptionIndicationTemps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmGetTransportFile.resx">
+      <DependentUpon>frmGetTransportFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmActionGMeter.resx">
+      <DependentUpon>frmActionGMeter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmGetUnPlombFile.resx">
+      <DependentUpon>frmGetUnPlombFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmReceptionNotification.resx">
+      <DependentUpon>frmReceptionNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmReceptionNotifications.resx">
+      <DependentUpon>frmReceptionNotifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintReestrOplOfBank.resx">
+      <DependentUpon>frmPrintReestrOplOfBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmRepaymentDebt.resx">
+      <DependentUpon>frmRepaymentDebt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmGMeter.resx">
+      <DependentUpon>frmGMeter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmActionGObject.resx">
+      <DependentUpon>frmActionGObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmGMeterPlombHistory.resx">
+      <DependentUpon>frmGMeterPlombHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmSetConformityTypeGMeter.resx">
+      <DependentUpon>frmSetConformityTypeGMeter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmGObject.resx">
+      <DependentUpon>frmGObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmIndication.resx">
+      <DependentUpon>frmIndication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmActJob.resx">
+      <DependentUpon>frmActJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmSimpleObj.resx">
+      <DependentUpon>frmSimpleObj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmActJobs.resx">
+      <DependentUpon>frmActJobs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmSimpleObjs.resx">
+      <DependentUpon>frmSimpleObjs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmAddContracts.resx">
+      <DependentUpon>frmAddContracts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmAddress.resx">
+      <DependentUpon>frmAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmStart.resx">
+      <DependentUpon>frmStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmJPerson.resx">
+      <DependentUpon>frmJPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmBalance.resx">
+      <DependentUpon>frmBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmLegalDoc.resx">
+      <DependentUpon>frmLegalDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmTechObsluch.resx">
+      <DependentUpon>frmTechObsluch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmLegalDocs.resx">
+      <DependentUpon>frmLegalDocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmBatch.resx">
+      <DependentUpon>frmBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmTehObsluchs.resx">
+      <DependentUpon>frmTehObsluchs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmUnloadingInTextFile.resx">
+      <DependentUpon>frmUnloadingInTextFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmChangeCharge.resx">
+      <DependentUpon>frmChangeCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmBatchs.resx">
+      <DependentUpon>frmBatchs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmChangeCharges.resx">
+      <DependentUpon>frmChangeCharges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmCarryPayment.resx">
+      <DependentUpon>frmCarryPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmChangeCountLives.resx">
+      <DependentUpon>frmChangeCountLives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmNariad.resx">
+      <DependentUpon>frmNariad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmClaimDoc.resx">
+      <DependentUpon>frmClaimDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmOldDocs.resx">
+      <DependentUpon>frmOldDocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmCarryPayments.resx">
+      <DependentUpon>frmCarryPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmClaimDocs.resx">
+      <DependentUpon>frmClaimDocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmCloseKKM.resx">
+      <DependentUpon>frmCloseKKM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmOpenCashChange.resx">
+      <DependentUpon>frmOpenCashChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmComparisonContract.resx">
+      <DependentUpon>frmComparisonContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPaymentDoc.resx">
+      <DependentUpon>frmPaymentDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmComparisonGMeter.resx">
+      <DependentUpon>frmComparisonGMeter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmComparisonTypeGMeter.resx">
+      <DependentUpon>frmComparisonTypeGMeter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPerson.resx">
+      <DependentUpon>frmPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPersonalCabinetRequest.resx">
+      <DependentUpon>frmPersonalCabinetRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmContract.resx">
+      <DependentUpon>frmContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPersonalCabinetRequests.resx">
+      <DependentUpon>frmPersonalCabinetRequests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmCreateTransport.resx">
+      <DependentUpon>frmCreateTransport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrinDoubleIndication.resx">
+      <DependentUpon>frmPrinDoubleIndication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrinSaldoPoGRU.resx">
+      <DependentUpon>frmPrinSaldoPoGRU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmFilterBatchs.resx">
+      <DependentUpon>frmFilterBatchs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmCreationClaimDocs.resx">
+      <DependentUpon>frmCreationClaimDocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmFilterClaimDocs.resx">
+      <DependentUpon>frmFilterClaimDocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmDocCreditUsl.resx">
+      <DependentUpon>frmDocCreditUsl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintAnaliz.resx">
+      <DependentUpon>frmPrintAnaliz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintSaldoWorkPlace.resx">
+      <DependentUpon>frmPrintSaldoWorkPlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmDocCreditUsls.resx">
+      <DependentUpon>frmDocCreditUsls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintAnalysisDebtsDuty.resx">
+      <DependentUpon>frmPrintAnalysisDebtsDuty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmCash.resx">
+      <DependentUpon>frmCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintAccount.resx">
+      <DependentUpon>frmPrintAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmDocVerify.resx">
+      <DependentUpon>frmDocVerify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintAnalysisMainDebtsDuty.resx">
+      <DependentUpon>frmPrintAnalysisMainDebtsDuty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintAccountList.resx">
+      <DependentUpon>frmPrintAccountList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmCashRepTerminal.resx">
+      <DependentUpon>frmCashRepTerminal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintAccountOpt.resx">
+      <DependentUpon>frmPrintAccountOpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmDocVerifys.resx">
+      <DependentUpon>frmDocVerifys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintSpravkaPoRU.resx">
+      <DependentUpon>frmPrintSpravkaPoRU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintBigConsumption.resx">
+      <DependentUpon>frmPrintBigConsumption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintPayments.resx">
+      <DependentUpon>frmPrintPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintSpravkaVnovUstPU.resx">
+      <DependentUpon>frmPrintSpravkaVnovUstPU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintPaymentsMonth.resx">
+      <DependentUpon>frmPrintPaymentsMonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintConsumptionGas.resx">
+      <DependentUpon>frmPrintConsumptionGas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintPenyPoContractu.resx">
+      <DependentUpon>frmPrintPenyPoContractu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintProchimVidamVDGO.resx">
+      <DependentUpon>frmPrintProchimVidamVDGO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintConsumptionGasUL.resx">
+      <DependentUpon>frmPrintConsumptionGasUL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintReestrOplOfKass.resx">
+      <DependentUpon>frmPrintReestrOplOfKass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintCountNotice.resx">
+      <DependentUpon>frmPrintCountNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintReestrPenyGosPO.resx">
+      <DependentUpon>frmPrintReestrPenyGosPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintDebitors.resx">
+      <DependentUpon>frmPrintDebitors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintReestrUrLic.resx">
+      <DependentUpon>frmPrintReestrUrLic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintReestrVerifyGM.resx">
+      <DependentUpon>frmPrintReestrVerifyGM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintDoVerify.resx">
+      <DependentUpon>frmPrintDoVerify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintReferenceOnSubscriptionService.resx">
+      <DependentUpon>frmPrintReferenceOnSubscriptionService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintDoVerifyGTM.resx">
+      <DependentUpon>frmPrintDoVerifyGTM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintReferenceOnSubscriptionServiceUR.resx">
+      <DependentUpon>frmPrintReferenceOnSubscriptionServiceUR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintrepReferenceOnSubscriptionServiceRuk.resx">
+      <DependentUpon>frmPrintrepReferenceOnSubscriptionServiceRuk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintDoVerifyNO.resx">
+      <DependentUpon>frmPrintDoVerifyNO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintSaldo.resx">
+      <DependentUpon>frmPrintSaldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintDoVerifyNOSpisok.resx">
+      <DependentUpon>frmPrintDoVerifyNOSpisok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintDubleNumberPU.resx">
+      <DependentUpon>frmPrintDubleNumberPU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintSaldoPoKvart.resx">
+      <DependentUpon>frmPrintSaldoPoKvart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintSpisokDomPodkKGS.resx">
+      <DependentUpon>frmPrintSpisokDomPodkKGS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintGarbTask.resx">
+      <DependentUpon>frmPrintGarbTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\FrmPrintSpisokGRU.resx">
+      <DependentUpon>FrmPrintSpisokGRU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintNoAkt.resx">
+      <DependentUpon>frmPrintNoAkt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintOldDebet.resx">
+      <DependentUpon>frmPrintOldDebet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\frmPrintSpravkaPoOtklKV.resx">
+      <DependentUpon>frmPrintSpravkaPoOtklKV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest\ucAddress.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ucAddress.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gefest.exe.licenses" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
