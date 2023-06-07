@@ -1,0 +1,19 @@
+[
+  {
+    "IDDocument": 22279938,
+    "IDContract": 908134,
+    "IDPeriod": 212,
+    "IDBatch": null,
+    "IDTypeDocument": 22,
+    "DocumentNumber": "4854",
+    "DocumentDate": "2022-09-22T00:00:00",
+    "DocumentAmount": 292.809,
+    "IDGru": null,
+    "IdUser": null,
+    "DateAdd": null,
+    "IdModify": null,
+    "DateModify": null,
+    "Note": "",
+    "TerminalData": null
+  }
+]

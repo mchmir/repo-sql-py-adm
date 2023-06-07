@@ -1,0 +1,4 @@
+pyodbc~=4.0.34
+pandas~=1.4.4
+sqlalchemy~=1.4.39
+python-dateutil~=2.8.2

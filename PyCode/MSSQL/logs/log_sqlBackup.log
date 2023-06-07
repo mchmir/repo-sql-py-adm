@@ -1,0 +1,56 @@
+2022-01-14 23:00:00,805 - sql_backup - INFO - Program started 14012022_230000
+2022-01-14 23:00:02,022 - sql_backup - INFO - Архивирование успешно завершено в файл: D:\1C-ARCHIVE\\APC_14012022_230000.bak
+2022-01-14 23:00:03,274 - sql_backup - INFO - Архив сжат в ZIP: D:\1C-ARCHIVE\\APC_14012022_230000.bak.zip
+2022-01-14 23:00:03,281 - sql_backup - INFO - Program started 14012022_230000
+2022-01-14 23:00:05,310 - sql_backup - INFO - Архивирование успешно завершено в файл: D:\1C-ARCHIVE\\lansweeperdb_14012022_230000.bak
+2022-01-14 23:00:07,273 - sql_backup - INFO - Архив сжат в ZIP: D:\1C-ARCHIVE\\lansweeperdb_14012022_230000.bak.zip
+2022-01-14 23:00:07,292 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\APC_13012022_230000.bak
+2022-01-14 23:00:07,292 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\APC_13012022_230000.bak.zip
+2022-01-14 23:00:07,292 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\lansweeperdb_13012022_230000.bak
+2022-01-14 23:00:07,292 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\lansweeperdb_13012022_230000.bak.zip
+2022-01-14 23:00:09,585 - sql_backup - INFO - Данные скопированы по пути:\\gg-app\oit\
+2022-01-14 23:00:09,621 - sql_backup - INFO - Удален файл старше 1 дней: \\gg-app\oit\APC_08012022_230000.bak.zip
+2022-01-14 23:00:09,621 - sql_backup - INFO - Удален файл старше 1 дней: \\gg-app\oit\lansweeperdb_08012022_230000.bak.zip
+2022-01-14 23:00:21,395 - sql_backup - INFO - Лог-файл отправлен на почту.
+2022-01-15 23:00:00,653 - sql_backup - INFO - Program started 15012022_230000
+2022-01-15 23:00:01,862 - sql_backup - INFO - Архивирование успешно завершено в файл: D:\1C-ARCHIVE\\APC_15012022_230000.bak
+2022-01-15 23:00:03,279 - sql_backup - INFO - Архив сжат в ZIP: D:\1C-ARCHIVE\\APC_15012022_230000.bak.zip
+2022-01-15 23:00:03,286 - sql_backup - INFO - Program started 15012022_230000
+2022-01-15 23:00:05,438 - sql_backup - INFO - Архивирование успешно завершено в файл: D:\1C-ARCHIVE\\lansweeperdb_15012022_230000.bak
+2022-01-15 23:00:07,480 - sql_backup - INFO - Архив сжат в ZIP: D:\1C-ARCHIVE\\lansweeperdb_15012022_230000.bak.zip
+2022-01-15 23:00:07,487 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\APC_14012022_230000.bak
+2022-01-15 23:00:07,487 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\APC_14012022_230000.bak.zip
+2022-01-15 23:00:07,487 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\lansweeperdb_14012022_230000.bak
+2022-01-15 23:00:07,487 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\lansweeperdb_14012022_230000.bak.zip
+2022-01-15 23:00:09,674 - sql_backup - INFO - Данные скопированы по пути:\\gg-app\oit\
+2022-01-15 23:00:09,681 - sql_backup - INFO - Удален файл старше 1 дней: \\gg-app\oit\APC_10012022_230001.bak.zip
+2022-01-15 23:00:09,681 - sql_backup - INFO - Удален файл старше 1 дней: \\gg-app\oit\lansweeperdb_10012022_230001.bak.zip
+2022-01-15 23:00:40,134 - sql_backup - INFO - Лог-файл отправлен на почту.
+2022-01-17 23:00:00,578 - sql_backup - INFO - Program started 17012022_230000
+2022-01-17 23:00:01,671 - sql_backup - INFO - Архивирование успешно завершено в файл: D:\1C-ARCHIVE\\APC_17012022_230000.bak
+2022-01-17 23:00:03,105 - sql_backup - INFO - Архив сжат в ZIP: D:\1C-ARCHIVE\\APC_17012022_230000.bak.zip
+2022-01-17 23:00:03,112 - sql_backup - INFO - Program started 17012022_230000
+2022-01-17 23:00:05,157 - sql_backup - INFO - Архивирование успешно завершено в файл: D:\1C-ARCHIVE\\lansweeperdb_17012022_230000.bak
+2022-01-17 23:00:07,143 - sql_backup - INFO - Архив сжат в ZIP: D:\1C-ARCHIVE\\lansweeperdb_17012022_230000.bak.zip
+2022-01-17 23:00:07,151 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\APC_15012022_230000.bak
+2022-01-17 23:00:07,151 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\APC_15012022_230000.bak.zip
+2022-01-17 23:00:07,152 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\lansweeperdb_15012022_230000.bak
+2022-01-17 23:00:07,152 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\lansweeperdb_15012022_230000.bak.zip
+2022-01-17 23:00:08,764 - sql_backup - INFO - Данные скопированы по пути:\\gg-app\oit\
+2022-01-17 23:00:08,798 - sql_backup - INFO - Удален файл старше 1 дней: \\gg-app\oit\APC_11012022_230000.bak.zip
+2022-01-17 23:00:08,798 - sql_backup - INFO - Удален файл старше 1 дней: \\gg-app\oit\APC_12012022_230000.bak.zip
+2022-01-17 23:00:08,798 - sql_backup - INFO - Удален файл старше 1 дней: \\gg-app\oit\lansweeperdb_11012022_230000.bak.zip
+2022-01-17 23:00:08,798 - sql_backup - INFO - Удален файл старше 1 дней: \\gg-app\oit\lansweeperdb_12012022_230000.bak.zip
+2022-01-17 23:00:19,813 - sql_backup - INFO - Лог-файл отправлен на почту.
+2022-01-18 23:00:00,614 - sql_backup - INFO - Program started 18012022_230000
+2022-01-18 23:00:01,802 - sql_backup - INFO - Архивирование успешно завершено в файл: D:\1C-ARCHIVE\\APC_18012022_230000.bak
+2022-01-18 23:00:03,194 - sql_backup - INFO - Архив сжат в ZIP: D:\1C-ARCHIVE\\APC_18012022_230000.bak.zip
+2022-01-18 23:00:03,200 - sql_backup - INFO - Program started 18012022_230000
+2022-01-18 23:00:05,352 - sql_backup - INFO - Архивирование успешно завершено в файл: D:\1C-ARCHIVE\\lansweeperdb_18012022_230000.bak
+2022-01-18 23:00:07,360 - sql_backup - INFO - Архив сжат в ZIP: D:\1C-ARCHIVE\\lansweeperdb_18012022_230000.bak.zip
+2022-01-18 23:00:07,369 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\APC_17012022_230000.bak
+2022-01-18 23:00:07,369 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\APC_17012022_230000.bak.zip
+2022-01-18 23:00:07,369 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\lansweeperdb_17012022_230000.bak
+2022-01-18 23:00:07,369 - sql_backup - INFO - Удален файл старше 1 дней: D:\1C-ARCHIVE\\lansweeperdb_17012022_230000.bak.zip
+2022-01-18 23:00:09,022 - sql_backup - INFO - Данные скопированы по пути:\\gg-app\oit\
+2022-01-18 23:00:15,799 - sql_backup - INFO - Лог-файл отправлен на почту.

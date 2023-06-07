@@ -1,0 +1,427 @@
+15/10/21¶3¶537
+BEGIN TRANSACTION 
+ declare @IDCorrespondent int  set @IDCorrespondent=(select IDCorrespondent from Settings) 
+ insert into Sending (DateSending, IDCorrespondent, NumberSending) values( '2021-10-15 00:00:00',3, '537')
+ update Settings set IDCorrespondent=3
+update gmeter set idstatusgmeter=2, IDTypeGMeter=55, SerialNumber='130308242', BeginValue=0.011, DateInstall='2014-05-22 00:00:00', DateVerify='2013-06-30 00:00:00', Memo='', DateFabrication='2013-06-30 00:00:00', idcontract=904776, IDConformity=796050, IDtypeVerify=1 where idgmeter=796050
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=17, SerialNumber='02281172', BeginValue=0, DateInstall='2005-09-01 00:00:00', DateVerify='2020-06-16 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 16,06,20ã ê/ï 256,779ì3, ïîäêë 17,06,20ã    Âð-çàãë íà ïîâ-êó ÃÒÌ 23,04,15ã ê/ï 211,543ì3,ïîäêë.24,04,15ã  Âð.çàãë.íà ïîâ-êó ÊÑÒ 20,04,10ã ê/ï 63,633ì3,ïîäêë.21,04,10ã', DateFabrication='2005-01-01 00:00:00', idcontract=890703, IDConformity=772927, IDtypeVerify=1 where idgmeter=772927
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02369298', BeginValue=0.093, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 239,558ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 12,12,13ã ê/ï 145,397ì3, ïîäêë. 13,12,13ã.', DateFabrication='2006-01-01 00:00:00', idcontract=915445, IDConformity=777588, IDtypeVerify=1 where idgmeter=777588
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=43, SerialNumber='003232749', BeginValue=0, DateInstall='1997-01-23 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 564,25ì3, ÏÓ çàáðàê  Óñò ïëèòû ÃÒÌÝ 09,06,17ã ê/ï 510,216ì3 Âð-çàãë íà ïîâ-êó ÃÒÌ 18,11,15ã ê/ï 502,007ì3,ïîäêë.19,11,15ã.  Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.16,09,09ã,ê/ï 403,92ì3.Ïîäêë.16,09,09ã.  ÍàÖÝêÑ,Áóëàòáåêîâà', DateFabrication='1997-01-01 00:00:00', idcontract=889573, IDConformity=747272, IDtypeVerify=2 where idgmeter=747272
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02304966', BeginValue=0.155, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 295,645ì3, ïîäêë 14,10,21ã  Ïåðåíîñ ÏÓ ÃÒÌ 23,08,18ã ê/ï 216,993ì3 Óñò. ã/ïëèòû ÃÒÌ 08,12,14ã ê/ï 126,618ì3. Âð-çàãë íà ïîâ-êó ÃÒÌ 15,11,13ã ê/ï 108,885ì3,ïîäêë.15,11,13ã.   ', DateFabrication='2005-10-11 00:00:00', idcontract=915011, IDConformity=777488, IDtypeVerify=1 where idgmeter=777488
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=61, SerialNumber='56428796*', BeginValue=0, DateInstall='1996-03-15 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 783,899ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 22,10,15ã ê/ï 682,813ì3,ïîäêë 23,10,15ã. ', DateFabrication='1995-01-01 00:00:00', idcontract=898661, IDConformity=756360, IDtypeVerify=1 where idgmeter=756360
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02287318*', BeginValue=0, DateInstall='2005-09-23 00:00:00', DateVerify='2020-07-28 00:00:00', Memo='Òåõ/îñì ïîìåù ÃÒÌÝ 14,10,21ã ê/ï 558,337ì3    Âð-çàãë íà ïîâ-êó ÃÒÌÝ 28,07,20ã ê/ï 513,318ì3, ïîäêë 28,07,20ã   Âð-çàãë íà ïîâ-êó ÃÒÌ 23,07,15ã ê/ï 308,333ì3,ïîäêë 24,07,15ã.  Âð.çàãë.íà ïîâ-êó ÊÑÒ 10,07,10ã ê/ï 137,619ì3,ïîäêë.11,07,10ã', DateFabrication='2005-07-19 00:00:00', idcontract=878677, IDConformity=772622, IDtypeVerify=1 where idgmeter=772622
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=17, SerialNumber='02180800', BeginValue=0, DateInstall='2003-01-01 00:00:00', DateVerify='2018-02-26 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Àõìåòæ 26,02,18ã ê/ï 337,835ì3, ïîäêë 26,02,18ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.05,04,13ã ê/ï 246,698ì3,ïîäêë.05,04,13ã ', DateFabrication='2003-01-01 00:00:00', idcontract=880178, IDConformity=737877, IDtypeVerify=1 where idgmeter=737877
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=12, SerialNumber='9620783', BeginValue=0, DateInstall='1997-04-22 00:00:00', DateVerify='2017-07-19 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 19,07,17ã ê/ï 999,293ì3, ïîäêë 20,07,17ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 16,07,12ã ê/ï 813,415ì3,ïîäêë.16,07,12ã    Âð. çàãë. íà ïîâåðêó ÈÏ Àõìåò.26,07,07ã, ê/ï 639,3 ì3. Ïîäê. 30,07,07ã,ÍàÖÝêÑ, Àðò¸ìîâà.ê/ï-639,388', DateFabrication='1996-01-01 00:00:00', idcontract=895605, IDConformity=753304, IDtypeVerify=1 where idgmeter=753304
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=17, SerialNumber='02289749*', BeginValue=0, DateInstall='2005-11-01 00:00:00', DateVerify='2020-09-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,09,20ã ê/ï 430,828ì3, ïîäêë 16,09,20ã Âð-çàãë íà ïîâ-êó ÃÒÌ 03,06,15ã ê/ï 317,823ì3,ïîäêë 04,06,15ã. Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.17,06,10ã ê/ï 161,759ì3,ïîäêë.18,06,10ã. ', DateFabrication='2005-07-08 00:00:00', idcontract=859588, IDConformity=773339, IDtypeVerify=1 where idgmeter=773339
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02120124', BeginValue=0, DateInstall='2002-02-27 00:00:00', DateVerify='2017-07-13 00:00:00', Memo='Ïåðåíîñ ÏÓ, âð-çàãë ïîñëå ÏÓ ÃÒÌ 17,09,21ã ê/ï 860,276ì3, ïîäêë ÃÒÌÝ 14,10,21ã  ñ ïîêàç 860,285ì3   Òåõ/îñì ïîìåù ÃÒÌÝ 16,09,21ã ê/ï 860,276ì3    Òåõ/îñì ïîìåù ÃÒÌÝ 12,07,21ã ê/ï 860,276ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,07,17ã ê/ï 737,962ì3, ïîäêë 14,07,17ã Âð-çàãë íà ïîâ-êó ÈÏ Ôèøáóõ 16,07,12ã ê/ï 516,970ì3,ïîäêë.18,07,12ã    ÍàÖÝêÑ È.Ï.Àõìåòæàíîâ-âð.çàãëóøêà 21,03,07 ÍàÖÝêÑ.Óñòàíîâêà ñ÷-êà ïîñëå ïðîâ.-22,03,07 ê/ï 206,110ì3', DateFabrication='2001-01-01 00:00:00', idcontract=886300, IDConformity=743999, IDtypeVerify=1 where idgmeter=743999
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107942',0.333,'2021-10-14 00:00:00','2021-07-22 00:00:00','','2021-07-22 00:00:00',889573,810219,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02186612', BeginValue=0, DateInstall='2003-05-26 00:00:00', DateVerify='2018-06-25 00:00:00', Memo='Ïåðåíîñ ã/êðàíà, âð-çàãë ïîñëå ÏÓ ÃÒÌ 01,10,21ã ê/ï 1103,687ì3, ïîäêë ÃÒÌÝ 14,10,21ã  Òåõ/îñì ïîìåù ÃÒÌÝ 28,09,21ã ê/ï 1103,687ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 25,06,18ã ê/ï 806,641ì3, ïîäêë 26,06,18ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 03,06,13ã ê/ï 510,245ì3,ïîäêë.03,06,13ã  Âð.çàãë.íà ïîâ-êó ÈÏ Øàìãàíîâà 26,05,08ã ê/ï 330,7ì3,ïîäêë.27,05,08ã.', DateFabrication='2003-04-17 00:00:00', idcontract=882857, IDConformity=740556, IDtypeVerify=1 where idgmeter=740556
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='íîâûé ñîáñòâ', Patronic='' where IDContract=887575
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02304983', BeginValue=0, DateInstall='2005-12-30 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 262,506ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÒÎÎ "ÃàçÒåõìîíòàæ" 01,10,13ã ê/ï 131,364ì3,ïîäêë.02,10,13ã. ', DateFabrication='2005-10-11 00:00:00', idcontract=860259, IDConformity=774531, IDtypeVerify=1 where idgmeter=774531
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=16, SerialNumber='002807*', BeginValue=0, DateInstall='2001-01-30 00:00:00', DateVerify='2017-02-06 00:00:00', Memo='ÃÒÌÝ 14,10,21ã ê/ï 520,168ì3   Âð-çàãë íà ïîâ-êó ÃÒÌÝ 06,02,17ã ê/ï 419,693ì3, ïîäêë 07,02,17ã  Âð.çàãë.íà ïîâåðêó ÊÑÒ 20,12,08ã,ê/ï 196,066ì3.Ïîäêë.21,12,08ã.', DateFabrication='2000-01-01 00:00:00', idcontract=908759, IDConformity=766458, IDtypeVerify=1 where idgmeter=766458
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02304902', BeginValue=0, DateInstall='2006-02-01 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 269,414ì3, ïîäêë 14,10,21ã  Çàìåíà ïëèòû ÈÏ Øàìãàí 08,03,21ã ê/ï 257,174ì3  Âð-çàãë íà ïîâ-êó ÃÒÌ 18,11,13ã ê/ï 140,493ì3,ïîäêë.19,11,13ã.', DateFabrication='2005-10-11 00:00:00', idcontract=860836, IDConformity=774538, IDtypeVerify=1 where idgmeter=774538
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=41, SerialNumber='003857448', BeginValue=0, DateInstall='1998-03-05 00:00:00', DateVerify='2015-12-09 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 14,10,21ã ê/ï 589,108ì3, ïîäêë 14,10,21ã  Çàìåíà êðàíà ÃÒÌÝ 26,11,18ã ê/ï 536,928ì3 Âð-çàãë íà ïîâ-êó ÃÒÌ 09,12,15ã ê/ï 462,659ì3,ïîäêë.10,12,15ã   Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.12,01,10ã,ê/ï 322,47ì3.Ïîäêë.13,01,10ã.  ÍàÖÝêÑ Àðòåìîâà', DateFabrication='1997-01-01 00:00:00', idcontract=902392, IDConformity=760091, IDtypeVerify=1 where idgmeter=760091
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107830',0.288,'2021-10-14 00:00:00','2021-07-21 00:00:00','','2021-07-21 00:00:00',908759,810220,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=42, SerialNumber='003854749', BeginValue=0, DateInstall='1997-08-01 00:00:00', DateVerify='2015-12-08 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 14,10,21ã ê/ï 1149,278ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò. 08,12,15ã ê/ï 970,762ì3,ïîäêë 08,12,15ã. Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.12,02,10ã ê/ï 727,49ì3.Ïîäêë.13,02,10ã.', DateFabrication='1997-01-01 00:00:00', idcontract=885983, IDConformity=743682, IDtypeVerify=1 where idgmeter=743682
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=1, SerialNumber='004060936', BeginValue=0, DateInstall='1998-08-09 00:00:00', DateVerify='2019-02-19 00:00:00', Memo='ÃÒÌÝ 14,10,21ã ê/ï 708,937ì3    Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 19,02,19ã ê/ï 691,405ì3, ïîäêë 19,02,19ã  Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò.08,04,14ã ê/ï 465,133ì3,ïîäêë.09,04,14ã. Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.13,05,09ã,ê/ï 315,29ì3.Ïîäêë.14,05,09ã.  ÍàÖÝêÑ Ñàâèíà', DateFabrication='1998-01-01 00:00:00', idcontract=876544, IDConformity=734243, IDtypeVerify=1 where idgmeter=734243
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107829',0.304,'2021-10-14 00:00:00','2021-07-21 00:00:00','','2021-07-21 00:00:00',876544,810221,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=3, SerialNumber='003231210', BeginValue=0, DateInstall='1997-03-25 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 467,728ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 22,10,15ã ê/ï 375,488ì3,ïîäêë.23,10,15ã.  Í/ç ïîä ðîñïèñü 03,04,15ã ê/ï 365,894ì3.  Óâåä. âðó÷åíî 06,10,08ã.ÊÑÒ ê/ï-246,885  Âð.çàãë.íà ïîâåðêó ÊÑÒ 07,11,08ã,ê/ï 246,645ì3.Ïîäêë.08,11,08ã.', DateFabrication='1997-01-01 00:00:00', idcontract=861228, IDConformity=718927, IDtypeVerify=1 where idgmeter=718927
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=43, SerialNumber='003763281*', BeginValue=0, DateInstall='1997-08-05 00:00:00', DateVerify='2015-12-08 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 14,10,21ã ê/ï 787,471ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò. 08,12,15ã ê/ï 698,355ì3,ïîäêë 08,12,15ã. Âð.çàãë.íà ïîâ-êó ÈÏ Àõìåò.24,02,10ã ê/ï 557,92ì3,ïîäêë.25,02,10ã', DateFabrication='1997-01-01 00:00:00', idcontract=886018, IDConformity=743717, IDtypeVerify=1 where idgmeter=743717
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004060921', BeginValue=0, DateInstall='1998-12-21 00:00:00', DateVerify='2018-01-22 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 22,01,18ã ê/ï 231,161ì3, ïîäêë 23,01,18ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 18,02,13ã ê/ï 199,622ì3,ïîäêë,18,02,13ã  Ñàì.îòêë.,ïîäêë.ÈÏ Ôèøáóõ 11,07,11ã ñ ïîêàç.183,355ì3.   Âð. çàãë. Ôèøáóõ 05,03,08ã, íà ïîâåðêó,ïîäêë.07,03,08ã. ÍàÖÝêÑ. Ñàâèíà.', DateFabrication='1998-01-01 00:00:00', idcontract=894207, IDConformity=751906, IDtypeVerify=1 where idgmeter=751906
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02120079', BeginValue=0, DateInstall='2002-03-29 00:00:00', DateVerify='2017-07-11 00:00:00', Memo='Òåõ/îñì ïîìåù ÃÒÌÝ 14,10,21ã ê/ï 667,793ì3    Óñò ïëèòû ÃÒÌÝ 11,04,19ã ê/ï 603,209ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 11,07,17ã ê/ï 544,477ì3, ïîäêë 12,07,17ã  Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.14,02,12ã ê/ï 380,645ì3,ïîäêë.14,02,12ã.  Âð. çàãë. 19,02,07ã, ñ÷-ê ñíÿò íà ïîâåðêó,ïîäêë. 21,02,07ã ', DateFabrication='2002-01-01 00:00:00', idcontract=903353, IDConformity=761052, IDtypeVerify=1 where idgmeter=761052
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=42, SerialNumber='003860231', BeginValue=0, DateInstall='1998-01-26 00:00:00', DateVerify='2015-12-07 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 14,10,21ã ê/ï 526,484ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò. 07,12,15ã ê/ï 416,508ì3,ïîäêë 07,12,15ã. Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.14,02,10ã ê/ï 341,43ì3.Ïîäêë.15,02,10ã.  ÍàÖÝêÑ,Àðò¸ìîâà', DateFabrication='1997-01-01 00:00:00', idcontract=886059, IDConformity=743758, IDtypeVerify=1 where idgmeter=743758
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=16, SerialNumber='005116', BeginValue=0, DateInstall='2003-03-21 00:00:00', DateVerify='2017-04-06 00:00:00', Memo='ÃÒÌÝ 14,10,21ã ê/ï 220,294ì3    Âð-çàãë íà ïîâ-êó ÃÒÌÝ 06,04,17ã ê/ï 192,36ì3, ïîäêë 07,04,17ã  Âð.çàãë.íà ïîâ-êó ÈÏ Øàìãàí.12,03,09ã ê/ï 100,061ì3,ïîäêë.13,03,09ã (ïåðåðàñ÷. ïî ôàêò. ïîêàç. ÏÓ ïîñëå ñîñò. êîíòð. à/ð).', DateFabrication='2001-01-01 00:00:00', idcontract=901143, IDConformity=758842, IDtypeVerify=1 where idgmeter=758842
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107861',1.142,'2021-10-14 00:00:00','2021-07-21 00:00:00','','2021-07-21 00:00:00',901143,810222,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02304886', BeginValue=0.115, DateInstall='2006-02-01 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 382,724ì3, ïîäêë 14,10,21ã  Óñò ïëèòû ÃÒÌÝ 22,06,20ã ê/ï 350,016ì3  Âð-çàãë íà ïîâ-êó ÃÒÌ 29,10,13ã ê/ï 168,944ì3,ïîäêë.30,10,13ã   ', DateFabrication='2005-10-11 00:00:00', idcontract=890920, IDConformity=774234, IDtypeVerify=1 where idgmeter=774234
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=43, SerialNumber='003762076', BeginValue=0, DateInstall='1997-10-24 00:00:00', DateVerify='2015-12-07 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 14,10,21ã ê/ï 590,991ì3, ïîäêë 14,10,21ã  Óñò ïëèòû ÃÒÌÝ 22,05,17ã ê/ï 552,92ì3 Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò. 07,12,15ã ê/ï 524,691ì3,ïîäêë 07,12,15ã. Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.11,02,10ã ê/ï 403,59ì3.Ïîäêë.12,02,10ã.  ÍàÖÝêÑ Ñàâèíà', DateFabrication='1997-01-01 00:00:00', idcontract=886084, IDConformity=743783, IDtypeVerify=1 where idgmeter=743783
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=3, SerialNumber='004018579', BeginValue=0, DateInstall='2000-05-31 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 259,898ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 16,11,16ã ê/ï 217,027ì3, ïîäêë 17,11,16ã   Âð-çàãë íà ïîâ-êó ÊÑÒ 28,11,11ã ê/ï 157,767ì3,ïîäêë.28,11,11ã   ', DateFabrication='1998-01-01 00:00:00', idcontract=886988, IDConformity=744687, IDtypeVerify=1 where idgmeter=744687
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=42, SerialNumber='003856795', BeginValue=0, DateInstall='1998-01-01 00:00:00', DateVerify='2015-12-07 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 14,10,21ã ê/ï 498,660ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò. 07,12,15ã ê/ï 416,114ì3,ïîäêë 07,12,15ã. Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.08,02,10ã ê/ï 326,13ì3.Ïîäêë.09,02,10ã.  ÍàÖÝêÑ Ñàâèíà', DateFabrication='1997-01-01 00:00:00', idcontract=886090, IDConformity=743789, IDtypeVerify=1 where idgmeter=743789
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=3, SerialNumber='003565981', BeginValue=0, DateInstall='1997-04-22 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 436,235ì3, ïîäêë 14,10,21ã   Óñò ïëèòû ÃÒÌÝ 22,08,17ã ê/ï 402,515ì3  Âð-çàãë íà ïîâ-êó ÃÒÌ 10,08,15ã ê/ï 379,36ì3,ïîäêë.11,08,15ã  Âð. çàãë. ÈÏ Ôèøáóõ 04,08,09ã íà ïîâåðêó, ïîäêë. 06.08.09ã  ÊÌÑÒ ê ï.307,792ì3', DateFabrication='1997-01-01 00:00:00', idcontract=898921, IDConformity=756620, IDtypeVerify=1 where idgmeter=756620
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=17, SerialNumber='02120097', BeginValue=0, DateInstall='2002-02-20 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 697,502ì3, ÏÓ çàáðàê    Ïåðåíîñ ÏÓ, âð-çàãë ïîñëå ÏÓ ÃÒÌ 04,05,18ã ê/ï 621,469ì3, ïîäêë ÃÒÌÝ 23,05,18ã ñ ïîêàç 621,472ì3  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 17,11,16ã ê/ï 585,634ì3, ïîäêë 17,11,16ã Âð-çàãë íà ïîâ-êó ÈÏ Ôèøáóõ 23,11,11ã ê/ï 406,141ì3,ïîäêë.25,11,11ã.  ÍàÖÝêÑ', DateFabrication='2001-01-01 00:00:00', idcontract=902319, IDConformity=760018, IDtypeVerify=2 where idgmeter=760018
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02117670', BeginValue=0, DateInstall='2003-10-13 00:00:00', DateVerify='2021-10-13 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,10,21ã ê/ï 422,511ì3, ïîäêë 14,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 30,09,16ã ê/ï 354,241ì3,ïîäêë.30,09,16ã.  Âð-çàãë íà ïîâ-êó ÊÑÒ 10,10,11ã ê/ï 236,101ì3,ïîäêë.10,10,11ã   âð. çàãë. 23.10.06ã. (ñ÷-ê ñíÿò íà ïð-êó)  Óñò. ñ÷-êà ïîñëå ïðîâåðêè 27,10,06ã', DateFabrication='2001-01-01 00:00:00', idcontract=905897, IDConformity=763596, IDtypeVerify=1 where idgmeter=763596
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02304609', BeginValue=0, DateInstall='2005-12-29 00:00:00', DateVerify='2013-10-11 00:00:00', Memo='Çàìåíà ã/ïëèòû ÈÏ Øàìãàí 14,10,21ã ê/ï 419,901ì3  Âð-çàãë íà ïîâ-êó ÒÎÎ "ÃàçÒåõìîíòàæ" 11,10,13ã ê/ï 162,748ì3,ïîäêë.12,10,13ã  ', DateFabrication='2005-10-11 00:00:00', idcontract=908164, IDConformity=774593, IDtypeVerify=1 where idgmeter=774593
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02122197', BeginValue=0, DateInstall='2001-10-22 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 481,608ì3, ïîäêë 14,10,21ã   Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò 30,11,16ã ê/ï 411,164ì3, ïîäêë 30,11,16ã  Çàì. øëàíãà ÃÒÌ 01,10,15ã ê/ï 385,06ì3. Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.20,02,12ã ê/ï 327,842ì3,ïîäêë. 20,02,12ã', DateFabrication='2001-01-01 00:00:00', idcontract=882681, IDConformity=740380, IDtypeVerify=1 where idgmeter=740380
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=1, SerialNumber='004898762', BeginValue=0, DateInstall='2000-12-07 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 947,841ì3, ÏÓ çàáðàê   Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò 30,11,16ã ê/ï 823,775ì3, ïîäêë 30,11,16ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.23,02,12ã ê/ï 600,69ì3,ïîäêë. 23,02,12ã', DateFabrication='2000-01-01 00:00:00', idcontract=882695, IDConformity=740394, IDtypeVerify=2 where idgmeter=740394
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02324876', BeginValue=0.32, DateInstall='2007-05-01 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 349,8ì3, ïîäêë 14,10,21ã   Âð-çàãë íà ïîâ-êó ÃÒÌ 05,12,13ã ê/ï 171,761ì3,ïîäêë.06,12,13ã  ', DateFabrication='2006-01-01 00:00:00', idcontract=915801, IDConformity=779638, IDtypeVerify=1 where idgmeter=779638
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=43, SerialNumber='003766206', BeginValue=0, DateInstall='1997-11-21 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 275,266ì3, ÏÓ çàáðàê    Âð-çàãë íà ïîâ-êó ÃÒÌ 22,10,15ã ê/ï 187,633ì3,ïîäêë 23,10,15ã. Âð.çàãë.íà ïîâåðêó ÊÑÒ 14,10,08ã,ê/ï 94,309ì3.Ïîäêë.15,10,08ã.', DateFabrication='1997-01-01 00:00:00', idcontract=882949, IDConformity=740648, IDtypeVerify=2 where idgmeter=740648
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02469317', BeginValue=0.1, DateInstall='2008-06-18 00:00:00', DateVerify='2016-03-16 00:00:00', Memo='Ñàìîâ îòêë, ïîäêë ÃÒÌÝ 14,10,21ã ñ ïîêàç 161,228ì3  Ïåðåíîñ ÏÓ ÃÒÌÝ 02,09,21ã ê/ï 161,218ì3    Òåõ/îñì ïîìåù ÃÒÌÝ 01,09,21ã ê/ï 162,218ì3     Óñò ïëèòû ÃÒÌÝ 03,08,20ã ê/ï 153,693ì3   Âð-çàãë íà ïîâ-êó ÃÒÌ 16,03,16ã ê/ï 100,245ì3, ïîäêë.17,03,16ã', DateFabrication='2008-04-23 00:00:00', idcontract=906516, IDConformity=783623, IDtypeVerify=1 where idgmeter=783623
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107944',0.337,'2021-10-14 00:00:00','2021-07-22 00:00:00','','2021-07-22 00:00:00',902319,810223,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107862',4.295,'2021-10-14 00:00:00','2021-07-21 00:00:00','','2021-07-21 00:00:00',882695,810224,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=17, SerialNumber='02296937', BeginValue=0, DateInstall='2006-03-29 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 510,33ì3, ïîäêë 14,10,21ã  Ïåðåíîñ ÏÓ ÃÒÌ 28,09,17ã ê/ï 401,132ì3 Òåõ/îñìîòð ïîìåù ÃÒÌÝ 07,09,17ã ê/ï 400,747ì3 Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.10,12,15ã ê/ï 376,574ì3,ïîäêë.10,12,15ã Óñò.ã/ïëèòû ÃÒÌ 16,07,14ã ê/ï 326,98ì3.  Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.09,02,11ã ê/ï 203,101ì3,ïîäêë.09,02,11ã.  ', DateFabrication='2005-09-05 00:00:00', idcontract=865786, IDConformity=775009, IDtypeVerify=1 where idgmeter=775009
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ëàçàò', Surname='Ðàìàçàíîâà', Patronic='Áèñèìáàåâíà' where IDContract=911050
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12107579', BeginValue=0.185, DateInstall='2021-08-13 00:00:00', DateVerify='2021-06-02 00:00:00', Memo='Ïåðåíîñ ÏÓ ÃÒÌÝ 14,10,21ã ê/ï 5,557ì3', DateFabrication='2021-06-02 00:00:00', idcontract=890779, IDConformity=809953, IDtypeVerify=1 where idConformity=809953
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02120029', BeginValue=0, DateInstall='2001-08-11 00:00:00', DateVerify='2021-10-14 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 14,10,21ã ê/ï 914,4ì3, ïîäêë 14,10,21ãÏåðåíîñ ã/êðàíà ÃÒÌ 20,08,21ã ê/ï 907,568ì3  Òåõ/îñì ïîìåù ÃÒÌÝ 18,08,21ã ê/ï 907,442ì3    Óñò ïëèòû ÃÒÌÝ 09,07,21ã ê/ï 904,773ì3   Óñò ïëèòû ÃÒÌÝ 09,10,19ã ê/ï 852,81ì3  Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò 30,11,16ã ê/ï 793,001ì3, ïîäêë 30,11,16ã  Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.20,02,12ã ê/ï 582,691ì3,ïîäêë.20,02,12ã.', DateFabrication='2001-02-07 00:00:00', idcontract=867605, IDConformity=725304, IDtypeVerify=1 where idgmeter=725304
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=11, SerialNumber='104603', BeginValue=2.504, DateInstall='2007-04-24 00:00:00', DateVerify='2021-10-12 00:00:00', Memo='Ïåðåíîñ ã/êðàíà, âð-çàãë ïîñëå ÏÓ ÃÒÌ 15,10,21ã ê/ï 330,37ì3  Òåõ/îñì ïîìåù ÃÒÌÝ 14,10,21ã  Í-ç ïîä ðîñïèñü 12,10,21ã ê/ï 330,189ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 12,10,21ã ê/ï 330,189ì3  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 10,11,16ã ê/ï 186,657ì3, ïîäêë 10,11,16ã Âð-çàãë íà ïîâ-êó ÈÏ Ôèøáóõ 09,01,12ã ê/ï 82,215ì3,ïîäêë.11,01,12ã. ÍàÖÝêÑ', DateFabrication='2007-01-18 00:00:00', idcontract=868540, IDConformity=779294, IDtypeVerify=1 where idgmeter=779294
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Âàëåíòèíà', Surname='Áàðîíêèíà', Patronic='Íèêîëàåâíà' where IDContract=904358
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àñåëü', Surname='Àìðèíà', Patronic='Àìàíãåëüäûåâíà' where IDContract=897400
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='íîâûé ñîáñòâ', Patronic='' where IDContract=865611
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02324400', BeginValue=0.122, DateInstall='2007-04-01 00:00:00', DateVerify='2021-09-28 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 28,09,21ã ê/ï 293,73ì3, ïîäêë 28,09,21ã   Âð-çàãë íà ïîâ-êó ÃÒÌ 12,12,13ã ê/ï 143,28ì3,ïîäêë.13,12,13ã  ', DateFabrication='2006-01-01 00:00:00', idcontract=915769, IDConformity=779359, IDtypeVerify=1 where idgmeter=779359
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004017083', BeginValue=0, DateInstall='2000-10-18 00:00:00', DateVerify='2016-11-25 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 08,10,21ã ê/ï 917,833ì3, ïîäêë 08,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 25,11,16ã ê/ï 720,482ì3, ïîäêë 25,11,16ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 06,12,11ã ê/ï 529,622ì3,ïîäêë.06,12,11ã', DateFabrication='2000-01-01 00:00:00', idcontract=860611, IDConformity=718310, IDtypeVerify=1 where idgmeter=718310
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12108059', BeginValue=0.13, DateInstall='2021-10-12 00:00:00', DateVerify='2021-07-22 00:00:00', Memo='', DateFabrication='2021-07-22 00:00:00', idcontract=861451, IDConformity=810209, IDtypeVerify=1 where idConformity=810209
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12107826', BeginValue=0.211, DateInstall='2021-10-12 00:00:00', DateVerify='2021-07-21 00:00:00', Memo='', DateFabrication='2021-07-21 00:00:00', idcontract=861935, IDConformity=810211, IDtypeVerify=1 where idConformity=810211
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12107820', BeginValue=0.179, DateInstall='2021-10-12 00:00:00', DateVerify='2021-07-21 00:00:00', Memo='', DateFabrication='2021-07-21 00:00:00', idcontract=894253, IDConformity=810213, IDtypeVerify=1 where idConformity=810213
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12108100', BeginValue=0.174, DateInstall='2021-10-06 00:00:00', DateVerify='2021-07-21 00:00:00', Memo='', DateFabrication='2021-07-21 00:00:00', idcontract=864153, IDConformity=810194, IDtypeVerify=1 where idConformity=810194
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02284012*', BeginValue=0.2, DateInstall='2006-04-15 00:00:00', DateVerify='2021-10-12 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 12,10,21ã ê/ï 113,957ì3, ïîäêë 12,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 26,09,16ã ê/ï 113,635ì3,ïîäêë.27,09,16ã.  Âð-çàãë íà ïîâ-êó ÈÏ Ôèøáóõ 21,09,11ã ê/ï 97,137ì3,ïîäêë.23,09,11ã. ÍàÖÝêÑ,', DateFabrication='2005-07-11 00:00:00', idcontract=865017, IDConformity=775443, IDtypeVerify=1 where idgmeter=775443
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02176453*', BeginValue=0, DateInstall='2003-02-25 00:00:00', DateVerify='2016-11-03 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 01,10,21ã ê/ï 835,802ì3, ïîäêë 01,10,21ã     Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 03,11,16 ê/ï 593,126ì3, ïîäêë 03,11,16ã  Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò.24,01,12 ã ê/ï 365,803ì3, ïîäêë. 24,01,12 ã ÍàÖÝêÑ.  159,481ì3.', DateFabrication='2003-01-01 00:00:00', idcontract=866758, IDConformity=724457, IDtypeVerify=1 where idgmeter=724457
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='003857150', BeginValue=0, DateInstall='1998-05-07 00:00:00', DateVerify='2021-04-13 00:00:00', Memo='Âð-çàãë ïîñëå ÏÓ ÃÒÌÝ 09,09,21ã ê/ï 452,196ì3, ïîäêë ÃÒÌÝ 07,10,21ã ñ ïîêàç  452,196ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,04,21ã ê/ï 451,256ì3, ïîäêë 14,04,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 04,05,15ã ê/ï 358,247ì3,ïîäêë 26,08,15ã.  Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.08,04,09ã,ê/ï 279,50ì3.Ïîäêë.10,04,09ã.ÍàÖÝêÑ,Áóëàòáåêîâà', DateFabrication='1997-01-01 00:00:00', idcontract=867761, IDConformity=725460, IDtypeVerify=1 where idgmeter=725460
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12107827', BeginValue=0.209, DateInstall='2021-10-12 00:00:00', DateVerify='2021-07-21 00:00:00', Memo='', DateFabrication='2021-07-21 00:00:00', idcontract=868697, IDConformity=810214, IDtypeVerify=1 where idConformity=810214
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02810943', BeginValue=0.1, DateInstall='2011-07-07 00:00:00', DateVerify='2021-10-11 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 11,10,21ã ê/ï 73,764ì3, ïîäêë 11,10,21ã  ', DateFabrication='2011-06-10 00:00:00', idcontract=871250, IDConformity=790028, IDtypeVerify=1 where idgmeter=790028
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02324464', BeginValue=0, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-11 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 11,10,21ã ê/ï 238,835ì3, ïîäêë 11,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 05,12,13ã ê/ï 99,25ì3,ïîäêë.06,12,13ã', DateFabrication='2006-01-01 00:00:00', idcontract=915574, IDConformity=777714, IDtypeVerify=1 where idgmeter=777714
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=21, SerialNumber='97049127', BeginValue=0, DateInstall='2000-02-07 00:00:00', DateVerify='2021-10-12 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 12,10,21ã ê/ï 583,535ì3, ïîäêë 12,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 04,11,19ã ê/ï 547,839ì3, ïîäêë 05,11,19ã  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 25,12,17ã ê/ï 518,991ì3, ïîäêë 26,12,17ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 05,01,16ã ê/ï 484,797ì3,ïîäêë.06,01,16ã.  Âð-çàãë íà ïîâ-êó ÃÒÌ 20,01,14ã ê/ï 446,945ì3,ïîäêë.21,01,14ã. Âð-çàãë íà ïîâ-êó ÈÏ Ôèøáóõ 06,02,12ã ê/ï 391,977ì3,ïîäêë.08,02,12ã. ÍàÖÝêÑ Âð.çàãë.íà ïîâ-êó ÊÑÒ 09,02,10ã ê/ï 340,970ì3,ïîäêë.10,02,10ã.Í/ç. àêò 11,04,07ã, ê/ï 276ì3.Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.07,02,08ã,ê/ï 294,50ì3.Ïîäêë.08,02,08ã. ÊÑÒ ê/ï-341,212', DateFabrication='1998-01-01 00:00:00', idcontract=871759, IDConformity=729458, IDtypeVerify=1 where idgmeter=729458
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=54, SerialNumber='02873140', BeginValue=0.087, DateInstall='2011-12-12 00:00:00', DateVerify='2011-08-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 12,10,21ã ê/ï 394,224ì3, ïîäêë 12,10,21ã    ', DateFabrication='2011-08-15 00:00:00', idcontract=903857, IDConformity=790613, IDtypeVerify=1 where idgmeter=790613
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02148955', BeginValue=0, DateInstall='2002-05-22 00:00:00', DateVerify='2021-10-12 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 12,10,21ã ê/ï 806,285ì3, ïîäêë 12,10,21ã  Óñò ïëèòû ÃÒÌÝ 24,09,18ã ê/ï 690,563ì3 Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 23,11,16ã ê/ï 609,170ì3, ïîäêë 23,11,16ã Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí. 09,02,12ã ê/ï 390,27ì3, ïîäêë. 09,02,12ã   Ê.Ñ.Ò. 184,8ì3.', DateFabrication='2002-01-01 00:00:00', idcontract=909938, IDConformity=767637, IDtypeVerify=1 where idgmeter=767637
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02304720*', BeginValue=0, DateInstall='2006-02-01 00:00:00', DateVerify='2021-10-06 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 06,10,21ã ê/ï 340,992ì3, ïîäêë 06,10,21ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 23,09,13ã ê/ï 274,322ì3,ïîäêë.23,09,13ã   ', DateFabrication='2005-10-11 00:00:00', idcontract=873198, IDConformity=774196, IDtypeVerify=1 where idgmeter=774196
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=11, SerialNumber='116248', BeginValue=2.254, DateInstall='2007-03-30 00:00:00', DateVerify='2021-10-12 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 12,10,21ã ê/ï 289,501ì3, ïîäêë 12,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 01,09,16ã ê/ï 217,121ì3,ïîäêë 02,09,16ã.  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.04,08,11ã ê/ï 152,529ì3,ïîäêë.04,08,11ã. ', DateFabrication='2006-07-18 00:00:00', idcontract=873645, IDConformity=778887, IDtypeVerify=1 where idgmeter=778887
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02849531', BeginValue=0.1, DateInstall='2011-10-19 00:00:00', DateVerify='2021-10-12 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 12,10,21ã ê/ï 136,486ì3, ïîäêë 12,10,21ã  Óñò-êà ã/ïëèòû ÃÒÌ 23,12,15ã ê/ï 24,186ì3. Óòå÷êè â ã/ïëèòå 29,11,11ã ÈÏ Ôèøáóõ çàáèëè êðàí íà ñìàçêó, äîëæíû óñò. íîâ. ã/ïëèòó.', DateFabrication='2011-08-15 00:00:00', idcontract=893744, IDConformity=790397, IDtypeVerify=1 where idgmeter=790397
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12107848', BeginValue=0.359, DateInstall='2021-10-12 00:00:00', DateVerify='2021-07-21 00:00:00', Memo='', DateFabrication='2021-07-21 00:00:00', idcontract=889252, IDConformity=810215, IDtypeVerify=1 where idConformity=810215
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12107603', BeginValue=0.194, DateInstall='2021-08-16 00:00:00', DateVerify='2021-06-02 00:00:00', Memo='Óñò ïëèòû ÃÒÌÝ 11,10,21ã ê/ï 0,203ì3  ', DateFabrication='2021-06-02 00:00:00', idcontract=904000, IDConformity=809961, IDtypeVerify=1 where idConformity=809961
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=3, SerialNumber='0054871', BeginValue=0, DateInstall='2004-12-25 00:00:00', DateVerify='2021-10-12 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 12,10,21ã ê/ï 834,589ì3, ïîäêë 12,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 29,10,15ã ê/ï 655,528ì3,ïîäêë 30,10,15ã.  Âð.çàãë.íà ïîâ-êó ÈÏ Øàìãàí.30,06,09ã ê/ï 381,202ì3,ïîäêë.01,07,09ã.', DateFabrication='1995-01-01 00:00:00', idcontract=899085, IDConformity=756784, IDtypeVerify=1 where idgmeter=756784
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004121477', BeginValue=0, DateInstall='1999-02-16 00:00:00', DateVerify='2016-11-10 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 08,10,21ã ê/ï 641,365ì3, ïîäêë 08,10,21ã  Óñò ïëèòû ÃÒÌÝ 28,09,18ã ê/ï 578,936ì3 Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò 10,11,16ã ê/ï 530,385ì3, ïîäêë 10,11,16ã  Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.14,11,11ã ê/ï 399,114ì3,ïîäêë.14,11,11ã.  ÊÌÑÒ', DateFabrication='1998-01-01 00:00:00', idcontract=877742, IDConformity=735441, IDtypeVerify=1 where idgmeter=735441
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02304752', BeginValue=0, DateInstall='2006-04-02 00:00:00', DateVerify='2021-09-30 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 30,09,21ã ê/ï 554,365ì3, ïîäêë 30,09,21ã    Óñò ïëèòû ÃÒÌÝ 13,11,19ã ê/ï 552,051ì3  Âð-çàãë íà ïîâ-êó ÒÎÎ "ÃàçÒåõìîíòàæ" 30,09,13ã ê/ï 273,272ì3,ïîäêë.01,10,13ã.', DateFabrication='2005-10-11 00:00:00', idcontract=880445, IDConformity=774954, IDtypeVerify=1 where idgmeter=774954
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02334865', BeginValue=0.274, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-07 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 07,10,21ã ê/ï 278,728ì3, ïîäêë 07,10,21ã  Óñò ïëèòû ÃÒÌÝ 17,04,17ã ê/ï 220,888ì3  Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò.13,12,13ã ê/ï 132,102ì3,ïîäêë.14,12,13ã.  ', DateFabrication='2006-01-01 00:00:00', idcontract=915462, IDConformity=777603, IDtypeVerify=1 where idgmeter=777603
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12107831', BeginValue=0.289, DateInstall='2021-10-13 00:00:00', DateVerify='2021-07-21 00:00:00', Memo='', DateFabrication='2021-07-21 00:00:00', idcontract=905321, IDConformity=810218, IDtypeVerify=1 where idConformity=810218
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02369019', BeginValue=0.082, DateInstall='2007-01-01 00:00:00', DateVerify='2013-12-18 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 12,10,21ã ê/ï 327,081ì3, ïîäêë 12,10,21ã    Çàìåíà øëàíãà ÃÒÌÝ 19,05,20ã ê/ï 302,431ì3 Âð-çàãë íà ïîâ-êó ÃÒÌ 18,12,13ã ê/ï 179,692ì3,ïîäêë.19,12,13ã.    ', DateFabrication='2006-01-01 00:00:00', idcontract=915534, IDConformity=777671, IDtypeVerify=1 where idgmeter=777671
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02369171', BeginValue=0.1, DateInstall='2007-01-01 00:00:00', DateVerify='2014-01-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 12,10,21ã ê/ï 470,404ì3, ïîäêë 12,10,21ã    Óñò ïëèòû ÃÒÌÝ 31,07,18ã ê/ï 358,814ì3 Âð-çàãë íà ïîâ-êó ÃÒÌ 15,01,14ã ê/ï 225,840ì3,ïîäêë.16,01,14ã.   ', DateFabrication='2006-01-01 00:00:00', idcontract=915440, IDConformity=777583, IDtypeVerify=1 where idgmeter=777583
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02369034', BeginValue=0.08, DateInstall='2007-01-01 00:00:00', DateVerify='2013-12-10 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 12,10,21ã ê/ï 341,788ì3, ïîäêë 12,10,21ã    Óñò-êà ã/ïëèòû ÃÒÌ 11,01,16ã ê/ï 228,865ì3. Âð-çàãë íà ïîâ-êó ÃÒÌ 10,12,13ã ê/ï 192,457ì3,ïîäêë.11,12,13ã.    ', DateFabrication='2006-01-01 00:00:00', idcontract=915527, IDConformity=777664, IDtypeVerify=1 where idgmeter=777664
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02369022', BeginValue=0.081, DateInstall='2007-01-01 00:00:00', DateVerify='2013-12-09 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 12,10,21ã ê/ï 498,262ì3, ïîäêë 12,10,21ã    Ðåéä 08,07,16ã ê/ï 313,942ì3. Óñò-êà ã/ïëèòû ÃÒÌÝ 08,07,16ã ê/ï 313,949ì3. Âð-çàãë íà ïîâ-êó ÃÒÌ 09,12,13ã ê/ï 219,266ì3,ïîäêë.10,12,13ã ', DateFabrication='2006-01-01 00:00:00', idcontract=915549, IDConformity=777686, IDtypeVerify=1 where idgmeter=777686
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02376872*', BeginValue=0.09, DateInstall='2007-03-01 00:00:00', DateVerify='2021-10-11 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 11,10,21ã ê/ï 262,616ì3, ïîäêë 11,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.23,12,13ã ê/ï 103,707ì3,ïîäêë.23,12,13ã.', DateFabrication='2006-01-01 00:00:00', idcontract=915637, IDConformity=778483, IDtypeVerify=1 where idgmeter=778483
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004059764', BeginValue=0, DateInstall='1998-01-01 00:00:00', DateVerify='2021-10-11 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 11,10,21ã ê/ï 660,145ì3, ïîäêë 11,10,21ã    Í-ç ïîä  ðîñïèñü 09,12,19ã ê/ï 645,660ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 01,11,16ã ê/ï 576,176ì3, ïîäêë 02,11,16ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 12,11,11ã ê/ï 405,374ì3,ïîäêë.12,11,11ã   àêò ðàá. îò 24,10,06ã-5ë', DateFabrication='1998-01-01 00:00:00', idcontract=912163, IDConformity=769862, IDtypeVerify=1 where idgmeter=769862
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Âàñèëèé', Surname='Ïûòüåâ', Patronic='Íèêîëàåâè÷' where IDContract=919337
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Íèêîëàé', Surname='Òèòîâ', Patronic='Âëàäèìèðîâè÷' where IDContract=863267
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Èâàí', Surname='Áåññîíîâ', Patronic='Àëåêñàíäðîâè÷' where IDContract=859870
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='íîâûé ñîáñòâ', Patronic='' where IDContract=871734
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Çàóðåø', Surname='Àÿãàíîâà', Patronic='Ìàðàòîâíà' where IDContract=910505
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Èíäèðà', Surname='Àëåêñååíêî', Patronic='Äìèòðèåâíà' where IDContract=922425
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Òàòüÿíà', Surname='Èãóìåíîâà', Patronic='Âèêòîðîâíà' where IDContract=906375
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ëþäìèëà', Surname='Ïàñòóõîâà', Patronic='Íèêîëàåâíà' where IDContract=878501
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (2,58,'12107574',0.167,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922425,810225,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Þëèÿ', Surname='Ìàëêîâà', Patronic='Áîðèñëàâîâíà' where IDContract=922429
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Íóðæàìàë', Surname='Íóðãàëèåâà', Patronic='Íóðãàëèåâíà' where IDContract=894883
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107097',0.178,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922429,810226,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (2,58,'12107030',0.287,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922433,810227,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Êàíàò', Surname='Ñàòàíîâ', Patronic='Åñëÿìáåêîâè÷' where IDContract=922440
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107004',0.35,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922440,810228,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107506',0.337,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922441,810229,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Íóðëàí', Surname='Êóñàèíîâ', Patronic='Ìóêàæàíîâè÷' where IDContract=866692
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=43, SerialNumber='003762235', BeginValue=0, DateInstall='1997-01-01 00:00:00', DateVerify='2018-12-25 00:00:00', Memo='Çàìåíà êðàíà ÃÒÌÝ 06,08,21ã ê/ï 499,764ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 25,12,18ã ê/ï 467,537ì3, ïîäêë 26,12,18ã Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí13,12,12ã ê/ï 394,637ì3,ïîäêë.13,12,12ã  âð. çàãë. 8,11,06ã (ñ÷åò. ñíÿò íà ïð-êó)', DateFabrication='1997-01-01 00:00:00', idcontract=876178, IDConformity=733877, IDtypeVerify=1 where idgmeter=733877
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àëèÿ', Surname='Ðàìàçàíîâà', Patronic='Àþïîâíà' where IDContract=922433
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ìàéíóð', Surname='Ìóêàíîâà', Patronic='Êàñòàåâíà' where IDContract=922441
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107573',0.17,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922428,810230,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107098',0.302,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922432,810231,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107029',0.295,'2021-10-15 00:00:00','2021-06-02 00:00:00','Óñò ïëèòû ÃÒÌ 15,10,21ã ê/ï 0,302ì3  ','2021-06-02 00:00:00',922436,810232,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107508',0.341,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922444,810233,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (2,58,'12107576',0.164,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922427,810234,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ðóñëàí', Surname='Øàéõèñëàìîâ', Patronic='Íàèëüåâè÷' where IDContract=922426
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (2,58,'12107575',0.167,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922426,810235,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ìàðèíà', Surname='Ãèíåðãàðò', Patronic='Ìèõàèëîâíà' where IDContract=922427
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Êîíûñ', Surname='Êàïàðîâ', Patronic='Òóðìóñîâè÷' where IDContract=922428
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àëüíóð', Surname='Äîñïîëîâ', Patronic='Áàçàðîâè÷' where IDContract=922432
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ñóëòàíãàçû', Surname='Åðåæåïîâ', Patronic='Õàêèìîâè÷' where IDContract=922435
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (2,58,'12107027',0.283,'2021-10-15 00:00:00','2021-06-02 00:00:00','','2021-06-02 00:00:00',922435,810236,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ãóëþìæàí', Surname='Ìóêàæàíîâà', Patronic='Ñåðèêîâíà' where IDContract=922436
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ìàðèÿø', Surname='Àëüáåêîâà', Patronic='Êàðèìîâíà' where IDContract=922444
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Âèêòîð', Surname='Çàãðåáåëüíûé', Patronic='Ãåííàäüåâè÷' where IDContract=897685
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02307413', BeginValue=0, DateInstall='2006-02-01 00:00:00', DateVerify='2014-10-02 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò.02,10,14ã ê/ï 201,623ì3,ïîäêë.02,10,14ã Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.04.12.09ã ê/ï 90,223ì3,ïîäêë.05.12.09ã.', DateFabrication='2005-10-19 00:00:00', idcontract=900996, IDConformity=774428, IDtypeVerify=1 where idgmeter=774428
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='íîâûé ñîáñòâ', Patronic='' where IDContract=914532
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ëþäìèëà', Surname='Âîëêîäàåâà', Patronic='Íèêîëàåâíà' where IDContract=877627
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ïàâåë', Surname='Ãóäêîâ', Patronic='Âàëåðüåâè÷' where IDContract=881214
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àíàñòàñèÿ', Surname='Êóïðååâà', Patronic='Âëàäèìèðîâíà' where IDContract=881235
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='ÆÊÕ', Patronic='' where IDContract=919739
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àíòîí', Surname='Íå÷àåâ', Patronic='Ìèõàéëîâè÷' where IDContract=859887
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àðòåì', Surname='Êåêñåëü', Patronic='Èãîðåâè÷' where IDContract=898867
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ëàðèñà', Surname='Áðàé÷óí', Patronic='Ïåòðîâíà' where IDContract=907404
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='003712854', BeginValue=0, DateInstall='1997-10-22 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 678,996ì3, ïîäêë 15,10,21ã    Í-ç ïîä ðîñïèñü 18,10,21ã ê/ï 678,989ì3  Í-ç ïîä ðîñïèñü 18,11,19ã ê/ï 676,883ì3 Âð-çàãë ïîñëå ÏÓ ÃÒÌ 03,12,15ã ê/ï 656,33ì3,ïîäêë ÈÏ Àõìåò. 08,12,15ã ñ ïîêàç. 656,332ì3.  Âûïèñàí àêò íà ïîâ-êó ÏÓ àá îòä 05,11,15ã ê/ï 656,241ì3. Òåõ/îñìîòð ïîìåù. ÃÒÌ 03,11,15ã ê/ï 656,241ì3. Âð.çàãë.íà ïîâ-êó ÊÑÒ 10,03,10ã ê/ï 556,067ì3,ïîäêë.11,03,10ã.', DateFabrication='1997-01-01 00:00:00', idcontract=868602, IDConformity=726301, IDtypeVerify=1 where idgmeter=726301
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Íàòàëüÿ', Surname='Çàêèðîâà', Patronic='Ðàõìåäüÿíîâà' where IDContract=889058
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àëåêñàíäð', Surname='Ñèäîðîâ', Patronic='Âëàäèìèðîâè÷' where IDContract=908107
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=57, SerialNumber='401551', BeginValue=1.06, DateInstall='2018-05-24 00:00:00', DateVerify='2017-09-21 00:00:00', Memo='', DateFabrication='2017-09-21 00:00:00', idcontract=908132, IDConformity=804604, IDtypeVerify=1 where idConformity=804604
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02469224', BeginValue=0.11, DateInstall='2008-06-23 00:00:00', DateVerify='2016-03-16 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌ 16,03,16ã ê/ï 280,94ì3,ïîäêë.17,03.16ã.  ', DateFabrication='2008-04-23 00:00:00', idcontract=908156, IDConformity=783640, IDtypeVerify=1 where idgmeter=783640
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ìàðèÿ', Surname='Ñàõàðîâà', Patronic='Ô¸äîðîâíà' where IDContract=879726
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='íîâûé ñîáñòâ', Patronic='' where IDContract=871152
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02287321', BeginValue=0.1, DateInstall='2006-06-01 00:00:00', DateVerify='2020-07-29 00:00:00', Memo='Ïåðåíîñ ã/êðàíà ÃÒÌ 15,10,21ã ê/ï 887,375ì3  Òåõ/îñì ïîìåù ÃÒÌÝ 13,10,21ã ê/ï 887,375ì3  Òåõ/îñì ïîìåù ÃÒÌÝ 06,10,21ã ê/ï 887,374ì3    Âð-çàãë íà ïîâ-êó ÃÒÌÝ 28,07,20ã ê/ï 860,299ì3, ïîäêë 28,07,20ã  Âð.çàãë.íà ïîâåðêó ÈÏ Øàìãàí.28,06,10ã ê/ï 280,240ì3.Ïîäêë.28,06,10ã.', DateFabrication='2005-07-19 00:00:00', idcontract=915098, IDConformity=775590, IDtypeVerify=1 where idgmeter=775590
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004737826*', BeginValue=76.83, DateInstall='2000-02-01 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 531,397ì3, ïîäêë 15,10,21ã    Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò 29,11,16ã ê/ï 467,580ì3, ïîäêë 29,11,16ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.06,02,12ã ê/ï 291,201ì3, ïîäêë.06,02,12ã  êñò', DateFabrication='1999-01-01 00:00:00', idcontract=859566, IDConformity=770997, IDtypeVerify=1 where idgmeter=770997
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='04334575', BeginValue=0.01, DateInstall='2015-08-28 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 62,286ì3, ïîäêë 15,10,21ã    ', DateFabrication='2015-08-11 00:00:00', idcontract=903077, IDConformity=798024, IDtypeVerify=1 where idgmeter=798024
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=11, SerialNumber='106565', BeginValue=2.037, DateInstall='2007-04-27 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 427,776ì3, ïîäêë 15,10,21ã    Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 14,11,16ã ê/ï 301,028ì3, ïîäêë 14,11,16ã Âð-çàãë íà ïîâ-êó ÈÏ Ôèøáóõ 11,01,12ã ê/ï 144,762ì3,ïîäêë.13,01,12ã.ÍàÖÝêÑ', DateFabrication='2007-01-01 00:00:00', idcontract=868464, IDConformity=779387, IDtypeVerify=1 where idgmeter=779387
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004057440', BeginValue=0, DateInstall='1998-08-26 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 441,693ì3, ïîäêë 15,10,21ã    Âð-çàãë íà ïîâ-êó ÃÒÌÝ 10,11,16ã ê/ï 320,075ì3, ïîäêë 11,11,16ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 07,12,11ã ê/ï 249,485ì3,ïîäêë.07,12,11ã', DateFabrication='1998-01-01 00:00:00', idcontract=868772, IDConformity=726471, IDtypeVerify=1 where idgmeter=726471
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004059755', BeginValue=0, DateInstall='1998-10-06 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 610,245ì3, ïîäêë 15,10,21ã    Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,11,16ã ê/ï 556,932ì3, ïîäêë 16,11,16ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 13,12,11ã ê/ï 483,054ì3,ïîäêë.13,12,11ã ', DateFabrication='1998-09-06 00:00:00', idcontract=885647, IDConformity=743346, IDtypeVerify=1 where idgmeter=743346
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=11, SerialNumber='278526*', BeginValue=0.5, DateInstall='2006-12-25 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 293,461ì3, ïîäêë 15,10,21ã    Âð-çàãë íà ïîâ-êó ÃÒÌÝ 09,11,16ã ê/ï 227,913ì3, ïîäêë 10,11,16ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 05,09,11ã ê/ï 147,986ì3,ïîäêë.06,09,11ã', DateFabrication='2006-09-09 00:00:00', idcontract=872706, IDConformity=777872, IDtypeVerify=1 where idgmeter=777872
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02875830', BeginValue=0.091, DateInstall='2011-12-06 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 286,839ì3, ïîäêë 15,10,21ã    Òåõ/îñì. ïîìåù. ÃÒÌÝ 21,07,16ã ê/ï 104,143ì3. Çàì. ã/êðàíà ÃÒÌ 05,03,16ã ê/ï 93,824ì3. ', DateFabrication='2011-10-26 00:00:00', idcontract=903834, IDConformity=790620, IDtypeVerify=1 where idgmeter=790620
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=3, SerialNumber='003775826', BeginValue=0, DateInstall='1998-01-14 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Çàìåíà êðàíà ÃÒÌÝ 20,10,21ã ê/ï 695,918ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 695,665ì3, ïîäêë 15,10,21ã  Óñò ïëèòû ÃÒÌÝ 12,07,17ã ê/ï 655,124ì3 Âð-çàãë íà ïîâ-êó ÃÒÌ 17,11,15ã ê/ï 599,02ì3,ïîäêë.18,11,15ã.  Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.30,11,09ã,ê/ï 417,67ì3.Ïîäêë.30,11,09ã.  ÍàÖÝêÑ,Áóëàòáåêîâà', DateFabrication='1997-01-01 00:00:00', idcontract=903839, IDConformity=761538, IDtypeVerify=1 where idgmeter=761538
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=43, SerialNumber='003234919', BeginValue=0, DateInstall='1996-12-30 00:00:00', DateVerify='2015-12-25 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 15,10,21ã ê/ï 657,529ì3, ïîäêë 15,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.25,12,15ã ê/ï 452,050ì3,ïîäêë.25,12,15ã Âð.çàãë.íà ïîâåðêó ÈÏ Øàìãàí.07,02,10ã ê/ï 326,536ì3.Ïîäêë.08,02,10ã.  ÍàöÝêÑ. Àðòåìîâà.', DateFabrication='1996-01-26 00:00:00', idcontract=889271, IDConformity=746970, IDtypeVerify=1 where idgmeter=746970
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=54, SerialNumber='02927035', BeginValue=0.087, DateInstall='2013-02-09 00:00:00', DateVerify='2013-01-21 00:00:00', Memo='Çàìåíà òðóá ÃÒÌÝ 15,10,21ã ê/ï 251,705ì3', DateFabrication='2013-01-21 00:00:00', idcontract=895498, IDConformity=793005, IDtypeVerify=1 where idgmeter=793005
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=2, IDTypeGMeter=33, SerialNumber='56429467', BeginValue=0, DateInstall='2004-11-18 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 612,787ì3, ÏÓ çàáðàê  Âð-çàãë íà ïîâ-êó ÃÒÌ 25,09,15ã ê/ï 553,513ì3,ïîäêë.25,09,15ã.  Âð. çàãë. ÈÏ Ôèøáóõ 10,08,09ã íà ïîâåðêó,ïîäêë.13,08,09ã.   ÊÑÒ', DateFabrication='1999-01-01 00:00:00', idcontract=908404, IDConformity=766103, IDtypeVerify=2 where idgmeter=766103
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004900567', BeginValue=0, DateInstall='2000-12-19 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 422,752ì3, ïîäêë 15,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 17,11,16ã ê/ï 334,087ì3, ïîäêë 18,11,16ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 09,11,11ã ê/ï 257,890ì3,ïîäêë.09,11,11ã', DateFabrication='2000-01-18 00:00:00', idcontract=905429, IDConformity=763128, IDtypeVerify=1 where idgmeter=763128
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=9, SerialNumber='97-00134', BeginValue=0, DateInstall='1999-01-21 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 699,616ì3, ïîäêë 15,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 14,11,16ã ê/ï 584,790ì3, ïîäêë 14,11,16ã Âð-çàãë íà ïîâ-êó ÈÏ Ôèøáóõ 24,01,12ã ê/ï 501,644ì3,ïîäêë.26,01,12ã. Íàð-çàäàíèå àêò 11,07,08ã,ê/ï 426,749ì3.', DateFabrication='1998-01-01 00:00:00', idcontract=895587, IDConformity=753286, IDtypeVerify=1 where idgmeter=753286
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=41, SerialNumber='003941805*', BeginValue=0, DateInstall='1998-03-23 00:00:00', DateVerify='2017-03-29 00:00:00', Memo='Óñò ïëèòû ÃÒÌÝ 15,10,21ã ê/ï 483,846ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 29,03,17ã ê/ï 444,643ì3, ïîäêë 30,03,17ã  Ðåéä 29,08,13ã ê/ï 406,502ì3. Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.07,04,11ã ê/ï 390,677ì3,ïîäêë.07,04,11ã.  ÍàÖÝêÑ ', DateFabrication='1997-01-01 00:00:00', idcontract=882141, IDConformity=739840, IDtypeVerify=1 where idgmeter=739840
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=43, SerialNumber='003231357', BeginValue=0, DateInstall='1997-02-03 00:00:00', DateVerify='2015-12-25 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 15,10,21ã ê/ï 1470,176ì3, ïîäêë 15,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.25,12,15ã ê/ï 1112,310ì3,ïîäêë.25,12,15ã Âð.çàãë.íà ïîâåðêó ÈÏ Øàìãàí.08,02,10ã ê/ï 713,632ì3.Ïîäêë.08,02,10ã.  à/ð îò 06,01,07ã-6ë', DateFabrication='1996-01-01 00:00:00', idcontract=894650, IDConformity=752349, IDtypeVerify=1 where idgmeter=752349
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=43, SerialNumber='003775000', BeginValue=0, DateInstall='1998-04-14 00:00:00', DateVerify='2015-12-25 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 15,10,21ã ê/ï 534,623ì3, ïîäêë 15,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.25,12,15ã ê/ï 411,784ì3,ïîäêë.25,12,15ã Âð.çàãë.íà ïîâåðêó ÈÏ Øàìãàí.08,02,10ã ê/ï 297,393ì3.Ïîäêë.08,02,10ã.  ', DateFabrication='1997-01-01 00:00:00', idcontract=894714, IDConformity=752413, IDtypeVerify=1 where idgmeter=752413
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=41, SerialNumber='003857588', BeginValue=0, DateInstall='1998-06-09 00:00:00', DateVerify='2015-12-28 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 15,10,21ã ê/ï 954,196ì3, ïîäêë 15,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.28,12,15ã ê/ï 802,319ì3,ïîäêë.28,12,15ã Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.11,02,10ã ê/ï 584,578ì3,ïîäêë.12,02,10ã.', DateFabrication='1997-01-01 00:00:00', idcontract=894752, IDConformity=752451, IDtypeVerify=1 where idgmeter=752451
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='íîâûé ñîáñòâ', Patronic='' where IDContract=871156
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='íîâûé ñîáñòâ', Patronic='' where IDContract=871172
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='Âåäîì êâ ÊÃÏ îáë áîëüí', Patronic='' where IDContract=916725
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02304783', BeginValue=0, DateInstall='2006-01-01 00:00:00', DateVerify='2021-10-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,10,21ã ê/ï 395,411ì3, ïîäêë 15,10,21ã  Âð-çàãë íà ïîâ-êó ÒÎÎ "ÃàçÒåõìîíòàæ" 09,10,13ã ê/ï 225,7ì3,ïîäêë.10,10,13ã.   ', DateFabrication='2005-10-11 00:00:00', idcontract=902337, IDConformity=774127, IDtypeVerify=1 where idgmeter=774127
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=41, SerialNumber='003561168', BeginValue=0, DateInstall='1997-03-26 00:00:00', DateVerify='2019-08-12 00:00:00', Memo='Óñò ïëèòû ÃÒÌÝ 15,10,21ã ê/ï 809,044ì3     Âð-çàãë íà ïîâ-êó ÃÒÌÝ 12,08,19ã ê/ï 800,95ì3, ïîäêë 13,08,19ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 13,09,13ã ê/ï 652,456ì3,ïîäêë.13,09,13ã  Âð.çàãë.íà ïîâåðêó ÊÑÒ 26,09,08ã,ê/ï 440,092ì3,ïîäêë.27,09,08ã.', DateFabrication='1997-01-01 00:00:00', idcontract=867842, IDConformity=725541, IDtypeVerify=1 where idgmeter=725541
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107945',0.217,'2021-10-15 00:00:00','2021-07-22 00:00:00','Âð-çàãë ïîñëå ÏÓ ÃÒÌÝ 15,10,21ã ê/ï 0,217ì3','2021-07-22 00:00:00',911902,810237,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02238749', BeginValue=0, DateInstall='2004-01-01 00:00:00', DateVerify='2019-01-31 00:00:00', Memo='Âð-çàãë ïîñëå ÏÓ ÃÒÌÝ 15,10,21ã ê/ï 472,302ì3, ïîäêë 18,10,21ã    Âð-çàãë íà ïîâ-êó ÃÒÌÝ 31,01,19ã ê/ï 397,481ì3, ïîäêë 01,02,19ã  Í-ç ïîä ðîñïèñü îò 23,01,19ã ê/ï 396,876ì3   Çàì êðàíà ÃÒÌÝ 27,02,17ã ê/ï 351,48ì3 Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò.18,12,13ã ê/ï 277,201ì3,ïîäêë.19,12,13ã.  Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.22,12,08ã,ê/ï 139,18ì3.Ïîäêë.24,12,08ã.', DateFabrication='2004-01-01 00:00:00', idcontract=900792, IDConformity=758491, IDtypeVerify=1 where idgmeter=758491
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004900223', BeginValue=0, DateInstall='2000-12-18 00:00:00', DateVerify='2017-09-05 00:00:00', Memo='Çàìåíà øëàíãà ÃÒÌÝ 15,10,21ã ê/ï 410,392ì3    Çàìåíà êðàíà ÃÒÌÝ 08,11,17ã ê/ï 377,143ì3  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 05,09,17ã ê/ï 374,618ì3, ïîäêë 05,09,17ã  Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.16,10,12ã ê/ï 307,335ì3,ïîäêë.16,10,12ã.   Âð.çàãë.íà ïîâ-êó ÈÏ Øàìãàíîâà 01,10,07ã ê/ï 237,2ì3', DateFabrication='2000-01-01 00:00:00', idcontract=870267, IDConformity=727966, IDtypeVerify=1 where idgmeter=727966
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=43, SerialNumber='003737739', BeginValue=0, DateInstall='2000-11-30 00:00:00', DateVerify='2019-02-27 00:00:00', Memo='Óñò ïëèòû ÃÒÌÝ 15,10,21ã ê/ï 767,373ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 27,02,19ã ê/ï 667,283ì3, ïîäêë 28,02,19ã   Âð-çàãë íà ïîâ-êó ÊÑÒ 15,04,13ã ê/ï 399,339ì3,ïîäêë.15,04,13ã  Âð. çàãë. 19,04,07ã, ï/ó íà ïîâåðêó, ê/ï 181,904ì3. ÍàÖÝêÑ ê/ï-181,946 ïîäêë.25,04,07ã', DateFabrication='1997-01-01 00:00:00', idcontract=882092, IDConformity=739791, IDtypeVerify=1 where idgmeter=739791
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02379354', BeginValue=0.2, DateInstall='2007-01-23 00:00:00', DateVerify='2014-11-11 00:00:00', Memo='Óñò ïëèòû ÃÒÌÝ 15,10,21ã ê/ï 661,636ì3  Âð-çàãë íà ïîâ-êó ÃÒÌ 11,11,14ã ê/ï 393,289ì3,ïîäêë.12,11,14ã   Í/ç 14,07,08ã ê/ï 86,74ì3.', DateFabrication='2006-11-27 00:00:00', idcontract=882097, IDConformity=778239, IDtypeVerify=1 where idgmeter=778239
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107819',0.293,'2021-10-15 00:00:00','2021-07-21 00:00:00','','2021-07-21 00:00:00',908404,810238,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107943',0.226,'2021-10-15 00:00:00','2021-07-22 00:00:00','','2021-07-22 00:00:00',876059,810239,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+insert Gmeter (IDStatusGMeter, IDTypeGMeter, SerialNumber, BeginValue, DateInstall, DateVerify, Memo, DateFabrication, IDContract, IDConformity, IDtypeVerify) values (1,58,'12107894',0.244,'2021-10-15 00:00:00','2021-07-21 00:00:00','','2021-07-21 00:00:00',882949,810240,1)
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02304894', BeginValue=0.1, DateInstall='2006-03-01 00:00:00', DateVerify='2013-12-12 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 15,10,21ã ê/ï 665,741ì3, ïîäêë 15,10,21ã  Âð-çàãë íà ïîâ-êó ÈÏ Ôèøáóõ 12,12,13ã ê/ï 365,623ì3,ïîäêë.18,12,13ã.', DateFabrication='2005-10-11 00:00:00', idcontract=871697, IDConformity=774584, IDtypeVerify=1 where idgmeter=774584
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02307507', BeginValue=0.1, DateInstall='2006-02-01 00:00:00', DateVerify='2013-12-20 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 15,10,21ã ê/ï 506,952ì3, ïîäêë 15,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 20,12,13ã ê/ï 239,594ì3,ïîäêë.21,12,13ã. ', DateFabrication='2005-10-19 00:00:00', idcontract=859128, IDConformity=774266, IDtypeVerify=1 where idgmeter=774266
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004738282', BeginValue=0, DateInstall='2000-06-20 00:00:00', DateVerify='2017-11-02 00:00:00', Memo='Ñàìîâ îòêë, ïîäêë ÃÒÌÝ 15,10,21ã ñ ïîêàç 627,009ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 02,11,17ã ê/ï 586,072ì3, ïîäêë 03,11,17ã Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.29,11,12ã ê/ï 448,873ì3,ïîäêë.29,11,12ã ', DateFabrication='1999-01-01 00:00:00', idcontract=876848, IDConformity=734547, IDtypeVerify=1 where idgmeter=734547
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='', Surname='íîâûé ñîáñòâ', Patronic='' where IDContract=895293
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àñåìãóëü', Surname='Àáäðàõìàíîâà', Patronic='Øîêàíîâíà' where IDContract=876231
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Åâãåíèé', Surname='Ñíîâàëîâ', Patronic='Ñåðãååâè÷' where IDContract=867755
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Âåíåðà', Surname='Àñûëãàðååâà', Patronic='ßêóïîâíà' where IDContract=892108
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02160434', BeginValue=0, DateInstall='2002-10-14 00:00:00', DateVerify='2018-10-05 00:00:00', Memo='Í-ç îò 18,10,21ã ê/ï 395,446ì3  Âð-çàãë íà ïîâ-êó ÃÒÌÝ 05,10,18ã ê/ï 348,542ì3, ïîäêë 05,10,18ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 01,10,13ã ê/ï 252,301ì3,ïîäêë.01,10,13ã   Âð.çàãë.íà ïîâåðêó ÊÑÒ 07,10,08ã,ê/ï 180,192ì3.Ïîäêë.08,10,08ã.', DateFabrication='2002-01-01 00:00:00', idcontract=895920, IDConformity=753619, IDtypeVerify=1 where idgmeter=753619
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=55, SerialNumber='000141162', BeginValue=0.037, DateInstall='2017-01-26 00:00:00', DateVerify='2015-06-30 00:00:00', Memo='Í-ç îò 18,10,21ã ê/ï 38,7ì3  ', DateFabrication='2015-06-30 00:00:00', idcontract=898579, IDConformity=800890, IDtypeVerify=1 where idConformity=800890
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02304869', BeginValue=0, DateInstall='2006-02-01 00:00:00', DateVerify='2013-11-07 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 05,10,21ã ê/ï 305,460ì3, ïîäêë 05,10,21ã     Çàìåíà ïëèòû ÈÏ Øàìãàí 23,12,20ã ê/ï 283,962ì3  Âð-çàãë íà ïîâ-êó ÃÒÌ 07,11,13ã ê/ï 167,739ì3,ïîäêë.08,11,13ã.   ', DateFabrication='2005-10-11 00:00:00', idcontract=899755, IDConformity=774292, IDtypeVerify=1 where idgmeter=774292
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02336437', BeginValue=0.097, DateInstall='2007-04-01 00:00:00', DateVerify='2021-09-27 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 27,09,21ã ê/ï 651,998ì3, ïîäêë 27,09,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 11,12,13ã ê/ï 272,088ì3,ïîäêë.12,12,13ã.      ', DateFabrication='2006-01-01 00:00:00', idcontract=915745, IDConformity=779339, IDtypeVerify=1 where idgmeter=779339
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02655928', BeginValue=0.102, DateInstall='2010-08-09 00:00:00', DateVerify='2018-07-18 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 18,07,18ã ê/ï 114,995ì3, ïîäêë 19,07,18ã ', DateFabrication='2010-06-29 00:00:00', idcontract=859211, IDConformity=788342, IDtypeVerify=1 where idgmeter=788342
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02307811', BeginValue=0, DateInstall='2006-03-01 00:00:00', DateVerify='2021-09-15 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,09,21ã ê/ï 643,27ì3, ïîäêë 15,09,21ã   Âð-çàãë íà ïîâ-êó ÒÎÎ "ÃàçÒåõìîíòàæ" 09,10,13ã ê/ï 306,102ì3,ïîäêë.10,10,13ã.   ', DateFabrication='2005-10-19 00:00:00', idcontract=861778, IDConformity=774604, IDtypeVerify=1 where idgmeter=774604
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12108057', BeginValue=0.202, DateInstall='2021-10-12 00:00:00', DateVerify='2021-07-22 00:00:00', Memo='', DateFabrication='2021-07-22 00:00:00', idcontract=861921, IDConformity=810212, IDtypeVerify=1 where idConformity=810212
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=1, SerialNumber='004899377', BeginValue=0, DateInstall='2001-03-13 00:00:00', DateVerify='2021-10-08 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 08,10,21ã ê/ï 504,24ì3, ïîäêë 08,10,21ã     Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò 30,11,16ã ê/ï 403,635ì3, ïîäêë 30,11,16ã  Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.15,02,12ã ê/ï 318,784ì3,ïîäêë. 15,02,12ã Ê.Ñ.Ò.', DateFabrication='2000-01-01 00:00:00', idcontract=869012, IDConformity=726711, IDtypeVerify=1 where idgmeter=726711
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02328979', BeginValue=0.1, DateInstall='2007-01-01 00:00:00', DateVerify='2013-12-24 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 13,10,21ã ê/ï 115,249ì3, ïîäêë 13,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 24,12,13ã ê/ï 55,515ì3,ïîäêë.25,12,13ã.   ', DateFabrication='2006-01-01 00:00:00', idcontract=915614, IDConformity=777760, IDtypeVerify=1 where idgmeter=777760
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=51, SerialNumber='514165', BeginValue=0.18, DateInstall='2009-12-08 00:00:00', DateVerify='2019-08-15 00:00:00', Memo='Ïåðåíîñ êðàíà ÃÒÌ 08,10,21ã ê/ï 364,372ì3  Òåõ/îñì ïîìåù ÃÒÌÝ 05,10,21ã ê/ï 364,357ì3     Âð-çàãë íà ïîâ-êó ÃÒÌÝ 15,08,19ã ê/ï 323,468ì3, ïîäêë 16,08,19ã   ', DateFabrication='2009-05-22 00:00:00', idcontract=872950, IDConformity=787495, IDtypeVerify=1 where idgmeter=787495
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02381449', BeginValue=0.2, DateInstall='2007-01-30 00:00:00', DateVerify='2013-12-24 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 13,10,21ã ê/ï 335,509ì3, ïîäêë 13,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 24,12,13ã ê/ï 153,572ì3,ïîäêë.25,12,13ã.   ', DateFabrication='2006-01-01 00:00:00', idcontract=874836, IDConformity=778256, IDtypeVerify=1 where idgmeter=778256
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02304630', BeginValue=0, DateInstall='2006-02-01 00:00:00', DateVerify='2013-12-05 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 13,10,21ã ê/ï 649,464ì3, ïîäêë 13,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 05,12,13ã ê/ï 314,645ì3,ïîäêë.06,12,13ã', DateFabrication='2005-10-11 00:00:00', idcontract=905044, IDConformity=774347, IDtypeVerify=1 where idgmeter=774347
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02307763', BeginValue=0, DateInstall='2006-02-01 00:00:00', DateVerify='2021-09-30 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 30,09,21ã ê/ï 507,173ì3, ïîäêë 30,09,21ã    Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí.23,09,13ã ê/ï 258,103ì3,ïîäêë.23,09,13ã.  îøèáî÷íî óñòàíîâëåí, ïðîøëà îïëàòà ïîñòàðîìó *, À òàêæå àêò ñâåðêè áûë ñ ïîêàçàíèÿìè ïî ñòàðîìó ñ÷.', DateFabrication='2005-10-19 00:00:00', idcontract=908628, IDConformity=774361, IDtypeVerify=1 where idgmeter=774361
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02875831', BeginValue=0.087, DateInstall='2011-12-13 00:00:00', DateVerify='2021-10-13 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,10,21ã ê/ï 213,006ì3, ïîäêë 13,10,21ã    Óñò ïëèòû ÃÒÌÝ 05,07,17ã ê/ï 151,652ì3 ', DateFabrication='2011-10-26 00:00:00', idcontract=899526, IDConformity=790615, IDtypeVerify=1 where idgmeter=790615
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12108014*', BeginValue=0.505, DateInstall='2021-09-23 00:00:00', DateVerify='2021-07-22 00:00:00', Memo='Âð-çàãë ïîñëå ÏÓ ÃÒÌÝ 23,09,21ã ê/ï 0,505ì3, ïîäêë ÃÒÌÝ 13,10,21ã ñ ïîêàç 0,512ì3 ', DateFabrication='2021-07-22 00:00:00', idcontract=902835, IDConformity=810163, IDtypeVerify=1 where idConformity=810163
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02334895', BeginValue=0.107, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-08 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 08,10,21ã ê/ï 681,648ì3, ïîäêë ÈÏ Àõìåò  Âð-çàãë íà ïîâ-êó ÈÏ Àõìåò.13,12,13ã ê/ï 401,733ì3,ïîäêë.14,12,13ã.  ', DateFabrication='2006-01-01 00:00:00', idcontract=915567, IDConformity=777702, IDtypeVerify=1 where idgmeter=777702
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=58, SerialNumber='12107825', BeginValue=0.23, DateInstall='2021-10-13 00:00:00', DateVerify='2021-07-21 00:00:00', Memo='', DateFabrication='2021-07-21 00:00:00', idcontract=881107, IDConformity=810216, IDtypeVerify=1 where idConformity=810216
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02369287', BeginValue=0.094, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-13 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,10,21ã ê/ï 329,727ì3, ïîäêë 13,10,21ã  Óñò ïëèòû ÃÒÌÝ 27,01,20ã ê/ï 309,195ì3  Âð-çàãë íà ïîâ-êó ÃÒÌ 24,12,13ã ê/ï 204,63ì3,ïîäêë.25,12,13ã.   ', DateFabrication='2006-01-01 00:00:00', idcontract=915414, IDConformity=777559, IDtypeVerify=1 where idgmeter=777559
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02347906', BeginValue=0.115, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-13 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,10,21ã ê/ï 443,984ì3, ïîäêë 13,10,21ã  Çàìåíà øëàíãà ÃÒÌÝ 06,12,19ã ê/ï 374,604ì3   Çàì. øëàíãà ÃÒÌÝ 28,07,16ã ê/ï 253,693ì3. Âð-çàãë íà ïîâ-êó ÃÒÌ 05,12,13ã ê/ï 167,28ì3,ïîäêë.06,12,13ã.', DateFabrication='2006-01-01 00:00:00', idcontract=915433, IDConformity=777576, IDtypeVerify=1 where idgmeter=777576
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02347518', BeginValue=0.107, DateInstall='2007-01-01 00:00:00', DateVerify='2013-12-09 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 13,10,21ã ê/ï 190,485ì3, ïîäêë 13,10,21ã  Ïåðåíîñ ÏÓ ÃÒÌ 27,07,16ã ê/ï 159,38ì3. Òåõ/îñì ïîìåù ÃÒÌÝ 21,07,16ã ê/ï 158,759ì3.  Òåõ/îñì. ïîìåù.ÃÒÌ 02,03,15ã ê/ï 145,831ì3. Âð-çàãë íà ïîâ-êó ÃÒÌ 09,12,13ã ê/ï 123,724ì3,ïîäêë.10,12,13ã ', DateFabrication='2006-01-01 00:00:00', idcontract=915447, IDConformity=777590, IDtypeVerify=1 where idgmeter=777590
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02347462', BeginValue=0.13, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-13 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,10,21ã ê/ï 215,494ì3, ïîäêë 13,10,21ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 09,12,13ã ê/ï 106,262ì3,ïîäêë.09,12,13ã ', DateFabrication='2006-01-01 00:00:00', idcontract=915449, IDConformity=777592, IDtypeVerify=1 where idgmeter=777592
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02369067', BeginValue=0.082, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-13 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,10,21ã ê/ï 289,858ì3, ïîäêë 13,10,21ã  Óñò ïëèòû ÃÒÌÝ 09,11,20ã ê/ï 274,76ì3  Âð-çàãë íà ïîâ-êó ÃÒÌ 09,12,13ã ê/ï 169,209ì3,ïîäêë.10,12,13ã ', DateFabrication='2006-01-01 00:00:00', idcontract=915508, IDConformity=777648, IDtypeVerify=1 where idgmeter=777648
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02368862', BeginValue=0.093, DateInstall='2007-01-01 00:00:00', DateVerify='2013-12-13 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 12,10,21ã ê/ï 481,870ì3, ïîäêë 12,10,21ã    Âð-çàãë íà ïîâ-êó ÃÒÌ 13,12,13ã ê/ï 231,041ì3,ïîäêë.14,12,13ã ', DateFabrication='2006-01-01 00:00:00', idcontract=915512, IDConformity=777651, IDtypeVerify=1 where idgmeter=777651
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02368974', BeginValue=0.089, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-13 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,10,21ã ê/ï 264,697ì3, ïîäêë 13,10,21ã  Âð-çàãë íà ïîâ-êó ÊÑÒ 24,12,13ã ê/ï 169,722ì3,ïîäêë.24,12,13ã', DateFabrication='2006-01-01 00:00:00', idcontract=915530, IDConformity=777667, IDtypeVerify=1 where idgmeter=777667
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02369009', BeginValue=0.088, DateInstall='2007-01-01 00:00:00', DateVerify='2021-10-13 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 13,10,21ã ê/ï 269,824ì3, ïîäêë 13,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 11,12,13ã ê/ï 109,644ì3,ïîäêë.12,12,13ã.  ', DateFabrication='2006-01-01 00:00:00', idcontract=915558, IDConformity=777693, IDtypeVerify=1 where idgmeter=777693
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02376874', BeginValue=0.082, DateInstall='2007-03-01 00:00:00', DateVerify='2021-10-11 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 11,10,21ã ê/ï 257,247ì3, ïîäêë 11,10,21ã  Óñò. ã/ïëèòû ÃÒÌ 27,05,16ã ê/ï 211,327ì3. Âð-çàãë íà ïîâ-êó ÃÒÌ 20,12,13ã ê/ï 134,28ì3,ïîäêë.21,12,13ã. ', DateFabrication='2006-01-01 00:00:00', idcontract=915643, IDConformity=778489, IDtypeVerify=1 where idgmeter=778489
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02324903', BeginValue=0.245, DateInstall='2006-10-20 00:00:00', DateVerify='2013-12-03 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÈÏ Øàìãàí 13,10,21ã ê/ï 347,071ì3, ïîäêë 13,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 03,12,13ã ê/ï 184,896ì3,ïîäêë.04,12,13ã  ', DateFabrication='2006-01-01 00:00:00', idcontract=915314, IDConformity=776746, IDtypeVerify=1 where idgmeter=776746
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=17, SerialNumber='02347450', BeginValue=0.09, DateInstall='2006-10-20 00:00:00', DateVerify='2021-10-05 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 05,10,21ã ê/ï 167,887ì3, ïîäêë 05,10,21ã  Âð-çàãë íà ïîâ-êó ÃÒÌ 19,12,13ã ê/ï 69,808ì3,ïîäêë.20,12,13ã   20,10,06ã ñò. çàãë.Ïîäêë.27,06,07ã', DateFabrication='2006-01-01 00:00:00', idcontract=915337, IDConformity=776769, IDtypeVerify=1 where idgmeter=776769
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ìàðèíà', Surname='Ëåîíòüåâà', Patronic='Áåêêîæàíîâíà' where IDContract=902245
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ãóëüíàðà', Surname='Êîæàõìåòîâà', Patronic='Êàçèñêûçû' where IDContract=895626
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ñàíèÿ', Surname='Àêàíîâà', Patronic='Æàáàåâíà' where IDContract=858983
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Îëæàñ', Surname='Çàëåëîâ', Patronic='Æàíàòîâè÷' where IDContract=869149
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Äìèòðèé', Surname='Ïîíîìàðåâ', Patronic='Àëåêñàíäðîâè÷' where IDContract=889040
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=43, SerialNumber='003235940*', BeginValue=0, DateInstall='1996-01-01 00:00:00', DateVerify='2018-09-06 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌÝ 06,09,18ã ê/ï 439,369ì3, ïîäêë 07,09,18ã  Óñò. ã/ïëèòû ÃÒÌ 26,03,14ã ê/ï 371,550ì3. Âð.çàãë.íà ïîâåðêó ÈÏ Àõìåò.14,09,12ã ê/ï 325,111ì3,ïîäêë.14,09,12ã.  âðåì.çàãë. 22,09,06ã,ïîäêë.27,09,06ã', DateFabrication='1996-01-01 00:00:00', idcontract=876135, IDConformity=733834, IDtypeVerify=1 where idgmeter=733834
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02610286*', BeginValue=0.09, DateInstall='2010-02-10 00:00:00', DateVerify='2017-12-20 00:00:00', Memo='ê/ï 118,936ì3 îò 18,10,21 ðåâ Âð-çàãë íà ïîâ-êó ÃÒÌÝ 20,12,17ã ê/ï 86,466ì3, ïîäêë 21,12,17ã  Óñò. ã/ïëèòû ÃÒÌ 17,08,15ã ê/ï 55,049ì3. ', DateFabrication='2009-12-16 00:00:00', idcontract=869918, IDConformity=787718, IDtypeVerify=1 where idgmeter=787718
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Ìåðóåðò', Surname='Àëèì', Patronic='Æàìåòêûçû' where IDContract=888404
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àëåêñàíäð', Surname='Êîðîáêèí', Patronic='Àëåêñàíäðîâè÷' where IDContract=880790
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update Contract set name='Àëåêñàíäð', Surname='Ñòåöåíêî', Patronic='Ñåðãååâè÷' where IDContract=860889
+if @@error<>0 begin ROLLBACK TRANSACTION end 
+update gmeter set idstatusgmeter=1, IDTypeGMeter=46, SerialNumber='02334444', BeginValue=0.2, DateInstall='2006-08-26 00:00:00', DateVerify='2014-07-18 00:00:00', Memo='Âð-çàãë íà ïîâ-êó ÃÒÌ 18,07,14ã ê/ï 177,606ì3,ïîäêë.18,07,14ã.', DateFabrication='2006-03-31 00:00:00', idcontract=860748, IDConformity=776183, IDtypeVerify=1 where idgmeter=776183
+if @@error<>0 begin ROLLBACK TRANSACTION end 

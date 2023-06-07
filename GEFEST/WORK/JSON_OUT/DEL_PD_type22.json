@@ -1,0 +1,36 @@
+[
+  {
+    "IDDocument": 22154395,
+    "IDContract": 903807,
+    "IDPeriod": 211,
+    "IDBatch": null,
+    "IDTypeDocument": 22,
+    "DocumentNumber": "4013",
+    "DocumentDate": "2022-08-17T00:00:00",
+    "DocumentAmount": 252.224,
+    "IDGru": null,
+    "IdUser": null,
+    "DateAdd": null,
+    "IdModify": null,
+    "DateModify": null,
+    "Note": "",
+    "TerminalData": null
+  },
+  {
+    "IDDocument": 22154396,
+    "IDContract": 905640,
+    "IDPeriod": 212,
+    "IDBatch": null,
+    "IDTypeDocument": 22,
+    "DocumentNumber": "4014",
+    "DocumentDate": "2022-08-17T00:00:00",
+    "DocumentAmount": 305.145,
+    "IDGru": null,
+    "IdUser": null,
+    "DateAdd": null,
+    "IdModify": 29,
+    "DateModify": "2022-09-02T00:00:00",
+    "Note": null,
+    "TerminalData": null
+  }
+]

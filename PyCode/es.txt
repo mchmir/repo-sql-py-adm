@@ -1,0 +1,4 @@
+
+C:\Windows\system32>C:\Users\mchmir\AppData\Local\Programs\Python\Python37-32\python.exe  C:\PyCode\MSSQL\sql_backup_OIT1C.py 
+
+C:\Windows\system32>C:\Users\mchmir\AppData\Local\Programs\Python\Python37-32\python.exe  "C:\PyCode\MSSQL\sql_backup_OIT1C.py" 
