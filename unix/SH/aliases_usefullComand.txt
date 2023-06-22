@@ -1,0 +1,25 @@
+alias aliasr='nano ~/.bashrc'
+alias cdpgsql='cd C:/_GitSeptim/Septim4.limited'
+alias cl='clear'
+alias forcealias='source ~/.bashrc'
+alias forcepush='git push --force-with-lease'
+alias ga='git add'
+alias galias='git config --global --get-regexp alia'
+alias gc='git commit'
+alias gcb='git branch --show-current'
+alias gitalias='git config --global --get-regexp alias'
+alias gitbr='git checkout -b '
+alias gitdiff='git log -p'
+alias gitgraph='git log --oneline --decorate --graph --all'
+alias gs='git status'
+alias ll='ls -l'
+alias lla='ls -la'
+alias ls='ls -F --color=auto --show-control-chars'
+alias pull='git pull'
+
+
+
+find . -name "example.txt"
+grep -r "текст" .
+
+
