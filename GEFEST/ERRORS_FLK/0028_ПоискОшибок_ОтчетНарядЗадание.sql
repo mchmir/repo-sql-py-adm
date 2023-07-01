@@ -7,7 +7,7 @@ DECLARE @dEnd     AS DATETIME;
 DECLARE @Month    AS INT;
 DECLARE @Year     AS INT;
 
-SET @Month = 5;
+SET @Month = 6;
 SET @Year = 2023;
 
 SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);

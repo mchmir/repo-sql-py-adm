@@ -4,7 +4,7 @@ go
 
 select * 
 from period p
-where p.Month = 4 and p.Year = 2023;
+where p.Month = 7 and p.Year = 2023;
 
 -------------------------------------------------
 
@@ -30,3 +30,7 @@ from AAAERC7;
 select top 1000 *
 from AAAERC7;
 
+------------------------------------------------
+
+SELECT name AS DatabaseName, DB_ID(name) AS DatabaseID
+FROM sys.databases;
