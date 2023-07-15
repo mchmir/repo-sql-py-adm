@@ -12,6 +12,12 @@ class MyContextManager:
         if exc_type is not None:
             print(f"Произошло исключение: {exc_type}, {exc_value}")
 
+    def __hash__(self) -> int:
+        return super().__hash__()
+
+    def __init__(self) -> None:
+        super().__init__()
+
 
 # Использование
 with MyContextManager() as cm:
