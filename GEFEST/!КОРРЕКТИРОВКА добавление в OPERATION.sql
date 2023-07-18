@@ -17,10 +17,11 @@ BEGIN TRANSACTION
   DECLARE @Month AS INT;
 
 
-  SET @Account = 0501012;
+  SET @Account = 2752017;
   SET @Year    = 2023;
-  SET @Month   = 1;
-  
+  SET @Month   = 7;
+  --- ID не проведенного документа ---
+  SET @IDDocument = 23363561;
   
   SET @idPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
   
@@ -34,36 +35,30 @@ BEGIN TRANSACTION
   
   SET @DocumentDate    = (SELECT d.DocumentDate 
                             FROM Document as d 
-                           WHERE d.IDContract     = @IDContract 
-                             AND d.IDPeriod       = @IDPeriod 
+                           WHERE d.IDContract     = @IDContract
+                             AND d.IDDOCUMENT     = @IDDocument
+                             AND d.IDPeriod       = @IDPeriod
                              AND d.IDTypeDocument = @IDTypeDocument);
   
   --SELECT @DocumentDate
   
   SET @AmountOperation = (SELECT d.DocumentAmount
                             FROM Document AS d 
-                           WHERE d.IDContract    = @IDContract 
-                             AND d.IDPeriod       = @IDPeriod 
+                           WHERE d.IDContract    = @IDContract
+                             AND d.IDDOCUMENT     = @IDDocument
+                             AND d.IDPeriod       = @IDPeriod
                              AND d.IDTypeDocument = @IDTypeDocument);
   
   --SELECT @AmountOperation
   
   SET @IDBalance       = (SELECT b.IDBalance 
                             FROM Balance as b 
-                           WHERE b.IDContract   = @IDContract 
+                           WHERE b.IDContract   = @IDContract
                              AND b.IDPeriod     = @IDPeriod 
                              AND b.IDAccounting = 1);
   
   --SELECT @IDBalance
-  
-  SET @IDDocument      = (SELECT d.IDDocument 
-                            FROM Document AS d 
-                           WHERE d.IDContract     = @IDContract 
-                             AND d.IDPeriod       = @IDPeriod 
-                             AND d.IDTypeDocument = @IDTypeDocument);
-  
-  --SELECT @IDDocument
-  
+
   INSERT INTO Operation (DateOperation, AmountOperation, NumberOperation, IDBalance,  IDDocument, IdTypeOperation)
                  VALUES (@DocumentDate, @AmountOperation, 0,              @IDBalance, @IDDocument, 1);
   

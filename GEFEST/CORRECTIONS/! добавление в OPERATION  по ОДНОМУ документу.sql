@@ -11,7 +11,7 @@ DECLARE @IDAccounting INT
 DECLARE @Year AS INT
 DECLARE @Month AS INT
 
-SET @Account = 2741205
+SET @Account = 2752017
 
 ----- какой документ, тип счета: 1 - Основной долг, 4 Пеня, 6 - Услуги
 SET @IDAccounting = 1 

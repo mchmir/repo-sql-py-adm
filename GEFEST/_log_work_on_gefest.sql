@@ -1,4 +1,3 @@
-
 ------------------------------------------------------------------------------------------------------------------------
 --
 --
@@ -7,6 +6,67 @@
 
 
 
+
+
+------------------------------------------------------------------------------------------------------------------------
+-- 18 июля 2023
+-- Оптимизация процедур spRecalcBalances, spRecalcBalancesRealOnePeriodByContract
+-- Оптимизация вычислений до 3 знаков в балансах
+------------------------------------------------------------------------------------------------------------------------
+create procedure dbo.spRecalcBalances(
+  @IDCONTRACT    as int,
+  @IDPERIOD      as int
+) as
+declare
+  @IDPREVPERIOD  as int
+-------------------Процедура по перерасчету баланса по контракту--------------------------
+select @IDPREVPERIOD = (select top 1 IDPERIOD
+                        from PERIOD with (nolock)
+                        where IDPERIOD < @IDPERIOD
+                        order by IDPERIOD desc)
+
+insert into BALANCE (IDACCOUNTING, IDPERIOD, IDCONTRACT, AMOUNTBALANCE, AMOUNTCHARGE, AMOUNTPAY)
+  (select B1.IDACCOUNTING,
+          @IDPERIOD IDPERIOD,
+          B1.IDCONTRACT,
+          ROUND(B1.AMOUNTBALANCE, 3),
+          ROUND(B1.AMOUNTCHARGE, 3),
+          ROUND(B1.AMOUNTPAY, 3)
+   from BALANCE B1 with (nolock)
+          left outer join BALANCE B2 with (nolock) on B1.IDCONTRACT = B2.IDCONTRACT
+     and B1.IDACCOUNTING = B2.IDACCOUNTING
+     and B2.IDPERIOD = @IDPERIOD
+   where B2.IDBALANCE is null
+     and B1.AMOUNTBALANCE <> 0
+     and B1.IDPERIOD = @IDPREVPERIOD
+     and B1.IDCONTRACT = @IDCONTRACT
+  )
+
+update BALANCE
+set BALANCE.AMOUNTBALANCE=ROUND(T.AMOUNTBALANCE, 3),
+    BALANCE.AMOUNTCHARGE=ROUND(T.AMOUNTCHARGE, 3),
+    BALANCE.AMOUNTPAY=ROUND(T.AMOUNTPAY, 3)
+from BALANCE with (nolock)
+       inner join (select NEWBAL.IDACCOUNTING                                                               IDACCOUNTING
+                        , @IDPERIOD                                                                         IDPERIOD
+                        , NEWBAL.IDCONTRACT                                                                 IDCONTRACT
+                        , isnull(BALANCE.AMOUNTBALANCE, 0) + isnull(sum(OPERATION.AMOUNTOPERATION), 0)   as AMOUNTBALANCE
+                        , isnull(BALANCE.AMOUNTCHARGE, 0) + isnull(
+          sum(case when TYPEOPERATION.IDTYPEOPERATION = 2 then OPERATION.AMOUNTOPERATION else 0 end), 0) as AMOUNTCHARGE
+                        , isnull(BALANCE.AMOUNTPAY, 0) + isnull(
+          sum(case when TYPEOPERATION.IDTYPEOPERATION = 1 then OPERATION.AMOUNTOPERATION else 0 end), 0) as AMOUNTPAY
+                   from (select * from BALANCE BBB with (nolock) where IDPERIOD = @IDPREVPERIOD) BALANCE
+                          right outer join BALANCE NEWBAL with (nolock) on BALANCE.IDCONTRACT = NEWBAL.IDCONTRACT and
+                                                                           BALANCE.IDACCOUNTING = NEWBAL.IDACCOUNTING
+                          left outer join OPERATION with (nolock) on OPERATION.IDBALANCE = NEWBAL.IDBALANCE
+                          left outer join TYPEOPERATION with (nolock)
+                                          on OPERATION.IDTYPEOPERATION = TYPEOPERATION.IDTYPEOPERATION
+                   where NEWBAL.IDPERIOD = @IDPERIOD
+                   group by NEWBAL.IDACCOUNTING, NEWBAL.IDCONTRACT, BALANCE.AMOUNTBALANCE, BALANCE.AMOUNTCHARGE,
+                            BALANCE.AMOUNTPAY
+) T on BALANCE.IDPERIOD = T.IDPERIOD and BALANCE.IDCONTRACT = T.IDCONTRACT and BALANCE.IDACCOUNTING = T.IDACCOUNTING
+where BALANCE.IDCONTRACT = @IDCONTRACT
+go
 
 
 

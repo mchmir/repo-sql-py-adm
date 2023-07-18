@@ -1,6 +1,6 @@
 DECLARE @Account VARCHAR(50);
 
-SET @Account = 2101050;
+SET @Account = 2752017;
 
 SELECT
       c.idcontract AS [ID контракта],
