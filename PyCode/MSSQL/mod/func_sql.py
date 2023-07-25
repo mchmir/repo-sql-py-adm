@@ -1,17 +1,36 @@
-# import os, sys, time
 import os
 import time
 from shutil import copy
 
 import pyodbc
-# from subprocess import call
-# from shutil import copyfile,copy
 from sqlalchemy import create_engine, exc
+from functools import wraps
+from time import perf_counter
+from typing import Union
+
+from sqlalchemy.engine import Engine
+from sqlalchemy.exc import SQLAlchemyError
 
 
-def sql_engine(nhost="localhost", nbase="", nuser="", npasw=""):
+def timed(func):
+    """Функция декоратор, которая при вызове декорируемой функции измеряет время ее выполнения"""
+    @wraps(func)
+    def wrap(*args, **kwargs):
+        t1 = perf_counter()
+        result = func(*args, **kwargs)
+        t2 = perf_counter()
+        print(f"Вызов {func.__name__} занял {t2-t1} секунд, ", end="")
+        print(f"(параметры {args}, {kwargs})")
+        return result
+    return wrap
+
+
+def sql_engine(host_name: str = "localhost",
+               base_name: str = "",
+               user_name: str = "",
+               passwd: str = "") -> Union[tuple[Engine, None], tuple[bool, SQLAlchemyError]]:
     try:
-        return create_engine(f"mssql+pyodbc://{nuser}:{npasw}@{nhost}/{nbase}?driver=SQL+Server"), None
+        return create_engine(f"mssql+pyodbc://{user_name}:{passwd}@{host_name}/{base_name}?driver=SQL+Server"), None
     except exc.SQLAlchemyError as error:
         return False, error
 
@@ -43,9 +62,9 @@ def sqlCommandfromFile(filename):
     # Open and read the file as a single buffer
     try:
         fd = open(filename, 'r')
-        sqlFile = fd.read()
+        sql_file: str = fd.read()
         fd.close()
-        return sqlFile
+        return sql_file
     except (IOError, OSError) as e:
         return print(e)
 
@@ -54,11 +73,7 @@ def sqlCommandfromFile(filename):
 def removefiles(dir, xDot):
     files = os.listdir(dir)
     file_path = dir
-    listFile = []
-    # import glob
-    # os.chdir(" ")
-    # for file in glob.glob("*.txt")
-    # print(file)
+    list_file: list[str] = []
     for xfile in files:
 
         if os.path.isfile(str(file_path) + xfile):
@@ -66,11 +81,11 @@ def removefiles(dir, xDot):
             if (xfile.endswith(xDot)):
 
                 try:
-                    listFile.append(str(file_path) + xfile)
+                    list_file.append(str(file_path) + xfile)
                     os.remove(str(file_path) + xfile)
                 except OSError as e:
-                    listFile.append(e.filename + " : " + e.strerror)
-    return listFile
+                    list_file.append(e.filename + " : " + e.strerror)
+    return list_file
 
 
 def get_file_directory(file):
@@ -83,7 +98,7 @@ def del_file_olddays(dir, days):
     cutoff = now - (int(days) * 86400)
     files = os.listdir(dir)
     file_path = dir
-    listFile = []
+    list_file: list[str] = []
     # import glob
     # os.chdir(" ")
     # for file in glob.glob("*.txt")
@@ -98,10 +113,10 @@ def del_file_olddays(dir, days):
             # delete file if older than  $days
             if (xfile.endswith(".bak") or xfile.endswith(".zip")) and c < cutoff:
                 # print("Удален файл: " + str(file_path) + xfile)
-                # listFile.append(str(file_path) + xfile)
+                # list_file.append(str(file_path) + xfile)
                 try:
-                    listFile.append(str(file_path) + xfile)
+                    list_file.append(str(file_path) + xfile)
                     os.remove(str(file_path) + xfile)
                 except OSError as e:
-                    listFile.append(e.filename + " : " + e.strerror)
-    return listFile
+                    list_file.append(e.filename + " : " + e.strerror)
+    return list_file
