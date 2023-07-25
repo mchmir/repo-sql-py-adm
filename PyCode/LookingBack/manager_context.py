@@ -1,3 +1,4 @@
+
 class MyContextManager:
     def __enter__(self):
         # Логика инициализации или предварительных операций
