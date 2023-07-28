@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<data>
+    <rec>
+        <date>2023-01-01</date>
+        <value>100</value>
+    </rec>
+    <rec>
+        <date>2023-01-02</date>
+        <value>200</value>
+    </rec>
+    <rec>
+        <date>2023-01-03</date>
+        <value>300</value>
+    </rec>
+</data>
