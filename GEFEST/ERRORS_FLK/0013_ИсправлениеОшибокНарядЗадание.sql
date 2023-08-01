@@ -4,13 +4,13 @@ SELECT *
   FROM GMeter AS g
  WHERE g.IDGObject IN (SELECT g.IDGObject
                          FROM GObject AS g
-                        WHERE g.IDContract = 910633);
+                        WHERE g.IDContract = 862445);
 ---- 1 подключен
 ---- 2 отключен
 
 SELECT *
   FROM OldValues AS ov
- WHERE ov.IdObject = 725288 --784492 --812901
+ WHERE ov.IdObject = 720144 --784492 --812901
  ORDER BY ov.DateValues DESC;
 
 SELECT dbo.fGetStatusPU((SELECT p.DateEnd
@@ -26,7 +26,7 @@ SELECT dbo.fGetStatusPU((SELECT p.DateEnd
 --- idObject это IDGmeter
 --- последняя цифра по дате должна быть 2 для подключенного счетчика
 
---UPDATE OldValues SET Name = 1 WHERE IdOldValues in (1139573)
+--UPDATE OldValues SET Name = 1 WHERE IdOldValues in (1143045)
 
 SELECT *
   FROM Contract AS c

@@ -76,14 +76,13 @@ ON [PRIMARY]
 GO
 --------------------------------------------------------------------------
 if exists (select * 
-             from tempdb.sys.tables 
+             from tempdb.sys.tables
             where name LIKE '#tmpAAA%'
           )
   drop table #tmpAAA
 GO
 --------------------------------------------------------------------------
-
-SET NOCOUNT ON;  
+SET NOCOUNT ON;
 GO
 --------------------------------------------------------------------------
 DECLARE @IDPeriod AS INT
@@ -93,7 +92,7 @@ DECLARE @Year     AS INT
 ------------------------------------
 ------------------------------------
 ------------------------------------
-      SET @Month = 6
+      SET @Month = 7
       SET @Year = 2023
 ------------------------------------
 ------------------------------------
@@ -102,18 +101,18 @@ DECLARE @Year     AS INT
 
 SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
 
-
 DECLARE @maxInt INT;
 SET     @maxInt = 0;
 
-SELECT DISTINCT 
+SELECT DISTINCT
        g.IDGru
   INTO #tmpGRU
   FROM GRu AS g
     LEFT JOIN  dbo.GObject  AS gt ON gt.IDGru      = g.IDGru
     LEFT JOIN  dbo.Contract AS c  ON gt.IDContract = c.IDContract
     INNER JOIN dbo.Person AS p WITH (NOLOCK) ON p.IDPerson = c.IDPerson --AND p.isJuridical = 0
- WHERE g.IDGru NOT IN (8518, 8743, 8626, 8666, 8742, 8738, 8772, 8771, 8768, 8747, 8828, 8781) --AND c.IDContract NOT IN (885122,885123,885124,885125,885126,885127,885128,885129)
+ WHERE g.IDGru NOT IN (8518, 8743, 8626, 8666, 8742, 8738, 8772, 8771, 8768, 8747, 8828, 8781)
+     --AND c.IDContract NOT IN (885122,885123,885124,885125,885126,885127,885128,885129)
 
 -- обобщенное табличное выражение
 -- нумеруем выборку ГРУ
@@ -129,26 +128,20 @@ SELECT * INTO #tmpAAA FROM TestCTE;
 --Запрос, в котором мы можем использовать CTE
 SET @maxInt = (SELECT MAX(a.num) FROM #tmpAAA AS a);
 
-PRINT ('Количество ГРУ = '+ CAST(@maxInt AS VARCHAR));
+PRINT (N'Количество ГРУ = '+ CAST(@maxInt AS VARCHAR));
 
 DECLARE @i INT;
-DECLARE @j INT;
-
-DECLARE @idGRU      INT;
-DECLARE @idContract INT;
+DECLARE @idGRU INT;
 DECLARE @query NVARCHAR(MAX);
 
   SET @i = 1;
 
-  WHILE @i<= @maxInt 
+  WHILE @i <= @maxInt
     BEGIN
       SET @idGRU =  (SELECT idGRU FROM #tmpAAA a WHERE a.num = @i)
-       --PRINT('....обрабатывается...idGRU'+CAST(@idGRU AS VARCHAR))
-
       SET @query = 'INSERT INTO dbo.AAAERC7  EXEC repCountNoticeERC21 ' + CAST(@idGRU AS VARCHAR) + ',' + CAST(@IDPeriod AS VARCHAR) + ';'
       EXEC (@query)
       SET @i = @i + 1
-     
     END
 
 DROP TABLE #tmpAAA;

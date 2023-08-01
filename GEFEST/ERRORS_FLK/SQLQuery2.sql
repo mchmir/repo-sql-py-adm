@@ -8,7 +8,7 @@ where p.Month = 7 and p.Year = 2023;
 
 -------------------------------------------------
 
-SELECT 
+SELECT
        spid as idproc,
        db_name(dbid) as 'Имя БД',
        program_name as 'Программа',

@@ -66,10 +66,10 @@ SELECT
        b.IDAccounting, 
        b.IDPeriod, 
        b.IDContract, 
-       b.AmountBalance AS [Ост на счете], 
+       b.AmountBalance AS [Ост на счете],
        b.AmountCharge  AS [Остаток на нач мес],
-       b.AmountPay     AS [Оплачено], 
-       a.Name          AS [Счет] 
+       b.AmountPay     AS [Оплачено],
+       a.Name          AS [Счет]
   FROM BalanceReal AS b,
        Accounting  AS a 
  WHERE b.IDContract = @idContract 
@@ -133,8 +133,8 @@ SELECT
        Address.Flat        AS Квартира,
        TypeGMeter.Name     AS [Тип счетчика],
        CASE GMeter.IDStatusGMeter
-         WHEN 1 then 'Подключен'
-         WHEN 2 THEN 'Отключен'
+         WHEN 1 then N'Подключен'
+         WHEN 2 THEN N'Отключен'
        END                 AS Статус,
        GMeter.SerialNumber AS СерийНомерСчетчик,
        Contract.IDContract,

@@ -1,7 +1,7 @@
 declare @IDPeriod int
 declare @BDate datetime
 declare @EDate datetime
-set @IDPeriod=217
+set @IDPeriod=222
 set @Bdate=dbo.fGetDatePeriod(@IDPeriod,1)
 set @EDate=dbo.fGetDatePeriod(@IDPeriod,2)
 select @IDPeriod as IDPeriod

@@ -4,14 +4,14 @@
 --  LEFT JOIN Operation o ON o.IDOperation = fu.IDOperation
 --  WHERE fu.IDGObject = 877617
 --
---  GO 
+--  021
 
 DECLARE @IDPeriod INT;
 DECLARE @Year     INT;
 DECLARE @Month    INT;
 
 SET @Year = 2023;
-SET @Month = 6;
+SET @Month = 7;
 
 SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
 
