@@ -4,9 +4,9 @@ GO
 
 SELECT * 
   FROM Indication AS i 
- WHERE i.DateDisplay = '25.10.2021' 
+ WHERE i.DateDisplay = '08-23-2023'
    AND i.IdUser      = 38
-   AND i.IDAgent     = 149
+   AND i.IDAgent     = 145
 
 ---- Контроллеры--------
 SELECT * FROM Agent AS a
@@ -28,13 +28,13 @@ BEGIN TRANSACTION
   --Пакет №1 Начало 
 
  UPDATE Indication 
-    SET IDAgent = 127
+    SET IDAgent = 145
         OUTPUT DELETED.IDAgent, INSERTED.IDAgent
        --OUTPUT DELETED.* -- старые  
        --INSERTED.* -- новые
-  WHERE DateDisplay = '25.10.2021' 
+  WHERE DateDisplay = '08-23-2023'
     AND IdUser      = 38
-    AND IDAgent     = 149
+    AND IDAgent     = 15
 
    
   --Пакет №1 Конец
