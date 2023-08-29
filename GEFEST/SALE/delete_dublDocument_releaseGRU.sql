@@ -1,0 +1,151 @@
+/**
+  SALE - Журнал Реализации
+  Проверить наличие двойных документов
+*/
+SELECT D.*
+FROM DOCUMENT AS D
+INNER JOIN (
+    SELECT IDGRU, cast(MAX(CAST(DOCUMENTNUMBER as INT)) as VARCHAR(20)) AS MaxDocNum
+    FROM Document
+    WHERE DOCUMENTDATE = '2023-04-30'
+    GROUP BY IDGRU, AMOUNTBT
+    HAVING COUNT(*) > 1
+) AS SubQ
+ON D.IDGRU = SubQ.IDGRU AND D.DOCUMENTNUMBER = SubQ.MaxDocNum
+WHERE YEAR(D.DOCUMENTDATE) = 2023 AND MONTH(D.DOCUMENTDATE) = 4
+order by CAST(DOCUMENTNUMBER as INT);
+
+
+
+UPDATE Document
+SET AMOUNTBT = 0, AMOUNTPT = 0
+WHERE IDDOCUMENT IN
+  (
+  SELECT D.IDDOCUMENT
+  FROM DOCUMENT AS D
+  INNER JOIN
+    (SELECT IDGRU, cast(MAX(CAST(DOCUMENTNUMBER as INT)) as VARCHAR(20)) AS MaxDocNum
+     FROM Document
+     WHERE DOCUMENTDATE = '2023-04-30'
+     GROUP BY IDGRU, AMOUNTBT
+     HAVING COUNT(*) > 1
+    ) AS SubQ
+   ON D.IDGRU = SubQ.IDGRU AND D.DOCUMENTNUMBER = SubQ.MaxDocNum
+   WHERE YEAR(D.DOCUMENTDATE) = 2023 AND MONTH(D.DOCUMENTDATE) = 4
+   );
+
+/**
+  Обновление таблицы PD, убираем КГ
+ */
+select *
+from PD
+where IDDOCUMENT in (
+  select Document.IDDOCUMENT
+  from DOCUMENT
+  where AMOUNTPT = 0
+    and AMOUNTBT = 0
+    and DOCUMENTDATE = '2023-04-30'
+  )
+and IDTYPEPD = 2;
+
+update PD set NAME = 0
+where IDDOCUMENT in (
+  select Document.IDDOCUMENT
+  from DOCUMENT
+  where AMOUNTPT = 0
+    and AMOUNTBT = 0
+    and DOCUMENTDATE = '2023-04-30'
+  )
+and IDTYPEPD = 2;
+
+/**
+  SALE - Журнал Реализации
+  Проверить наличие двойных документов
+  Двойная запись отличается данными по БУТАНУ и ПРОПАНУ в
+  отдельности, но в сумме совпадает
+*/
+SELECT D.*
+FROM DOCUMENT AS D
+INNER JOIN (
+    SELECT IDGRU, cast(MAX(CAST(DOCUMENTNUMBER as INT)) as VARCHAR(20)) AS MaxDocNum
+    FROM Document
+    WHERE DOCUMENTDATE = '2023-04-30'
+    GROUP BY IDGRU, AMOUNTBT+AMOUNTPT
+    HAVING COUNT(*) > 1
+) AS SubQ
+ON D.IDGRU = SubQ.IDGRU AND D.DOCUMENTNUMBER = SubQ.MaxDocNum
+WHERE YEAR(D.DOCUMENTDATE) = 2023 AND MONTH(D.DOCUMENTDATE) = 4
+order by CAST(DOCUMENTNUMBER as INT);
+
+UPDATE Document
+SET AMOUNTBT = 0, AMOUNTPT = 0
+WHERE IDDOCUMENT IN
+  (
+  SELECT D.IDDOCUMENT
+  FROM DOCUMENT AS D
+  INNER JOIN
+    (SELECT IDGRU, cast(MAX(CAST(DOCUMENTNUMBER as INT)) as VARCHAR(20)) AS MaxDocNum
+     FROM Document
+     WHERE DOCUMENTDATE = '2023-04-30'
+     GROUP BY IDGRU, AMOUNTBT+AMOUNTPT
+     HAVING COUNT(*) > 1
+    ) AS SubQ
+   ON D.IDGRU = SubQ.IDGRU AND D.DOCUMENTNUMBER = SubQ.MaxDocNum
+   WHERE YEAR(D.DOCUMENTDATE) = 2023 AND MONTH(D.DOCUMENTDATE) = 4
+   );
+
+update PD set NAME = 0
+where IDDOCUMENT in (
+  select Document.IDDOCUMENT
+  from DOCUMENT
+  where AMOUNTPT = 0
+    and AMOUNTBT = 0
+    and DOCUMENTDATE = '2023-04-30'
+  )
+and IDTYPEPD = 2;
+
+/**
+  SALE - Журнал Реализации
+  Проверить наличие двойных документов
+  Двойная запись отличается данными по БУТАНУ и ПРОПАНУ в
+  отдельности, и не совпадает в сумме на сотые
+*/
+SELECT D.*
+FROM DOCUMENT AS D
+INNER JOIN (
+    SELECT IDGRU, cast(MAX(CAST(DOCUMENTNUMBER as INT)) as VARCHAR(20)) AS MaxDocNum
+    FROM Document
+    WHERE DOCUMENTDATE = '2023-04-30'
+    GROUP BY IDGRU, ROUND(AMOUNTBT+AMOUNTPT, 0)
+    HAVING COUNT(*) > 1
+) AS SubQ
+ON D.IDGRU = SubQ.IDGRU AND D.DOCUMENTNUMBER = SubQ.MaxDocNum
+WHERE YEAR(D.DOCUMENTDATE) = 2023 AND MONTH(D.DOCUMENTDATE) = 4
+order by CAST(DOCUMENTNUMBER as INT);
+
+UPDATE Document
+SET AMOUNTBT = 0, AMOUNTPT = 0
+WHERE IDDOCUMENT IN
+  (
+  SELECT D.IDDOCUMENT
+  FROM DOCUMENT AS D
+  INNER JOIN
+    (SELECT IDGRU, cast(MAX(CAST(DOCUMENTNUMBER as INT)) as VARCHAR(20)) AS MaxDocNum
+     FROM Document
+     WHERE DOCUMENTDATE = '2023-04-30'
+     GROUP BY IDGRU, ROUND(AMOUNTBT+AMOUNTPT, 0)
+     HAVING COUNT(*) > 1
+    ) AS SubQ
+   ON D.IDGRU = SubQ.IDGRU AND D.DOCUMENTNUMBER = SubQ.MaxDocNum
+   WHERE YEAR(D.DOCUMENTDATE) = 2023 AND MONTH(D.DOCUMENTDATE) = 4
+   );
+
+update PD set NAME = 0
+where IDDOCUMENT in (
+  select Document.IDDOCUMENT
+  from DOCUMENT
+  where AMOUNTPT = 0
+    and AMOUNTBT = 0
+    and DOCUMENTDATE = '2023-04-30'
+  )
+and IDTYPEPD = 2;
