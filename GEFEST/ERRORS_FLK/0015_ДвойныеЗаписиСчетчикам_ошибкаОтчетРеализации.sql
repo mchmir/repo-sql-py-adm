@@ -1,4 +1,9 @@
-﻿-- двойнве записи по счетчикам
+﻿/**
+  Двойные записи по счетчикам
+  Только на одном ЛС 3751001 два счетчика подключенных и два отключенных
+  других ЛС быть не должно
+ */
+
 -- set statistics profile on
 
 DECLARE @dEnd     DATETIME;
@@ -55,3 +60,4 @@ HAVING COUNT(t.SerialNumber) > 1;
 DROP TABLE #tmpTab0015;
 
 --set statistics profile off
+

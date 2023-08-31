@@ -40,5 +40,5 @@ order by IDBALANCE desc;
 select *
 from BALANCENAME
 where IDOBJECT = 5
-   and DATEBALANCE between '2021-10-31' and '2023-08-31'
+   and DATEBALANCE between '2023-07-31' and '2023-08-31'
 order by IDBALANCE desc;

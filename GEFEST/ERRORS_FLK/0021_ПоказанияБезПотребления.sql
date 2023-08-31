@@ -1,5 +1,5 @@
 ﻿-- Показания без потребления
---SELECT *
+--  SELECT *
 --  FROM FactUse fu 
 --  LEFT JOIN Operation o ON o.IDOperation = fu.IDOperation
 --  WHERE fu.IDGObject = 877617
@@ -11,7 +11,7 @@ DECLARE @Year     INT;
 DECLARE @Month    INT;
 
 SET @Year = 2023;
-SET @Month = 7;
+SET @Month = 8;
 
 SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
 

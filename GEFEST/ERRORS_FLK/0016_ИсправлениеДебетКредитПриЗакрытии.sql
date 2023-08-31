@@ -1,4 +1,5 @@
 ﻿-- Есть начисления по услугам за период, но нет платежей
+
 SELECT * 
   FROM Contract AS c
  WHERE c.IDContract IN (SELECT idcontract 
@@ -69,14 +70,14 @@ DECLARE @Year     INT;
 DECLARE @Month    INT;
 
 SET @Year = 2023;
-SET @Month = 7;
+SET @Month = 8;
 
 
 SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
 
 SELECT *
   FROM Contract AS c
- WHERE c.IDContract IN (SELECT br.IDContract 
+ WHERE c.IDContract IN (SELECT br.IDContract
                           FROM Balance AS br
                          WHERE br.IDContract IN (SELECT idcontract
                                                    FROM Document AS d
@@ -88,23 +89,19 @@ SELECT *
                                                   WHERE d.IDTypeDocument = 1  -- оплата
                                                     AND d.IDPeriod       = @IDPeriod
                                                 )
-                           AND br.IDPeriod      = @IDPeriod 
+                           AND br.IDPeriod      = @IDPeriod
                            AND br.AmountBalance = 0
                            AND br.IDAccounting  = 6
                        );
-                           
+
 
   /*
 +----------+
 |IDContract|
 +----------+
-|915931    |
-|909696    |
-|903272    |
-|871574    |
-|868824    |
+|874644    |
+|902052    |
 +----------+
-
 
 
 */
