@@ -18,8 +18,8 @@ select
   CAST(ROUND(OplachenoSudIzder, 2) AS decimal(16,2)) OplachenoSudIzder, --17
   CAST(ROUND(OplachenoDopUslug, 2) AS decimal(16,2)) OplachenoDopUslug, --18
   CAST(ROUND(OplachenoItog, 2) AS decimal(16,2)) OplachenoItog, --19
-  CAST(ROUND(PredPokaz, 2) AS decimal(16,2)) PredPokaz, --20
-  CAST(ROUND(TekPokaz, 2) AS decimal(16,2)) TekPokaz, --21
+  CAST(ROUND(PredPokaz, 3) AS decimal(16,3)) PredPokaz, --20
+  CAST(ROUND(TekPokaz, 3) AS decimal(16,3)) TekPokaz, --21
   CAST(ROUND(Cena, 2) AS decimal(16,2)) Cena, --22
   Kolvo, --23
   CAST(ROUND(SummaNach, 2) AS decimal(16,2)) SummaNach, --24
