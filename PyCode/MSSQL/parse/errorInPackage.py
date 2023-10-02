@@ -1,5 +1,5 @@
 
-in_file = r"C:\Users\User\Desktop\PoveritelWORK\toPoveritel\Горгаз №615.txt"
+in_file = r"C:\Users\User\Desktop\PoveritelWORK\toPoveritel\Горгаз №618.txt"
 
 lst = 'upd', 'ins', 'if ', 'del', 'dbc', 'beg', 'com', 'dec',
 

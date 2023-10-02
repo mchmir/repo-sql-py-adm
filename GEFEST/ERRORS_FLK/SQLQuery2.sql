@@ -4,7 +4,7 @@ go
 
 select * 
 from period p
-where p.Month = 7 and p.Year = 2023;
+where p.Month = 10 and p.Year = 2023;
 
 -------------------------------------------------
 
@@ -34,3 +34,7 @@ from AAAERC7;
 
 SELECT name AS DatabaseName, DB_ID(name) AS DatabaseID
 FROM sys.databases;
+
+select *
+from AAAERC7
+where ACCOUNT = '1952095';
