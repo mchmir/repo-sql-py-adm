@@ -4,12 +4,16 @@ where db_name(dbid) = N'Gefest';
 
 
 
-USE GEFEST2021 -- Замените на имя вашей базы данных
+USE GEFEST
 
 SELECT
     u.name AS UserName,
     u.uid AS USERID,
-    l.name AS LoginName
+    l.name AS LoginName,
+    u.createdate AS USER_CreateDate,
+    u.updatedate AS USER_UpdateDate,
+    l.createdate AS LOGIN_CreateDate,
+    l.updatedate AS LOGIN_UpdateDate
 FROM
     sysusers u
 JOIN
@@ -19,7 +23,7 @@ WHERE
     (u.sid IS NOT NULL AND u.sid <> 0x0) AND -- Не пустой идентификатор безопасности
     u.islogin = 1 -- Это аккаунт входа
 ORDER BY
-    UserName;
+    UserID;
 
 
 
