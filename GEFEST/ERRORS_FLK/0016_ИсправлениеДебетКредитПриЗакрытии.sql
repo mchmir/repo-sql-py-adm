@@ -70,7 +70,7 @@ DECLARE @Year     INT;
 DECLARE @Month    INT;
 
 SET @Year = 2023;
-SET @Month = 9;
+SET @Month = 10;
 
 
 SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
@@ -99,15 +99,13 @@ SELECT *
 +----------+
 |IDContract|
 +----------+
-|862777    |
-|866798    |
-|868343    |
-|880368    |
-|896876    |
-|899121    |
-|902024    |
+|859314    |
+|875126    |
+|881717    |
+|896180    |
 +----------+
-- 7 -
+
+- 4 -
 
 
 */

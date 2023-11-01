@@ -36,6 +36,8 @@ def sql_select_engine() -> None:
 
         if month_ago < 10:
             month_file = '0' + str(month_ago)
+        else:
+            month_file = str(month_ago)
 
         file_csv = 'EIRC_GORGAZ_{0}{1}_{2}.csv'.format(month_file, year, num_rows)
         sql_reader.to_csv(file_csv, sep='|', index=False, encoding='utf-8')

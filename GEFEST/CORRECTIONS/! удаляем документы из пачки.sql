@@ -7,9 +7,9 @@ DECLARE @idAutoDocumentBatch AS INT
 
 DECLARE @idBatch AS INT
 
-SET @Year = 2021
-SET @Month = 9
-SET @idBatch = 91195
+SET @Year = 2023
+SET @Month = 10
+SET @idBatch = 95890
 
 
 SET @idPeriod = (SELECT p.idPeriod FROM  Period p WHERE p.Year = @Year AND p.MONTH = @Month)

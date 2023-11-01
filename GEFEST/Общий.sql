@@ -8,9 +8,9 @@ DECLARE @Year       AS INT;
 DECLARE @Month      AS INT;
 DECLARE @idGObject  AS INT;
 
-SET @Acc = '2761094';
+SET @Acc = '1712015';
 SET @Year = 2023;
-SET @Month = 8;
+SET @Month = 10;
 
 
 SET @idPeriod   = dbo.fGetIDPeriodMY(@Month, @Year);

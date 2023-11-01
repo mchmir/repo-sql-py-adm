@@ -1,0 +1,4 @@
+insert into Gefest.dbo.AAAERC7
+  (Account, Year, Month, Fio, Occupancy, PersUstr, SaldoNachGaz, SaldoNachPenya, SaldoNachSudVzysk, SaldoNachSudIzder, SaldoNachSHtraf, SaldoNachDopUslug, SaldoNachItog, OplachenoGaz, OplachenoPenya, OplachenoSudVzysk, OplachenoSudIzder, OplachenoSHtraf, OplachenoDopUslug, OplachenoItog, PredPokaz, TekPokaz, Cena, Kolvo, SummaNach, SummNachislGaz, SummNachislPenya, SummNachislVzysk, SummNachislIzder, SummNachislSHtraf, SummNachislDopUslug, SummNachislItog, SaldoKonecGaz, SaldoKonecPenya, SaldoKonecVzysk, SaldoKonecIzder, SaldoKonecSHtraf, SaldoKonecDopUslug, SaldoKonecItog, Primechanie, Street, HouseNumber, HouseNumberChar, Flat)
+  VALUES
+  (N'1264027', 2023, 10, N'Богдан Сергей Викторович', 3, N'По норме:', 405.25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, N'3  чел.', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 405.25, null, N'Советская', N'45', N'(101)', N'27');

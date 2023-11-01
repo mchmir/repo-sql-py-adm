@@ -31,7 +31,8 @@ CREATE TABLE dbo.AAAERC7 (
   Account             varchar(50) NULL,
   Year                int NULL,
   Month               int NULL,
-  fio                 varchar(500) NULL,
+  Fio                 varchar(500) NULL,
+  Occupancy           int NULL,
   PersUstr            varchar(250) NULL,
   SaldoNachGaz        float NULL,
   SaldoNachPenya      float NULL,
@@ -92,7 +93,7 @@ DECLARE @Year     AS INT
 ------------------------------------
 ------------------------------------
 ------------------------------------
-      SET @Month = 9
+      SET @Month = 10
       SET @Year = 2023
 ------------------------------------
 ------------------------------------

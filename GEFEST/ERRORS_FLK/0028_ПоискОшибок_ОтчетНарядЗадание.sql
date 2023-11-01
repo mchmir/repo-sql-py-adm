@@ -7,7 +7,7 @@ DECLARE @dEnd     AS DATETIME;
 DECLARE @Month    AS INT;
 DECLARE @Year     AS INT;
 
-SET @Month = 9;
+SET @Month = 10;
 SET @Year = 2023;
 
 SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
@@ -37,21 +37,20 @@ SELECT
 +-------+----------+--------+
 |Account|IDContract|IDGMeter|
 +-------+----------+--------+
-|1292035|862835    |793315  |
-|2321032|893324    |793573  |
-|2475032|904654    |762353  |
+|1422089|863295    |778805  |
 +-------+----------+--------+
+
 
 
 
 SELECT * 
   FROM OldValues AS ov
- WHERE ov.IdObject = 762353 -- IDGmeter = idObject !!!
+ WHERE ov.IdObject = 778805 -- IDGmeter = idObject !!!
  ORDER BY ov.DateValues DESC;
 
 UPDATE OldValues 
    SET Name = 2
- WHERE IdOldValues in (1150009);
+ WHERE IdOldValues in (1158741);
 
 --SELECT * FROM GMeter g WHERE g.IDGMeter = 718821  778139 803778
 
