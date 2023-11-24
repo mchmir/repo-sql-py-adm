@@ -13,7 +13,7 @@ GO
 RESTORE DATABASE saleTest
 FROM DISK = 'D:\BackUp\backup_sale_14.11.2023\SALE.bak'
 WITH 
-    MOVE 'Sale_Data' TO 'D:\SQL_Data\RESERVTEST\saleTest.mdf', -- Имя файла данных
+    MOVE 'Sale_Data' TO 'D:\SQL_Data\RESERVTEST\saleTest.mdf',    -- Имя файла данных
     MOVE 'Sale_Log' TO 'D:\SQL_Data\RESERVTEST\saleTest_log.ldf', -- Имя файла журнала
     NOUNLOAD, 
     STATS = 5;
