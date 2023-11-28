@@ -9,15 +9,78 @@
 
 
 ------------------------------------------------------------------------------------------------------------------------
---
---
---
+-- Отчет Анализ дебиторской задолженности
+-- Update date: 2023-11-28
+-- Author: Mikhail Chmir
+-- Description: Удален закоментированный код.
+-- Удалено условие PeriodPay > 3
 ------------------------------------------------------------------------------------------------------------------------
+-- =============================================
+-- Author: Sumlikin,Aleksandr
+-- Create date: 2007-10-08
+-- Description:
+--
+-- Update date: 2023-11-28
+-- Author: Mikhail Chmir
+-- Description: Удален закоментированный код.
+-- Удалено условие PeriodPay > 3
+-- =============================================
+ALTER PROCEDURE "dbo"."repAnalysisDebtsDuty"(@dateB datetime,@amount float,@OnlyOn int)
+AS
+BEGIN
 
+select  c.idcontract, c.account+'; '+isnull(p.Surname,'')+' '+isnull(p.name,'')+' '+isnull(p.Patronic,'') as account ,case when g.idstatusgobject=1 then 'П'else 'О'end statusgobject,a.name,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-11,@dateB)), c.IdContract, 0),0) b12 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-10,@dateB)), c.IdContract, 0),0) b11 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-9,@dateB)), c.IdContract, 0),0) b10 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-8,@dateB)), c.IdContract, 0),0) b9 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-7,@dateB)), c.IdContract, 0),0) b8 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-6,@dateB)), c.IdContract, 0),0) b7 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-5,@dateB)), c.IdContract, 0),0) b6 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-4,@dateB)), c.IdContract, 0),0) b5 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-3,@dateB)), c.IdContract, 0),0) b4 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-2,@dateB)), c.IdContract, 0),0) b3 ,
+isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (dateadd(month,-1,@dateB)), c.IdContract, 0),0) b2 ,
+dbo.fGetLastBalance (dbo.fGetPeriodDate (@dateB), c.IdContract, 0) b1,
+case
+  when isnull(gm.idstatusgmeter,2) = 1 then 'П'
+  else 'О'
+  end  idstatusgmeter,
+convert(varchar,'') urddok,
+0 as PeriodPay
+into #tmpSaldoPOGRU
+from contract c with (nolock)
+inner join person p (nolock) on c.IDPerson=p.idperson
+inner join gobject g with (nolock) on c.idcontract=g.idcontract
+and isnull(dbo.fGetLastBalance (dbo.fGetPeriodDate (@dateB), c.IdContract, 0),0)<@amount
+inner join gru q with (nolock) on q.idgru=g.idgru
+inner join agent a with (nolock) on q.idagent=a.idagent
+left join gmeter gm with (nolock) on gm.idgobject=g.idgobject and idstatusgmeter=1
+order by account, a.name
 
+if @OnlyOn=1
+	begin
+		delete from #tmpSaldoPOGRU where statusgobject='О'
+	end
 
+update #tmpSaldoPOGRU
+set PeriodPay=n.idper
+from #tmpSaldoPOGRU t
+inner join ( select idcontract, max(idperiod) as idper from document d with (nolock)
+where d.idtypedocument=1 group by idcontract) n on t.idcontract=n.idcontract
 
+-- Условие удалено 2023-11-28
+-- delete from #tmpSaldoPOGRU where PeriodPay>dbo.fGetPeriodDate (dateadd(month,-3,@dateB))
 
+update #tmpSaldoPOGRU
+set urddok='Ю/д'
+from #tmpSaldoPOGRU t
+inner join balance b on b.idcontract=t.idcontract and b.idperiod=dbo.fGetPeriodDate (@dateB) and b.idaccounting=2 and b.amountbalance<0
+
+select * from #tmpSaldoPOGRU
+drop table #tmpSaldoPOGRU
+
+END
 
 ------------------------------------------------------------------------------------------------------------------------
 -- 31 октября 2023
