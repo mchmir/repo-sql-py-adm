@@ -17,11 +17,11 @@ BEGIN TRANSACTION
   DECLARE @Month AS INT;
 
 
-  SET @Account = 2752017;
+  SET @Account = 2103046;
   SET @Year    = 2023;
-  SET @Month   = 7;
+  SET @Month   = 12;
   --- ID не проведенного документа ---
-  SET @IDDocument = 23363561;
+  SET @IDDocument = 23889494;
   
   SET @idPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
   

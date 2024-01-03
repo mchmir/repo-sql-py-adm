@@ -30,8 +30,13 @@ def sql_select_engine() -> None:
         sql_reader = pd.read_sql_query(query.read(), engine)
         num_rows = sql_reader.shape[0]
 
-        year = datetime.now().year
-        month_ago = datetime.now().month - 1
+        if datetime.now().month == 1:
+            year = datetime.now().year - 1
+            month_ago = 12
+        else:
+            year = datetime.now().year
+            month_ago = datetime.now().month - 1
+
         month_file: str = ''
 
         if month_ago < 10:

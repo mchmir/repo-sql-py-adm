@@ -4,7 +4,7 @@ go
 
 select * 
 from period p
-where p.Month = 10 and p.Year = 2023;
+where p.Month = 12 and p.Year = 2023;
 
 -------------------------------------------------
 
