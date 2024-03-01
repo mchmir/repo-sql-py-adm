@@ -7,7 +7,7 @@ DECLARE @Year     INT;
 DECLARE @Month    INT;
 
 SET @Year = 2024;
-SET @Month = 1;
+SET @Month = 2;
 
 SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
 

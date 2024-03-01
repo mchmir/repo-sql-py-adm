@@ -8,9 +8,9 @@ DECLARE @Year       AS INT;
 DECLARE @Month      AS INT;
 DECLARE @idGObject  AS INT;
 
-SET @Acc = '1935035';
+SET @Acc = '3652033';
 SET @Year = 2024;
-SET @Month = 1;
+SET @Month = 2;
 
 
 SET @idPeriod   = dbo.fGetIDPeriodMY(@Month, @Year);
@@ -24,7 +24,7 @@ SET @idGObject  = (SELECT g.IDGObject  FROM GObject  AS g WHERE g.IDContract = @
 -- Запрос 1  ДОКУМЕНТЫ --
 SELECT  *
   FROM Document     AS d, 
-       TypeDocument AS td  
+       TypeDocument AS td
  WHERE d.IDContract = @idContract 
    AND d.IDPeriod   = @idPeriod 
    AND d.IDTypeDocument = td.IDTypeDocument;

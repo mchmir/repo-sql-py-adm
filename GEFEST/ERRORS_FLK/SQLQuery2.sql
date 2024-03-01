@@ -20,7 +20,7 @@ WHERE dbid > 0
 order by 'Имя БД';
 
 -- KILL [SPID]
--- kill 58
+-- kill 68
 -----------------------------------------------
 
 select top 5 * 

@@ -12,14 +12,13 @@ DECLARE @Year     INT;
 DECLARE @Month    INT;
 
 SET @Year = 2024;
-SET @Month = 1;
+SET @Month = 2;
 
 set @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
 set @dEnd     = dbo.fGetDatePeriod(@IdPeriod, 0);
 
 
 SELECT DISTINCT
-  --gm.idgmeter, gm.Serialnumber, COUNT( c.IDContract)
       c.Account,
       c.IdContract,
       gm.idgmeter,
@@ -33,15 +32,6 @@ SELECT DISTINCT
    left join typegmeter as tt with (nolock) on gm.idtypegmeter = tt.idtypegmeter
    left join Document   as d  with (nolock) on d.idcontract    = c.idcontract
      and d.IdPeriod = @IdPeriod
---and (d.idtypedocument=1  or d.idtypedocument=3)
------
---INNER JOIN Person p WITH (NOLOCK) ON p.IDPerson = c.IDPerson AND p.isJuridical = 0 -- только физические лица
---LEFT JOIN dbo.Address a WITH (NOLOCK)  ON a.IDAddress = g.IDAddress
---LEFT JOIN dbo.Street s WITH (NOLOCK) ON s.IDStreet = a.IDStreet
---LEFT JOIN dbo.House h WITH (NOLOCK) ON h.IDHouse = a.IDHouse
---group by   gm.idgmeter, gm.Serialnumber
---WHERE c.Account = 1933080
---ORDER BY  COUNT(c.IDContract) DESC
 ORDER BY c.Account
 
 SELECT *
