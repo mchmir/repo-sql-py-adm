@@ -4,9 +4,9 @@ GO
 
 SELECT * 
   FROM Indication AS i 
- WHERE i.DateDisplay = '08-23-2023'
-   AND i.IdUser      = 38
-   AND i.IDAgent     = 145
+ WHERE i.DateDisplay = '03-11-2024'
+   AND i.IdUser      = 71
+  -- AND i.IDAgent     = 145
 
 ---- Контроллеры--------
 SELECT * FROM Agent AS a
@@ -25,8 +25,9 @@ BEGIN TRY
 
   --Начало транзакции 
 BEGIN TRANSACTION 
-  --Пакет №1 Начало 
+  --Пакет №1 Начало
 
+/*
  UPDATE Indication 
     SET IDAgent = 145
         OUTPUT DELETED.IDAgent, INSERTED.IDAgent
@@ -35,6 +36,16 @@ BEGIN TRANSACTION
   WHERE DateDisplay = '08-23-2023'
     AND IdUser      = 38
     AND IDAgent     = 15
+*/
+
+ UPDATE Indication
+    SET DATEDISPLAY='03-11-2024'
+        OUTPUT DELETED.IDINDICATION, DELETED.DATEDISPLAY, INSERTED.DATEDISPLAY
+       --OUTPUT DELETED.* -- старые
+       --INSERTED.* -- новые
+  WHERE DATEDISPLAY = '03-13-2024'
+    AND IDUSER      = 71;
+
 
    
   --Пакет №1 Конец
