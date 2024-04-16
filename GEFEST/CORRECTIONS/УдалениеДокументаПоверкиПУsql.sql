@@ -5,7 +5,7 @@
 declare @IDCONTRACT INT;
 declare @ACCOUNT VARCHAR(50);
 
-set @ACCOUNT = '1952024'
+set @ACCOUNT = '3772037'
 
 select @IDCONTRACT = C.IDCONTRACT 
   from CONTRACT as C 
@@ -15,7 +15,7 @@ select *
   from DOCUMENT as D
  where D.IDCONTRACT = @IDCONTRACT 
    and D.IDTYPEDOCUMENT = 22
-   and D.DOCUMENTDATE = '2024-01-29';
+   and D.DOCUMENTDATE = '2024-02-27';
 
 --- next do it manually
 
@@ -25,6 +25,6 @@ select *
 
 delete DOCUMENT
  OUTPUT DELETED.*
- where IDDOCUMENT = 24107680;
+ where IDDOCUMENT = 24158542;
 
 */
