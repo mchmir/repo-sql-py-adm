@@ -12,7 +12,7 @@ DECLARE @Year     INT;
 DECLARE @Month    INT;
 
 SET @Year = 2024;
-SET @Month = 3;
+SET @Month = 4;
 
 set @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
 set @dEnd     = dbo.fGetDatePeriod(@IdPeriod, 0);

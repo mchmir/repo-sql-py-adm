@@ -1,16 +1,31 @@
 ﻿--- Исправление ошибок в наряде задании
 
+/*
+result by script 0015
++-------+----------+-----------+
+|Account|IDContract|CountGMeter|
++-------+----------+-----------+
+|2041137|871749    |2          |
+|2041306|871918    |2          |
+|3751001|892170    |2          |
+|0461001|900247    |2          |
++-------+----------+-----------+
+
+*/
+
+
+
 SELECT *
   FROM GMeter AS g
  WHERE g.IDGObject IN (SELECT g.IDGObject
                          FROM GObject AS g
-                        WHERE g.IDContract = 905731);
+                        WHERE g.IDContract = 900247);
 ---- 1 подключен
 ---- 2 отключен
 
 SELECT *
   FROM OldValues AS ov
- WHERE ov.IdObject = 763430 --784492 --812901
+ WHERE ov.IdObject = 757946 --784492 --812901
  ORDER BY ov.DateValues DESC;
 
 SELECT dbo.fGetStatusPU((SELECT p.DateEnd

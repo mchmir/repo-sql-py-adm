@@ -27,7 +27,7 @@ def find_lines_with_numbers(file_path):
 
 
 # Пример файла для проверки
-file_path = r"D:\2024\EIRC_GORGAZ_032024_56741.csv"
+file_path = r"D:\2024\EIRC_GORGAZ_042024_56732.csv"
 
 
 # Поиск и вывод номеров строк
