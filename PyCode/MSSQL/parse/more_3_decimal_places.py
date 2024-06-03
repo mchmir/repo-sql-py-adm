@@ -11,13 +11,13 @@ def check_value_for_decimal(value):
     return bool(re.search(pattern, value))
 
 
-def find_lines_with_numbers(file_path):
+def find_lines_with_numbers(lfile_path):
     """
     Функция для поиска и вывода номеров строк,
     содержащих значения с более чем тремя цифрами после точки или запятой
     """
     line_numbers = []
-    with open(file_path, newline='', encoding='utf-8') as csvfile:
+    with open(lfile_path, newline='', encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile, delimiter='|')
         for i, row in enumerate(reader, 1):
             # Проверяем каждое значение в строке на соответствие критерию
@@ -27,9 +27,9 @@ def find_lines_with_numbers(file_path):
 
 
 # Пример файла для проверки
-file_path = r"D:\2024\EIRC_GORGAZ_042024_56732.csv"
+gfile_path = r"D:\2024\EIRC_GORGAZ_052024_56733.csv"
 
 
 # Поиск и вывод номеров строк
-lines_with_numbers = find_lines_with_numbers(file_path)
+lines_with_numbers = find_lines_with_numbers(gfile_path)
 print(f'Номера строк с числами, имеющими более четырех знаков после запятой или точки: {lines_with_numbers}')

@@ -19,7 +19,7 @@ SELECT *
   FROM GMeter AS g
  WHERE g.IDGObject IN (SELECT g.IDGObject
                          FROM GObject AS g
-                        WHERE g.IDContract = 900247);
+                        WHERE g.IDContract = 922870);
 ---- 1 подключен
 ---- 2 отключен
 
@@ -46,4 +46,7 @@ SELECT dbo.fGetStatusPU((SELECT p.DateEnd
 SELECT *
   FROM Contract AS c
  WHERE c.Account = 1641035; --1742130
+
+select *
+from CONTRACT where IDCONTRACT = 922870;
 

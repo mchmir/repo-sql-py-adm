@@ -1,6 +1,6 @@
 declare @ACCOUNT as VARCHAR(50);
 
-set @ACCOUNT = '1782045';
+set @ACCOUNT = '1182001';
 set @ACCOUNT = @ACCOUNT + '%';
 
 select C.IDCONTRACT,

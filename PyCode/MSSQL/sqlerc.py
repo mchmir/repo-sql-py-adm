@@ -44,7 +44,7 @@ def sql_select_engine() -> None:
         else:
             month_file = str(month_ago)
 
-        file_csv = 'EIRC_GORGAZ_{0}{1}_{2}.csv'.format(month_file, year, num_rows)
+        file_csv = f'EIRC_GORGAZ_{month_file}{year}_{num_rows}.csv'
         sql_reader.to_csv(file_csv, sep='|', index=False, encoding='utf-8')
 
     else:

@@ -1,6 +1,10 @@
 ﻿/**
   Двойные записи по счетчикам
-  Только на одном ЛС 3751001 два счетчика подключенных и два отключенных
+  Только на трех счетах ЛС
+    3751001,
+    1182001,
+    3322000
+  два счетчика подключенных и два отключенных
   других ЛС быть не должно
  */
 
@@ -12,7 +16,7 @@ DECLARE @Year     INT;
 DECLARE @Month    INT;
 
 SET @Year = 2024;
-SET @Month = 4;
+SET @Month = 5;
 
 set @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
 set @dEnd     = dbo.fGetDatePeriod(@IdPeriod, 0);
