@@ -11,13 +11,13 @@ DECLARE @IDAccounting INT
 DECLARE @Year AS INT
 DECLARE @Month AS INT
 
-SET @Account = 1223057
+SET @Account = 1114009
 
 ----- какой документ, тип счета: 1 - Основной долг, 4 Пеня, 6 - Услуги
 SET @IDAccounting = 1 
 
 SET @Year = 2024
-SET @Month = 4
+SET @Month = 6
 
 SET @idPeriod = (SELECT p.idPeriod FROM  Period p WHERE p.Year = @Year AND p.MONTH = @Month)
 
@@ -25,7 +25,7 @@ SET @idPeriod = (SELECT p.idPeriod FROM  Period p WHERE p.Year = @Year AND p.MON
 SET @IDTypeDocument = 1
 
 --- ID не проведенного документа ---
-SET @IDDocument = 24356024
+SET @IDDocument = 24595306
 
 SET @IDContract = (SELECT c.IDContract FROM Contract c WHERE c.Account = @Account)
 exec dbo.spRecalcBalances @IDContract, @IDPeriod

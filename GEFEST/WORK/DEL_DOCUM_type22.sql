@@ -1,10 +1,10 @@
 
 SELECT *
   FROM Document AS d
- WHERE d.DocumentDate = '2023-04-03'
+ WHERE d.DocumentDate = '2024-04-26'
    AND d.IDContract in (select idContract 
                           from Contract as c 
-                         where c.Account in (3631047))
+                         where c.Account in (2173048))
    AND d.IDTypeDocument = 22
    AND d.[DateAdd] is NULL;
 
@@ -37,11 +37,11 @@ DELETE FROM PD
        OUTPUT DELETED.*
        --OUTPUT DELETED.* -- старые  
        --INSERTED.* -- новые
-      WHERE IDDocument in (23047406);
+      WHERE IDDocument in (24375468);
 
 DELETE FROM Document
       OUTPUT DELETED.*
-      WHERE IDDocument in (23047406);
+      WHERE IDDocument in (24375468);
 
 
   --Пакет №1 Конец

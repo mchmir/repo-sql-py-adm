@@ -5,11 +5,11 @@ result by script 0015
 +-------+----------+-----------+
 |Account|IDContract|CountGMeter|
 +-------+----------+-----------+
-|2041137|871749    |2          |
-|2041306|871918    |2          |
-|3751001|892170    |2          |
-|0461001|900247    |2          |
+|3166046|881864    |2          |
+|3601047|884747    |2          |
+|2304029|891655    |2          |
 +-------+----------+-----------+
+
 
 */
 
@@ -19,13 +19,13 @@ SELECT *
   FROM GMeter AS g
  WHERE g.IDGObject IN (SELECT g.IDGObject
                          FROM GObject AS g
-                        WHERE g.IDContract = 922870);
+                        WHERE g.IDContract = 891655);
 ---- 1 подключен
 ---- 2 отключен
 
 SELECT *
   FROM OldValues AS ov
- WHERE ov.IdObject = 757946 --784492 --812901
+ WHERE ov.IdObject = 783974 --784492 --812901
  ORDER BY ov.DateValues DESC;
 
 SELECT dbo.fGetStatusPU((SELECT p.DateEnd

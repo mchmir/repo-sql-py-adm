@@ -4,8 +4,16 @@ go
 
 select * 
 from period p
-where p.Month = 12 and p.Year = 2023;
-
+where p.Month = 12 and p.Year = 2024;
+------------------------------------------------------------------------------------------------------------------------
+----- Пользователи -----------
+select
+       s.uid,
+       s.status,
+       s.name,
+       s.createdate,
+       s.updatedate
+  from sys.sysusers AS s
 -------------------------------------------------
 
 SELECT
