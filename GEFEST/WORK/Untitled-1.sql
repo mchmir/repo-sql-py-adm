@@ -69,7 +69,7 @@ in (
 select *
 from BATCH
 where IDPERIOD = 233
-  and BATCHDATE = '2024-06-03';
+  and BATCHDATE between '2024-06-25' and '2024-06-26';
 
 SELECT *
   FROM Document AS d

@@ -55,14 +55,18 @@ select
     when 2 then 'ОУ Отключен'
   end as [СТАТУС ОБЪЕКТА],
   CONTRACT.ACCOUNT        as [ЛИЦЕВОЙ СЧЕТ],
+  CONTRACT.STATUS         as [Статус Договора],
   GOBJECT.COUNTLIVES      as [КОЛ-ВО ПРОЖИВ.],
   PERSON.RNN              as [БИН/ИИН],
+  CONTRACT.MEMO           as [Примечание ЛС],
   case when PERSON.ISJURIDICAL=1 then PERSON.SURNAME else null end as [НАИМЕНОВАНИЕ ЮЛ],
   case when PERSON.ISJURIDICAL=1 then PERSON.NAME else null end as [ПОЛНОЕ НАИМЕНОВАНИЕ ЮЛ],
-  case when PERSON.ISJURIDICAL=1 then PERSON.PATRONIC else null end  as [Отв.лицо ЮЛ],
+  --case when PERSON.ISJURIDICAL=1 then PERSON.PATRONIC else null end  as [Отв.лицо ЮЛ],
   case when PERSON.ISJURIDICAL=0 then PERSON.NSURNAME else null end as KZ_ФАМИЛИЯ,
   case when PERSON.ISJURIDICAL=0 then PERSON.NNAME else null end as KZ_ИМЯ,
   case when PERSON.ISJURIDICAL=0 then PERSON.NPATRONIC else null end as KZ_ОТЧЕСТВО,
+  PERSON.MEMO             as [Примечание потребитель],
+  P.NUMBERPHONE           as [Телефоны],
   GRU.INVNUMBER           as [РУ],
   STREET.NAME             as УЛИЦА,
   HOUSE.HOUSENUMBER       as ДОМ,
@@ -76,7 +80,9 @@ from GOBJECT
   join ADDRESS on PERSON.IDADDRESS = ADDRESS.IDADDRESS
   join STREET on ADDRESS.IDSTREET = STREET.IDSTREET
   join HOUSE on ADDRESS.IDHOUSE = HOUSE.IDHOUSE and HOUSE.IDSTREET = STREET.IDSTREET
+  left join PHONE P on PERSON.IDPERSON = P.IDPERSON
 order by [ЛИЦЕВОЙ СЧЕТ];
+
 
 -- 2. Лицевой счет, номер счетчика, последнее показание счетчика, дата приема последних показаний,
 -- статус счетчика (подключен-отключен),
@@ -84,26 +90,49 @@ order by [ЛИЦЕВОЙ СЧЕТ];
 
 -- Разделим на 2 запроса: Технические данные счетчика и Функциональные(Рабочие) данные счетчика
 select
-  CONTRACT.ACCOUNT      as [ЛИЦЕВОЙ СЧЕТ],
-  GMETER.SERIALNUMBER   as [Номер счетчика],
-  TGM.NAME              as [Модель],
-  TGM.SERVICELIFE       as [Срок службы],
+  CONTRACT.ACCOUNT                              as [ЛИЦЕВОЙ СЧЕТ],
+  GMETER.SERIALNUMBER                           as [Номер счетчика],
+  TGM.NAME                                      as [Модель],
+  TGM.CLASSACCURACY                             as [Класс точности],
+  TGM.SERVICELIFE                               as [Период поверки],
   case GMETER.IDSTATUSGMETER
     when 1 then 'ПУ Подключен'
     when 2 then 'ПУ Отключен'
-  end                   as [СТАТУС ПУ],
+  end                                           as [СТАТУС ПУ],
   convert(varchar, GMETER.DATEFABRICATION, 104) as [Дата изготовления],
   convert(varchar, GMETER.DATEINSTALL, 104 )    as [Дата установки ПУ],
-  convert(varchar, GMETER.DATEVERIFY, 104)      as [Дата проверки],
-  GMETER.PLOMBNUMBER1   as [Пломба 1],
-  GMETER.PLOMBNUMBER2   as [Пломба 2],
-  convert(varchar, GMETER.DATEPLOMB, 104)       as [Дата пломбы],
-  GMETER.PLOMBMEMO      as [Примечание к пломбам]
+  GMETER.BEGINVALUE                             as [Начальные показания],
+  convert(varchar, GMETER.DATEVERIFY, 104)      as [Дата поверки],
+  TV.NAME                                       as [Результат поверки],
+  GMETER.MEMO                                   as [Примечание],
+  GMETER.PLOMBNUMBER1                           as [Пломба 1],
+  GMETER.PLOMBNUMBER2                           as [Пломба 2],
+  case
+    when GMETER.INDICATIONPLOMB = 0
+      and GMETER.IDAGENTPLOMB = 98 then null
+      else GMETER.INDICATIONPLOMB end           as [Показание],
+  case
+    when GMETER.INDICATIONPLOMB = 0
+      and GMETER.IDAGENTPLOMB = 98 then null
+      else GMETER.IDAGENTPLOMB end              as [ID Исполнителя],
+   case
+    when GMETER.INDICATIONPLOMB = 0
+      and GMETER.IDAGENTPLOMB = 98 then null
+      else convert(varchar, GMETER.DATEPLOMB, 104) end  as [Дата пломбы]
 from GOBJECT
   join CONTRACT on GOBJECT.IDCONTRACT = CONTRACT.IDCONTRACT
   join GMETER on GOBJECT.IDGOBJECT = GMETER.IDGOBJECT
   join TYPEGMETER as TGM on GMETER.IDTYPEGMETER = TGM.IDTYPEGMETER
+  left join TYPEVERIFY TV on GMETER.IDTYPEVERIFY = TV.IDTYPEVERIFY
 order by [ЛИЦЕВОЙ СЧЕТ];
+
+/*
+там где GMETER.INDICATIONPLOMB=0 и GMETER.IDAGENTPLOMB = 98 -> GMETER.INDICATIONPLOMB,GMETER.IDAGENTPLOMB, GMETER.DATEPLOMB =NULL
+*/
+
+-- 2,1 --- не выгружать
+select * from TYPEGMETER;
+
 
 -- 3 --
 -- Функциональные(Рабочие) данные счетчика
@@ -115,7 +144,9 @@ select
     when 2 then 'ПУ Отключен'
   end                                   as [СТАТУС ПУ],
   convert(varchar, I.DATEDISPLAY, 104)  as [Дата последнего показания],
-  I.DISPLAY                             as [Показание]
+  I.DISPLAY                             as [Показание],
+  I.IDTYPEINDICATION                    as [Тип показания],
+  I.IDAGENT                             as [ID контроллера]
 from GOBJECT
   join CONTRACT on GOBJECT.IDCONTRACT = CONTRACT.IDCONTRACT
   join GMETER on GOBJECT.IDGOBJECT = GMETER.IDGOBJECT
@@ -128,7 +159,10 @@ where -- GMETER.IDSTATUSGMETER = 1 and
   )
 order by [ЛИЦЕВОЙ СЧЕТ];
 
--- 4 --
+-- 3,1 --
+select * from TYPEINDICATION
+
+-- 4 -- не выгружаем
 -- Лицевой счет, вид задолженности, сальдо задолженности.
 select
   C.ACCOUNT                 as [ЛИЦЕВОЙ СЧЕТ],
@@ -146,7 +180,7 @@ from GOBJECT
   join ACCOUNTING as A on B.IDACCOUNTING = A.IDACCOUNTING
   left join BALANCEREAL as BR on C.IDCONTRACT = BR.IDCONTRACT and BR.IDACCOUNTING = A.IDACCOUNTING and BR.IDPERIOD = dbo.fGetNowPeriod()
 where B.IDPERIOD = dbo.fGetNowPeriod()
-  --and C.ACCOUNT = '0731049'
+  -- and C.ACCOUNT = '0731049'
 order by [ЛИЦЕВОЙ СЧЕТ];
 
 ----- Разница ---------------------------------
@@ -180,8 +214,9 @@ from USLUGIVDGO;
 
 -- 6. Список контроллеров и принимающих показания.
 select
-  A.NAME  as [Ф.И.О],
-  TA.NAME as [Тип агента]
+  A.IDAGENT as [ID Агента],
+  A.NAME    as [Ф.И.О],
+  TA.NAME   as [Тип агента]
 from AGENT as A
   join TYPEAGENT as TA on A.IDTYPEAGENT = TA.IDTYPEAGENT
 
@@ -222,8 +257,13 @@ select
   MAX(case when GT.MONTH = 12 then GT.AMOUNT else null end) as [ДЕКАБРЬ]
 from CONTRACT as C
   join PERSON as P on C.IDPERSON = P.IDPERSON
-  join GRAFIKTO as GT on C.IDCONTRACT = GT.IDCONTRACT
-where GT.YEAR = 2024
+  left join GRAFIKTO as GT on C.IDCONTRACT = GT.IDCONTRACT and GT.YEAR = 2024
+where P.ISJURIDICAL = 1 and P.NUMBERDOG is not null
 group by C.ACCOUNT, P.NUMBERDOG, convert(varchar, P.DATEDOG, 104), P.COSTDOG, GT.YEAR
 order by [ЛИЦЕВОЙ СЧЕТ], [ГОД];
+
+
+-- 1, 2, 6
+
+
 
