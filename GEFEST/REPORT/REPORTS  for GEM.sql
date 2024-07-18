@@ -146,7 +146,9 @@ select
   convert(varchar, I.DATEDISPLAY, 104)  as [Дата последнего показания],
   I.DISPLAY                             as [Показание],
   I.IDTYPEINDICATION                    as [Тип показания],
-  I.IDAGENT                             as [ID контроллера]
+  I.IDAGENT                             as [ID контроллера],
+  I.DATEDISPLAY                         as Date,
+  GMETER.IDGMETER                       as IDGMETER
 from GOBJECT
   join CONTRACT on GOBJECT.IDCONTRACT = CONTRACT.IDCONTRACT
   join GMETER on GOBJECT.IDGOBJECT = GMETER.IDGOBJECT
@@ -158,6 +160,9 @@ where -- GMETER.IDSTATUSGMETER = 1 and
     where I2.IDGMETER = I.IDGMETER
   )
 order by [ЛИЦЕВОЙ СЧЕТ];
+
+
+
 
 -- 3,1 --
 select * from TYPEINDICATION
@@ -263,7 +268,6 @@ group by C.ACCOUNT, P.NUMBERDOG, convert(varchar, P.DATEDOG, 104), P.COSTDOG, GT
 order by [ЛИЦЕВОЙ СЧЕТ], [ГОД];
 
 
--- 1, 2, 6
-
+------------------------------------------------------------------------------------------------------------------------
 
 
