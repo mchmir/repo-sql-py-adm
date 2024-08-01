@@ -2,20 +2,21 @@
 -- При удалении показания, иногда ID показания остается в таблице потребления
 
 
-DECLARE @IDPeriod INT;
-DECLARE @Year     INT;
-DECLARE @Month    INT;
+declare @IDPERIOD INT;
+declare @YEAR INT;
+declare @MONTH INT;
 
-SET @Year = 2024;
-SET @Month = 6;
+set @YEAR = 2024;
+set @MONTH = 7;
 
-SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
+set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
 
-SELECT *
-  FROM FactUse as fu
-       LEFT  JOIN Indication as  i  ON fu.IDIndication = i.IDIndication
-  WHERE i.IDINDICATION is null and fu.IDINDICATION is not null
-     AND fu.IDPERIOD = @IDPeriod
+select *
+from FACTUSE as FU
+       left join INDICATION as I on FU.IDINDICATION = I.IDINDICATION
+where I.IDINDICATION is null
+  and FU.IDINDICATION is not null
+  and FU.IDPERIOD = @IDPERIOD
 
 
 -- delete from factuse where idfactuse=13396953;

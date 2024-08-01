@@ -10,48 +10,46 @@
 
 -- set statistics profile on
 
-DECLARE @dEnd     DATETIME;
-DECLARE @IdPeriod INT;
-DECLARE @Year     INT;
-DECLARE @Month    INT;
+declare @DEND DATETIME;
+declare @IDPERIOD INT;
+declare @YEAR INT;
+declare @MONTH INT;
 
-SET @Year = 2024;
-SET @Month = 6;
+set @YEAR = 2024;
+set @MONTH = 7;
 
-set @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
-set @dEnd     = dbo.fGetDatePeriod(@IdPeriod, 0);
-
-
-SELECT DISTINCT
-      c.Account,
-      c.IdContract,
-      gm.idgmeter,
-      gm.Serialnumber,
-      dbo.fGetStatusPU(@dEnd, gm.idgmeter) AS StatusGMeter
- INTO #tmpTab0015
- from contract as c with (nolock)
-   inner join GObject as g  with (nolock) on g.IdContract = c.IdContract
-   left join  GMeter  as gm with (nolock) on gm.IdGObject = g.IdGObject
-     and dbo.fGetStatusPU(@dEnd, gm.idgmeter) = 1
-   left join typegmeter as tt with (nolock) on gm.idtypegmeter = tt.idtypegmeter
-   left join Document   as d  with (nolock) on d.idcontract    = c.idcontract
-     and d.IdPeriod = @IdPeriod
-ORDER BY c.Account
-
-SELECT *
-  FROM #tmpTab0015 t;
-
-SELECT
-       t.Account AS Account,
-       t.IDContract,
-       COUNT(t.SerialNumber) as CountGMeter
-  FROM #tmpTab0015 as t
- WHERE t.Account NOT IN (3322000, 2933000, 3282174, 1261065)
- GROUP BY t.Account, t.IDContract
-HAVING COUNT(t.SerialNumber) > 1;
+set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
+set @DEND = DBO.FGETDATEPERIOD(@IDPERIOD, 0);
 
 
-DROP TABLE #tmpTab0015;
+select distinct C.ACCOUNT,
+                C.IDCONTRACT,
+                GM.IDGMETER,
+                GM.SERIALNUMBER,
+                DBO.FGETSTATUSPU(@DEND, GM.IDGMETER) as STATUSGMETER
+into #TMPTAB0015
+from CONTRACT as C with (nolock)
+       inner join GOBJECT as G with (nolock) on G.IDCONTRACT = C.IDCONTRACT
+       left join GMETER as GM with (nolock) on GM.IDGOBJECT = G.IDGOBJECT
+  and DBO.FGETSTATUSPU(@DEND, GM.IDGMETER) = 1
+       left join TYPEGMETER as TT with (nolock) on GM.IDTYPEGMETER = TT.IDTYPEGMETER
+       left join DOCUMENT as D with (nolock) on D.IDCONTRACT = C.IDCONTRACT
+  and D.IDPERIOD = @IDPERIOD
+order by C.ACCOUNT
+
+select *
+from #TMPTAB0015 T;
+
+select T.ACCOUNT             as ACCOUNT,
+       T.IDCONTRACT,
+       COUNT(T.SERIALNUMBER) as COUNTGMETER
+from #TMPTAB0015 as T
+where T.ACCOUNT not in (3322000, 2933000, 3282174, 1261065)
+group by T.ACCOUNT, T.IDCONTRACT
+having COUNT(T.SERIALNUMBER) > 1;
+
+
+drop table #TMPTAB0015;
 
 --set statistics profile off
 

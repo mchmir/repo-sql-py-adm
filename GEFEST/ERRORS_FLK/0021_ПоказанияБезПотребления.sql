@@ -6,36 +6,36 @@
 --
 --  021
 
-DECLARE @IDPeriod INT;
-DECLARE @Year     INT;
-DECLARE @Month    INT;
+declare @IDPERIOD INT;
+declare @YEAR INT;
+declare @MONTH INT;
 
-SET @Year = 2024;
-SET @Month = 6;
+set @YEAR = 2024;
+set @MONTH = 7;
 
-SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
+set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
 
-SELECT
-       i.IDIndication AS IDIndication,
-       i.Display      AS [Показания],
-       i.IdGMeter     AS IdGMeter,
-       i.DateAdd      AS DateAdd,
+select I.IDINDICATION as IDINDICATION,
+       I.DISPLAY      as [Показания],
+       I.IDGMETER     as IDGMETER,
+       I.DATEADD      as DATEADD,
        --dbo.fgetIDPeriod(i.DateAdd),
-       fu.IDPeriod    AS IDPeriod,
-       fu.FactAmount  AS [Начисления],
-       c.Account      AS [Лицевой счет],
-       gm.IDStatusGMeter,
-       i.IDTypeIndication
-  FROM Indication i 
-       LEFT  JOIN FactUse  AS fu  ON i.IDIndication = fu.IDIndication 
-       INNER JOIN Gmeter   AS gm  ON i.IdGMeter     = gm.IDGMeter
-       INNER JOIN GObject  AS g   ON gm.IDGObject   = g.IDGObject
-       INNER JOIN Contract AS c   ON g.IDContract   = c.IDContract
-  WHERE ISNULL(fu.FactAmount, 0) = 0
-    AND ISNULL(fu.IDPeriod, 0)   = 0
-    AND dbo.fgetIDPeriod(i.DateAdd) = @IDPeriod
-    AND gm.IDStatusGMeter = 1
-    AND i.IDTypeIndication <> 5; -- AND i.IdGMeter = 773957
+       FU.IDPERIOD    as IDPERIOD,
+       FU.FACTAMOUNT  as [Начисления],
+       C.ACCOUNT      as [Лицевой счет],
+       GM.IDSTATUSGMETER,
+       I.IDTYPEINDICATION
+from INDICATION I
+       left join FACTUSE as FU on I.IDINDICATION = FU.IDINDICATION
+       inner join GMETER as GM on I.IDGMETER = GM.IDGMETER
+       inner join GOBJECT as G on GM.IDGOBJECT = G.IDGOBJECT
+       inner join CONTRACT as C on G.IDCONTRACT = C.IDCONTRACT
+where ISNULL(FU.FACTAMOUNT, 0) = 0
+  and ISNULL(FU.IDPERIOD, 0) = 0
+  and DBO.FGETIDPERIOD(I.DATEADD) = @IDPERIOD
+  and GM.IDSTATUSGMETER = 1
+  and I.IDTYPEINDICATION <> 5;
+-- AND i.IdGMeter = 773957
 
 -- GO 
 --

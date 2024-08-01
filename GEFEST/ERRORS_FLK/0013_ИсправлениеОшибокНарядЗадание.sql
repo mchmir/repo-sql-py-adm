@@ -19,13 +19,13 @@ SELECT *
   FROM GMeter AS g
  WHERE g.IDGObject IN (SELECT g.IDGObject
                          FROM GObject AS g
-                        WHERE g.IDContract = 891655);
+                        WHERE g.IDContract = 886024);
 ---- 1 подключен
 ---- 2 отключен
 
 SELECT *
   FROM OldValues AS ov
- WHERE ov.IdObject = 783974 --784492 --812901
+ WHERE ov.IdObject = 743723 --784492 --812901
  ORDER BY ov.DateValues DESC;
 
 SELECT dbo.fGetStatusPU((SELECT p.DateEnd

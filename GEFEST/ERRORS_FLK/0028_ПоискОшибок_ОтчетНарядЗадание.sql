@@ -2,70 +2,64 @@
 -- где 2 и 1 для информации, является ошибкой с т.з. базы но на отчеты не влияет
 
 
-DECLARE @IDPeriod AS INT;
-DECLARE @dEnd     AS DATETIME;
-DECLARE @Month    AS INT;
-DECLARE @Year     AS INT;
+declare @IDPERIOD as INT;
+declare @DEND as DATETIME;
+declare @MONTH as INT;
+declare @YEAR as INT;
 
-SET @Month = 6;
-SET @Year = 2024;
+set @MONTH = 7;
+set @YEAR = 2024;
 
-SET @IDPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
-SET @dEnd     = dbo.fGetDatePeriod(@IDPeriod, 0);
+set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
+set @DEND = DBO.FGETDATEPERIOD(@IDPERIOD, 0);
 
 
-SELECT 
-       c.Account,
-       c.IDContract,
-       g.IDGMeter,
-       g.IDStatusGMeter,
-       dbo.fGetStatusPU2(@dEnd, g.IDGMeter)
-  FROM GMeter   AS g, 
-       GObject  AS g1,
-       Contract AS c
- WHERE g1.IDGObject = g.IDGObject
-   AND c.IDContract = g1.IDContract
-   --AND g.IDGMeter =722547 
-   AND g.IDStatusGMeter <> dbo.fGetStatusPU2(@dEnd, g.IDGMeter)
-   AND dbo.fGetStatusPU2(@dEnd, g.IDGMeter) <> 3
- ORDER BY g.IDStatusGMeter;
+select C.ACCOUNT,
+       C.IDCONTRACT,
+       G.IDGMETER,
+       G.IDSTATUSGMETER,
+       DBO.FGETSTATUSPU2(@DEND, G.IDGMETER)
+from GMETER as G,
+     GOBJECT as G1,
+     CONTRACT as C
+where G1.IDGOBJECT = G.IDGOBJECT
+  and C.IDCONTRACT = G1.IDCONTRACT
+  --AND g.IDGMeter =722547
+  and G.IDSTATUSGMETER <> DBO.FGETSTATUSPU2(@DEND, G.IDGMETER)
+  and DBO.FGETSTATUSPU2(@DEND, G.IDGMETER) <> 3
+order by G.IDSTATUSGMETER;
 
 
 -- Исправление подстановка IDGmeter и исправление Name = 2
 /*
 
 +-------+----------+--------+--------------+-+
-|Account|IDContract|IDGMeter|IDStatusGMeter| |
+|ACCOUNT|IDCONTRACT|IDGMETER|IDSTATUSGMETER| |
 +-------+----------+--------+--------------+-+
-|1402021|898505    |809809  |2             |1|
-|1713024|866851    |724550  |2             |1|
-|2071028|872315    |730014  |2             |1|
-|2294012|901433    |779471  |2             |1|
-|3301042|911491    |815318  |2             |1|
+|2321048|893343    |751042  |1             |2|
+|2481037|906068    |792394  |2             |1|
 +-------+----------+--------+--------------+-+
+
 
 */
 
+/*
+select *
+from OLDVALUES as OV
+where OV.IDOBJECT = 751042  -- IDGmeter = idObject !!!
+order by OV.DATEVALUES desc;
 
-SELECT * 
-  FROM OldValues AS ov
- WHERE ov.IdObject = 815889 -- IDGmeter = idObject !!!
- ORDER BY ov.DateValues DESC;
-
-UPDATE OldValues 
-   SET Name = 2
- WHERE IdOldValues in (1180492);
+update OLDVALUES
+set NAME = 2
+where IDOLDVALUES in (1180492);
 
 --SELECT * FROM GMeter g WHERE g.IDGMeter = 718821  778139 803778
 
 
-
-
-SELECT 
-       c.Account
-  FROM Contract AS c
- WHERE c.IDContract = (SELECT IDContract 
-                         FROM GObject 
-                        WHERE IDGObject = 904658)
-*/
+select C.ACCOUNT
+from CONTRACT as C
+where C.IDCONTRACT = (select IDCONTRACT
+                      from GOBJECT
+                      where IDGOBJECT = 904658)
+                       * /
 

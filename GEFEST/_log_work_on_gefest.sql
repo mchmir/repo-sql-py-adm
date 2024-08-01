@@ -3,6 +3,53 @@
 --
 --
 ------------------------------------------------------------------------------------------------------------------------
+-- Функция определения IDCONTRACT по Лицевому счету
+-- Функция получения значения параметра для документа
+-- Update date: 2024-07-30
+-- Author: Mikhail Chmir
+
+if OBJECT_ID('dbo.fGetPDValue', 'FN') is not null
+  drop function dbo.fGetIDContractAC;
+go
+
+create function [dbo].[fGetIDContractAC](@ACCOUNT varchar(50))
+/**
+ * Returns the IDCONTRACT by the ACCOUNT
+ */
+  returns int as
+begin
+
+  declare @GET int
+
+  set @GET = (select top 1 IDCONTRACT
+              from CONTRACT (nolock)
+              where  ACCOUNT = @ACCOUNT)
+  return @GET
+
+end
+
+
+if OBJECT_ID('dbo.fGetPDValue', 'FN') is not null
+  drop function dbo.fGetPDValue;
+
+go
+
+create function [dbo].[fGetPDValue](@IDDOCUMENT int, @IDTYPEPD int)
+/**
+ * Returns the value for the document
+ */
+  returns varchar(50) as
+begin
+
+  declare @GET varchar(50)
+
+  set @GET = (select VALUE
+              from PD (nolock)
+              where  IDTYPEPD=@IDTYPEPD and IDDOCUMENT=@IDDOCUMENT)
+  return @GET
+
+end
+
 
 
 
@@ -25,7 +72,7 @@
 -- Description: Удален закоментированный код.
 -- Удалено условие PeriodPay > 3
 -- =============================================
-ALTER PROCEDURE "dbo"."repAnalysisDebtsDuty"(@dateB datetime,@amount float,@OnlyOn int)
+ALTER PROCEDURE repAnalysisDebtsDuty(@dateB datetime,@amount float,@OnlyOn int)
 AS
 BEGIN
 

@@ -89,6 +89,11 @@ order by [ЛИЦЕВОЙ СЧЕТ];
 -- номер пломб, статус пломб, дата установки пломбы, примечание (лицевой счет)
 
 -- Разделим на 2 запроса: Технические данные счетчика и Функциональные(Рабочие) данные счетчика
+
+--************ Отдельный файл REPORT\REPv0724_Result2_ДанныеПоПУ.sql  ********************************
+
+
+/*
 select
   CONTRACT.ACCOUNT                              as [ЛИЦЕВОЙ СЧЕТ],
   GMETER.SERIALNUMBER                           as [Номер счетчика],
@@ -130,6 +135,8 @@ order by [ЛИЦЕВОЙ СЧЕТ];
 там где GMETER.INDICATIONPLOMB=0 и GMETER.IDAGENTPLOMB = 98 -> GMETER.INDICATIONPLOMB,GMETER.IDAGENTPLOMB, GMETER.DATEPLOMB =NULL
 */
 
+
+*/
 -- 2,1 --- не выгружать
 select * from TYPEGMETER;
 
@@ -176,7 +183,7 @@ select
     when 2 then 'ОУ Отключен'
   end                       as [СТАТУС ОУ],
   A.NAME                    as [Вид учета],
-  convert(varchar, dbo.fGetDatePeriod(B.IDPERIOD, 2), 104) as [Дата],
+  convert(varchar, dbo.fGetDatePeriod(B.IDPERIOD, 1), 104) as [Дата],
   isnull(round(B.AMOUNTBALANCE, 3), 0) as [Сумма (со средним)],
   isnull(round(BR.AMOUNTBALANCE, 3), 0) as [Сумма (без среднего)]
 from GOBJECT
@@ -187,6 +194,8 @@ from GOBJECT
 where B.IDPERIOD = dbo.fGetNowPeriod()
   -- and C.ACCOUNT = '0731049'
 order by [ЛИЦЕВОЙ СЧЕТ];
+
+--select dbo.fGetNowPeriod()
 
 ----- Разница ---------------------------------
 with report4 as (

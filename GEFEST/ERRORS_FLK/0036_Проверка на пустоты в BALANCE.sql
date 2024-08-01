@@ -1,30 +1,28 @@
 ﻿-----Проверяем на пустоты предшествующий и нынешний период--------------
 
-SELECT 
-       count(1) AS Counter,
-       BL.idPeriod,
-       BL.idContract, 
-       BL.idaccounting
-  FROM Balance AS BL
- WHERE BL.IDPeriod BETWEEN dbo.fGetPredPeriod() AND dbo.fGetNowPeriod()
- GROUP BY BL.idPeriod, BL.idContract, BL.idaccounting
-HAVING count(1) > 1
+select count(1) as COUNTER,
+       BL.IDPERIOD,
+       BL.IDCONTRACT,
+       BL.IDACCOUNTING
+from BALANCE as BL
+where BL.IDPERIOD between DBO.FGETPREDPERIOD() and DBO.FGETNOWPERIOD()
+group by BL.IDPERIOD, BL.IDCONTRACT, BL.IDACCOUNTING
+having count(1) > 1
 
-UNION
+union
 
-SELECT 
-       count(1) AS Counter,
-       BLR.idPeriod,
-       BLR.idContract,
-       BLR.idaccounting
-  FROM BalanceReal AS BLR
- WHERE BLR.IDPeriod BETWEEN dbo.fGetPredPeriod() AND dbo.fGetNowPeriod()
- GROUP BY BLR.idPeriod, BLR.idContract, BLR.idaccounting
-HAVING count(1) > 1
+select count(1) as COUNTER,
+       BLR.IDPERIOD,
+       BLR.IDCONTRACT,
+       BLR.IDACCOUNTING
+from BALANCEREAL as BLR
+where BLR.IDPERIOD between DBO.FGETPREDPERIOD() and DBO.FGETNOWPERIOD()
+group by BLR.IDPERIOD, BLR.IDCONTRACT, BLR.IDACCOUNTING
+having count(1) > 1
 
 --1723082  
- 
- ------- Удаляем если вдруг были пустоты- 1701--------------------------------------------
+
+------- Удаляем если вдруг были пустоты- 1701--------------------------------------------
 --DELETE FROM Balance  WHERE IDContract IS NULL AND IDPeriod =  dbo.fGetPredPeriod()
 --DELETE FROM BalanceReal  WHERE IDContract IS NULL AND IDPeriod = dbo.fGetPredPeriod()
 --DELETE FROM BalanceReal  WHERE IDContract IS NULL AND IDPeriod = dbo.fGetNowPeriod()

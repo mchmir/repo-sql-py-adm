@@ -16,15 +16,14 @@ select
   from sys.sysusers AS s
 -------------------------------------------------
 
-SELECT
-       spid as SPID,
-       db_name(dbid) as 'Имя БД',
-       program_name as 'Программа',
-       loginame as 'имя входа SQL Server',
-       hostname AS 'Имя рабочей станции',
-       status
-FROM sys.sysprocesses
-WHERE dbid > 0
+select SPID          as SPID,
+       db_name(DBID) as 'Имя БД',
+       PROGRAM_NAME  as 'Программа',
+       LOGINAME      as 'имя входа SQL Server',
+       HOSTNAME      as 'Имя рабочей станции',
+       STATUS
+from SYS.SYSPROCESSES
+where DBID > 0
 order by 'Имя БД';
 
 -- KILL [SPID]
