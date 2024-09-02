@@ -1,88 +1,89 @@
-﻿BEGIN TRY
+﻿begin try
 
---Начало транзакции 
-BEGIN TRANSACTION 
---Пакет №1 Начало 
-
-
-  DECLARE @Account INT;
-  DECLARE @IDPeriod INT;
-  DECLARE @IDBalance INT;
-  DECLARE @IDContract INT;
-  DECLARE @DocumentDate DATETIME;
-  DECLARE @AmountOperation FLOAT;
-  DECLARE @IDDocument INT;
-  DECLARE @IDTypeDocument INT;
-  DECLARE @Year AS INT;
-  DECLARE @Month AS INT;
+  --Начало транзакции
+  begin transaction
+    --Пакет №1 Начало
 
 
-  SET @Account = 1043062;
-  SET @Year    = 2024;
-  SET @Month   = 1;
-  --- ID не проведенного документа ---
-  SET @IDDocument = 24046270;
-  
-  SET @idPeriod = dbo.fGetIDPeriodMY(@Month, @Year);
-  
-  SET @IDTypeDocument = 1;
-  
-  SET @IDContract = (SELECT c.IDContract FROM Contract AS c WHERE c.Account = @Account);
+    declare @ACCOUNT INT;
+    declare @IDPERIOD INT;
+    declare @IDBALANCE INT;
+    declare @IDCONTRACT INT;
+    declare @DOCUMENTDATE DATETIME;
+    declare @AMOUNTOPERATION FLOAT;
+    declare @IDDOCUMENT INT;
+    declare @IDTYPEDOCUMENT INT;
+    declare @YEAR as INT;
+    declare @MONTH as INT;
 
-  exec dbo.spRecalcBalances @IDContract, @IDPeriod;
-  exec dbo.spRecalcBalancesRealOnePeriodByContract @IDContract, @IDPeriod;
-  
-  
-  SET @DocumentDate    = (SELECT d.DocumentDate 
-                            FROM Document as d 
-                           WHERE d.IDContract     = @IDContract
-                             AND d.IDDOCUMENT     = @IDDocument
-                             AND d.IDPeriod       = @IDPeriod
-                             AND d.IDTypeDocument = @IDTypeDocument);
-  
-  --SELECT @DocumentDate
-  
-  SET @AmountOperation = (SELECT d.DocumentAmount
-                            FROM Document AS d 
-                           WHERE d.IDContract    = @IDContract
-                             AND d.IDDOCUMENT     = @IDDocument
-                             AND d.IDPeriod       = @IDPeriod
-                             AND d.IDTypeDocument = @IDTypeDocument);
-  
-  --SELECT @AmountOperation
-  
-  SET @IDBalance       = (SELECT b.IDBalance 
-                            FROM Balance as b 
-                           WHERE b.IDContract   = @IDContract
-                             AND b.IDPeriod     = @IDPeriod 
-                             AND b.IDAccounting = 1);
-  
-  --SELECT @IDBalance
 
-  INSERT INTO Operation (DateOperation, AmountOperation, NumberOperation, IDBalance,  IDDocument, IdTypeOperation)
-                 VALUES (@DocumentDate, @AmountOperation, 0,              @IDBalance, @IDDocument, 1);
-  
-  SELECT * FROM Operation as o
-    WHERE o.IDDocument IN (SELECT d.idDocument
-                             FROM Document as d
-                            WHERE d.IDContract = @IDContract
-                              AND d.IDPeriod   = @IDPeriod);
+    set @ACCOUNT = 1231049;
+    set @YEAR = 2024;
+    set @MONTH = 8;
+    --- ID не проведенного документа ---
+    set @IDDOCUMENT = 24779479;
 
-  -- Перепроводка остатков
-  exec dbo.spRecalcBalances @IDContract, @IDPeriod;
+    set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
+
+    set @IDTYPEDOCUMENT = 1;
+
+    set @IDCONTRACT = (select C.IDCONTRACT from CONTRACT as C where C.ACCOUNT = @ACCOUNT);
+
+    exec DBO.SPRECALCBALANCES @IDCONTRACT, @IDPERIOD;
+    exec DBO.SPRECALCBALANCESREALONEPERIODBYCONTRACT @IDCONTRACT, @IDPERIOD;
+
+
+    set @DOCUMENTDATE = (select D.DOCUMENTDATE
+                         from DOCUMENT as D
+                         where D.IDCONTRACT = @IDCONTRACT
+                           and D.IDDOCUMENT = @IDDOCUMENT
+                           and D.IDPERIOD = @IDPERIOD
+                           and D.IDTYPEDOCUMENT = @IDTYPEDOCUMENT);
+
+    --SELECT @DocumentDate
+
+    set @AMOUNTOPERATION = (select D.DOCUMENTAMOUNT
+                            from DOCUMENT as D
+                            where D.IDCONTRACT = @IDCONTRACT
+                              and D.IDDOCUMENT = @IDDOCUMENT
+                              and D.IDPERIOD = @IDPERIOD
+                              and D.IDTYPEDOCUMENT = @IDTYPEDOCUMENT);
+
+    --SELECT @AmountOperation
+
+    set @IDBALANCE = (select B.IDBALANCE
+                      from BALANCE as B
+                      where B.IDCONTRACT = @IDCONTRACT
+                        and B.IDPERIOD = @IDPERIOD
+                        and B.IDACCOUNTING = 1);
+
+    --SELECT @IDBalance
+
+    insert into OPERATION (DATEOPERATION, AMOUNTOPERATION, NUMBEROPERATION, IDBALANCE, IDDOCUMENT, IDTYPEOPERATION)
+    values (@DOCUMENTDATE, @AMOUNTOPERATION, 0, @IDBALANCE, @IDDOCUMENT, 1);
+
+    select *
+    from OPERATION as O
+    where O.IDDOCUMENT in (select D.IDDOCUMENT
+                           from DOCUMENT as D
+                           where D.IDCONTRACT = @IDCONTRACT
+                             and D.IDPERIOD = @IDPERIOD);
+
+    -- Перепроводка остатков
+    exec DBO.SPRECALCBALANCES @IDCONTRACT, @IDPERIOD;
 
 --Пакет №1 Конец
-END TRY 
-                  BEGIN CATCH
-                  --В случае непредвиденной ошибки 
-                  --Откат транзакции 
-                  ROLLBACK TRANSACTION 
-  
-                  --Выводим сообщение об ошибке 
-                      SELECT ERROR_NUMBER() AS [Номер ошибки], 
-                             ERROR_MESSAGE() AS [Описание ошибки]; 
+end try
+begin catch
+  --В случае непредвиденной ошибки
+  --Откат транзакции
+  rollback transaction
 
-                  --Прекращаем выполнение инструкции 
-                      RETURN; 
-                  END CATCH --Если все хорошо. Сохраняем все изменения 
-COMMIT TRANSACTION
+  --Выводим сообщение об ошибке
+  select ERROR_NUMBER()  as [Номер ошибки],
+         ERROR_MESSAGE() as [Описание ошибки];
+
+  --Прекращаем выполнение инструкции
+  return;
+end catch --Если все хорошо. Сохраняем все изменения
+commit transaction

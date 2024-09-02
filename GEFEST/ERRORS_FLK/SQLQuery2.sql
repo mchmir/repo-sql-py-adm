@@ -4,16 +4,15 @@ go
 
 select * 
 from period p
-where p.Month = 12 and p.Year = 2024;
+where p.Month = 9 and p.Year = 2024;
 ------------------------------------------------------------------------------------------------------------------------
 ----- Пользователи -----------
-select
-       s.uid,
-       s.status,
-       s.name,
-       s.createdate,
-       s.updatedate
-  from sys.sysusers AS s
+select S.UID,
+       S.STATUS,
+       S.NAME,
+       S.CREATEDATE,
+       S.UPDATEDATE
+from SYS.SYSUSERS as S
 -------------------------------------------------
 
 select SPID          as SPID,
@@ -27,7 +26,7 @@ where DBID > 0
 order by 'Имя БД';
 
 -- KILL [SPID]
--- kill 68
+-- kill 10
 -----------------------------------------------
 
 select top 5 * 

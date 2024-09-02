@@ -1,67 +1,116 @@
-﻿
-USE Gefest
-GO
-
-SELECT * 
-  FROM Indication AS i 
- WHERE i.DateDisplay = '10-05-2023'
-   AND i.IdUser      = 62
-   AND i.IDAgent     = 142
-
----- Контроллеры--------
-SELECT * FROM Agent AS a
-
------ Пользователи -----------
-select 
-       s.uid, 
-       s.status, 
-       s.name, 
-       s.createdate, 
-       s.updatedate 
-  from sys.sysusers AS s
-
-------------------------------------
-BEGIN TRY
-
-  --Начало транзакции 
-BEGIN TRANSACTION 
-  --Пакет №1 Начало
-
-
- UPDATE Indication 
-    SET IDAgent = 154
-    -- select * from agent as a where idagent=154;
-        OUTPUT DELETED.IDAgent, INSERTED.IDAgent
-       --OUTPUT DELETED.* -- старые  
-       --INSERTED.* -- новые
-  WHERE DateDisplay = '10-05-2023'
-    AND IdUser      = 62
-    AND IDAgent     = 142
+﻿use GEFEST
+go
 
 /*
- UPDATE Indication
-    SET DATEDISPLAY='03-11-2024'
-        OUTPUT DELETED.IDINDICATION, DELETED.DATEDISPLAY, INSERTED.DATEDISPLAY
-       --OUTPUT DELETED.* -- старые
-       --INSERTED.* -- новые
-  WHERE DATEDISPLAY = '03-13-2024'
-    AND IDUSER      = 71;
+142 - WhatsApp
 */
+/*
++----------------+--------------+
+|IDTypeIndication|Name          |
++----------------+--------------+
+|1               |По телефону   |
+|2               |От контролера |
+|3               |По Акту       |
+|4               |От абонента   |
+|5               |От слесаря    |
+|6               |Личный кабинет|
+|7               |Фото          |
+|8               |Сообщение     |
++----------------+--------------+
+*/
+
+select *
+from INDICATION as I
+where I.DATEDISPLAY = '2024-08-18'
+  and I.IDUSER = 62
+  -- and I.IDAGENT = 142
+  and I.IDTYPEINDICATION = 1
+
+---- Контроллеры--------
+select *
+from AGENT as A
+
+----- Пользователи -----------
+select S.UID,
+       S.STATUS,
+       S.NAME,
+       S.CREATEDATE,
+       S.UPDATEDATE
+from SYS.SYSUSERS as S
+
+------------------------------------
+begin try
+
+  --Начало транзакции
+  begin transaction
+    --Пакет №1 Начало
+
+
+    update INDICATION
+    set IDAGENT = 154
+        -- select * from agent as a where idagent=154;
+    output DELETED.IDAGENT, INSERTED.IDAGENT
+    --OUTPUT DELETED.* -- старые
+    --INSERTED.* -- новые
+    where DATEDISPLAY = '10-05-2023'
+      and IDUSER = 62
+      and IDAGENT = 142
+
+    /*
+     UPDATE Indication
+        SET DATEDISPLAY='03-11-2024'
+            OUTPUT DELETED.IDINDICATION, DELETED.DATEDISPLAY, INSERTED.DATEDISPLAY
+           --OUTPUT DELETED.* -- старые
+           --INSERTED.* -- новые
+      WHERE DATEDISPLAY = '03-13-2024'
+        AND IDUSER      = 71;
+    */
 -- 154
-   
-  --Пакет №1 Конец
-END TRY 
-            BEGIN CATCH
-                --В случае непредвиденной ошибки 
-                --Откат транзакции 
-                ROLLBACK TRANSACTION 
 
-                --Выводим сообщение об ошибке 
-                SELECT ERROR_NUMBER()  AS [Номер ошибки], 
-                       ERROR_MESSAGE() AS [Описание ошибки] 
+    --Пакет №1 Конец
+end try
+begin catch
+  --В случае непредвиденной ошибки
+  --Откат транзакции
+  rollback transaction
 
-                --Прекращаем выполнение инструкции 
-                RETURN; 
-            END CATCH --Если все хорошо. Сохраняем все изменения 
-COMMIT TRANSACTION
+  --Выводим сообщение об ошибке
+  select ERROR_NUMBER()  as [Номер ошибки],
+         ERROR_MESSAGE() as [Описание ошибки]
+
+  --Прекращаем выполнение инструкции
+  return;
+end catch --Если все хорошо. Сохраняем все изменения
+commit transaction
+
+------------------------------------------------------------------
+/* Изменить дату показаний */
+begin try
+
+  --Начало транзакции
+  begin transaction
+    --Пакет №1 Начало
+    update INDICATION
+    set DATEDISPLAY = '2024-08-19'
+    output DELETED.*, INSERTED.*
+    --OUTPUT DELETED.* -- старые
+    --INSERTED.* -- новые
+    where DATEDISPLAY = '2024-08-18'
+      and IDUSER = 62
+      and IDTYPEINDICATION = 1
+   --Пакет №1 Конец
+end try
+begin catch
+  --В случае непредвиденной ошибки
+  --Откат транзакции
+  rollback transaction
+
+  --Выводим сообщение об ошибке
+  select ERROR_NUMBER()  as [Номер ошибки],
+         ERROR_MESSAGE() as [Описание ошибки]
+
+  --Прекращаем выполнение инструкции
+  return;
+end catch --Если все хорошо. Сохраняем все изменения
+commit transaction
 

@@ -27,24 +27,15 @@ where D.IDTYPEDOCUMENT = 2
   and D.IDPERIOD = @IDPERIOD
 ;
 
-select C.ACCOUNT                                               as [Лицевой счет],
-       G.COUNTLIVES                                            as [Новая численность],
-       DBO.FGETPDVALUE(D.IDDOCUMENT, 5) as [Старое значение],
-       DBO.FGETPDVALUE(D.IDDOCUMENT, 6) as [По период],
-       D.DOCUMENTDATE                                          as [Дата документа]
-from CONTRACT as C
-       join GOBJECT as G on C.IDCONTRACT = G.IDCONTRACT
-       join DOCUMENT as D on C.IDCONTRACT = D.IDCONTRACT and D.IDTYPEDOCUMENT = 2
-where D.IDPERIOD = @IDPERIOD
-order by D.DOCUMENTDATE desc;
-
-
 select
   C.ACCOUNT                                               as [Лицевой счет],
   G.COUNTLIVES                                            as [Новая численность],
   dbo.fGetPDValue(D.IDDOCUMENT, 5) as [Старое значение],
   dbo.fGetPDValue(D.IDDOCUMENT, 6) as [По период],
-  D.DOCUMENTDATE                                          as [Дата документа]
+  convert(varchar, D.DOCUMENTDATE, 104)                   as [Дата документа],
+  D.NOTE                                                  as [Примечание],
+  dbo.fGetUser(D.IDUSER)                           as [Автор],
+  convert(varchar, D.DATEADD, 104)                        as [Дата добавления]
 into #temp_ONE
 from CONTRACT as C
   join GOBJECT as G on C.IDCONTRACT = G.IDCONTRACT
@@ -55,7 +46,7 @@ order by D.DOCUMENTDATE desc
 
 select *
 from #temp_ONE
-where [НОВАЯ ЧИСЛЕННОСТЬ]<>[СТАРОЕ ЗНАЧЕНИЕ];
+;
 
 drop table #temp_ONE;
 
