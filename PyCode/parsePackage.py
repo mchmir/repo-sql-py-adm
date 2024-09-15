@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 in_file = input('Имя файла с расширением:')
 
-lst = ['up','in','if']
+lst = ['up', 'in', 'if']
 
 with open(in_file, 'r') as read_file:
     n = 0
