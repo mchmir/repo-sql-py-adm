@@ -68,16 +68,34 @@ in (
 ------------------------------------------------------------------------------------------------------------------------
 select *
 from BATCH
-where IDPERIOD = 233
-  and BATCHDATE between '2024-06-25' and '2024-06-26';
+where IDPERIOD = 236
+  and BATCHDATE between '2024-09-02' and '2024-09-02';
+
+select *
+from BATCH
+where BATCHDATE ='2024-09-02'
+
 
 SELECT *
   FROM Document AS d
- WHERE d.IDBATCH = 97339;
+ WHERE d.IDBATCH in (97738, 97735);
+
+select *
+from OPERATION
+where IDDOCUMENT in (24898118, 24898119)
+
+
+select *
+from PD
+where IDDOCUMENT in (24898118, 24898119)
+
+select * from BALANCE
+where IDCONTRACT = 915299 -- 917251
+
 
 select *
 from CONTRACT
-where IDCONTRACT = 903712;
+where IDCONTRACT = 97812;
 -- 2473001
 
 --delete from batch where IDBATCH = 97339;
@@ -130,3 +148,13 @@ where IDCASHIER = 151
 order by DATECASH desc
 
 
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 3500 WHERE IDUslugiVDGO = 6;
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 2000 WHERE IDUslugiVDGO = 7;
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 4200 WHERE IDUslugiVDGO = 5;
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 20000 WHERE IDUslugiVDGO = 10;
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 4300 WHERE IDUslugiVDGO = 15;
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 4300 WHERE IDUslugiVDGO = 14;
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 5600 WHERE IDUslugiVDGO = 3;
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 9000 WHERE IDUslugiVDGO = 36;
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 9100 WHERE IDUslugiVDGO = 4;
+UPDATE Gefest.dbo.UslugiVDGO SET Value = 7000 WHERE IDUslugiVDGO = 8;

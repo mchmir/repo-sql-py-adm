@@ -21,14 +21,15 @@ go
 
 select *
 from INDICATION as I
-where I.DATEDISPLAY = '2024-08-18'
+where I.DATEDISPLAY = '2024-09-09'
   and I.IDUSER = 62
-  -- and I.IDAGENT = 142
+  --and I.IDAGENT = 81
   and I.IDTYPEINDICATION = 1
 
 ---- Контроллеры--------
 select *
 from AGENT as A
+where name like '%азаренко%'
 
 ----- Пользователи -----------
 select S.UID,
@@ -47,15 +48,16 @@ begin try
 
 
     update INDICATION
-    set IDAGENT = 154
+    set IDAGENT = null,
+        IDTYPEINDICATION = 1 -- по телефону
         -- select * from agent as a where idagent=154;
     output DELETED.IDAGENT, INSERTED.IDAGENT
     --OUTPUT DELETED.* -- старые
     --INSERTED.* -- новые
-    where DATEDISPLAY = '10-05-2023'
+    where DATEDISPLAY = '2024-09-09'
       and IDUSER = 62
-      and IDAGENT = 142
-
+      and IDAGENT = 81
+      and IDTYPEINDICATION = 2
     /*
      UPDATE Indication
         SET DATEDISPLAY='03-11-2024'
