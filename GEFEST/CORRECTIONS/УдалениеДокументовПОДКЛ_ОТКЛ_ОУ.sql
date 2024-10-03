@@ -12,7 +12,7 @@
 declare @IDCONTRACT INT;
 declare @ACCOUNT VARCHAR(50);
 
-set @ACCOUNT = '1661081'
+set @ACCOUNT = '3171172'
 
 select @IDCONTRACT = C.IDCONTRACT 
   from CONTRACT as C 
@@ -22,7 +22,7 @@ select *
   from DOCUMENT as D
  where D.IDCONTRACT = @IDCONTRACT 
    and D.IDTYPEDOCUMENT in (6, 17)
-   and D.DOCUMENTDATE between '2023-07-01' and '2023-07-14';
+   and D.DOCUMENTDATE between '2024-10-01' and '2024-10-01';
 
 --- next in manual 
 

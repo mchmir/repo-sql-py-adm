@@ -8,9 +8,9 @@ declare @YEAR as INT;
 declare @MONTH as INT;
 declare @IDGOBJECT as INT;
 
-set @ACC = '1873021';
+set @ACC = '3171172';
 set @YEAR = 2024;
-set @MONTH = 9;
+set @MONTH = 10;
 
 
 set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
