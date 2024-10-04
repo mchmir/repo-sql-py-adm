@@ -36,6 +36,6 @@ select
   CAST(ROUND(SaldoKonecDopUslug, 2) AS decimal(16,2)) SaldoKonecDopUslug, --35
   CAST(ROUND(SaldoKonecItog, 2) AS decimal(16,2)) SaldoKonecItog, --36
   Primechanie, --37
-  Occupancy As Common --38 Общее количество проживающих
+  coalesce(Occupancy, 0) As Common --38 Общее количество проживающих
 from AAAERC7
 ORDER BY Account

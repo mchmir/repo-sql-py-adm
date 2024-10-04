@@ -8,7 +8,7 @@ declare @YEAR as INT;
 declare @MONTH as INT;
 declare @IDGOBJECT as INT;
 
-set @ACC = '3171172';
+set @ACC = '2281047';
 set @YEAR = 2024;
 set @MONTH = 10;
 

@@ -1,4 +1,5 @@
 
+
 select count(c.idcontract) SumIn
 where c.idstatusgobject=1 and c.idstatusgmeter=1
 
@@ -148,13 +149,3 @@ where IDCASHIER = 151
 order by DATECASH desc
 
 
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 3500 WHERE IDUslugiVDGO = 6;
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 2000 WHERE IDUslugiVDGO = 7;
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 4200 WHERE IDUslugiVDGO = 5;
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 20000 WHERE IDUslugiVDGO = 10;
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 4300 WHERE IDUslugiVDGO = 15;
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 4300 WHERE IDUslugiVDGO = 14;
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 5600 WHERE IDUslugiVDGO = 3;
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 9000 WHERE IDUslugiVDGO = 36;
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 9100 WHERE IDUslugiVDGO = 4;
-UPDATE Gefest.dbo.UslugiVDGO SET Value = 7000 WHERE IDUslugiVDGO = 8;

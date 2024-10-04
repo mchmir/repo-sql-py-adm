@@ -28,6 +28,15 @@ def sql_select_engine() -> None:
         query = open('sql\\' + sql_file + '.sql', 'r')
 
         sql_reader = pd.read_sql_query(query.read(), engine)
+        # Столбец Common, может содержать значения NULL
+        # и sql_reader возвращает для него тип float64
+        # и тогда значения для поля дробные
+        # cлед. две строки именно для анализа этого
+        # В pandas два типа int int64 и Int64(с большой буквы)
+        # Int64 поддерживает NaN типы, int64 - нет.
+        sql_reader['Common'] = sql_reader['Common'].astype('Int64')
+        print(sql_reader.dtypes)
+
         num_rows = sql_reader.shape[0]
 
         if datetime.now().month == 1:
@@ -64,7 +73,6 @@ def sql_select() -> None:
         query = open('sql\\'+sql_file+'.sql', 'r')
 
         sql_reader = pd.read_sql_query(query.read(), con)
-
         file_csv = "EIRC_GORGAZ_{:%m%Y}.csv".format(datetime.now())
         sql_reader.to_csv(file_csv, sep='|', index=False, encoding='utf-8')
     else:
