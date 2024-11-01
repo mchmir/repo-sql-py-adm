@@ -1,54 +1,74 @@
-﻿DECLARE @Account INT
-DECLARE @IDPeriod INT
-DECLARE @IDBalance INT
-DECLARE @IDContract INT 
-DECLARE @DocumentDate DATETIME
-DECLARE @AmountOperation FLOAT
-DECLARE @IDDocument INT
-DECLARE @IDTypeDocument INT
-DECLARE @IDAccounting INT
+﻿declare @ACCOUNT INT
+declare @IDPERIOD INT
+declare @IDBALANCE INT
+declare @IDCONTRACT INT
+declare @DOCUMENTDATE DATETIME
+declare @AMOUNTOPERATION FLOAT
+declare @IDDOCUMENT INT
+declare @IDTYPEDOCUMENT INT
+declare @IDACCOUNTING INT
 
-DECLARE @Year AS INT
-DECLARE @Month AS INT
+declare @YEAR as INT
+declare @MONTH as INT
 
-SET @Account = 1873021
+set @ACCOUNT = 1304041
 
 ----- какой документ, тип счета: 1 - Основной долг, 4 Пеня, 6 - Услуги
-SET @IDAccounting = 1 
+set @IDACCOUNTING = 1
 
-SET @Year = 2024
-SET @Month = 9
+set @YEAR = 2024
+set @MONTH = 10
 
-SET @idPeriod = (SELECT p.idPeriod FROM  Period p WHERE p.Year = @Year AND p.MONTH = @Month)
+set @IDPERIOD = (select P.IDPERIOD
+                 from PERIOD P
+                 where P.YEAR = @YEAR
+                   and P.MONTH = @MONTH)
 
 
-SET @IDTypeDocument = 1
+set @IDTYPEDOCUMENT = 1
 
 --- ID не проведенного документа ---
-SET @IDDocument = 24877401
+set @IDDOCUMENT = 25032134
 
-SET @IDContract = (SELECT c.IDContract FROM Contract c WHERE c.Account = @Account)
-exec dbo.spRecalcBalances @IDContract, @IDPeriod
-exec dbo.spRecalcBalancesRealOnePeriodByContract @IDContract, @IDPeriod
+set @IDCONTRACT = (select C.IDCONTRACT
+                   from CONTRACT C
+                   where C.ACCOUNT = @ACCOUNT)
+exec DBO.SPRECALCBALANCES @IDCONTRACT, @IDPERIOD
+exec DBO.SPRECALCBALANCESREALONEPERIODBYCONTRACT @IDCONTRACT, @IDPERIOD
 
 
-SET @DocumentDate = (SELECT d.DocumentDate FROM Document d WHERE d.IDContract = @IDContract AND d.IDPeriod = @IDPeriod AND d.IDTypeDocument = @IDTypeDocument AND d.IDDocument = @IDDocument)
+set @DOCUMENTDATE = (select D.DOCUMENTDATE
+                     from DOCUMENT D
+                     where D.IDCONTRACT = @IDCONTRACT
+                       and D.IDPERIOD = @IDPERIOD
+                       and D.IDTYPEDOCUMENT = @IDTYPEDOCUMENT
+                       and D.IDDOCUMENT = @IDDOCUMENT)
 
 --SELECT @DocumentDate
 
-SET @AmountOperation = (SELECT d.DocumentAmount FROM Document d WHERE d.IDContract = @IDContract AND d.IDPeriod = @IDPeriod AND d.IDTypeDocument = @IDTypeDocument AND d.IDDocument = @IDDocument)
+set @AMOUNTOPERATION = (select D.DOCUMENTAMOUNT
+                        from DOCUMENT D
+                        where D.IDCONTRACT = @IDCONTRACT
+                          and D.IDPERIOD = @IDPERIOD
+                          and D.IDTYPEDOCUMENT = @IDTYPEDOCUMENT
+                          and D.IDDOCUMENT = @IDDOCUMENT)
 
 --SELECT @AmountOperation
 
-SET @IDBalance = (SELECT b.IDBalance FROM Balance b WHERE b.IDContract = @IDContract AND b.IDPeriod = @IDPeriod AND b.IDAccounting = @IDAccounting)
+set @IDBALANCE = (select B.IDBALANCE
+                  from BALANCE B
+                  where B.IDCONTRACT = @IDCONTRACT
+                    and B.IDPERIOD = @IDPERIOD
+                    and B.IDACCOUNTING = @IDACCOUNTING)
 
 --SELECT @IDBalance
 
-INSERT INTO Operation (DateOperation, AmountOperation, NumberOperation, IDBalance, IDDocument, IdTypeOperation)
- VALUES (@DocumentDate, @AmountOperation, 0, @IDBalance, @IDDocument, 1);
+insert into OPERATION (DATEOPERATION, AMOUNTOPERATION, NUMBEROPERATION, IDBALANCE, IDDOCUMENT, IDTYPEOPERATION)
+values (@DOCUMENTDATE, @AMOUNTOPERATION, 0, @IDBALANCE, @IDDOCUMENT, 1);
 
-SELECT * FROM Operation o 
-WHERE o.IDDocument IN (SELECT d.idDocument FROM Document d WHERE d.IDContract = @IDContract AND d.IDPeriod = @IDPeriod)
+select *
+from OPERATION O
+where O.IDDOCUMENT in (select D.IDDOCUMENT from DOCUMENT D where D.IDCONTRACT = @IDCONTRACT and D.IDPERIOD = @IDPERIOD)
 
 -- Перепроводка остатков
-exec dbo.spRecalcBalances @IDContract, @IDPeriod
+exec DBO.SPRECALCBALANCES @IDCONTRACT, @IDPERIOD

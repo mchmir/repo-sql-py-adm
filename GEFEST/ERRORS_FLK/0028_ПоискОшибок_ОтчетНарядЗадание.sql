@@ -36,9 +36,9 @@ order by G.IDSTATUSGMETER;
 +-------+----------+--------+--------------+-+
 |ACCOUNT|IDCONTRACT|IDGMETER|IDSTATUSGMETER| |
 +-------+----------+--------+--------------+-+
-|2321048|893343    |751042  |1             |2|
-|2481037|906068    |792394  |2             |1|
+|1414015|893733    |751432  |1             |2|
 +-------+----------+--------+--------------+-+
+
 
 
 */
@@ -46,7 +46,7 @@ order by G.IDSTATUSGMETER;
 /*
 select *
 from OLDVALUES as OV
-where OV.IDOBJECT = 806293  -- IDGmeter = idObject !!!
+where OV.IDOBJECT = 751432   -- IDGmeter = idObject !!!
 order by OV.DATEVALUES desc;
 
 update OLDVALUES

@@ -26,7 +26,7 @@ where DBID > 0
 order by 'Имя БД';
 
 -- KILL [SPID]
--- kill 67
+-- kill 89
 -----------------------------------------------
 
 select top 5 * 

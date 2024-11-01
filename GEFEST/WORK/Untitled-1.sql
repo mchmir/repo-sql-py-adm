@@ -1,3 +1,10 @@
+select *
+from INDICATION as I
+where I.IDAGENT = 142
+  and I.DATEADD>='10-01-2024'
+
+select Account from Contract where IDCONTRACT= dbo.fGetIDContract(814709)
+
 
 
 select count(c.idcontract) SumIn
