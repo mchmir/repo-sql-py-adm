@@ -8,3 +8,7 @@ venv/
 /.vscode/
 .vscode/
 cmake-build-debug/
+# Игнорировать любую папку с именем indata
+indata/
+outdata/
+
