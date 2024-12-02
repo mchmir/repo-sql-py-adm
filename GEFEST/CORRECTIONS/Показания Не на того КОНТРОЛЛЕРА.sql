@@ -21,7 +21,7 @@ go
 
 select *
 from INDICATION as I
-where I.DATEDISPLAY = '2024-09-09'
+where I.DATEDISPLAY = '2024-12-02'
   and I.IDUSER = 62
   --and I.IDAGENT = 81
   and I.IDTYPEINDICATION = 1

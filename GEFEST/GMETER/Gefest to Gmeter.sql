@@ -1,0 +1,168 @@
+select * from Sending order by DATESENDING DESC
+
+select * from CHANGES where IDSENDING = 954;
+select * from CHANGES order by IDSENDING desc;
+
+delete from CHANGES where IDSENDING=952;
+delete from Sending where NUMBERSENDING = 7771;
+
+delete from Logs
+
+begin try insert House (IDHouse, IDStreet, IDTypeHouse, HouseNumber, HouseNumberChar, IsEvenSide, IsComfortable)
+ values (34826,217,1,55,null,0,0) end try begin catch end catch
+
+
+select IDSTREET, NAME, IDPLACE, IDTYPESTREET
+from STREET
+where NAME like 'Болатбаева%'
+;
+
+/*
+IDSTREET
+217
+199
+*/
+
+-- выгрузка
+select IDSTREET, NAME, IDPLACE, IDTYPESTREET
+from STREET
+where IDSTREET in (199, 217)
+;
+
+select IDHOUSE, IDSTREET, IDTYPEHOUSE, HOUSENUMBER, HOUSENUMBERCHAR, ISEVENSIDE, ISCOMFORTABLE
+from HOUSE
+where IDSTREET in (199, 217)
+  and IDHOUSE in (34820, 34821, 34823, 34824, 34826, 34829, 34825, 34828)
+order by IDSTREET, HOUSENUMBER
+;
+
+/*
+begin try
+  insert House (IDHOUSE, IDSTREET, IDTYPEHOUSE, HOUSENUMBER, HOUSENUMBERCHAR, ISEVENSIDE, ISCOMFORTABLE)
+  values (34826, 217, 1, 55, null, 0, 0)
+end try
+begin catch
+   PRINT 'Ошибка: ' + ERROR_MESSAGE();
+end catch
+*/
+select IDHOUSE, IDSTREET, IDTYPEHOUSE, HOUSENUMBER, HOUSENUMBERCHAR, ISEVENSIDE, ISCOMFORTABLE
+from HOUSE
+where IDHOUSE in (34820, 34821, 34823, 34824, 34826, 34829, 34825, 34828)
+order by IDSTREET, HOUSENUMBER;
+
+
+/*
+IDHOUSE
+34820, 34821, 34823, 34824, 34826, 34829, 34825, 34828
+*/
+
+select IDADDRESS, IDTYPEADDRESS, IDPLACE, IDSTREET, IDHOUSE, FLAT
+from ADDRESS
+where IDSTREET in (199, 217)
+  and IDHOUSE in (34820, 34821, 34823, 34824, 34826, 34829, 34825, 34828);
+
+select IDADDRESS, IDTYPEADDRESS, IDPLACE, IDSTREET, IDHOUSE, FLAT
+from ADDRESS
+where IDADDRESS=925751;
+
+----- GObject
+select IDGOBJECT, IDTYPEGOBJECT, IDGRU, IDADDRESS, IDSTATUSGOBJECT, IDCONTRACT, NAME, MEMO, COUNTLIVES
+from GOBJECT
+where IDADDRESS in (select IDADDRESS
+                    from ADDRESS
+                    where IDSTREET in (199, 217)
+                      and IDHOUSE in (34820, 34821, 34823, 34824, 34826, 34829, 34825, 34828))
+;
+
+--- Person
+select IDPERSON, IDUSER, IDADDRESS, RNN, ISJURIDICAL, SURNAME, NAME, PATRONIC, IDOWNERSHIP, FIOMAINBUCH, IDCLASSIFIER
+from PERSON
+where IDADDRESS in (select IDADDRESS
+                    from ADDRESS
+                    where IDSTREET in (199, 217)
+                      and IDHOUSE in (34820, 34821, 34823, 34824, 34826, 34829, 34825, 34828))
+;
+
+--- Contract
+select  C.IDCONTRACT, P.IDPERSON, AD.IDADDRESS, P.SURNAME, P.NAME, P.PATRONIC
+from CONTRACT as C
+  inner join PERSON as P on C.IDPERSON = P.IDPERSON
+  inner join ADDRESS as AD on P.IDADDRESS = AD.IDADDRESS
+where AD.IDADDRESS in (select IDADDRESS
+                    from ADDRESS
+                    where IDSTREET in (199, 217)
+                      and IDHOUSE in (34820, 34821, 34823, 34824, 34826, 34829, 34825, 34828))
+;
+
+select  C.IDCONTRACT, P.IDPERSON, AD.IDADDRESS, P.SURNAME, P.NAME, P.PATRONIC
+from CONTRACT as C
+  inner join PERSON as P on C.IDPERSON = P.IDPERSON
+  inner join ADDRESS as AD on P.IDADDRESS = AD.IDADDRESS
+where AD.IDADDRESS in (select IDADDRESS
+                    from ADDRESS
+                    where IDSTREET in (217)
+                      and IDHOUSE in (34826))
+;
+
+-- type GMETER
+select IDTYPEGMETER, NAME, MEMO, CLASSACCURACY, COUNTDIGITAL, SERVICELIFE, IDTYPEGMETER as IDCONFORMITY
+from TYPEGMETER
+
+
+-- Gmeter
+select
+  GM.IDGMETER,
+  GM.IDSTATUSGMETER,
+  GM.IDTYPEGMETER,
+  GM.SERIALNUMBER,
+  GM.BEGINVALUE,
+  GM.DATEINSTALL,
+  GM.DATEVERIFY,
+  G.MEMO,
+  G.IDGOBJECT,
+  GM.DATEFABRICATION,
+  C.IDCONTRACT,
+  GM.IDGMETER as IDCONFORMITY,
+  isnull(GM.IDTYPEVERIFY,0) as IDTYPEVERIFY
+from GMETER as GM
+  join GOBJECT as G on GM.IDGOBJECT = G.IDGOBJECT
+  join CONTRACT as C on G.IDCONTRACT = C.IDCONTRACT
+where C.IDCONTRACT in (select  CON.IDCONTRACT
+                        from CONTRACT as CON
+                          inner join PERSON as P on CON.IDPERSON = P.IDPERSON
+                          inner join ADDRESS as AD on P.IDADDRESS = AD.IDADDRESS
+                        where AD.IDADDRESS in (select IDADDRESS
+                                            from ADDRESS
+                                            where IDSTREET in (199, 217)
+                                              and IDHOUSE in (34820, 34821, 34823, 34824, 34826, 34829, 34825, 34828)))
+;
+
+select
+  GM.IDGMETER,
+  GM.IDSTATUSGMETER,
+  GM.IDTYPEGMETER,
+  GM.SERIALNUMBER,
+  GM.BEGINVALUE,
+  GM.DATEINSTALL,
+  GM.DATEVERIFY,
+  G.MEMO,
+  G.IDGOBJECT,
+  GM.DATEFABRICATION,
+  C.IDCONTRACT,
+  GM.IDGMETER as IDCONFORMITY,
+  isnull(GM.IDTYPEVERIFY,0) as IDTYPEVERIFY
+from GMETER as GM
+  join GOBJECT as G on GM.IDGOBJECT = G.IDGOBJECT
+  join CONTRACT as C on G.IDCONTRACT = C.IDCONTRACT
+where C.IDCONTRACT = 922445
+
+
+select  C.IDCONTRACT, P.IDPERSON, AD.IDADDRESS, P.SURNAME, P.NAME, P.PATRONIC
+from CONTRACT as C
+  inner join PERSON as P on C.IDPERSON = P.IDPERSON
+  inner join ADDRESS as AD on P.IDADDRESS = AD.IDADDRESS
+where AD.IDADDRESS in (select IDADDRESS
+                    from ADDRESS
+                    where IDSTREET in (199, 217)
+                      and IDHOUSE in (34826))
+;

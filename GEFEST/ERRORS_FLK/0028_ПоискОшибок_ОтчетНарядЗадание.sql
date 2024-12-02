@@ -7,7 +7,7 @@ declare @DEND as DATETIME;
 declare @MONTH as INT;
 declare @YEAR as INT;
 
-set @MONTH = 10;
+set @MONTH = 11;
 set @YEAR = 2024;
 
 set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
