@@ -18,7 +18,7 @@ def query_database(engine) -> int:
 
 def main() -> None:
     # Время работы скрипта в минутах и интервал между запросами в секундах
-    run_time_minutes = 15
+    run_time_minutes = 17
     interval_seconds = 5
 
     # Общее количество итераций (запросов к базе данных)

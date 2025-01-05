@@ -8,9 +8,9 @@ declare @YEAR as INT;
 declare @MONTH as INT;
 declare @IDGOBJECT as INT;
 
-set @ACC = '1304041';
+set @ACC = '2742187';
 set @YEAR = 2024;
-set @MONTH = 10;
+set @MONTH = 12;
 
 
 set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
@@ -64,8 +64,7 @@ where B.IDCONTRACT = @IDCONTRACT
   and A.IDACCOUNTING = B.IDACCOUNTING;
 
 -- Запрос 4 BALANSreal Сальдо без среднего-- 
-select B.IDBALANCEREAL,
-       B.IDACCOUNTING,
+select B.IDBALANCEREAL,       B.IDACCOUNTING,
        B.IDPERIOD,
        B.IDCONTRACT,
        B.AMOUNTBALANCE as [Ост на счете],

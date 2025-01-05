@@ -1,9 +1,5 @@
-select *
-from CONTRACT
-where ACCOUNT = 0801049  -- 923020
-
-
-select * from BALANCEREAL
-where IDCONTRACT = 923020
+select top 20 *
+from CLOSEPERIODLOG
+order by IDLOG desc
 
 

@@ -21,10 +21,60 @@ go
 
 select *
 from INDICATION as I
-where I.DATEDISPLAY = '2024-12-02'
-  and I.IDUSER = 62
-  --and I.IDAGENT = 81
-  and I.IDTYPEINDICATION = 1
+where I.DATEDISPLAY >= '2024-12-01'
+  --and I.IDUSER = 62
+  and I.IDAGENT = 142
+  and I.IDTYPEINDICATION = 3
+
+------------------------
+select GM.IDGMETER, C.IDCONTRACT, C.ACCOUNT
+from GOBJECT as Gobj
+ join CONTRACT C on GOBJ.IDCONTRACT = C.IDCONTRACT
+ join GMETER GM on GOBJ.IDGOBJECT = GM.IDGOBJECT
+where GM.IDGMETER in (
+                      select I.IDGMETER
+                      from INDICATION as I
+                      where I.DATEDISPLAY >= '2024-12-01'
+                        --and I.IDUSER = 62
+                        and I.IDAGENT = 142
+                        and I.IDTYPEINDICATION = 3);
+
+with IND as (select I.IDGMETER as IDGMETER
+             from INDICATION as I
+             where I.DATEDISPLAY >= '2024-12-01'
+               --and I.IDUSER = 62
+               and I.IDAGENT = 142
+               and I.IDTYPEINDICATION = 3)
+select GM.IDGMETER, C.IDCONTRACT, C.ACCOUNT
+from GOBJECT as GOBJ
+       join CONTRACT C on GOBJ.IDCONTRACT = C.IDCONTRACT
+       join GMETER GM on GOBJ.IDGOBJECT = GM.IDGOBJECT
+where GM.IDGMETER in (
+  select IDGMETER
+  from IND
+);
+
+/*
+SQL Server 2005 оптимизирует JOIN лучше, чем подзапросы с IN.
+Индексы на столбце IDGMETER могут быть эффективно использованы.
+- Выполнить анализ с помощью SET STATISTICS IO ON или SET STATISTICS TIME ON
+*/
+
+SET STATISTICS IO ON;
+SET STATISTICS TIME ON;
+
+with IND as (
+  select I.IDGMETER
+  from INDICATION as I
+  where I.DATEDISPLAY >= '2024-12-01'
+    and I.IDAGENT = 142
+    and I.IDTYPEINDICATION = 3
+)
+select GM.IDGMETER, C.IDCONTRACT, C.ACCOUNT
+from GOBJECT as GOBJ
+       join CONTRACT C on GOBJ.IDCONTRACT = C.IDCONTRACT
+       join GMETER GM on GOBJ.IDGOBJECT = GM.IDGOBJECT
+       join IND on GM.IDGMETER = IND.IDGMETER;
 
 ---- Контроллеры--------
 select *
