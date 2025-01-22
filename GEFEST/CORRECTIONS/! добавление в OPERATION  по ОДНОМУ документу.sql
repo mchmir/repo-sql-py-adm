@@ -11,13 +11,13 @@ declare @IDACCOUNTING INT
 declare @YEAR as INT
 declare @MONTH as INT
 
-set @ACCOUNT = '2742187'
+set @ACCOUNT = 1921039
 
 ----- какой документ, тип счета: 1 - Основной долг, 4 Пеня, 6 - Услуги
 set @IDACCOUNTING = 1
 
-set @YEAR = 2024
-set @MONTH = 12
+set @YEAR = 2025
+set @MONTH = 1
 
 set @IDPERIOD = (select P.IDPERIOD
                  from PERIOD P
@@ -28,7 +28,7 @@ set @IDPERIOD = (select P.IDPERIOD
 set @IDTYPEDOCUMENT = 1
 
 --- ID не проведенного документа ---
-set @IDDOCUMENT = 25207132
+set @IDDOCUMENT = 25343818
 
 set @IDCONTRACT = (select C.IDCONTRACT
                    from CONTRACT C

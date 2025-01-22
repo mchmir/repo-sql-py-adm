@@ -70,13 +70,13 @@ def prepare_columns_and_values(item):
 
 def main():
     # JSON-файл с данными
-    json_file = 'in-data\House.json'
+    json_file = 'in-data\GMETER.json'
 
     # Имя таблицы
-    table_name = "House"
+    table_name = "Gmeter"
 
     # Файл для сохранения результата
-    output_file = r'out-data\result.sql'
+    output_file = r'out-data\result.txt'
 
     # Чтение данных из JSON
     with open(json_file, 'r', encoding='utf-8') as file:
