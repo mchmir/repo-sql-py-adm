@@ -2,9 +2,10 @@ use Gefest
 go
 
 
-select * 
-from period p
-where p.Month = 12 and p.Year = 2024;
+select *
+from PERIOD P
+where P.MONTH = 2
+  and P.YEAR = 2025;
 ------------------------------------------------------------------------------------------------------------------------
 ----- Пользователи -----------
 select S.UID,
@@ -26,7 +27,7 @@ where DBID > 0
 order by 'Имя БД';
 
 -- KILL [SPID]
--- kill 10
+-- kill 61
 -----------------------------------------------
 
 select top 5 * 
@@ -125,3 +126,5 @@ end;
 
 exec MySecureProcedure '977570D40DEF69571FC2FDA58ACA7B1085375FF2', 'test';
 drop procedure MySecureProcedure;
+
+select  'Удаляем ненужные дубли в Балансах ' + cast(1 as varchar(3));

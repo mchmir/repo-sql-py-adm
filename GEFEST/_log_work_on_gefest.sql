@@ -1,7 +1,33 @@
+--
+--
+--
+
+
+
+
+
 ------------------------------------------------------------------------------------------------------------------------
---
---
---
+-- 3 февраля 2025 года
+-- Создана новая база данных ClosePeriodLog
+-- в ней создана таблица ClosePeriodLogs
+-- В бд Гефест для таблицы ClosePeriod создан триггер
+-- дублирование логов в базу данных ClosePeriodLog
+
+CREATE TRIGGER TR_ClosePeriodLog_Audit
+ON dbo.ClosePeriodLog
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Дублирование в другую базу
+    INSERT INTO CLOSEPERIODLOG.DBO.CLOSEPERIODLOGS (SPNAME, STEPNAME, DATEEXEC)
+    SELECT SPNAME, STEPNAME, DATEEXEC FROM inserted;
+END;
+go
+
+-- Процедура ActionForPeriod - добавлены более подробное логирование
+
 ------------------------------------------------------------------------------------------------------------------------
 -- Функция определения IDCONTRACT по Лицевому счету
 -- Функция получения значения параметра для документа
