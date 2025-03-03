@@ -13,7 +13,7 @@
 declare @IDCONTRACT INT;
 declare @ACCOUNT VARCHAR(50);
 
-set @ACCOUNT = '3171172'
+set @ACCOUNT = '1322023'
 
 select @IDCONTRACT = C.IDCONTRACT
   from CONTRACT as C
@@ -23,7 +23,7 @@ select *
   from DOCUMENT as D
  where D.IDCONTRACT = @IDCONTRACT
    and D.IDTYPEDOCUMENT in (12, 18)
-   and D.DOCUMENTDATE between '2024-10-01' and '2024-10-11';
+--   and D.DOCUMENTDATE between '2024-10-01' and '2024-10-11';
 
 --- next in manual
 
@@ -33,7 +33,7 @@ select *
 
 delete
   from DOCUMENT
- where IDDOCUMENT in (24988508, 24988507);
+ where IDDOCUMENT in (25426331);
 
 
 */

@@ -15,7 +15,6 @@ select S.UID,
        S.UPDATEDATE
 from SYS.SYSUSERS as S
 -------------------------------------------------
-
 select SPID          as SPID,
        db_name(DBID) as 'Имя БД',
        PROGRAM_NAME  as 'Программа',
@@ -27,7 +26,7 @@ where DBID > 0
 order by 'Имя БД';
 
 -- KILL [SPID]
--- kill 61
+-- kill 68
 -----------------------------------------------
 
 select top 5 * 
