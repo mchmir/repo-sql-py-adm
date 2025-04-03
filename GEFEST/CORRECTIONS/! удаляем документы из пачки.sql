@@ -4,12 +4,13 @@ DECLARE @idPeriod AS INT
 DECLARE @Year AS INT
 DECLARE @Month AS INT
 DECLARE @idAutoDocumentBatch AS INT
+DECLARE @IDOPERATION as INT
 
 DECLARE @idBatch AS INT
 
-SET @Year = 2024
-SET @Month = 11
-SET @idBatch = 98205
+SET @Year = 2025
+SET @Month = 3
+SET @idBatch = 98933
 
 
 SET @idPeriod = (SELECT p.idPeriod FROM  Period p WHERE p.Year = @Year AND p.MONTH = @Month)
@@ -25,6 +26,8 @@ FETCH NEXT FROM cursIDDoc INTO @idDocument, @idContract
 WHILE @@FETCH_STATUS = 0
 BEGIN
      --на каждую итерацию цикла запускаем скрипты с нужными параметрами
+    set @IDOPERATION = (select IDOperation from OPERATION where iddocument=@idDocument)
+    delete from FACTUSE where IDOPERATION = @IDOPERATION
     delete from operation where iddocument=@idDocument
     delete from pd where iddocument=@idDocument
     delete from document where iddocument=@idDocument

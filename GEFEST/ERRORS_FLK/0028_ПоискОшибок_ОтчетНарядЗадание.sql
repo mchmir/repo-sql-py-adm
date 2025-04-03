@@ -8,7 +8,7 @@ declare @MONTH as INT;
 declare @YEAR as INT;
 
 set @YEAR = 2025;
-set @MONTH = 2;
+set @MONTH = 3;
 
 set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
 set @DEND = DBO.FGETDATEPERIOD(@IDPERIOD, 0);
@@ -44,7 +44,7 @@ order by G.IDSTATUSGMETER;
 /*
 select *
 from OLDVALUES as OV
-where OV.IDOBJECT = 725682   -- IDGmeter = idObject !!!
+where OV.IDOBJECT = 795273   -- IDGmeter = idObject !!!
 order by OV.DATEVALUES desc;
 
 update OLDVALUES
