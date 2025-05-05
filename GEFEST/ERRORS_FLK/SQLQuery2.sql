@@ -26,8 +26,11 @@ from SYS.SYSPROCESSES
 where DBID > 0
 order by 'Имя БД';
 
+
+
+
 -- KILL [SPID]
--- kill 74
+-- kill 81
 -----------------------------------------------
 
 select top 5 * 

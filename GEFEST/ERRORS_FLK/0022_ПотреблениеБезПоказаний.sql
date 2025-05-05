@@ -1,22 +1,33 @@
 -- Потребление есть, показаний не существует
 -- При удалении показания, иногда ID показания остается в таблице потребления
 
+-- SET SHOWPLAN_ALL OFF;
 
 declare @IDPERIOD INT;
 declare @YEAR INT;
 declare @MONTH INT;
 
 set @YEAR = 2025;
-set @MONTH = 3;
+set @MONTH = 4;
 
 set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
 
+/*
 select *
 from FACTUSE as FU
        left join INDICATION as I on FU.IDINDICATION = I.IDINDICATION
 where I.IDINDICATION is null
   and FU.IDINDICATION is not null
   and FU.IDPERIOD = @IDPERIOD
+*/
+
+select *
+from FACTUSE FU
+where FU.IDINDICATION is not null
+  and FU.IDPERIOD = @IDPERIOD
+  and not exists (select 1
+                  from INDICATION I
+                  where I.IDINDICATION = FU.IDINDICATION);
 
 
 -- delete from factuse where idfactuse=13396953;

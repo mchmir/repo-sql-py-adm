@@ -16,7 +16,7 @@ declare @YEAR INT;
 declare @MONTH INT;
 
 set @YEAR = 2025;
-set @MONTH = 3;
+set @MONTH = 4;
 
 set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
 set @DEND = DBO.FGETDATEPERIOD(@IDPERIOD, 0);

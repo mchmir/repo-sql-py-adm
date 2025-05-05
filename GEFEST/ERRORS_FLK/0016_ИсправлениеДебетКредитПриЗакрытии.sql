@@ -69,7 +69,7 @@ declare @YEAR INT;
 declare @MONTH INT;
 
 set @YEAR = 2025;
-set @MONTH = 3;
+set @MONTH = 4;
 
 
 set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
@@ -99,10 +99,9 @@ where C.IDCONTRACT in (select BR.IDCONTRACT
 +----------+-------+
 |IDContract|Account|
 +----------+-------+
-|865204    |1621072|
-|877628    |2701103|
-|874343    |2231029|
+|889699    |3361146|
 +----------+-------+
+
 
 
 
