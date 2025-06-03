@@ -5,10 +5,12 @@ begin
   declare @NormaA float
   declare @NormaB float
   declare @NormaC float
+  declare @NormaD float
 
-  set @NormaC=2.428
-  set @NormaA=1.488
-  set @NormaB=0.940
+  set @NormaA=0.705
+  set @NormaB=1.867
+  set @NormaC=2.631
+  set @NormaD=2.428
 
   insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
   values ('CloseNowPeriod', N'Начали spReturnAverage - возврат по среднему', GetDate())
@@ -25,7 +27,7 @@ begin
 
   --
   -- распределим без ПУ
-  -- Заполним потребление по норме 1.488
+  -- Заполним потребление по норме 0.705
   select
     gob.IdGObject,
     gob.IdContract,
@@ -47,9 +49,9 @@ begin
   where gm.IdGmeter is null
 
   insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
-  values ('CloseNowPeriod', N'Распределили без ПУ по норме 1.488', GetDate())
+  values ('CloseNowPeriod', N'Распределили без ПУ по норме 0.705', GetDate())
 
-  -- Заполним потребление по норме 0.940
+  -- Заполним потребление по норме 1.867
   insert #tmpFU (IdGObject, IdContract, countLive, Norma,  IdFactUse, IDINDICATION)
   (select
     gob.IdGObject,
@@ -70,6 +72,9 @@ begin
              and f.IDIndication is null
   where gm.IdGmeter is null)
 
+  insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
+  values ('CloseNowPeriod', N'Распределили без ПУ по норме 1.867', GetDate())
+
   update FactUse
   set FactAmount = Norma*CountLive
   from factuse f with (nolock)
@@ -83,7 +88,7 @@ begin
   drop table #tmpFU
 
   insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
-  values ('CloseNowPeriod', N'Распределили без ПУ по норме 0.940', GetDate())
+  values ('CloseNowPeriod', N'Распределили потребление без ПУ', GetDate())
 
   --
   -- начислим по среднему тем у кого есть ПУ и нет показаний (среднее по общей норме)
@@ -138,11 +143,10 @@ begin
       f.IdFactUse,
       f.FactAmount,
       isnull(f.IdTypeFU,0) IdTypeFU,
-      --@Koef PG,
-      @NormaC Norma,
+      case when i.DATEDISPLAY < '2025-05-10' then @NormaD else @NormaC end Norma,
       null IdDocument,
       isnull(b.IdBalance,0) IdBalance,
-      case when i.DATEDISPLAY < '2025-03-20' then 605.25 else 711.54 end a_TARIFF
+      case when i.DATEDISPLAY < '2025-05-10' then 711.54 else 985.02 end a_TARIFF
     into #tmpFact
     from FactUse f with (nolock)
     inner join GObject gob with (nolock)  on gob.IdGObject=f.IdGObject
@@ -165,22 +169,21 @@ begin
        f.IdFactUse,
        f.FactAmount,
        isnull(f.IdTypeFU, 0) IdTypeFU,
-       --@Koef PG,
-       @NormaC Norma,
+       case when f.IDINDICATION = 676980 then @NormaD else @NormaC end Norma,
        null IdDocument,
        isnull(b.IdBalance,0) IdBalance,
-       case when f.IDINDICATION = 676980 then 605.25 else 711.54 end a_TARIFF
-    from FactUse f with (nolock)
-    inner join GObject gob with (nolock) on gob.IdGObject=f.IdGObject
+       case when f.IDINDICATION = 676980 then 711.54 else 985.02 end a_TARIFF
+    from FactUse as f with (nolock)
+    inner join GObject as gob with (nolock) on gob.IdGObject=f.IdGObject
       and f.IdOperation is null
       and f.IdTypeFU <> 1
-    inner join Contract c with (nolock)  on c.IdContract=gob.IdContract
-    left join Balance b with (nolock)  on b.IdContract=c.IdContract
+    inner join Contract as c with (nolock)  on c.IdContract=gob.IdContract
+    left join Balance as b with (nolock)  on b.IdContract=c.IdContract
       and b.IdPeriod=@IdPeriod
       and b.idaccounting = 1)
 
     update FactUse
-    set IDINDICATION = null where IDINDICATION in (676980, 676981) and IDPERIOD = 242
+    set IDINDICATION = null where IDINDICATION in (676980, 676981) and IDPERIOD = 244
 
     insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
     values ('CloseNowPeriod', N'Сформирована выборка по норме', GetDate())
@@ -196,30 +199,30 @@ begin
     values ('CloseNowPeriod', N'Создали пачку для документов Начисление', GetDate())
 
     insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
-    values ('CloseNowPeriod', N'Начинаем создание документов Начисление ПО СТАРОМУ', GetDate())
+    values ('CloseNowPeriod', N'Начинаем создание документов Начисление ПО СТАРОМУ до 10 мая', GetDate())
     --
     -- добавим документы начисление
     insert Document (IDContract, IDPeriod, IDBatch, IDTypeDocument, DocumentNumber, DocumentDate, DocumentAmount, NOTE)
-    (select distinct IdContract, @IdPeriod, @IDBatch, 5, 'Начисление',  @Date, 0, 'Начисление по 605.25'
-     from #tmpFact
-     where A_TARIFF = 605.25)
-
-    insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
-    values ('CloseNowPeriod', N'Добавили документы Начисление ПО СТАРОМУ', GetDate())
-
-    insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
-    values ('CloseNowPeriod', N'Начинаем создание документов Начисление ПО НОВОМУ', GetDate())
-
-    insert Document (IDContract, IDPeriod, IDBatch, IDTypeDocument, DocumentNumber, DocumentDate, DocumentAmount, NOTE)
-    (select distinct IdContract, @IdPeriod, @IDBatch, 5, 'Начисление (НТ)',  @Date, 0, 'Начисление по 711.54'
+    (select distinct IdContract, @IdPeriod, @IDBatch, 5, 'Начисление',  @Date, 0, 'Начисление по 711.54'
      from #tmpFact
      where A_TARIFF = 711.54)
 
     insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
-    values ('CloseNowPeriod', N'Добавили документы Начисление НОВЫЙ ТАРИФ', GetDate())
+    values ('CloseNowPeriod', N'Добавили документы Начисление ПО СТАРОМУ до 10 мая', GetDate())
 
     insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
-    values ('CloseNowPeriod', N'Начитаем обновление ID документов', GetDate())
+    values ('CloseNowPeriod', N'Начинаем создание документов Начисление ПО НОВОМУ с 10 мая', GetDate())
+
+    insert Document (IDContract, IDPeriod, IDBatch, IDTypeDocument, DocumentNumber, DocumentDate, DocumentAmount, NOTE)
+    (select distinct IdContract, @IdPeriod, @IDBatch, 5, 'Начисление (НТ)',  @Date, 0, 'Начисление по 985.02'
+     from #tmpFact
+     where A_TARIFF = 985.02)
+
+    insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
+    values ('CloseNowPeriod', N'Добавили документы Начисление', GetDate())
+
+    insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
+    values ('CloseNowPeriod', N'Начинаем обновление ID документов', GetDate())
 
     -- Сначала ставим «Начисление»
     update f
@@ -231,7 +234,7 @@ begin
       and d.IdPeriod = @IdPeriod
       and d.DocumentDate = @Date
       and d.DOCUMENTNUMBER = 'Начисление'
-      and f.A_TARIFF = 605.25
+      and f.A_TARIFF = 711.54
 
     -- Теперь ставим «Начисление (НТ)»
     update f
@@ -243,7 +246,7 @@ begin
       and d.IdPeriod = @IdPeriod
       and d.DocumentDate = @Date
       and d.DOCUMENTNUMBER = 'Начисление (НТ)'
-      and f.A_TARIFF = 711.54
+      and f.A_TARIFF = 985.02
     where f.IdDocument is null
 
     insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
@@ -299,7 +302,7 @@ begin
         if @IdTypeFU=3
         begin
           set @number=99999
-          set @AmountOperation=@FactAmount*711.54 --кг
+          set @AmountOperation=@FactAmount*985.02 --кг
         end
 
         --Добавляем операцию начисление
@@ -381,7 +384,7 @@ begin
 
     insert Tariff (Value, IdPeriod,IDTypeTariff)
     select
-      711.54,
+      985.02,
       @IdPeriod,
       1
 

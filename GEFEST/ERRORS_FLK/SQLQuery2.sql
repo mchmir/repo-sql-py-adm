@@ -5,7 +5,7 @@ select * from dbo.AAAERC7;
 ------------------------------------------------------------------------------------------------------------------------
 select *
 from PERIOD P
-where P.MONTH = 2
+where P.MONTH =
   and P.YEAR = 2025;
 ------------------------------------------------------------------------------------------------------------------------
 ----- Пользователи -----------
@@ -52,8 +52,33 @@ select *
 from AAAERC7
 where ACCOUNT = '1952095';
 
+---------------------------------------------------------------
+-- Монопольно захватываем базу
+declare @error bit
+declare @Q as VarChar(1000)
 
+set @Q='gefest'
+
+-- Монопольный режим
+--exec @error=sp_dboption @Q,'single user', 'true'
+
+-- Вернуть базу в рабочий режим
+exec @error=sp_dboption @Q,'single user', 'false'
 ------------------------------------------------
+-- Поиск всех объектов с  tarif
+SELECT
+    o.name,
+    o.type,
+    c.text
+FROM
+    sysobjects o
+    INNER JOIN syscomments c ON o.id = c.id
+WHERE
+    c.text LIKE '%tarif%'
+ORDER BY o.name
+
+
+-------------------------------------------------------------
 CREATE FUNCTION dbo.GenerateHash(@Input NVARCHAR(100))
 RETURNS NVARCHAR(40) AS
 BEGIN

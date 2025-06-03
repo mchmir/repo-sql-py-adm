@@ -5,14 +5,14 @@
 declare @IDCONTRACT INT;
 declare @ACCOUNT VARCHAR(50);
 
-set @ACCOUNT = '1611020'
+set @ACCOUNT = '0371048'
 set @IDCONTRACT = dbo.fGetIDContractAC(@ACCOUNT);
 
 select *
   from DOCUMENT as D
  where D.IDCONTRACT = @IDCONTRACT 
    and D.IDTYPEDOCUMENT = 22
-   and D.DOCUMENTDATE = '2024-12-09';
+   and D.DOCUMENTDATE = '2025-03-13';
 
 --- next do it manually
 
@@ -22,6 +22,6 @@ select *
 
 delete DOCUMENT
  OUTPUT DELETED.*
- where IDDOCUMENT = 25240845;
+ where IDDOCUMENT = 25558435;
 
 */

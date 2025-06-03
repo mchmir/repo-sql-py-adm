@@ -4,13 +4,18 @@ DECLARE @idPeriod AS INT
 DECLARE @Year AS INT
 DECLARE @Month AS INT
 DECLARE @idAutoDocumentBatch AS INT
-DECLARE @IDOPERATION as INT
+
+DECLARE @deletedCount INT
+DECLARE @lastPrintTime DATETIME
+
+SET @deletedCount = 0
+SET @lastPrintTime = GETDATE()
 
 DECLARE @idBatch AS INT
 
 SET @Year = 2025
-SET @Month = 3
-SET @idBatch = 98933
+SET @Month = 4
+SET @idBatch = 99073
 
 
 SET @idPeriod = (SELECT p.idPeriod FROM  Period p WHERE p.Year = @Year AND p.MONTH = @Month)
@@ -25,16 +30,42 @@ FETCH NEXT FROM cursIDDoc INTO @idDocument, @idContract
 
 WHILE @@FETCH_STATUS = 0
 BEGIN
-     --на каждую итерацию цикла запускаем скрипты с нужными параметрами
-    set @IDOPERATION = (select IDOperation from OPERATION where iddocument=@idDocument)
-    delete from FACTUSE where IDOPERATION = @IDOPERATION
-    delete from operation where iddocument=@idDocument
-    delete from pd where iddocument=@idDocument
-    delete from document where iddocument=@idDocument
-    exec dbo.spRecalcBalances @idContract,  @idPeriod
-    --exec dbo.spRecalcBalancesRealOnePeriodByContract @IDContract, @IDPeriod
-    
-    --считываем следующую строку курсора
+    -- Вложенный курсор по операциям
+    DECLARE @opID INT
+    DECLARE cursOps CURSOR LOCAL FAST_FORWARD FOR
+        SELECT IDOperation FROM OPERATION WHERE IDDocument = @idDocument
+
+    OPEN cursOps
+    FETCH NEXT FROM cursOps INTO @opID
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        DELETE FROM FACTUSE WHERE IDOPERATION = @opID
+        FETCH NEXT FROM cursOps INTO @opID
+    END
+
+    CLOSE cursOps
+    DEALLOCATE cursOps
+
+    -- Удаление документа и связанного
+    DELETE FROM OPERATION WHERE IDDocument = @idDocument
+    DELETE FROM PD WHERE IDDocument = @idDocument
+    DELETE FROM DOCUMENT WHERE IDDocument = @idDocument
+
+    -- Увеличиваем счётчик
+    SET @deletedCount = @deletedCount + 1
+
+    -- Проверка, прошло ли больше 5 секунд с последнего PRINT
+    IF DATEDIFF(SECOND, @lastPrintTime, GETDATE()) >= 5
+    BEGIN
+        PRINT 'Удалено документов: ' + CAST(@deletedCount AS VARCHAR)
+        SET @lastPrintTime = GETDATE()
+    END
+
+    -- Перерасчёт
+    EXEC dbo.spRecalcBalances @idContract, @idPeriod
+
+    -- Следующая строка
     FETCH NEXT FROM cursIDDoc INTO @idDocument, @idContract
 END
 

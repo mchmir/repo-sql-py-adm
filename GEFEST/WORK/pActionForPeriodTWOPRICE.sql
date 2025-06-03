@@ -137,13 +137,6 @@ begin
       insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
       values ('ActionForPeriod', N'Перепровели документы', GetDate())
 
-  -- Чистка мусора
-  --declare @Q as VarChar(1000)
-  --set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
-  --Exec(@Q)
-  --set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
-  --Exec(@Q)
-
       insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
       values ('ActionForPeriod', N'Начали работать с Балансами', GetDate())
 
@@ -318,19 +311,19 @@ begin
       insert into dbo.ClosePeriodLog (SPName,StepName,DateExec)
       values ('ActionForPeriod', N'Период закрыт', GetDate())
 
-  -- Вернуть базу в рабочий режим
-  declare @error bit
-  declare @Q as VarChar(1000)
-  set @Q=db_name()
-  set @Q='gefest'
-  exec @error=sp_dboption @Q,'single user', 'false'
-
-  -- Чистка мусора
-  declare @Q as VarChar(1000)
-  set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
-  Exec(@Q)
-  set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
-  Exec(@Q)
+--   -- Вернуть базу в рабочий режим
+--   declare @error bit
+--   declare @Q as VarChar(1000)
+--   set @Q=db_name()
+--   set @Q='gefest'
+--   exec @error=sp_dboption @Q,'single user', 'false'
+--
+--   -- Чистка мусора
+--   declare @Q as VarChar(1000)
+--   set @Q='BACKUP LOG '+db_name()+' WITH TRUNCATE_ONLY'
+--   Exec(@Q)
+--   set @Q='DBCC SHRINKDATABASE ('+db_name()+', 10)'
+--   Exec(@Q)
 
   select N'Период закрыт'
 
