@@ -11,10 +11,10 @@ DECLARE @IDDocument INT
 DECLARE @IDTypeDocument INT
 
 
-SET @Account = 2813079
-SET @IDPeriod = 202
+SET @Account = 2361130
+SET @IDPeriod = 245
 
-SET @IDTypeDocument = 1
+SET @IDTypeDocument = 24
 
 SET @IDContract = (SELECT c.IDContract FROM Contract c WHERE c.Account = @Account)
 exec dbo.spRecalcBalances @IDContract, @IDPeriod

@@ -14,8 +14,8 @@ SET @lastPrintTime = GETDATE()
 DECLARE @idBatch AS INT
 
 SET @Year = 2025
-SET @Month = 4
-SET @idBatch = 99073
+SET @Month = 6
+SET @idBatch = 99368
 
 
 SET @idPeriod = (SELECT p.idPeriod FROM  Period p WHERE p.Year = @Year AND p.MONTH = @Month)
@@ -77,3 +77,5 @@ PRINT('@idAutoDocumentBatch = '+CAST(@idAutoDocumentBatch AS VARCHAR))
 
 DELETE FROM AutoDocument WHERE IDAutoBatch = @idAutoDocumentBatch
 DELETE FROM AutoBatch WHERE IDBatch = @idBatch
+
+-- delete from batch where idbatch = 99368

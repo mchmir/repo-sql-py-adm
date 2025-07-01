@@ -1,57 +1,12 @@
-select day(i.datedisplay) ddday, sum(f.factamount) fa
-from factuse f
-inner join indication i on i.idindication=f.idindication
-	and month(i.datedisplay)=4
-	and year(i.datedisplay)=2025
-left join document d on d.iddocument=f.iddocument
-	and d.idtypedocument=7
-where d.iddocument is null
-group by day(i.datedisplay)
-
-
-select f.IDFACTUSE, sum(f.factamount) fa
-from factuse f
-inner join indication i on i.idindication=f.idindication
-	and month(i.datedisplay)=4
-	and year(i.datedisplay)=2025
-left join document d on d.iddocument=f.iddocument
-	and d.idtypedocument=7
-where d.iddocument is null
-group by f.IDFACTUSE
-
-except
-
-select  sum(f.factamount) fa
-from gobject g with (nolock)
-inner join gmeter gm with (nolock)  on gm.idgobject=g.idgobject
-inner join indication i  with (nolock)  on gm.idgmeter=i.idgmeter
-	and i.datedisplay<'2025-05-01'
-inner join factuse f with (nolock) on f.idindication=i.idindication
-	and f.idperiod=243
-left join operation o with (nolock) on o.idoperation=f.idoperation
-left join document d with (nolock) on o.iddocument=d.iddocument
-	and d.idtypedocument=7
-where isnull(d.iddocument,0)=0
-
-
-except
-
-select f.IDFACTUSE, sum(f.factamount) fa
-from factuse f
-inner join indication i on i.idindication=f.idindication
-	and month(i.datedisplay)=4
-	and year(i.datedisplay)=2025
-left join document d on d.iddocument=f.iddocument
-	and d.idtypedocument=7
-where d.iddocument is null
-group by f.IDFACTUSE
-
+-- Выполняем сначала из первого второй
+-- потом из второго третий
 -------
 
+--- 1й
 select f.IDFACTUSE
 from factuse f
 inner join indication i on i.idindication=f.idindication
-	and month(i.datedisplay)=4
+	and month(i.datedisplay)=6
 	and year(i.datedisplay)=2025
 left join document d on d.iddocument=f.iddocument
 	and d.idtypedocument=7
@@ -59,13 +14,14 @@ where d.iddocument is null
 
 except
 
+-- 2й
 select f.IDFACTUSE
 from gobject g with (nolock)
 inner join gmeter gm with (nolock)  on gm.idgobject=g.idgobject
 inner join indication i  with (nolock)  on gm.idgmeter=i.idgmeter
-	and i.datedisplay<'2025-05-01'
+	and i.datedisplay<'2025-07-01'
 inner join factuse f with (nolock) on f.idindication=i.idindication
-	and f.idperiod=243
+	and f.idperiod=245
 left join operation o with (nolock) on o.idoperation=f.idoperation
 left join document d with (nolock) on o.iddocument=d.iddocument
 	and d.idtypedocument=7
@@ -73,32 +29,24 @@ where isnull(d.iddocument,0)=0
 
 except
 
+--3й
 select f.IDFACTUSE
 from factuse f
 inner join indication i on i.idindication=f.idindication
-	and month(i.datedisplay)=4
+	and month(i.datedisplay)=6
 	and year(i.datedisplay)=2025
 left join document d on d.iddocument=f.iddocument
 	and d.idtypedocument=7
 where d.iddocument is null
 
-+---------+-------------------+
-|IDFACTUSE|fa                 |
-+---------+-------------------+
-|14373787 |0.123              |
-|14375540 |0.9                |
-|14372140 |0.855              |
-|14364923 |0.45400000000000007|
-+---------+-------------------+
+--------
+select * from FACTUSE where IDFACTUSE = 14507013 -- (0.55)
+select * from INDICATION where IDINDICATION = 12613677
+select * from GOBJECT where IDGOBJECT = 894925
+select * from GMETER where IDGOBJECT=894925 -- IDGMETER = 818194
+select * from GMETER where IDGMETER = 818198
+select * from CONTRACT where IDCONTRACT = 894692
 
-+---------+
-|IDGObject|
-+---------+
-|886118   |
-|881090   |
-|882357   |
-|861935   |
-+---------+
 
 
 select c.ACCOUNT, f.FACTAMOUNT, gm.IDGMETER, i.DATEDISPLAY, i.DISPLAY, f.IDINDICATION, i.IDINDICATION, f.IDFACTUSE

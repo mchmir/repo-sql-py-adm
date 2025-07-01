@@ -17,19 +17,19 @@ DECLARE @Period2_2 INT;
 
 ----------the first period-------------
 SET @Month1_1 = 1;
-SET @Year1_1  = 2022;
+SET @Year1_1  = 2024;
 
 SET @Month1_2 = 12;
-SET @Year1_2  = 2022;
+SET @Year1_2  = 2024;
 ----------the second period -----------
 SET @Month2_1 = 4;
-SET @Year2_1  = 2022;
+SET @Year2_1  = 2024;
 SET @Month2_2 = 3;
-SET @Year2_2  = 2023;
+SET @Year2_2  = 2025;
 --------------------------------------
 -- с нулевым потреблением, оставляем 0 только для подключенных ОУ и ПУ
 -- 1 - без 0 в потрблении 
-SET @Potreblenie = 1;
+SET @Potreblenie = 0;
 
 --------------------------------------
 -- END SETTING
@@ -121,8 +121,8 @@ ORDER BY c.Account;
 SELECT DISTINCT
   a.Account,
   a.Address,
-  ISNULL(p1.sumP1, 0) AS [2022г.],
-  ISNULL(p2.sumP2, 0) AS [апрель 2022г. по март 2023г.]
+  ISNULL(p1.sumP1, 0) AS [2024г.],
+  ISNULL(p2.sumP2, 0) AS [апрель 2024г. по март 2025г.]
 -- ,ISNULL(p.summ3, 0) AS [0721г-0622г]
 INTO #tmpItog
 FROM #tmpAccount AS a
@@ -145,8 +145,8 @@ IF @Potreblenie = 0
                             JOIN GMeter  AS  g1 ON g.IDGObject  = g1.IDGObject
                           WHERE g.IDStatusGObject = 1 AND g1.IDStatusGMeter = 1)
     ) 
-    OR (i.[апрель 2022г. по март 2023г.]<>0)
-    OR (i.[2022г.] <> 0)
+    OR (i.[апрель 2024г. по март 2025г.]<>0)
+    OR (i.[2024г.] <> 0)
   --WHERE i.[0721г-0622г] <> 0
   --OR i.[2021г] <> 0
   --OR i.[2020г] <> 0
@@ -157,8 +157,8 @@ ELSE
     SELECT
       ROW_NUMBER() OVER(ORDER BY i.Account ASC) AS Row#,*
     FROM #tmpItog AS i
-    WHERE i.[апрель 2022г. по март 2023г.] <> 0
-      OR i.[2022г.] <> 0
+    WHERE i.[апрель 2024г. по март 2025г.] <> 0
+      OR i.[2024г.] <> 0
       --OR i.[2020г] <> 0
     ORDER BY i.Account;
   END
