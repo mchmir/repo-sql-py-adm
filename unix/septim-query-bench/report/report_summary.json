@@ -1,0 +1,46 @@
+{
+  "wd": {
+    "cold_ms": 17.764,
+    "hot_ms": 2.097,
+    "rows_plan": 0,
+    "rows_real": 0,
+    "hot_buffers": {
+      "shared_hit": 67,
+      "shared_read": 0,
+      "temp_read": 0,
+      "temp_written": 0
+    }
+  },
+  "wdn": {
+    "cold_ms": 8.26,
+    "hot_ms": 1.549,
+    "rows_plan": 0,
+    "rows_real": 0,
+    "hot_buffers": {
+      "shared_hit": 57,
+      "shared_read": 0,
+      "temp_read": 0,
+      "temp_written": 0
+    }
+  },
+  "wds": {
+    "cold_ms": 12.129,
+    "hot_ms": 2.243,
+    "rows_plan": 0,
+    "rows_real": 0,
+    "hot_buffers": {
+      "shared_hit": 67,
+      "shared_read": 0,
+      "temp_read": 0,
+      "temp_written": 0
+    }
+  },
+  "cmp": {
+    "wdn_rows": 0,
+    "wds_rows": 0,
+    "intersection": 0,
+    "wdn_minus_wds": 0,
+    "wds_minus_wdn": 0,
+    "jaccard": 1
+  }
+}

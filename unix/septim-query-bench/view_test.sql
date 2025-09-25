@@ -1,0 +1,1 @@
+select * from admin_septim.UZAVUCET_SKUPPOKL_V where v_datumcas >= '2025-05-01';
