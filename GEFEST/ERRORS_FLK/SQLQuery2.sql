@@ -5,7 +5,7 @@ select * from dbo.AAAERC7;
 ------------------------------------------------------------------------------------------------------------------------
 select *
 from PERIOD P
-where P.MONTH =
+where P.MONTH = 9
   and P.YEAR = 2025;
 ------------------------------------------------------------------------------------------------------------------------
 ----- Пользователи -----------
@@ -27,10 +27,52 @@ where DBID > 0
 order by 'Имя БД';
 
 
+SELECT
+    s.session_id              AS SPID,
+    DB_NAME(r.database_id)    AS [Имя БД],
+    s.program_name            AS [Программа],
+    s.login_name              AS [имя входа SQL Server],
+    s.host_name               AS [Имя рабочей станции],
+    c.client_net_address      AS [Клиентский IP],
+    s.status                  AS [Статус],
+    c.connect_time            AS [Когда подключился]
+FROM sys.dm_exec_sessions     AS s
+LEFT JOIN sys.dm_exec_connections AS c ON c.session_id = s.session_id
+LEFT JOIN sys.dm_exec_requests    AS r ON r.session_id = s.session_id
+--WHERE s.is_user_process = 1
+ORDER BY [Имя БД], s.session_id;
 
+SELECT
+  s.session_id,
+  CONVERT(nvarchar(128), s.context_info) AS [HTTP пользователь],
+  s.program_name, s.login_name, s.host_name, c.client_net_address
+FROM sys.dm_exec_sessions s
+LEFT JOIN sys.dm_exec_connections c ON c.session_id = s.session_id
+WHERE s.is_user_process = 1;
 
 -- KILL [SPID]
 -- kill 81
+
+
+-- 1) Спящие, но с открытой транзакцией
+SELECT s.session_id, s.status, s.open_transaction_count,
+       s.login_name, s.program_name, s.host_name,
+       CONVERT(nvarchar(128), s.context_info) AS app_user,
+       s.last_request_start_time, s.last_request_end_time
+FROM sys.dm_exec_sessions s
+WHERE s.is_user_process=1 AND s.open_transaction_count>0
+ORDER BY s.last_request_end_time;
+
+-- 2) Блокирующие сессии
+SELECT r.blocking_session_id AS blocker,
+       s.login_name, s.program_name, s.host_name,
+       DB_NAME(r.database_id) AS db_name, r.wait_type, r.wait_time,
+       t.text
+FROM sys.dm_exec_requests r
+JOIN sys.dm_exec_sessions s ON s.session_id = r.blocking_session_id
+OUTER APPLY sys.dm_exec_sql_text(r.sql_handle) t
+WHERE r.blocking_session_id <> 0
+ORDER BY r.wait_time DESC;
 -----------------------------------------------
 
 select top 5 * 

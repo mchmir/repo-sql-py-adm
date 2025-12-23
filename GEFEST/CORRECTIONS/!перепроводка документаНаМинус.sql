@@ -3,8 +3,8 @@ declare @IDPeriod as int
 declare @IDContract as int 
 
 
-set @IDContract = 916143
-set @IDPeriod =176--dbo.fGetNowPeriod() 
+set @IDContract = 864581
+set @IDPeriod =250--dbo.fGetNowPeriod()
 
 
 

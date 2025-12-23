@@ -4,7 +4,23 @@
 
 
 
+------------------------------------------------------------------------------------------------------------------------
+-- 1 октября 2025 года
+-- Обновлен отчет repReferenceOnSubscriptionServiceUR
+-- условие было для расчета пени физ лиц, но не было для юр.лиц.
+-- GEFEST\GGS2\database\Gefest\schema\dbo\routine\repReferenceOnSubscriptionServiceUR
 
+update #AnalSal
+set PenyNachUr=PenyNachUr-isnull(gt.ff,0)
+from (
+select  sum(documentamount)ff from document d
+inner join contract c  with (nolock)  on c.idcontract=d.idcontract
+and idtypedocument=7 and d.idperiod=@idPeriod and dbo.fGetIsJuridical(c.idperson,@idPeriod)=1
+--- add 2025-10-01
+--- Condition added by analogy for PenyNach
+inner join operation o with (nolock) on o.iddocument=d.iddocument
+and isnull(o.numberoperation,0) <> 99999
+---
 
 ------------------------------------------------------------------------------------------------------------------------
 -- 3 февраля 2025 года
@@ -25,6 +41,13 @@ BEGIN
     SELECT SPNAME, STEPNAME, DATEEXEC FROM inserted;
 END;
 go
+
+alter table DBO.CLOSEPERIODLOGS
+alter column SPNAME NVARCHAR(50);
+
+alter table DBO.CLOSEPERIODLOGS
+alter column STEPNAME NVARCHAR(200)
+
 
 -- Процедура ActionForPeriod - добавлены более подробное логирование
 

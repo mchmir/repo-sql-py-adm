@@ -22,8 +22,11 @@ order by 'Имя БД';
 -- KILL [SPID]
 -- kill 10
 ------------------------------------ 02.05.2025 16:39 -----------------------------------------------------------------
-select * from CLOSEPERIODLOGS where month(DATEEXEC)=7 and IDLOG >=625
-order by DATEEXEC desc
+select * from CLOSEPERIODLOGS
+where month(DATEEXEC)=12
+  --and IDLOG >=625
+order by IDLOG desc
+
 
 ------------------------------------ 02.05.2025 16:39 -----------------------------------------------------------------
 select top 5 *
@@ -53,8 +56,8 @@ exec @error=sp_dboption @Q,'single user', 'false'
 declare @IDContract INT
 declare @IDPeriod INT
 
-set @IDPERIOD = dbo.fGetIDPeriodMY(6, 2025)
-set @IDCONTRACT = dbo.fGetIDContractAC(904847)
+set @IDPERIOD = dbo.fGetIDPeriodMY(11, 2025)
+set @IDCONTRACT = dbo.fGetIDContractAC(1522006)
 
 exec dbo.spRecalcBalancesRealOnePeriodByContract @IDContract, @IDPeriod
 exec dbo.spRecalcBalances @IDContract, @IDPeriod

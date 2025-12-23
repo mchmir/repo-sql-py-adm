@@ -1,0 +1,41 @@
+{
+	"folders": {},
+	"connections": {
+		"microsoft-197c1ffe52d-6a49989de627da6b": {
+			"provider": "sqlserver",
+			"driver": "microsoft",
+			"name": "Gefest",
+			"save-password": true,
+			"configuration": {
+				"host": "gg-app",
+				"port": "1433",
+				"database": "Gefest",
+				"url": "jdbc:sqlserver://;serverName\u003dgg-app;databaseName\u003dGefest",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-all-schemas@": "false",
+					"sslTrustServerCertificate": "true"
+				},
+				"auth-model": "sqlserver_database"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Разработка",
+			"color": "255,255,255",
+			"description": "База данных для разработки",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}

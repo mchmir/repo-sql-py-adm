@@ -13,7 +13,7 @@ declare @YEAR INT;
 declare @MONTH INT;
 
 set @YEAR = 2025;
-set @MONTH = 6;
+set @MONTH = 7;
 
 set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
 
@@ -58,7 +58,7 @@ declare @YEAR INT;
 declare @MONTH INT;
 
 set @YEAR = 2025;
-set @MONTH = 6;
+set @MONTH = 11;
 
 set @IDPERIOD = DBO.FGETIDPERIODMY(@MONTH, @YEAR);
 

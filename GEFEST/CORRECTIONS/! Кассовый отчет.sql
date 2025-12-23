@@ -6,7 +6,7 @@ declare @DateB datetime
 
 
 set @IDCASHIER = 151
-set @DateB = dbo.DateOnly('2024-11-04')
+set @DateB = dbo.DateOnly('20251203')
 /*
 +---------+-----------+
 |IDTypePay|Name       |
@@ -57,7 +57,7 @@ declare @DateB datetime
 
 
 set @IDCASHIER = 151
-set @DateB = dbo.DateOnly('2024-11-04')
+set @DateB = dbo.DateOnly('20251202')
 
 select
   d.IDDOCUMENT,
@@ -113,7 +113,7 @@ declare @DateB datetime
 
 
 set @IDCASHIER = 151
-set @DateB = dbo.DateOnly('2024-11-04')
+set @DateB = dbo.DateOnly('20251202')
 
 select
   d.IDDOCUMENT,

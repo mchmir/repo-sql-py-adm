@@ -21,7 +21,7 @@ go
 
 select *
 from INDICATION as I
-where I.DATEDISPLAY >= '2024-12-01'
+where I.DATEDISPLAY >= '20241201'
   --and I.IDUSER = 62
   and I.IDAGENT = 142
   and I.IDTYPEINDICATION = 3
@@ -34,14 +34,14 @@ from GOBJECT as Gobj
 where GM.IDGMETER in (
                       select I.IDGMETER
                       from INDICATION as I
-                      where I.DATEDISPLAY >= '2024-12-01'
+                      where I.DATEDISPLAY >= '20241201'
                         --and I.IDUSER = 62
                         and I.IDAGENT = 142
                         and I.IDTYPEINDICATION = 3);
 
 with IND as (select I.IDGMETER as IDGMETER
              from INDICATION as I
-             where I.DATEDISPLAY >= '2024-12-01'
+             where I.DATEDISPLAY >= '20241201'
                --and I.IDUSER = 62
                and I.IDAGENT = 142
                and I.IDTYPEINDICATION = 3)
@@ -66,7 +66,7 @@ SET STATISTICS TIME ON;
 with IND as (
   select I.IDGMETER
   from INDICATION as I
-  where I.DATEDISPLAY >= '2024-12-01'
+  where I.DATEDISPLAY >= '20241201'
     and I.IDAGENT = 142
     and I.IDTYPEINDICATION = 3
 )
@@ -104,7 +104,7 @@ begin try
     output DELETED.IDAGENT, INSERTED.IDAGENT
     --OUTPUT DELETED.* -- старые
     --INSERTED.* -- новые
-    where DATEDISPLAY = '2024-09-09'
+    where DATEDISPLAY = '20240909'
       and IDUSER = 62
       and IDAGENT = 81
       and IDTYPEINDICATION = 2
@@ -143,11 +143,11 @@ begin try
   begin transaction
     --Пакет №1 Начало
     update INDICATION
-    set DATEDISPLAY = '2024-08-19'
+    set DATEDISPLAY = '20240819'
     output DELETED.*, INSERTED.*
     --OUTPUT DELETED.* -- старые
     --INSERTED.* -- новые
-    where DATEDISPLAY = '2024-08-18'
+    where DATEDISPLAY = '20240818'
       and IDUSER = 62
       and IDTYPEINDICATION = 1
    --Пакет №1 Конец
@@ -166,3 +166,36 @@ begin catch
 end catch --Если все хорошо. Сохраняем все изменения
 commit transaction
 
+
+
+------------------------------------ 20.10.2025 20:30 -----------------------------------------------------------------
+-- Обновление даты показаний
+--
+------------------------------------------------------------------------------------------------------------------------
+select TI.NAME, FORMAT(DATEDISPLAY, 'dd.MM.yyyy') as Date, A.NAME as Agent, count(*)
+from INDICATION as I
+  join TYPEINDICATION as TI on I.IDTYPEINDICATION = TI.IDTYPEINDICATION
+  left join AGENT as A on I.IDAGENT = A.IDAGENT
+where I.DATEDISPLAY >= '20251019'
+group by TI.NAME, FORMAT(DATEDISPLAY, 'dd.MM.yyyy'), A.NAME
+order by Date
+
+
+select I.IDINDICATION, I.IDGMETER, I.DATEDISPLAY, I.DATEADD, I.IDAGENT
+from INDICATION as I
+where I.DATEDISPLAY = '20251020'   -- ISO-8601-формат, не зависит от локали
+  --and I.IDAGENT = 142
+  and I.IDTYPEINDICATION = 2
+
+with UPD as (
+    select I.IDINDICATION
+    from INDICATION as I
+    where I.DATEDISPLAY >= '20251019'
+      and I.IDAGENT = 142
+      and I.IDTYPEINDICATION = 8
+)
+update I
+set I.DATEDISPLAY = '20251019',
+    I.DATEADD     = '20251019'
+from INDICATION I
+join UPD on I.IDINDICATION = UPD.IDINDICATION;
